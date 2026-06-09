@@ -1,0 +1,105 @@
+# Decap CMS — Beraterium content backend
+# Setup: create a GitHub OAuth App and set repo/branch below.
+# Docs: Webseite/Briefing/Seiten/18_BACKEND_CMS.md
+
+backend:
+  name: github
+  repo: your-org/beraterium-site
+  branch: main
+  base_url: https://www.beraterium.de
+  site_url: https://www.beraterium.de
+
+# Alternative with Netlify Identity + Git Gateway:
+# backend:
+#   name: git-gateway
+#   branch: main
+
+media_folder: img
+public_folder: img
+
+locale: de
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Artikel
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    summary: "{{title}} — {{category}}"
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "URL-Teil: /blog/{slug}/" }
+      - { label: Datum, name: date, widget: datetime, format: YYYY-MM-DD, date_format: YYYY-MM-DD, time_format: false }
+      - label: Kategorie
+        name: category
+        widget: select
+        options:
+          - Risikomanagement
+          - HR & Kultur
+          - Startup
+          - KMU
+          - Solo
+      - label: Autor
+        name: author
+        widget: relation
+        collection: team
+        search_fields: [name]
+        value_field: slug
+        display_fields: [name]
+      - { label: Kurzbeschreibung, name: excerpt, widget: text }
+      - { label: Hero-Bild, name: hero_image, widget: image, required: false }
+      - { label: Hero Alt-Text, name: hero_alt, widget: string }
+      - { label: Entwurf, name: draft, widget: boolean, default: true }
+      - { label: Lesezeit (Min.), name: reading_time_min, widget: number, required: false, hint: "Leer = automatisch aus Wortzahl" }
+      - label: FAQ
+        name: faq
+        widget: list
+        required: false
+        fields:
+          - { label: Frage, name: question, widget: string }
+          - { label: Antwort, name: answer, widget: text }
+      - label: Verwandte Artikel (Slugs)
+        name: related_slugs
+        widget: list
+        required: false
+        field: { label: Slug, name: slug, widget: string }
+      - { label: Inhalt, name: body, widget: markdown, hint: "Siehe 05_CONTENT_REDAKTIONSREGELN.md §6" }
+
+  - name: team
+    label: Team
+    label_singular: Profil
+    folder: content/team
+    create: true
+    slug: "{{slug}}"
+    extension: yaml
+    format: yaml
+    summary: "{{name}}"
+    fields:
+      - { label: Slug, name: slug, widget: string }
+      - { label: Name, name: name, widget: string }
+      - { label: Rollen-Tag, name: role_tag, widget: string }
+      - { label: Reihenfolge, name: order, widget: number, default: 10 }
+      - label: Profil-Typ
+        name: profile_type
+        widget: select
+        options:
+          - { label: Volles Profil (/team/), value: full }
+          - { label: Nur Teaser-Karte, value: teaser }
+      - label: Layout
+        name: layout
+        widget: select
+        options:
+          - { label: Foto links, value: normal }
+          - { label: Foto rechts, value: reversed }
+      - { label: Bild, name: image, widget: image, required: false }
+      - { label: Bild Alt-Text, name: image_alt, widget: string }
+      - { label: Mein Ansatz, name: approach, widget: text, required: false }
+      - { label: Mein Ziel, name: goal, widget: text, required: false }
+      - { label: Teaser-Text, name: teaser_bio, widget: text }
+      - { label: LinkedIn, name: linkedin, widget: string, required: false }
+      - { label: Aktiv, name: active, widget: boolean, default: true }
+      - { label: Auf Startseite, name: show_on_home, widget: boolean, default: false }
+      - { label: Auf Über uns, name: show_on_ueber_uns, widget: boolean, default: false }
