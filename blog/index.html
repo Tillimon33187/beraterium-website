@@ -36,7 +36,7 @@
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
-                <li class="site-header__item site-header__item--has-menu">
+        <li class="site-header__item site-header__item--has-menu">
           <a href="../angebote/" class="site-header__parent-link" aria-expanded="false" aria-haspopup="true">
             Angebote
             <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -48,7 +48,7 @@
           </ul>
         </li>
         <li><a href="../methode/">Methode</a></li>
-                <li class="site-header__item site-header__item--has-menu">
+        <li class="site-header__item site-header__item--has-menu">
           <a href="../ueber-uns/" class="site-header__parent-link" aria-expanded="false" aria-haspopup="true">
             Über uns
             <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -80,6 +80,12 @@
     </section>
     <section class="brt-section" aria-labelledby="blog-grid">
       <div class="brt-container">
+        <header class="brt-section__header brt-section__header--row brt-fade-up">
+          <div>
+            <h2 id="blog-grid" class="brt-h2">Alle Artikel</h2>
+            <p class="brt-body">20 Beiträge zu Risikomanagement, Führung und Unternehmenspraxis.</p>
+          </div>
+        </header>
         <nav class="brt-blog-filters" aria-label="Kategorien">
           <a href="#" class="is-active" data-filter="alle">Alle</a>
           <a href="#" data-filter="risikomanagement" class="">Risikomanagement</a>
@@ -89,13 +95,242 @@
           <a href="#" data-filter="solo" class="">Solo</a>
         </nav>
         <ul class="brt-blog-grid brt-stagger" id="blog-grid-list">
-        <li class="brt-card brt-card--blog brt-hover-lift" data-category="risikomanagement">
+        <li class="brt-card brt-card--blog brt-hover-lift brt-card--featured" data-category="risikomanagement">
           <a class="brt-card__link" href="../blog/gefahrenkatalog-drei-ebenen/">
 <div class="brt-image-placeholder" role="img" aria-label="Strukturierter Gefahrenkatalog mit drei Ebenen für Unternehmensrisiken" style="aspect-ratio:16/9"><span class="brt-image-placeholder__label">Strukturierter Gefahrenkatalog mit drei Ebenen für Unternehmensrisiken</span></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">Risikomanagement</span>
               <h3 class="brt-h3">Was ist ein Gefahrenkatalog – und warum drei Ebenen?</h3>
               <p class="brt-meta">1. Juni 2026 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">Ein Gefahrenkatalog ordnet Risiken in drei Ebenen – und macht Schaden in Euro zum gemeinsamen Gesprächseinstieg.</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/emotionale-fuehrung-kmu-eisbergmodell-risiko/">
+<div class="brt-card__thumb"><img src="../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.png" alt="Emotional Leadership and the Organizational Iceberg" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche Unternehmensrisiken steuert</h3>
+              <p class="brt-meta">17. April 2026 · ca. 8 Min.</p>
+              <p class="brt-body brt-card__excerpt">Das Eisbergmodell aus der Folge meint nicht „schlechte Unternehmer“, sondern: Sichtbar gearbeitet wird oft mit dem kleinen oberen Teil – Wissen,…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe/">
+<div class="brt-card__thumb"><img src="../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.png" alt="family business succession leadership clarity SME Germany" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Familiennachfolge und Generationskonflikt: Was nach der formalen Übergabe alles schiefgehen kann</h3>
+              <p class="brt-meta">9. April 2026 · ca. 9 Min.</p>
+              <p class="brt-body brt-card__excerpt">Viele Konflikte nach der Nachfolge sitzen nicht im Gesellschaftsvertrag, sondern in Rollen, Identität und unklarer Führung – das ist ein…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
+          <a class="brt-card__link" href="../blog/gesundheit-gruender-risikomanagement-ernaehrung/">
+<div class="brt-card__thumb"><img src="../img/blog/gesundheit-gruender-risikomanagement-ernaehrung-hero.png" alt="Gesundheit als Unternehmensrisiko: Körper, Team und die kleinen Stellschrauben" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Startup</span>
+              <h3 class="brt-h3">Gesundheit als Unternehmensrisiko: Körper, Team und die kleinen Stellschrauben</h3>
+              <p class="brt-meta">6. April 2026 · ca. 7 Min.</p>
+              <p class="brt-body brt-card__excerpt">Wer nur auf Prozesse und Technik schaut, übersieht oft das größte operative Risiko: ausfallende oder erschöpfte Menschen.</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
+          <a class="brt-card__link" href="../blog/auslandsgrundung-risiken-standortwahl-strategie/">
+<div class="brt-card__thumb"><img src="../img/blog/auslandsgrundung-risiken-standortwahl-strategie-hero.png" alt="Wie Gründer Auslandsgründung sicher planen: Standortwahl, Partner, Kultur und 5 Praxistipps für belastbare Entscheidungen." class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Startup</span>
+              <h3 class="brt-h3">Auslandsgründung strategisch angehen: Risiken, Standortwahl und klare Entscheidungen</h3>
+              <p class="brt-meta">1. April 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Auslandsgründung ist kein Steuertrick, sondern eine strategische Unternehmensentscheidung.</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../blog/iran-konflikt-oelpreis-lieferketten-unternehmen/">
+<div class="brt-card__thumb"><img src="../img/blog/iran-konflikt-oelpreis-lieferketten-unternehmen-hero.png" alt="Risikomangement für Startups und Kmu, Globale Wirtschaft, Iran Konflikt" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Iran-Krise und die Straße von Hormuz: Warum „betrifft mich nicht&quot; die teuerste Lüge für Unternehmer ist</h3>
+              <p class="brt-meta">22. März 2026 · ca. 8 Min.</p>
+              <p class="brt-body brt-card__excerpt">Die Straße von Hormuz ist blockiert – und damit 20–30 % des weltweiten Öl- und Gastransports. Das ist kein Planspiel, das passiert jetzt.</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
+          <a class="brt-card__link" href="../blog/risikoradar-community-experten-unternehmer/">
+<div class="brt-card__thumb"><img src="../img/blog/risikoradar-community-experten-unternehmer-hero.png" alt="Community Risikoradar: Warum Risiken nicht alleine gelöst werden – und was unser geschlossener Expertenclub anders macht" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Startup</span>
+              <h3 class="brt-h3">Community Risikoradar: Warum Risiken nicht alleine gelöst werden – und was unser geschlossener Expertenclub anders macht</h3>
+              <p class="brt-meta">16. März 2026 · ca. 6 Min.</p>
+              <p class="brt-body brt-card__excerpt">Risiken finden ist das eine – sie lösen das andere. Für wirksame Maßnahmen braucht es mehr als einen einzelnen Berater: Es braucht…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../blog/mitarbeitersensibilisierung-risikobewusste-kultur/">
+<div class="brt-card__thumb"><img src="../img/blog/mitarbeitersensibilisierung-risikobewusste-kultur-hero.png" alt="Beraterium Risiken verteilen in KMU und Startups" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Mitarbeitersensibilisierung und risikobewusste Kultur: Mehr als Zertifikate an der Wand</h3>
+              <p class="brt-meta">5. März 2026 · ca. 7 Min.</p>
+              <p class="brt-body brt-card__excerpt">Certificates aren’t enough: open error culture, risk-driven training, and “safety in dialogue” – how to get employee risk awareness right for…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../blog/geistiges-eigentum-patentschutz-praxistipps/">
+<div class="brt-card__thumb"><img src="../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero.png" alt="Geistiges Eigentum und Patentschutz: Was du schützen kannst – und was du nicht kannst" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Geistiges Eigentum und Patentschutz: Was du schützen kannst – und was du nicht kannst</h3>
+              <p class="brt-meta">24. Februar 2026 · ca. 6 Min.</p>
+              <p class="brt-body brt-card__excerpt">Patente und Marken gelten nur dort, wo du sie anmeldest. Wer nur in Deutschland oder der EU schützt, kann in China oder den USA von anderen…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../blog/ki-und-risikomanagement-mensch-im-mittelpunkt/">
+<div class="brt-card__thumb"><img src="../img/blog/ki-und-risikomanagement-mensch-im-mittelpunkt-hero.png" alt="Frame 26" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">KI und Risikomanagement: Warum der Mensch der entscheidende Faktor bleibt</h3>
+              <p class="brt-meta">15. Februar 2026 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">AI is a powerful tool – but risks arise where humans and AI aren’t thought through together. How to handle AI risks and stay in control.</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/sicherheit-unternehmen-risikomanagement-kmu/">
+<div class="brt-card__thumb"><img src="../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.png" alt="Frame 24" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird</h3>
+              <p class="brt-meta">31. Januar 2026 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">Priorisiere nach Kritikalität, nicht Wert: Das 120-Tonnen-Edelstahllager kann offen stehen – aber die 5.000-Euro-Spezialwerkzeuge mit 3 Wochen…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
+          <a class="brt-card__link" href="../blog/risiken-bewusst-eingehen/">
+<div class="brt-card__thumb"><img src="../img/blog/risiken-bewusst-eingehen-hero.png" alt="Bildschirmfoto 2026-01-17 um 00.29.35" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Startup</span>
+              <h3 class="brt-h3">Warum Unternehmer kalkulierte Risiken eingehen müssen – Und wie sie es richtig tun!</h3>
+              <p class="brt-meta">16. Januar 2026 · ca. 9 Min.</p>
+              <p class="brt-body brt-card__excerpt">Wachstum ohne Risiken ist unmöglich – Doch 80% der deutschen Startups scheitern in 3 Jahren, weil sie Risiken nicht verstanden haben, nicht weil…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../blog/ubernimm-die-kontrolle-uber-deine-risiken-bevor-sie-dich-kontrollieren/">
+<div class="brt-card__thumb"><img src="../img/blog/ubernimm-die-kontrolle-uber-deine-risiken-bevor-sie-dich-kontrollieren-hero.png" alt="Folge 8" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Übernimm die Kontrolle über deine Risiken,  bevor sie dich kontrollieren!</h3>
+              <p class="brt-meta">12. Dezember 2025 · ca. 6 Min.</p>
+              <p class="brt-body brt-card__excerpt">Risiko ist kein Monster, sondern ein ständiger Begleiter deines Unternehmertums – und genau darin liegt seine strategische Kraft, wenn du es…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen/">
+<div class="brt-card__thumb"><img src="../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.png" alt="Folge 7" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr Unternehmen bedrohen</h3>
+              <p class="brt-meta">4. Dezember 2025 · ca. 10 Min.</p>
+              <p class="brt-body brt-card__excerpt">Externe Risikofaktoren bedrohen Dein KMU mehr denn je. Energiepreise, Steuerlast, Regulierung &amp; Fachkräftemangel – praktische Strategien zur…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/warum-mitarbeiter-riskante-entscheidungen-treffen/">
+<div class="brt-card__thumb"><img src="../img/blog/warum-mitarbeiter-riskante-entscheidungen-treffen-hero.png" alt="Frame 21" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Die wahren Gründe für riskantes Verhalten im Unternehmen – das müssen KMU wissen, um Ausfälle zu vermeiden</h3>
+              <p class="brt-meta">27. November 2025 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">Warum treffen Mitarbeitende riskante Entscheidungen – selbst wenn sie die möglichen Folgen kennen? In vielen kleinen und mittelständischen…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../blog/mensch-vertrauen-risikomanagement/">
+<div class="brt-card__thumb"><img src="../img/blog/mensch-vertrauen-risikomanagement-hero.png" alt="Group 15" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Der Mensch als Risiko und Schlüssel zum Erfolg</h3>
+              <p class="brt-meta">12. November 2025 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Der Artikel zeigt, warum Menschen im Unternehmen gleichzeitig das größte Risiko und die wichtigste Ressource sind. Technik, Prozesse und Regeln…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/mittelstand-fokus-risikomanagement/">
+<div class="brt-card__thumb"><img src="../img/blog/mittelstand-fokus-risikomanagement-hero.png" alt="Group 14" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Mittelstand zwischen Routine und Risiko - Warum Fokus und Kommunikation über Zukunftsfähigkeit entscheiden</h3>
+              <p class="brt-meta">4. November 2025 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">Der Mittelstand gilt als Rückgrat der Wirtschaft – doch viele Unternehmen geraten zwischen Routine und Risiko ins Straucheln. Statt strategisch zu…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
+          <a class="brt-card__link" href="../blog/startup-fehler-vermeiden-risikomanagement/">
+<div class="brt-card__thumb"><img src="../img/blog/startup-fehler-vermeiden-risikomanagement-hero.png" alt="Frame 13" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Startup</span>
+              <h3 class="brt-h3">Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist</h3>
+              <p class="brt-meta">28. Oktober 2025 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">Most startups don’t fail because of bad ideas – they fail because of missing structure. Unclear roles, micromanagement, and poor cash flow slow…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../blog/what-is-risk-management/">
+<div class="brt-card__thumb"><img src="../img/blog/what-is-risk-management-hero.png" alt="ChatGPT Image Oct 21, 2025, 08_45_58 PM" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Was ist eigentlich Risikomanagement?</h3>
+              <p class="brt-meta">21. Oktober 2025 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Risk management is more than avoiding losses – it’s the art of identifying uncertainty, assessing it, and taking control of it. This article…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../blog/risk-radar-episode-1-who-is-beraterium/">
+<div class="brt-card__thumb"><img src="../img/blog/risk-radar-episode-1-who-is-beraterium-hero.png" alt="Episode #1" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Risiko Radar Episode 1 – Wer ist Beraterium?</h3>
+              <p class="brt-meta">16. Oktober 2025 · ca. 3 Min.</p>
+              <p class="brt-body brt-card__excerpt">In der ersten Episode des Podcasts **„Risiko Radar“** stellen **Till Blania** und **Peter Münstermann** die Idee hinter **Beraterium** vor:…</p>
               <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
             </div>
           </a>

@@ -94,42 +94,18 @@
     });
   }
 
-  function scrollToHomeTeamSection(section, runId) {
-    if (!section) return;
-    revealHashTargetContent(section);
+  function getHomeTeamScrollY(section) {
     var scrollTarget = section.querySelector(".brt-section__header") || section;
-    var scrollBefore = window.pageYOffset;
-    scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
-    // #region agent log
-    fetch("http://127.0.0.1:7728/ingest/5e5db5d0-caf9-4872-a848-8ab4c3aa70d8", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "afeaa3" },
-      body: JSON.stringify({
-        sessionId: "afeaa3",
-        runId: runId || "post-fix",
-        hypothesisId: "D",
-        location: "brt-site.js:scrollToHomeTeamSection",
-        message: "scrollIntoView on section header",
-        data: {
-          scrollBefore: scrollBefore,
-          scrollAfter: window.pageYOffset,
-          headerTop: scrollTarget.getBoundingClientRect().top,
-          targetId: scrollTarget.id || null,
-        },
-        timestamp: Date.now(),
-      }),
-    }).catch(function () {});
-    // #endregion
+    var header = document.querySelector(".site-header");
+    var headerH = header ? header.getBoundingClientRect().height : 84;
+    var gap = 32;
+    return Math.max(0, scrollTarget.getBoundingClientRect().top + window.pageYOffset - (headerH + gap));
   }
 
-  function scheduleHomeTeamSectionScroll(section) {
-    scrollToHomeTeamSection(section, "post-fix-r0");
-    requestAnimationFrame(function () {
-      scrollToHomeTeamSection(section, "post-fix-r1");
-      requestAnimationFrame(function () {
-        scrollToHomeTeamSection(section, "post-fix-r2");
-      });
-    });
+  function scrollToHomeTeamSectionInstant(section) {
+    if (!section) return;
+    revealHashTargetContent(section);
+    window.scrollTo(0, getHomeTeamScrollY(section));
   }
 
   function initHomeTeamToggle() {
@@ -142,35 +118,24 @@
         var section = list.closest("section");
         var expanded = btn.getAttribute("aria-expanded") === "true";
         var next = !expanded;
-        more.forEach(function (card) {
-          card.hidden = !next;
-        });
         btn.setAttribute("aria-expanded", next ? "true" : "false");
         btn.textContent = next
           ? btn.getAttribute("data-less-label") || "Weniger anzeigen"
           : btn.getAttribute("data-more-label") || "Mehr anzeigen";
         if (next) {
+          more.forEach(function (card) {
+            card.hidden = false;
+          });
           more[0].scrollIntoView({ behavior: "smooth", block: "nearest" });
         } else {
-          // #region agent log
-          fetch("http://127.0.0.1:7728/ingest/5e5db5d0-caf9-4872-a848-8ab4c3aa70d8", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "afeaa3" },
-            body: JSON.stringify({
-              sessionId: "afeaa3",
-              runId: "post-fix",
-              hypothesisId: "A",
-              location: "brt-site.js:initHomeTeamToggle:collapse",
-              message: "collapse branch: scheduling scroll to section header",
-              data: {
-                scrollBeforeCollapse: window.pageYOffset,
-                sectionId: section ? section.id : null,
-              },
-              timestamp: Date.now(),
-            }),
-          }).catch(function () {});
-          // #endregion
-          scheduleHomeTeamSectionScroll(section);
+          scrollToHomeTeamSectionInstant(section);
+          more.forEach(function (card) {
+            card.hidden = true;
+          });
+          scrollToHomeTeamSectionInstant(section);
+          requestAnimationFrame(function () {
+            scrollToHomeTeamSectionInstant(section);
+          });
         }
       });
     });
@@ -414,6 +379,73 @@
         });
       });
     }
+
+    initArticleToc();
+  }
+
+  function initArticleToc() {
+    var toc = document.querySelector("[data-article-toc]");
+    if (!toc) return;
+
+    var links = toc.querySelectorAll('a[href^="#"]');
+    if (!links.length) return;
+
+    var headings = [];
+    links.forEach(function (link) {
+      var id = link.getAttribute("href").slice(1);
+      var el = document.getElementById(id);
+      if (el) headings.push({ link: link, el: el });
+    });
+    if (!headings.length) return;
+
+    function setActive(activeLink) {
+      links.forEach(function (link) {
+        link.classList.toggle("is-active", link === activeLink);
+      });
+    }
+
+    if ("IntersectionObserver" in window) {
+      var visible = new Map();
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) visible.set(entry.target, entry.intersectionRatio);
+            else visible.delete(entry.target);
+          });
+          if (!visible.size) return;
+          var best = null;
+          var bestRatio = -1;
+          visible.forEach(function (ratio, el) {
+            if (ratio >= bestRatio) {
+              bestRatio = ratio;
+              best = el;
+            }
+          });
+          if (!best) return;
+          headings.forEach(function (item) {
+            if (item.el === best) setActive(item.link);
+          });
+        },
+        { rootMargin: "-20% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+      );
+      headings.forEach(function (item) {
+        observer.observe(item.el);
+      });
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        var id = link.getAttribute("href").slice(1);
+        var target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        var header = document.querySelector(".site-header");
+        var offset = (header ? header.getBoundingClientRect().height : 84) + 24;
+        var y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+        setActive(link);
+      });
+    });
   }
 
   initFileProtocolLinks();

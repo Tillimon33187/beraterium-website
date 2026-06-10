@@ -9,6 +9,7 @@ from pathlib import Path
 from _cms import (
     BlogPost,
     TeamMember,
+    article_toc_html,
     blog_card_html,
     blog_filters_html,
     blog_posting_schema,
@@ -1054,7 +1055,10 @@ def gen_risikoradar() -> None:
 def gen_blog() -> None:
     pre = "../"
     posts = load_blog_posts()
-    cards = [blog_card_html(p, 1) for p in posts]
+    cards = []
+    for i, p in enumerate(posts):
+        card = blog_card_html(p, 1, featured=(i == 0))
+        cards.append(card)
     if not cards:
         cards = [
             """        <li class="brt-card brt-card--blog">
@@ -1074,6 +1078,12 @@ def gen_blog() -> None:
         + f"""
     <section class="brt-section" aria-labelledby="blog-grid">
       <div class="brt-container">
+        <header class="brt-section__header brt-section__header--row brt-fade-up">
+          <div>
+            <h2 id="blog-grid" class="brt-h2">Alle Artikel</h2>
+            <p class="brt-body">{len(posts)} Beiträge zu Risikomanagement, Führung und Unternehmenspraxis.</p>
+          </div>
+        </header>
         <nav class="brt-blog-filters" aria-label="Kategorien">
           {blog_filters_html()}
         </nav>
@@ -1169,6 +1179,18 @@ def gen_blog_singles() -> None:
         </ul>
       </div>
     </section>"""
+        toc_block = article_toc_html(post.toc, 2)
+        lead_block = (
+            f'        <p class="brt-lead brt-article__lead">{escape(post.lead)}</p>\n'
+            if post.lead
+            else ""
+        )
+        aside_block = ""
+        if toc_block.strip():
+            aside_block = f"""
+        <aside class="brt-article__aside">
+{toc_block}
+        </aside>"""
         author_box = f"""
     <section class="brt-section brt-section--alt" aria-labelledby="author-box">
       <div class="brt-container brt-article__author brt-fade-up">
@@ -1184,7 +1206,7 @@ def gen_blog_singles() -> None:
     <article class="brt-article">
       <header class="brt-container brt-article__header brt-fade-up">
         <nav class="brt-breadcrumb" aria-label="Brotkrumen">
-          <a href="{pre}">Start</a> › <a href="{pre}blog/">Blog</a> › <span>{escape(post.category)}</span> › <span>{escape(post.title)}</span>
+          <a href="{pre}">Start</a> › <a href="{pre}blog/">Blog</a> › <span>{escape(post.category)}</span>
         </nav>
         <p class="brt-tag">{escape(post.category)}</p>
         <h1 class="brt-h1 brt-article__title">{escape(post.title)}</h1>
@@ -1193,11 +1215,12 @@ def gen_blog_singles() -> None:
         </p>
       </header>
       {hero_block}
-      <div class="brt-container brt-article__content brt-fade-up">
-        <p class="brt-lead">{escape(post.excerpt)}</p>
-        <div class="brt-article__body">
+      <div class="brt-container brt-article__layout brt-fade-up">
+        <div class="brt-article__main">
+{lead_block}          <div class="brt-article__body">
 {post.body_html}
-        </div>
+          </div>
+        </div>{aside_block}
       </div>
     </article>
 {faq_block}

@@ -108,6 +108,8 @@ class BlogPost:
     faq: list[dict[str, str]] = field(default_factory=list)
     related_slugs: list[str] = field(default_factory=list)
     body_html: str = ""
+    toc: list[dict[str, str]] = field(default_factory=list)
+    lead: str = ""
     source_path: Path | None = None
 
 
@@ -173,6 +175,12 @@ def _reading_time(text: str, minutes: int) -> int:
     return max(1, round(words / 200))
 
 
+def _clean_excerpt(text: str) -> str:
+    cleaned = re.sub(r"^[\*\-•]\s+", "", (text or "").strip())
+    cleaned = re.sub(r"\s+", " ", cleaned)
+    return cleaned.strip()
+
+
 def _render_markdown(body: str) -> str:
     md = markdown.Markdown(
         extensions=["fenced_code", "tables", "toc", "nl2br"],
@@ -186,6 +194,102 @@ def _render_markdown(body: str) -> str:
     html = re.sub(r"<ul>", '<ul class="brt-article__list">', html)
     html = re.sub(r"<ol>", '<ol class="brt-article__list brt-article__list--ordered">', html)
     return html
+
+
+def _unwrap_list_paragraphs(html: str) -> str:
+    return re.sub(
+        r"<li>\s*<p class=\"brt-body\">(.*?)</p>\s*</li>",
+        r"<li>\1</li>",
+        html,
+        flags=re.DOTALL,
+    )
+
+
+def _promote_keypoints(html: str) -> str:
+    if re.search(r"<h2 class=\"brt-article__h2\"", html):
+        before, _, after = html.partition('<h2 class="brt-article__h2"')
+    else:
+        before, after = html, ""
+    match = re.match(
+        r"\s*(<ul class=\"brt-article__list\">.*?</ul>)\s*",
+        before,
+        flags=re.DOTALL,
+    )
+    if not match or len(re.findall(r"<li>", match.group(1))) < 2:
+        return html
+    keypoints = match.group(1)
+    rest = before[match.end():] + ('<h2 class="brt-article__h2"' + after if after else "")
+    return (
+        '<aside class="brt-article__keypoints" aria-label="Kernaussagen">'
+        '<p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p>'
+        f"{keypoints}"
+        "</aside>"
+        + rest
+    )
+
+
+def _promote_podcast_cta(html: str) -> str:
+    pattern = (
+        r'<h3 class="brt-article__h3"[^>]*>.*?(?:Podcast|🎧).*?</h3>\s*'
+        r'<p class="brt-body"><a href="(https?://[^"]+)">([^<]*)</a></p>'
+    )
+
+    def repl(match: re.Match[str]) -> str:
+        url, label = match.group(1), match.group(2)
+        return (
+            '<div class="brt-article__podcast">'
+            '<p class="brt-article__podcast-label">Risiko Radar Podcast</p>'
+            f'<a class="brt-article__podcast-link" href="{url}" target="_blank" rel="noopener noreferrer">'
+            f"{label or 'Folge ansehen'} →"
+            "</a>"
+            "</div>"
+        )
+
+    return re.sub(pattern, repl, html, flags=re.DOTALL | re.IGNORECASE)
+
+
+def _extract_toc(html: str) -> list[dict[str, str]]:
+    items: list[dict[str, str]] = []
+    for match in re.finditer(
+        r'<h2 class="brt-article__h2" id="([^"]+)">([^<]+)</h2>',
+        html,
+    ):
+        title = re.sub(r"\s+", " ", match.group(2)).strip()
+        if title:
+            items.append({"id": match.group(1), "title": title})
+    return items
+
+
+def _postprocess_article_html(html: str, excerpt: str) -> tuple[str, list[dict[str, str]], str]:
+    html = _unwrap_list_paragraphs(html)
+    html = _promote_keypoints(html)
+    html = _promote_podcast_cta(html)
+    toc = _extract_toc(html)
+    lead = _clean_excerpt(excerpt)
+    if lead:
+        first_li = re.search(r'<aside class="brt-article__keypoints".*?<li>(.*?)</li>', html, re.DOTALL)
+        if first_li:
+            first_text = re.sub(r"<[^>]+>", "", first_li.group(1))
+            first_text = re.sub(r"\s+", " ", first_text).strip()
+            if first_text[:80] == lead[:80]:
+                lead = ""
+    return html, toc, lead
+
+
+def article_toc_html(toc: list[dict[str, str]], depth: int) -> str:
+    if not toc:
+        return ""
+    items = "\n".join(
+        f'            <li><a href="#{escape(item["id"])}">{escape(item["title"])}</a></li>'
+        for item in toc
+    )
+    return f"""
+        <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
+          <p class="brt-article__toc-label">Inhalt</p>
+          <ol class="brt-article__toc-list">
+{items}
+          </ol>
+        </nav>"""
 
 
 def load_blog_posts(*, include_drafts: bool = False) -> list[BlogPost]:
@@ -205,6 +309,8 @@ def load_blog_posts(*, include_drafts: bool = False) -> list[BlogPost]:
         if draft and not include_drafts:
             continue
         reading = _reading_time(body, int(meta.get("reading_time_min", 0) or 0))
+        excerpt = _clean_excerpt(meta.get("excerpt", ""))
+        body_html, toc, lead = _postprocess_article_html(_render_markdown(body), excerpt)
         posts.append(
             BlogPost(
                 title=meta.get("title", path.stem),
@@ -212,14 +318,16 @@ def load_blog_posts(*, include_drafts: bool = False) -> list[BlogPost]:
                 date=_parse_date(meta.get("date", "2026-01-01")),
                 category=meta.get("category", "Risikomanagement"),
                 author=meta.get("author", ""),
-                excerpt=meta.get("excerpt", ""),
+                excerpt=excerpt,
                 hero_image=meta.get("hero_image", ""),
                 hero_alt=meta.get("hero_alt", meta.get("title", "")),
                 draft=draft,
                 reading_time_min=reading,
                 faq=meta.get("faq") or [],
                 related_slugs=meta.get("related_slugs") or [],
-                body_html=_render_markdown(body),
+                body_html=body_html,
+                toc=toc,
+                lead=lead,
                 source_path=path,
             )
         )
@@ -309,7 +417,7 @@ def format_date_de(d: date) -> str:
     return f"{d.day}. {months[d.month - 1]} {d.year}"
 
 
-def blog_card_html(post: BlogPost, depth: int) -> str:
+def blog_card_html(post: BlogPost, depth: int, featured: bool = False) -> str:
     pre = pfx(depth)
     href = f"{pre}blog/{post.slug}/"
     thumb = img_html(
@@ -328,13 +436,18 @@ def blog_card_html(post: BlogPost, depth: int) -> str:
         thumb_wrap = f'<div class="brt-card__thumb">{thumb}</div>'
     meta = f"{format_date_de(post.date)} · ca. {post.reading_time_min} Min."
     cat_slug = CATEGORY_SLUGS.get(post.category, "alle")
-    return f"""        <li class="brt-card brt-card--blog brt-hover-lift" data-category="{cat_slug}">
+    excerpt_html = ""
+    if post.excerpt:
+        snippet = post.excerpt if len(post.excerpt) <= 150 else post.excerpt[:147].rsplit(" ", 1)[0] + "…"
+        excerpt_html = f'\n              <p class="brt-body brt-card__excerpt">{escape(snippet)}</p>'
+    featured_cls = " brt-card--featured" if featured else ""
+    return f"""        <li class="brt-card brt-card--blog brt-hover-lift{featured_cls}" data-category="{cat_slug}">
           <a class="brt-card__link" href="{href}">
 {thumb_wrap}
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">{escape(post.category)}</span>
               <h3 class="brt-h3">{escape(post.title)}</h3>
-              <p class="brt-meta">{meta}</p>
+              <p class="brt-meta">{meta}</p>{excerpt_html}
               <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
             </div>
           </a>
