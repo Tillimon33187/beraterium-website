@@ -276,13 +276,23 @@
       .brt-css-fallback-mode .brt-team-duo,
       .brt-css-fallback-mode .brt-method-steps,
       .brt-css-fallback-mode .brt-stat-row__list {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .brt-css-fallback-mode .brt-guarantee-duo {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .brt-css-fallback-mode .site-footer__inner {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .brt-css-fallback-mode .brt-cards-3col,
+      .brt-css-fallback-mode .brt-blog-grid,
+      .brt-css-fallback-mode .brt-method-steps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .brt-css-fallback-mode .site-footer__inner {
+        grid-template-columns: 1.2fr 1fr 1fr 1fr;
       }
     }
     @media (max-width: 1023px) {
@@ -292,6 +302,9 @@
         right: 0;
         top: calc(100% + 1px);
         padding: 1rem clamp(1.5rem, 4vw, 4rem);
+        max-height: calc(100dvh - 4.75rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
         background: rgba(14, 17, 22, 0.96);
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       }
@@ -386,9 +399,12 @@
     .brt-css-fallback-mode .brt-hero {
       position: relative;
       overflow: hidden;
-      height: 100vh;
       min-height: 100vh;
+      min-height: 100dvh;
+      height: 100vh;
+      height: 100dvh;
       max-height: 100vh;
+      max-height: 100dvh;
     }
     .brt-css-fallback-mode .brt-hero__slides,
     .brt-css-fallback-mode .brt-hero__overlay {
@@ -550,6 +566,43 @@
     .brt-css-fallback-mode .brt-hero__topic:hover,
     .brt-css-fallback-mode .brt-hero__topic:focus-visible {
       color: #fff;
+    }
+    @media (max-width: 899px) {
+      .brt-css-fallback-mode .brt-hero {
+        height: auto;
+        min-height: max(100dvh, 36rem);
+        max-height: none;
+      }
+      .brt-css-fallback-mode .brt-hero__frame {
+        min-height: max(100dvh, 36rem);
+        padding-top: max(clamp(5rem, 12vw, 6.5rem), 5.75rem);
+        gap: clamp(1rem, 3vh, 2rem);
+      }
+      .brt-css-fallback-mode .brt-hero__content {
+        max-width: none;
+        width: 100%;
+      }
+      .brt-css-fallback-mode .brt-hero__text-slot,
+      .brt-css-fallback-mode .brt-hero .brt-h1,
+      .brt-css-fallback-mode .brt-hero .brt-lead {
+        min-height: auto;
+      }
+      .brt-css-fallback-mode .brt-hero .brt-lead {
+        max-width: none;
+      }
+      .brt-css-fallback-mode .brt-hero__scroll {
+        display: none;
+      }
+      .brt-css-fallback-mode .brt-hero__topics {
+        padding-right: 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+      }
+    }
+    @media (max-width: 479px) {
+      .brt-css-fallback-mode .brt-hero__topics {
+        grid-template-columns: 1fr;
+      }
     }
     @media (min-width: 900px) {
       .brt-css-fallback-mode .brt-hero__topics {

@@ -126,6 +126,7 @@
     var navToggle = document.querySelector(".site-header__toggle");
     var nav = document.querySelector("#site-nav");
     var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var menuMq = window.matchMedia("(min-width: 1024px)");
     var isInnerPage = document.body.classList.contains("brt-page--inner");
 
     function updateHeaderState() {
@@ -139,10 +140,23 @@
     }
 
     if (navToggle && nav) {
+      function closeMobileNav() {
+        navToggle.setAttribute("aria-expanded", "false");
+        nav.classList.remove("is-open");
+        document.body.classList.remove("is-nav-open");
+        document.querySelectorAll(".site-header__item--has-menu.is-submenu-open").forEach(function (item) {
+          item.classList.remove("is-submenu-open");
+          var link = item.querySelector(".site-header__parent-link");
+          if (link) link.setAttribute("aria-expanded", "false");
+        });
+        updateHeaderState();
+      }
+
       navToggle.addEventListener("click", function () {
         var expanded = navToggle.getAttribute("aria-expanded") === "true";
         navToggle.setAttribute("aria-expanded", expanded ? "false" : "true");
         nav.classList.toggle("is-open", !expanded);
+        document.body.classList.toggle("is-nav-open", !expanded);
         if (expanded) {
           document.querySelectorAll(".site-header__item--has-menu.is-submenu-open").forEach(function (item) {
             item.classList.remove("is-submenu-open");
@@ -152,9 +166,22 @@
         }
         updateHeaderState();
       });
+
+      nav.querySelectorAll("a[href]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          if (!menuMq.matches) closeMobileNav();
+        });
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && nav.classList.contains("is-open")) closeMobileNav();
+      });
+
+      menuMq.addEventListener("change", function () {
+        if (menuMq.matches) closeMobileNav();
+      });
     }
 
-    var menuMq = window.matchMedia("(min-width: 1024px)");
     document.querySelectorAll(".site-header__item--has-menu").forEach(function (item) {
       var link = item.querySelector(".site-header__parent-link");
       if (!link) return;
