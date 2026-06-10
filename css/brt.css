@@ -225,29 +225,50 @@
   background: #fff;
 }
 
-.site-header--solid .site-header__nav {
-  background: transparent;
-  border-bottom-color: var(--color-line);
-}
-
 @media (max-width: 1023px) {
   .site-header__inner {
-    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 0;
+  }
+
+  .site-header__toggle {
+    order: 1;
+    margin-right: 0.75rem;
+  }
+
+  .site-header__logo {
+    order: 2;
+    flex: 1;
+    min-width: 0;
   }
 
   .site-header__nav {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(100% + 1px);
-    padding: 1rem clamp(1.5rem, 4vw, 4rem);
+    order: 3;
+    flex: 1 1 100%;
+    position: static;
+    width: 100%;
+    padding: 0.75rem clamp(1.5rem, 4vw, 4rem) 1rem;
     padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
     max-height: calc(100dvh - var(--header-height));
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-    background: rgba(14, 17, 22, 0.96);
+    background: rgba(14, 17, 22, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: var(--shadow-md);
+    z-index: 1;
+  }
+
+  .site-header__nav:not(.is-open) {
+    display: none;
+  }
+
+  .site-header__nav.is-open {
+    display: grid;
+    gap: 1rem;
   }
 
   .site-header__nav > ul > li > a,
@@ -263,9 +284,9 @@
     margin-top: 0.25rem;
   }
 
-  .site-header--solid .site-header__nav {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
+  .site-header--solid .site-header__nav.is-open {
+    background: #fff;
+    border-top-color: var(--color-line);
     border-bottom-color: var(--color-line);
   }
 
@@ -404,6 +425,10 @@
   .site-header--solid .site-header__nav {
     background: transparent;
     border-bottom: 0;
+  }
+
+  .site-header--solid .site-header__nav {
+    border-bottom-color: var(--color-line);
   }
 
 }
@@ -1791,13 +1816,9 @@
     .site-header--solid .site-header__nav ul a:focus-visible {
       color: var(--color-accent);
     }
-    .site-header--solid .site-header__nav {
-      background: transparent;
-    }
     @media (min-width: 1024px) {
       .site-header--solid .site-header__nav {
         background: transparent;
-        border-bottom: 0;
       }
     }
     .brt .brt-card--featured {
