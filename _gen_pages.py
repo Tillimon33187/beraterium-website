@@ -13,6 +13,7 @@ from _cms import (
     blog_filters_html,
     blog_posting_schema,
     format_date_de,
+    home_team_section_html,
     img_html,
     load_blog_posts,
     load_team_members,
@@ -1224,6 +1225,30 @@ def gen_blog_singles() -> None:
         )
 
 
+def gen_home_team() -> None:
+    path = SITE / "index.html"
+    if not path.exists():
+        return
+    html = path.read_text(encoding="utf-8")
+    start = "  <!-- HOME_TEAM_START -->"
+    end = "  <!-- HOME_TEAM_END -->"
+    section = home_team_section_html(0)
+    if start in html and end in html:
+        before = html.split(start)[0]
+        after = html.split(end)[1]
+        path.write_text(before + section + after, encoding="utf-8")
+    else:
+        legacy_start = "  <!-- S7 — Die Köpfe -->"
+        legacy_end = '        <a class="brt-btn brt-btn--ghost" href="team/">Mehr über das Team →</a>\n      </p>\n    </div>\n  </section>'
+        if legacy_start not in html or legacy_end not in html:
+            return
+        before = html.split(legacy_start)[0]
+        rest = html.split(legacy_start)[1]
+        after = rest.split(legacy_end, 1)[1]
+        path.write_text(before + section + after, encoding="utf-8")
+    print("  updated index.html home team")
+
+
 def gen_home_blog_teaser() -> None:
     path = SITE / "index.html"
     if not path.exists():
@@ -1465,6 +1490,7 @@ if __name__ == "__main__":
     gen_risikoradar()
     gen_blog()
     gen_blog_singles()
+    gen_home_team()
     gen_home_blog_teaser()
     gen_kontakt()
     gen_impressum()

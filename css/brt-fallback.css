@@ -297,41 +297,64 @@
     }
     @media (max-width: 1023px) {
       .brt-css-fallback-mode .site-header__inner {
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: flex-start;
-        row-gap: 0;
+        flex-wrap: nowrap;
+        justify-content: space-between;
       }
       .brt-css-fallback-mode .site-header__toggle {
-        order: 1;
-        margin-right: 0.75rem;
+        order: 2;
+        margin-left: auto;
+        width: 44px;
+        padding: 0;
+        font-size: 0;
+        line-height: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .brt-css-fallback-mode .site-header__toggle::before {
+        content: "";
+        display: block;
+        width: 1.25rem;
+        height: 2px;
+        background: currentColor;
+        box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
       }
       .brt-css-fallback-mode .site-header__logo {
-        order: 2;
+        order: 1;
         flex: 1;
-        min-width: 0;
       }
       .brt-css-fallback-mode .site-header__nav {
-        order: 3;
-        flex: 1 1 100%;
-        position: static;
-        width: 100%;
-        padding: 0.75rem clamp(1.5rem, 4vw, 4rem) 1rem;
-        max-height: calc(100dvh - 4.75rem);
+        position: fixed;
+        top: 4.75rem;
+        right: 0;
+        left: auto;
+        width: min(20rem, 88vw);
+        height: calc(100dvh - 4.75rem);
+        padding: 1rem clamp(1rem, 4vw, 1.5rem);
+        overflow-x: hidden;
         overflow-y: auto;
-        overscroll-behavior: contain;
-        background: rgba(14, 17, 22, 0.98);
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 8px 24px rgba(14, 17, 22, 0.1);
+        background: rgba(14, 17, 22, 0.92);
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: none;
+        box-sizing: border-box;
+        z-index: 25;
       }
       .brt-css-fallback-mode .site-header__nav:not(.is-open) {
         display: none;
       }
       .brt-css-fallback-mode .site-header--solid .site-header__nav.is-open {
-        background: #fff;
-        border-top-color: var(--color-line);
-        border-bottom-color: var(--color-line);
+        background: rgba(255, 255, 255, 0.95);
+        border-left-color: var(--color-line);
+      }
+      .brt-css-fallback-mode .site-header--menu-open {
+        backdrop-filter: none;
+      }
+      .brt-css-fallback-mode .site-header__cta.brt-btn--outline {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        white-space: normal;
+        text-align: center;
       }
     }
     @media (min-width: 1024px) {

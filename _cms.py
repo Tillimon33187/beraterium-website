@@ -36,6 +36,40 @@ CATEGORY_SLUGS = {
 
 SITE_URL = "https://www.beraterium.de"
 
+HOME_TEAM_FEATURED_SLUGS = (
+    "till-blania",
+    "peter-muenstermann",
+    "aleksandra-polosukhina",
+)
+
+HOME_TEAM_CARD_COPY: dict[str, tuple[str, str]] = {
+    "till-blania": (
+        "Geschäftsführer · HR-Management-Ansatz",
+        "Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups. "
+        "Bringt Führungskräfte und Mitarbeitende zusammen, damit Lösungen entstehen, die wirklich funktionieren.",
+    ),
+    "peter-muenstermann": (
+        "Risikomanagement-Ansatz · 20 Jahre Konzern",
+        "Moderiert offene Gespräche über Risiken, Chancen und Lösungen – strukturiert, aber menschlich. "
+        "Macht Risikomanagement greifbar, verständlich und praktisch umsetzbar.",
+    ),
+    "aleksandra-polosukhina": (
+        "Leiterin Marketing und PR",
+        "Marketing- und PR-Expertin mit über sieben Jahren Erfahrung – stärkt Teams durch clevere "
+        "Kommunikation und gezieltes Employer Branding.",
+    ),
+    "torsten-walter-helbig": (
+        "Vertreter vor Ort · Chemnitz",
+        "Seit über 31 Jahren unabhängiger Finanzberater – entwickelt robuste Cashflow-Architekturen "
+        "für nachhaltige Sicherheit und finanzielle Freiheit.",
+    ),
+    "joachim-lau": (
+        "Experte Textilindustrie · 20 Jahre Branche",
+        "Bringt Geschäftsführung und Mitarbeiter zusammen, um Optimierungen umzusetzen, die im "
+        "Arbeitsalltag funktionieren – von der Modebranche bis zur IT-Modernisierung.",
+    ),
+}
+
 
 @dataclass
 class TeamMember:
@@ -428,6 +462,88 @@ def team_profile_section(member: TeamMember, depth: int, *, alt_bg: bool = False
         </div>
       </div>
     </section>"""
+
+
+def _home_team_card_media(member: TeamMember, depth: int) -> str:
+    pre = pfx(depth)
+    full = SITE / member.image if member.image else None
+    if member.image and full and full.exists():
+        img = img_html(
+            member.image,
+            member.image_alt,
+            depth,
+            css_class="brt-card__media-img",
+            aspect="4/5",
+        )
+        return f"          <div class=\"brt-card__media\">{img}</div>"
+    first = member.name.split()[0]
+    return f"""          <div
+            class="brt-card__media brt-card__media--placeholder"
+            role="img"
+            aria-label="{escape(member.image_alt)}">
+            <span class="brt-card__media-label">Foto {escape(first)} folgt</span>
+          </div>"""
+
+
+def home_team_card(member: TeamMember, depth: int, *, hidden: bool = False) -> str:
+    role, bio = HOME_TEAM_CARD_COPY.get(
+        member.slug,
+        (member.role_tag, member.teaser_bio or member.approach[:160]),
+    )
+    extra_cls = " brt-home-team__card--more" if hidden else ""
+    hidden_attr = " hidden" if hidden else ""
+    return f"""        <li class="brt-card brt-card--profile brt-hover-lift{extra_cls}"{hidden_attr}>
+{_home_team_card_media(member, depth)}
+          <div class="brt-card__body">
+            <h3 class="brt-h3">{escape(member.name)}</h3>
+            <p class="brt-meta brt-meta--accent">{escape(role)}</p>
+            <p class="brt-body">{escape(bio)}</p>
+          </div>
+        </li>"""
+
+
+def home_team_section_html(depth: int = 0) -> str:
+    pre = pfx(depth)
+    members = [
+        m for m in load_team_members() if m.active and m.profile_type == "full"
+    ]
+    by_slug = {m.slug: m for m in members}
+    featured = [by_slug[s] for s in HOME_TEAM_FEATURED_SLUGS if s in by_slug]
+    featured_slugs = {m.slug for m in featured}
+    more = [m for m in members if m.slug not in featured_slugs]
+    cards = "\n".join(home_team_card(m, depth) for m in featured)
+    if more:
+        cards += "\n" + "\n".join(home_team_card(m, depth, hidden=True) for m in more)
+        toggle = """      <p class="brt-home-team__toggle-wrap brt-fade-up">
+        <button
+          type="button"
+          class="brt-home-team__toggle"
+          aria-expanded="false"
+          aria-controls="home-team-cards"
+          data-more-label="Mehr anzeigen"
+          data-less-label="Weniger anzeigen">
+          Mehr anzeigen
+        </button>
+      </p>"""
+    else:
+        toggle = ""
+    return f"""  <!-- HOME_TEAM_START -->
+  <section class="brt-section" id="home-team" aria-labelledby="team-title">
+    <div class="brt-container">
+      <header class="brt-section__header brt-fade-up">
+        <p class="brt-tag">Wer dahintersteckt</p>
+        <h2 id="team-title" class="brt-h2">Ein Team mit vielen Perspektiven, ein Ziel: Ihre Sicherheit</h2>
+      </header>
+      <ul class="brt-cards-3col brt-stagger" id="home-team-cards">
+{cards}
+      </ul>
+{toggle}
+      <p class="brt-section__cta brt-fade-up">
+        <a class="brt-btn brt-btn--ghost" href="{pre}team/">Mehr über das Team →</a>
+      </p>
+    </div>
+  </section>
+  <!-- HOME_TEAM_END -->"""
 
 
 def team_teaser_card(member: TeamMember, depth: int) -> str:

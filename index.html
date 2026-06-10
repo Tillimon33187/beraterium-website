@@ -68,7 +68,8 @@
       class="site-header__toggle"
       type="button"
       aria-expanded="false"
-      aria-controls="site-nav">
+      aria-controls="site-nav"
+      aria-label="Menü">
       Menü
     </button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
@@ -331,14 +332,14 @@
     </div>
   </section>
 
-  <!-- S7 — Die Köpfe -->
-  <section class="brt-section" aria-labelledby="team-title">
+  <!-- HOME_TEAM_START -->
+  <section class="brt-section" id="home-team" aria-labelledby="team-title">
     <div class="brt-container">
       <header class="brt-section__header brt-fade-up">
         <p class="brt-tag">Wer dahintersteckt</p>
         <h2 id="team-title" class="brt-h2">Ein Team mit vielen Perspektiven, ein Ziel: Ihre Sicherheit</h2>
       </header>
-      <ul class="brt-cards-3col brt-stagger">
+      <ul class="brt-cards-3col brt-stagger" id="home-team-cards">
         <li class="brt-card brt-card--profile brt-hover-lift">
           <div
             class="brt-card__media brt-card__media--placeholder"
@@ -356,7 +357,7 @@
           <div
             class="brt-card__media brt-card__media--placeholder"
             role="img"
-            aria-label="Peter Münstermann, Entwickler des Risikomanagement-Ansatzes">
+            aria-label="Peter Münstermann, Entwickler des Risikomanagement-Ansatzes bei Beraterium">
             <span class="brt-card__media-label">Foto Peter folgt</span>
           </div>
           <div class="brt-card__body">
@@ -378,7 +379,7 @@
             <p class="brt-body">Marketing- und PR-Expertin mit über sieben Jahren Erfahrung – stärkt Teams durch clevere Kommunikation und gezieltes Employer Branding.</p>
           </div>
         </li>
-        <li class="brt-card brt-card--profile brt-hover-lift">
+        <li class="brt-card brt-card--profile brt-hover-lift brt-home-team__card--more" hidden>
           <div
             class="brt-card__media brt-card__media--placeholder"
             role="img"
@@ -391,7 +392,7 @@
             <p class="brt-body">Seit über 31 Jahren unabhängiger Finanzberater – entwickelt robuste Cashflow-Architekturen für nachhaltige Sicherheit und finanzielle Freiheit.</p>
           </div>
         </li>
-        <li class="brt-card brt-card--profile brt-hover-lift">
+        <li class="brt-card brt-card--profile brt-hover-lift brt-home-team__card--more" hidden>
           <div
             class="brt-card__media brt-card__media--placeholder"
             role="img"
@@ -405,11 +406,23 @@
           </div>
         </li>
       </ul>
+      <p class="brt-home-team__toggle-wrap brt-fade-up">
+        <button
+          type="button"
+          class="brt-home-team__toggle"
+          aria-expanded="false"
+          aria-controls="home-team-cards"
+          data-more-label="Mehr anzeigen"
+          data-less-label="Weniger anzeigen">
+          Mehr anzeigen
+        </button>
+      </p>
       <p class="brt-section__cta brt-fade-up">
         <a class="brt-btn brt-btn--ghost" href="team/">Mehr über das Team →</a>
       </p>
     </div>
   </section>
+  <!-- HOME_TEAM_END -->
 
   <!-- S8 — RisikoRadar-Teaser -->
   <section class="brt-section brt-section--dark" aria-labelledby="radar-title">
