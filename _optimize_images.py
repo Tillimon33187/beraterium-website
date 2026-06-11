@@ -11,6 +11,7 @@ SITE = Path(__file__).parent
 IMG_DIR = SITE / "img"
 WIDTHS = (480, 960, 1440)
 QUALITY = 82
+DIAGRAM_QUALITY = 92
 SOURCE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 
 
@@ -28,18 +29,19 @@ def process_image(path: Path) -> None:
         return
     if re_suffix_width(path.stem):
         return
+    quality = DIAGRAM_QUALITY if "methode" in path.parts else QUALITY
     try:
         with Image.open(path) as im:
             im = im.convert("RGB") if im.mode in ("RGBA", "P", "LA") else im
             orig_w, orig_h = im.size
             webp_path = path.with_suffix(".webp")
             if path.suffix.lower() != ".webp":
-                im.save(webp_path, "WEBP", quality=QUALITY, method=6)
+                im.save(webp_path, "WEBP", quality=quality, method=6)
                 if path != webp_path:
                     path.unlink(missing_ok=True)
                 path = webp_path
             else:
-                im.save(path, "WEBP", quality=QUALITY, method=6)
+                im.save(path, "WEBP", quality=quality, method=6)
             _save_meta(path, orig_w, orig_h)
             for target_w in WIDTHS:
                 if orig_w <= target_w:
@@ -48,7 +50,7 @@ def process_image(path: Path) -> None:
                 new_size = (target_w, max(1, round(orig_h * ratio)))
                 resized = im.resize(new_size, Image.Resampling.LANCZOS)
                 variant = path.with_name(f"{path.stem}-{target_w}w.webp")
-                resized.save(variant, "WEBP", quality=QUALITY, method=6)
+                resized.save(variant, "WEBP", quality=quality, method=6)
                 _save_meta(variant, new_size[0], new_size[1])
             print(f"  optimized {path.relative_to(SITE)}")
     except Exception as exc:

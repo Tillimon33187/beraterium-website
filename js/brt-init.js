@@ -12,8 +12,14 @@
   window.addEventListener("DOMContentLoaded", function () {
     var targetH1 = document.querySelector(".brt-h1");
 
-    if (targetH1 && window.getComputedStyle(targetH1).fontSize === "32px") {
-      document.documentElement.classList.add("brt-css-fallback-mode");
+    if (targetH1 && !document.documentElement.classList.contains("brt-css-fallback-mode")) {
+      var style = window.getComputedStyle(targetH1);
+      var cssSheetLoaded = cssLink && cssLink.sheet;
+      var usesDefaultTypography =
+        style.fontSize === "32px" && style.letterSpacing === "normal";
+      if (!cssSheetLoaded && usesDefaultTypography) {
+        document.documentElement.classList.add("brt-css-fallback-mode");
+      }
     }
   });
 })();

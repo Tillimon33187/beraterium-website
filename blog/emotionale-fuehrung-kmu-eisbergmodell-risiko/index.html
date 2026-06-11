@@ -20,6 +20,7 @@
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" href="../../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../../css/brt-fallback.css">
@@ -53,7 +54,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -90,21 +94,40 @@
 <div class="brt">
   <main id="main-content">
 
-    <article class="brt-article">
-      <header class="brt-container brt-article__header brt-fade-up">
-        <nav class="brt-breadcrumb" aria-label="Brotkrumen">
-          <a href="../../">Start</a> › <a href="../../blog/">Blog</a> › <span>KMU</span>
-        </nav>
-        <p class="brt-tag">KMU</p>
-        <h1 class="brt-h1 brt-article__title">Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche Unternehmensrisiken steuert</h1>
-        <p class="brt-article__meta brt-meta">
-          <span>Till Manfred Blania</span> · <time datetime="2026-04-17">17. April 2026</time> · ca. 8 Min. Lesezeit
-        </p>
-      </header>
-      <figure class="brt-article__hero brt-fade-up"><img src="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.png" alt="Emotional Leadership and the Organizational Iceberg" class="brt-article__hero-img" loading="eager" fetchpriority="high"></figure>
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">KMU</span>
+          <p class="brt-article__sticky-title">Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche…</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche Unternehmensrisiken steuert</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">KMU</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2026-04-17">17. April 2026</time> · ca. 8 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.webp" alt="Emotional Leadership and the Organizational Iceberg" class="brt-article__hero-img" width="1536" height="1024" srcset="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-480w.webp 480w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-960w.webp 960w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-1440w.webp 1440w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"></figure>
+      </div>
       <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
         <div class="brt-article__main">
-          <div class="brt-article__body">
+          <div class="brt-article__body" id="article-body" tabindex="-1">
 <aside class="brt-article__keypoints" aria-label="Kernaussagen"><p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p><ul class="brt-article__list">
 <li>Das Eisbergmodell aus der Folge meint nicht „schlechte Unternehmer“, sondern: Sichtbar gearbeitet wird oft mit dem kleinen oberen Teil – Wissen, Zahlen, Prozesse – während emotionale und systemische Anteile unter der Wasseroberfläche liegen und trotzdem Steuerung, Tempo und Vertrauen prägen.</li>
 <li>Klassische Leistung und harte Arbeit erklären viel am deutschen Mittelstand; der Gast Andreas argumentiert ergänzend, dass gerade mit KI viel „Leistung“ automatisierbar wird und der zwischenmenschliche, emotionale Hebel stärker ins Zentrum rückt.</li>
@@ -135,14 +158,21 @@
 <p class="brt-body">Zum Abschluss nennt Andreas keine starre „Top-fünf-Liste“, sondern ein Bündel von Zugängen, die sich cumulativ auswirken können: Erstens Emotionen gegenüber sich selbst wahrnehmen und Raum geben statt sofort wegzudrücken. Zweitens bewusste Ruhe – er erwähnt Zen-Praxis mit zwanzig bis fünfundzwanzig Minuten Sitzen ohne Aktion als Beispiel für ein Format, das dem Nervensystem Verarbeitungszeit gibt. Drittens Selbstbeobachtung im Alltag: erkennen, ob Dauerhetzerei Gewohnheit oder bewusste Priorität ist. Viertens die prüfende Frage, ob man im gegenwärtigen Stand zufrieden sei – in Anlehnung an meditative Traditionen, die Klarheit über erfülltes Handeln suchen, ohne das spirituell zu verengen. Fünftens bewusst über den Tellerrand schauen: Meditation, Atemarbeit, Achtsamkeit oder vergleichbare Methoden mehrfach ausprobieren und ehrlich spüren, ob sie tragen oder nicht. Wichtig ist die Haltung aus dem Podcast: ausprobieren statt dogmatisch werden – und Führungspersonen als Vorbild, weil Organisationen unten selten weiter öffnen, als die Spitze es lebt.</p>
 <h2 class="brt-article__h2" id="fazit-zwischenmenschliches-als-risiko-und-chancenfeld-ernst-nehmen">Fazit: Zwischenmenschliches als Risiko- und Chancenfeld ernst nehmen</h2>
 <p class="brt-body">Die Episode bündelt eine Kernaussage für Entscheider in wachsenden Organisationen: Klassische Steuerung bleibt Pflicht, aber Schnittstellen zwischen Menschen scheitern oft an emotionaler und systemischer Undurchsichtigkeit – nicht an fehlendem Prozessdiagramm. Wer eigene Regungen integriert, Verantwortung wirklich freigibt und Menschen Räume für Passung und Stärken lässt, reduziert typische Friktionen und stärkt gleichzeitig Anziehung in einem Markt, in dem Automatisierung viele reine Wissensaufgaben verdrängt. Das ist kein Ersatz für Zahlen, Verträge und operative Kontrolle, sondern der Versuch, Risikoarten sichtbar zu machen, die sonst unter der Wasseroberfläche bleiben – passend zur Beraterium-Idee, Risiken gemeinsam zu benennen und handhabbar zu machen.</p>
-<div class="brt-article__podcast"><p class="brt-article__podcast-label">Risiko Radar Podcast</p><a class="brt-article__podcast-link" href="https://youtu.be/VKH-2GhAWxU" target="_blank" rel="noopener noreferrer">Podcast-Folge ansehen →</a></div>
           </div>
         </div>
-        <aside class="brt-article__aside">
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
 
         <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
-          <p class="brt-article__toc-label">Inhalt</p>
-          <ol class="brt-article__toc-list">
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">11 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
             <li><a href="#warum-risiko-radar-folge-17-uberhaupt-uber-unter-der-oberflache-spricht">Warum Risiko Radar Folge 17 überhaupt über „unter der Oberfläche“ spricht</a></li>
             <li><a href="#was-meint-das-eisbergmodell-hier-jenseits-der-metapher">Was meint das Eisbergmodell hier – jenseits der Metapher?</a></li>
             <li><a href="#nutzt-der-mittelstand-wirklich-nur-einen-kleinen-teil-seines-potenzials">Nutzt der Mittelstand wirklich nur einen kleinen Teil seines Potenzials?</a></li>
@@ -154,43 +184,145 @@
             <li><a href="#was-passiert-mit-betrieben-die-den-wandel-verschlafen">Was passiert mit Betrieben, die den Wandel verschlafen?</a></li>
             <li><a href="#funf-praxisschritte-aus-dem-gesprach-klein-starten-mehrfach-prufen">Fünf Praxisschritte aus dem Gespräch – klein starten, mehrfach prüfen</a></li>
             <li><a href="#fazit-zwischenmenschliches-als-risiko-und-chancenfeld-ernst-nehmen">Fazit: Zwischenmenschliches als Risiko- und Chancenfeld ernst nehmen</a></li>
-          </ol>
+            </ol>
+          </details>
         </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/kmu/">Klarheits-Fahrplan für KMU</a></li>
+            </ul>
+          </nav>
         </aside>
       </div>
+
+    <section class="brt-article__video" aria-labelledby="article-podcast-video">
+      <div class="brt-container">
+        <div class="brt-article__video-head">
+          <p class="brt-article__video-label" id="article-podcast-video">Risiko Radar Podcast</p>
+          <p class="brt-article__video-deck">🎧 Zur ganzen Podcast Folge geht es hier:</p>
+        </div>
+        <div
+          class="brt-article__video-wrap"
+          data-youtube-embed
+          data-youtube-id="VKH-2GhAWxU"
+          data-youtube-page="https://www.beraterium.de/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko/"
+          data-youtube-title="Risiko Radar Podcast: Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche Unternehmensrisiken steuert"
+        >
+          <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: Risiko Radar Podcast: Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche Unternehmensrisiken steuert">
+            <img
+              src="https://i.ytimg.com/vi/VKH-2GhAWxU/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/VKH-2GhAWxU/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/VKH-2GhAWxU/sddefault.jpg 640w"
+              sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
+              alt=""
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              data-youtube-thumb-base="https://i.ytimg.com/vi/VKH-2GhAWxU/"
+              onerror="if(this.src.includes('maxresdefault')){this.src='https://i.ytimg.com/vi/VKH-2GhAWxU/sddefault.jpg';}else if(this.src.includes('sddefault')){this.src='https://i.ytimg.com/vi/VKH-2GhAWxU/hqdefault.jpg';}"
+            >
+            <span class="brt-article__video-play" aria-hidden="true"></span>
+          </button>
+          <a
+            class="brt-article__video-yt-badge"
+            href="https://www.youtube.com/watch?v=VKH-2GhAWxU"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch on YouTube"
+          >
+            <span class="brt-article__video-yt-prefix">Watch on</span>
+            <span class="brt-article__video-yt-brand" aria-hidden="true">
+              <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+              </svg>
+              <span class="brt-article__video-yt-name">YouTube</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
     </article>
+
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
 
     <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
       <div class="brt-container brt-article__faq">
         <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
         <div class="brt-faq brt-fade-up">
           <details class="brt-faq__item">
-            <summary>Behauptet die Folge, deutsche Unternehmer seien „schlecht“?</summary>
-            <p class="brt-body">Nein. Es geht darum, dass neben bewährtem Leistungsstil zusätzliche Hebel in emotionaler und systemischer Reife liegen können – nicht um pauschale Wertung.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Behauptet die Folge, deutsche Unternehmer seien „schlecht“?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Nein. Es geht darum, dass neben bewährtem Leistungsstil zusätzliche Hebel in emotionaler und systemischer Reife liegen können – nicht um pauschale Wertung.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Sind Hard Facts unwichtig?</summary>
-            <p class="brt-body">Nein. Prozesse, IT, Finanzen und operative Steuerung bleiben zentral; der Podcast argumentiert für Zusammenführung mit zwischenmenschlicher Klarheit, nicht für Deren Priorisierung.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Sind Hard Facts unwichtig?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Nein. Prozesse, IT, Finanzen und operative Steuerung bleiben zentral; der Podcast argumentiert für Zusammenführung mit zwischenmenschlicher Klarheit, nicht für Deren Priorisierung.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Was soll ich unter dem Eisbergmodell im Unternehmenskontext verstehen?</summary>
-            <p class="brt-body">Sichtbar sind oft Zahlen, Regeln und Rollenbeschreibungen; weniger sichtbar sind emotionale Muster, Misstrauen, unklare Verantwortungsübergaben und kulturelle Gewohnheiten – sie wirken trotzdem auf Qualität und Tempo.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was soll ich unter dem Eisbergmodell im Unternehmenskontext verstehen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Sichtbar sind oft Zahlen, Regeln und Rollenbeschreibungen; weniger sichtbar sind emotionale Muster, Misstrauen, unklare Verantwortungsübergaben und kulturelle Gewohnheiten – sie wirken trotzdem auf Qualität und Tempo.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Ist das dasselbe wie „esoterische“ Führung?</summary>
-            <p class="brt-body">Im Gespräch wird bewusst differenziert: Es geht um nachvollziehbare Wahrnehmung und Systemik, nicht um Ersatz für rationale Entscheidungen oder um wissenschaftlich unbelegte Einzeldogmen.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Ist das dasselbe wie „esoterische“ Führung?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Im Gespräch wird bewusst differenziert: Es geht um nachvollziehbare Wahrnehmung und Systemik, nicht um Ersatz für rationale Entscheidungen oder um wissenschaftlich unbelegte Einzeldogmen.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Wie hängt das mit KI zusammen?</summary>
-            <p class="brt-body">Die These lautet: einfache kognitive Routinearbeit werde stärker automatisierbar; menschliche Stärken wie Empathie, Urteil und kreative Verknüpfung gewinnen relativ an Gewicht.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie hängt das mit KI zusammen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Die These lautet: einfache kognitive Routinearbeit werde stärker automatisierbar; menschliche Stärken wie Empathie, Urteil und kreative Verknüpfung gewinnen relativ an Gewicht.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Was kann ich als Erstes konkret tun?</summary>
-            <p class="brt-body">Kurze bewusste Pausen einplanen, eine konkrete Schnittstelle im Team durchgehen (nicht nur formal, sondern: wer trägt wirklich was emotional mit?) und eigene Stressreaktionen einmal bis zur nächsten Ursache „mitgehen“ statt sofort zu eskalieren.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was kann ich als Erstes konkret tun?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Kurze bewusste Pausen einplanen, eine konkrete Schnittstelle im Team durchgehen (nicht nur formal, sondern: wer trägt wirklich was emotional mit?) und eigene Stressreaktionen einmal bis zur nächsten Ursache „mitgehen“ statt sofort zu eskalieren.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Was ist mit Menschen, die ihre Rolle nicht weiterentwickeln wollen?</summary>
-            <p class="brt-body">Die Episode betont: Zufriedenheit in passenden, bescheidenen Rollen ist legitim; es geht nicht um Zwangs-Selbstoptimierung, sondern um echte Passung und Wertschätzung.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist mit Menschen, die ihre Rolle nicht weiterentwickeln wollen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Die Episode betont: Zufriedenheit in passenden, bescheidenen Rollen ist legitim; es geht nicht um Zwangs-Selbstoptimierung, sondern um echte Passung und Wertschätzung.</p>
+            </div>
           </details>
         </div>
       </div>
@@ -198,9 +330,9 @@
 
     <section class="brt-section brt-section--alt" aria-labelledby="author-box">
       <div class="brt-container brt-article__author brt-fade-up">
-        
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
         <div>
-          <h2 id="author-box" class="brt-h3">Till Manfred Blania</h2>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
           <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
           <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
         </div>
@@ -220,7 +352,7 @@
         <ul class="brt-blog-grid brt-stagger">
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe/">
-<div class="brt-card__thumb"><img src="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.png" alt="family business succession leadership clarity SME Germany" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.webp" alt="family business succession leadership clarity SME Germany" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-480w.webp 480w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-960w.webp 960w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-1440w.webp 1440w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Familiennachfolge und Generationskonflikt: Was nach der formalen Übergabe alles schiefgehen kann</h3>
@@ -232,7 +364,7 @@
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/sicherheit-unternehmen-risikomanagement-kmu/">
-<div class="brt-card__thumb"><img src="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.png" alt="Frame 24" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.webp" alt="Frame 24" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-480w.webp 480w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-960w.webp 960w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-1440w.webp 1440w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird</h3>
@@ -244,7 +376,7 @@
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen/">
-<div class="brt-card__thumb"><img src="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.png" alt="Folge 7" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.webp" alt="Folge 7" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-480w.webp 480w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-960w.webp 960w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-1440w.webp 1440w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr Unternehmen bedrohen</h3>
@@ -289,7 +421,7 @@
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../../kontakt/">Kontakt</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../../impressum/">Impressum</a></li>
         <li><a href="../../datenschutz/">Datenschutz</a></li>
         <li><a href="../../agb/">AGB</a></li>

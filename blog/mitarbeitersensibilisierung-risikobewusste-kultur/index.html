@@ -20,6 +20,7 @@
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" href="../../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../../css/brt-fallback.css">
@@ -53,7 +54,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -90,22 +94,41 @@
 <div class="brt">
   <main id="main-content">
 
-    <article class="brt-article">
-      <header class="brt-container brt-article__header brt-fade-up">
-        <nav class="brt-breadcrumb" aria-label="Brotkrumen">
-          <a href="../../">Start</a> › <a href="../../blog/">Blog</a> › <span>HR &amp; Kultur</span>
-        </nav>
-        <p class="brt-tag">HR &amp; Kultur</p>
-        <h1 class="brt-h1 brt-article__title">Mitarbeitersensibilisierung und risikobewusste Kultur: Mehr als Zertifikate an der Wand</h1>
-        <p class="brt-article__meta brt-meta">
-          <span>Till Manfred Blania</span> · <time datetime="2026-03-05">5. März 2026</time> · ca. 7 Min. Lesezeit
-        </p>
-      </header>
-      <figure class="brt-article__hero brt-fade-up"><img src="../../img/blog/mitarbeitersensibilisierung-risikobewusste-kultur-hero.png" alt="Beraterium Risiken verteilen in KMU und Startups" class="brt-article__hero-img" loading="eager" fetchpriority="high"></figure>
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+          <p class="brt-article__sticky-title">Mitarbeitersensibilisierung und risikobewusste Kultur: Mehr als…</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Mitarbeitersensibilisierung und risikobewusste Kultur: Mehr als Zertifikate an der Wand</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">HR &amp; Kultur</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2026-03-05">5. März 2026</time> · ca. 7 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/mitarbeitersensibilisierung-risikobewusste-kultur-hero.webp" alt="Beraterium Risiken verteilen in KMU und Startups" class="brt-article__hero-img" width="1536" height="1024" srcset="../../img/blog/mitarbeitersensibilisierung-risikobewusste-kultur-hero-480w.webp 480w, ../../img/blog/mitarbeitersensibilisierung-risikobewusste-kultur-hero-960w.webp 960w, ../../img/blog/mitarbeitersensibilisierung-risikobewusste-kultur-hero-1440w.webp 1440w, ../../img/blog/mitarbeitersensibilisierung-risikobewusste-kultur-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"></figure>
+      </div>
       <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
         <div class="brt-article__main">
-        <p class="brt-lead brt-article__lead">Certificates aren’t enough: open error culture, risk-driven training, and “safety in dialogue” – how to get employee risk awareness right for founders and SMEs.</p>
-          <div class="brt-article__body">
+          <p class="brt-lead brt-article__lead">Certificates aren’t enough: open error culture, risk-driven training, and “safety in dialogue” – how to get employee risk awareness right for founders and SMEs.</p>
+          <div class="brt-article__body" id="article-body" tabindex="-1">
 <aside class="brt-article__keypoints" aria-label="Kernaussagen"><p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p><ul class="brt-article__list">
 <li><strong>Zertifikate allein reichen nicht.</strong> Wenn ein Mitarbeiter fahrlässig handelt (z. B. Brand, Datenleck), zahlt oft keine Versicherung – und die Kultur entscheidet, ob Risiken und Maßnahmen wirklich gelebt werden.</li>
 <li><strong>„Nicht jeder muss alles wissen, aber jeder muss genug wissen.“</strong> Alle sollen handlungsfähig sein, vor allem in den ersten Minuten; mehr Schulung ist nicht automatisch mehr Sicherheit – Qualität vor Quantität, bündeln und priorisieren.</li>
@@ -132,14 +155,21 @@
 <p class="brt-body">Sicherheit entsteht <strong>im Dialog, nicht im Alleingang</strong>. Alle einbeziehen, nachfragen, ob jemand noch Ideen hat, wo sich etwas verbessern lässt – die Mitarbeiter kennen die Abläufe und wissen oft am besten, wo Risiken lauern. Sie sind in der Regel bereit, bei der Reduzierung von Risiken mitzuarbeiten, wenn sie wertgeschätzt und einbezogen werden. Ein Königsweg kann sein, Experten aus verschiedenen Fachgebieten zusammenzubringen (z. B. in einer Community oder einem Expertennetzwerk), die Inhalte verständlich, praxisnah und kompakt ausarbeiten – als Teamleistung, nicht als Einzelleistung – und das Ergebnis dokumentiert allen zugänglich zu machen. So bleibt Sensibilisierung nah dran an den realen Risiken des Unternehmens und wird nicht zur reinen Formality.</p>
 <h2 class="brt-article__h2" id="warum-fuhrungskrafte-nicht-warten-sollten-das-risiko-wartet-nicht">Warum Führungskräfte nicht warten sollten: Das Risiko wartet nicht</h2>
 <p class="brt-body">Man kann viele Risiken identifizieren und Konzepte entwickeln – entscheidend ist das <strong>Umsetzen</strong>. Ein typisches Fehldenken ist: „Wird schon nichts passieren, haben wir immer so gemacht, ist ja bisher nichts passiert.“ Die Eintrittswahrscheinlichkeit mag niedrig sein (z. B. 1 % oder 5 %), aber wenn der Schaden 100.000 oder 300.000 € beträgt, lohnt sich Handeln trotzdem. Die Gefahr verschwindet nicht, weil man sie ignoriert. Zudem ändert sich das Recht laufend; wer neue Regelungen fahrlässig ignoriert, riskiert zusätzliche Probleme. Ein aktuelles Beispiel: Der Arbeitsweg wird in bestimmten Fällen zur Arbeitszeit gerechnet – mit Folgen für Arbeitszeiten und Vergütung. Wer solche Themen nicht im Blick hat, handelt fahrlässig. Die Botschaft an Führungskräfte: Immer die Augen offen halten und die Leute mit an Bord holen. Gemeinsam nach vorne gehen ist wichtiger denn je – Risikomanagement und Mitarbeitersensibilisierung inklusive.</p>
-<div class="brt-article__podcast"><p class="brt-article__podcast-label">Risiko Radar Podcast</p><a class="brt-article__podcast-link" href="https://youtu.be/MFqxzHL_4cY" target="_blank" rel="noopener noreferrer">Podcast-Folge ansehen →</a></div>
           </div>
         </div>
-        <aside class="brt-article__aside">
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
 
         <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
-          <p class="brt-article__toc-label">Inhalt</p>
-          <ol class="brt-article__toc-list">
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">9 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
             <li><a href="#warum-mitarbeitersensibilisierung-fur-grunder-und-kmu-wichtig-ist">Warum Mitarbeitersensibilisierung für Gründer und KMU wichtig ist</a></li>
             <li><a href="#wo-hakt-es-bei-pflichtschulungen-in-der-praxis">Wo hakt es bei Pflichtschulungen in der Praxis?</a></li>
             <li><a href="#ein-praxisbeispiel-kleiner-fehler-groer-schaden">Ein Praxisbeispiel: Kleiner Fehler, großer Schaden</a></li>
@@ -149,18 +179,145 @@
             <li><a href="#wie-kann-man-schulung-kosteneffizient-und-wirksam-umsetzen">Wie kann man Schulung kosteneffizient und wirksam umsetzen?</a></li>
             <li><a href="#sicherheit-im-dialog-community-und-einbindung-aller">Sicherheit im Dialog: Community und Einbindung aller</a></li>
             <li><a href="#warum-fuhrungskrafte-nicht-warten-sollten-das-risiko-wartet-nicht">Warum Führungskräfte nicht warten sollten: Das Risiko wartet nicht</a></li>
-          </ol>
+            </ol>
+          </details>
         </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/kmu/">Klarheits-Fahrplan für KMU</a></li>
+            </ul>
+          </nav>
         </aside>
       </div>
+
+    <section class="brt-article__video" aria-labelledby="article-podcast-video">
+      <div class="brt-container">
+        <div class="brt-article__video-head">
+          <p class="brt-article__video-label" id="article-podcast-video">Risiko Radar Podcast</p>
+          <p class="brt-article__video-deck">🎧 Zur ganzen Podcast Folge geht es hier:</p>
+        </div>
+        <div
+          class="brt-article__video-wrap"
+          data-youtube-embed
+          data-youtube-id="MFqxzHL_4cY"
+          data-youtube-page="https://www.beraterium.de/blog/mitarbeitersensibilisierung-risikobewusste-kultur/"
+          data-youtube-title="Risiko Radar Podcast: Mitarbeitersensibilisierung und risikobewusste Kultur: Mehr als Zertifikate an der Wand"
+        >
+          <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: Risiko Radar Podcast: Mitarbeitersensibilisierung und risikobewusste Kultur: Mehr als Zertifikate an der Wand">
+            <img
+              src="https://i.ytimg.com/vi/MFqxzHL_4cY/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/MFqxzHL_4cY/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/MFqxzHL_4cY/sddefault.jpg 640w"
+              sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
+              alt=""
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              data-youtube-thumb-base="https://i.ytimg.com/vi/MFqxzHL_4cY/"
+              onerror="if(this.src.includes('maxresdefault')){this.src='https://i.ytimg.com/vi/MFqxzHL_4cY/sddefault.jpg';}else if(this.src.includes('sddefault')){this.src='https://i.ytimg.com/vi/MFqxzHL_4cY/hqdefault.jpg';}"
+            >
+            <span class="brt-article__video-play" aria-hidden="true"></span>
+          </button>
+          <a
+            class="brt-article__video-yt-badge"
+            href="https://www.youtube.com/watch?v=MFqxzHL_4cY"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch on YouTube"
+          >
+            <span class="brt-article__video-yt-prefix">Watch on</span>
+            <span class="brt-article__video-yt-brand" aria-hidden="true">
+              <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+              </svg>
+              <span class="brt-article__video-yt-name">YouTube</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
     </article>
 
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
+      <div class="brt-container brt-article__faq">
+        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
+        <div class="brt-faq brt-fade-up">
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Warum Mitarbeitersensibilisierung für Gründer und KMU wichtig ist?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Risiken betreffen alle im Unternehmen – nicht nur die, die offiziell „mit Risiko beauftragt“ sind. Gleichzeitig bringt es wenig, wenn Zertifikate an der Wand hängen und die Begehung passt, aber im Alltag ein Mitarbeiter fahrlässig handelt und z. B. ein kleiner Fehler einen großen Schaden auslöst. Dann zahlt oft keine…</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wo hakt es bei Pflichtschulungen in der Praxis?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">In vielen Betrieben gibt es eine Fülle an Pflichtschulungen: Arbeitsschutz, IT-Sicherheit, DSGVO, Erste Hilfe, Brandschutz und mehr. Das ist sinnvoll und oft rechtlich notwendig. Trotzdem bleibt häufig viel Theorie und wenig spürbare Wirkung – und aus Sicht der Mitarbeiter oft das Gefühl der Überforderung. Wenn es…</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Ein Praxisbeispiel: Kleiner Fehler, großer Schaden?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">In einem kleinen Handwerksbetrieb (z. B. Tischlerei) mit Sägeanlagen und Absaugung entsteht beim Sägen ein kleines Glutstückchen. Das wird durch die Absaugung in die Lüftungsanlage gesaugt und löst dort einen größeren Brand aus. Die Versicherung trägt den Schaden in einem solchen Fall oft nicht; der Betrieb steht…</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist eine offene Fehlerkultur – und warum ist sie die Grundlage?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Eine risikobewusste Kultur braucht als Basis eine offene Fehlerkultur. Drei Punkte sind zentral: Erstens ist es okay, Fehler zu machen – auch wenn sie teuer werden. Zweitens ist es okay, Fehler zuzugeben, statt zu hoffen, dass niemand es mitkriegt (denn sonst wird der Schaden am anderen Ende oft größer). Drittens…</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie viel Schulung für wen – und warum „mehr“ nicht „sicherer“ heißt?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Nicht jeder muss alles wissen – aber jeder muss genug wissen, um handlungsfähig zu sein. Wenn etwas passiert, zählen die ersten Minuten; deshalb sollten die richtigen Leute mit Redundanzen reagieren können. Gleichzeitig gilt: Mehr Schulung ist nicht automatisch mehr Sicherheit. Zu viele, zu ungezielte Schulungen…</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was hat Mitarbeitergesundheit mit Risikobewusstsein zu tun?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Nur wenn Mitarbeiter psychisch und körperlich in der Lage sind, sich zu beteiligen, können sie Risiken erkennen und Maßnahmen umsetzen. Wer ausgebrannt ist oder keine Kapazität hat für etwas außerhalb des Tagesgeschäfts, wird sich kaum für Sensibilisierung gewinnen lassen. Mitarbeitergesundheit ist deshalb keine…</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
 
     <section class="brt-section brt-section--alt" aria-labelledby="author-box">
       <div class="brt-container brt-article__author brt-fade-up">
-        
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
         <div>
-          <h2 id="author-box" class="brt-h3">Till Manfred Blania</h2>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
           <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
           <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
         </div>
@@ -180,7 +337,7 @@
         <ul class="brt-blog-grid brt-stagger">
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
           <a class="brt-card__link" href="../../blog/iran-konflikt-oelpreis-lieferketten-unternehmen/">
-<div class="brt-card__thumb"><img src="../../img/blog/iran-konflikt-oelpreis-lieferketten-unternehmen-hero.png" alt="Risikomangement für Startups und Kmu, Globale Wirtschaft, Iran Konflikt" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/iran-konflikt-oelpreis-lieferketten-unternehmen-hero.webp" alt="Risikomangement für Startups und Kmu, Globale Wirtschaft, Iran Konflikt" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/iran-konflikt-oelpreis-lieferketten-unternehmen-hero-480w.webp 480w, ../../img/blog/iran-konflikt-oelpreis-lieferketten-unternehmen-hero-960w.webp 960w, ../../img/blog/iran-konflikt-oelpreis-lieferketten-unternehmen-hero-1440w.webp 1440w, ../../img/blog/iran-konflikt-oelpreis-lieferketten-unternehmen-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
               <h3 class="brt-h3">Iran-Krise und die Straße von Hormuz: Warum „betrifft mich nicht&quot; die teuerste Lüge für Unternehmer ist</h3>
@@ -192,7 +349,7 @@
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
           <a class="brt-card__link" href="../../blog/geistiges-eigentum-patentschutz-praxistipps/">
-<div class="brt-card__thumb"><img src="../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero.png" alt="Geistiges Eigentum und Patentschutz: Was du schützen kannst – und was du nicht kannst" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero.webp" alt="Geistiges Eigentum und Patentschutz: Was du schützen kannst – und was du nicht kannst" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero-480w.webp 480w, ../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero-960w.webp 960w, ../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero-1440w.webp 1440w, ../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
               <h3 class="brt-h3">Geistiges Eigentum und Patentschutz: Was du schützen kannst – und was du nicht kannst</h3>
@@ -204,7 +361,7 @@
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
           <a class="brt-card__link" href="../../blog/ki-und-risikomanagement-mensch-im-mittelpunkt/">
-<div class="brt-card__thumb"><img src="../../img/blog/ki-und-risikomanagement-mensch-im-mittelpunkt-hero.png" alt="Frame 26" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/ki-und-risikomanagement-mensch-im-mittelpunkt-hero.webp" alt="Frame 26" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/ki-und-risikomanagement-mensch-im-mittelpunkt-hero-480w.webp 480w, ../../img/blog/ki-und-risikomanagement-mensch-im-mittelpunkt-hero-960w.webp 960w, ../../img/blog/ki-und-risikomanagement-mensch-im-mittelpunkt-hero-1440w.webp 1440w, ../../img/blog/ki-und-risikomanagement-mensch-im-mittelpunkt-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
               <h3 class="brt-h3">KI und Risikomanagement: Warum der Mensch der entscheidende Faktor bleibt</h3>
@@ -249,7 +406,7 @@
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../../kontakt/">Kontakt</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../../impressum/">Impressum</a></li>
         <li><a href="../../datenschutz/">Datenschutz</a></li>
         <li><a href="../../agb/">AGB</a></li>

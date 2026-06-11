@@ -20,6 +20,7 @@
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" href="../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../css/brt-fallback.css">
@@ -32,7 +33,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -160,7 +164,7 @@
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../kontakt/">Kontakt</a></li>
+        <li><a href="../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../impressum/">Impressum</a></li>
         <li><a href="../datenschutz/">Datenschutz</a></li>
         <li><a href="../agb/">AGB</a></li>

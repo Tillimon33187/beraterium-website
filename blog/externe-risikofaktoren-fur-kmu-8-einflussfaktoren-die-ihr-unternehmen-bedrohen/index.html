@@ -20,6 +20,7 @@
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" href="../../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../../css/brt-fallback.css">
@@ -53,7 +54,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -90,22 +94,41 @@
 <div class="brt">
   <main id="main-content">
 
-    <article class="brt-article">
-      <header class="brt-container brt-article__header brt-fade-up">
-        <nav class="brt-breadcrumb" aria-label="Brotkrumen">
-          <a href="../../">Start</a> › <a href="../../blog/">Blog</a> › <span>KMU</span>
-        </nav>
-        <p class="brt-tag">KMU</p>
-        <h1 class="brt-h1 brt-article__title">Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr Unternehmen bedrohen</h1>
-        <p class="brt-article__meta brt-meta">
-          <span>Till Manfred Blania</span> · <time datetime="2025-12-04">4. Dezember 2025</time> · ca. 10 Min. Lesezeit
-        </p>
-      </header>
-      <figure class="brt-article__hero brt-fade-up"><img src="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.png" alt="Folge 7" class="brt-article__hero-img" loading="eager" fetchpriority="high"></figure>
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">KMU</span>
+          <p class="brt-article__sticky-title">Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr…</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr Unternehmen bedrohen</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">KMU</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2025-12-04">4. Dezember 2025</time> · ca. 10 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.webp" alt="Folge 7" class="brt-article__hero-img" width="1536" height="1024" srcset="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-480w.webp 480w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-960w.webp 960w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-1440w.webp 1440w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"></figure>
+      </div>
       <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
         <div class="brt-article__main">
-        <p class="brt-lead brt-article__lead">Externe Risikofaktoren bedrohen Dein KMU mehr denn je. Energiepreise, Steuerlast, Regulierung &amp; Fachkräftemangel – praktische Strategien zur Risikominimierung jetzt lesen.</p>
-          <div class="brt-article__body">
+          <p class="brt-lead brt-article__lead">Externe Risikofaktoren bedrohen Dein KMU mehr denn je. Energiepreise, Steuerlast, Regulierung &amp; Fachkräftemangel – praktische Strategien zur Risikominimierung jetzt lesen.</p>
+          <div class="brt-article__body" id="article-body" tabindex="-1">
 <aside class="brt-article__keypoints" aria-label="Kernaussagen"><p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p><ul class="brt-article__list">
 <li>Energiepreise &amp; CO₂-Steuern treiben Produktionskosten in die Höhe – Besonders für Mittelständler mit hohem Energieverbrauch ist dies eines der Top-3-Risiken. Kleine Unternehmen haben bei Energie-Transition kaum Mitspracherecht, müssen aber trotzdem investieren.</li>
 <li>Inflations-Lohn-Spirale beschleunigt sich – Mindestlohnerhöhungen + Sozialabgaben führen zu 10+ % Kostensteigerungen pro Erhöhung. Unternehmen müssen attraktive Kulturen statt nur höhere Gehälter schaffen, um Top-Talente zu halten.</li>
@@ -386,14 +409,21 @@ Unternehmer:innen zögern Investitionen hinaus, weil sie nicht wissen, ob sich d
 </ol>
 <p class="brt-body">Der Mittelstand in Deutschland hat eine lange Tradition, schwierige Zeiten zu überstehen. Aber das setzt voraus, dass Unternehmer ihre Augen offen halten – und ihre Pläne entsprechend anpassen.</p>
 <p class="brt-body">Die Frage ist nicht, ob externe Risiken dein Unternehmen treffen. Die Frage ist: Bist du bereit, sie zu managen?</p>
-<div class="brt-article__podcast"><p class="brt-article__podcast-label">Risiko Radar Podcast</p><a class="brt-article__podcast-link" href="https://youtu.be/pD6wiqnQRDM" target="_blank" rel="noopener noreferrer">Podcast-Folge ansehen →</a></div>
           </div>
         </div>
-        <aside class="brt-article__aside">
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
 
         <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
-          <p class="brt-article__toc-label">Inhalt</p>
-          <ol class="brt-article__toc-list">
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">10 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
             <li><a href="#die-unsichtbare-krise-im-mittelstand-externe-risikofaktoren-die-du-nicht-ignorieren-darfst">Die unsichtbare Krise im Mittelstand: Externe Risikofaktoren, die Du nicht ignorieren darfst</a></li>
             <li><a href="#1-die-inflation-lohn-spirale-wenn-lebenshaltungskosten-deine-lohnkosten-sprengen">1. Die Inflation-Lohn-Spirale: Wenn Lebenshaltungskosten deine Lohnkosten sprengen</a></li>
             <li><a href="#2-energiepreise-co2-steuern-der-schleichende-standortvorteil-verlust">2. Energiepreise &amp;amp; CO₂-Steuern: Der schleichende Standortvorteil-Verlust</a></li>
@@ -404,18 +434,145 @@ Unternehmer:innen zögern Investitionen hinaus, weil sie nicht wissen, ob sich d
             <li><a href="#7-externe-risiken-managemen-die-checkliste-fur-dein-kmu">7. Externe Risiken Managemen: Die Checkliste für dein KMU</a></li>
             <li><a href="#8-konkrete-nachste-schritte-dein-action-plan">8. Konkrete Nächste Schritte: Dein Action Plan</a></li>
             <li><a href="#fazit-externe-risiken-sind-nicht-zu-bekampfen-sondern-zu-managen">Fazit: Externe Risiken sind nicht zu bekämpfen – sondern zu managen</a></li>
-          </ol>
+            </ol>
+          </details>
         </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/kmu/">Klarheits-Fahrplan für KMU</a></li>
+            </ul>
+          </nav>
         </aside>
       </div>
+
+    <section class="brt-article__video" aria-labelledby="article-podcast-video">
+      <div class="brt-container">
+        <div class="brt-article__video-head">
+          <p class="brt-article__video-label" id="article-podcast-video">Risiko Radar Podcast</p>
+          <p class="brt-article__video-deck">🎧 Zur ganzen Podcast Folge geht es hier:</p>
+        </div>
+        <div
+          class="brt-article__video-wrap"
+          data-youtube-embed
+          data-youtube-id="pD6wiqnQRDM"
+          data-youtube-page="https://www.beraterium.de/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen/"
+          data-youtube-title="Risiko Radar Podcast: Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr Unternehmen bedrohen"
+        >
+          <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: Risiko Radar Podcast: Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr Unternehmen bedrohen">
+            <img
+              src="https://i.ytimg.com/vi/pD6wiqnQRDM/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/pD6wiqnQRDM/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/pD6wiqnQRDM/sddefault.jpg 640w"
+              sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
+              alt=""
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              data-youtube-thumb-base="https://i.ytimg.com/vi/pD6wiqnQRDM/"
+              onerror="if(this.src.includes('maxresdefault')){this.src='https://i.ytimg.com/vi/pD6wiqnQRDM/sddefault.jpg';}else if(this.src.includes('sddefault')){this.src='https://i.ytimg.com/vi/pD6wiqnQRDM/hqdefault.jpg';}"
+            >
+            <span class="brt-article__video-play" aria-hidden="true"></span>
+          </button>
+          <a
+            class="brt-article__video-yt-badge"
+            href="https://www.youtube.com/watch?v=pD6wiqnQRDM"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch on YouTube"
+          >
+            <span class="brt-article__video-yt-prefix">Watch on</span>
+            <span class="brt-article__video-yt-brand" aria-hidden="true">
+              <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+              </svg>
+              <span class="brt-article__video-yt-name">YouTube</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
     </article>
 
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
+      <div class="brt-container brt-article__faq">
+        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
+        <div class="brt-faq brt-fade-up">
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Die unsichtbare Krise im Mittelstand: Externe Risikofaktoren, die Du nicht ignorieren darfst?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Der deutsche Mittelstand steht unter Druck – aber nicht nur von innen. Während Unternehmer:innen traditionell ihre Aufmerksamkeit auf interne Faktoren lenken (Mitarbeitende, Prozesse, Finanzierung), wirken heute externe Kräfte mit beispielloser Intensität auf ihre Geschäfte ein.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">1. Die Inflation-Lohn-Spirale: Wenn Lebenshaltungskosten deine Lohnkosten sprengen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Das Problem: Alles wird teurer. Nicht um 1 %, sondern deutlich mehr. Deine Mitarbeitenden spüren das unmittelbar – bei der Miete, beim Lebensmittel-Einkauf, an der Tankstelle. Die natürliche Reaktion: Sie fordern höhere Löhne.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">2. Energiepreise &amp;amp; CO₂-Steuern: Der schleichende Standortvorteil-Verlust?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Die harte Realität: Deutschland verliert als Industriestandort an Attraktivität. Großkonzerne wie BASF produzieren längst in China und Indien. Automobilhersteller verlegen Werke nach Polen. Für Dich als Mittelständler ist das zugleich Warnung und Realität.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">3. Steuerlast &amp;amp; Abgabenlast: Warum Deutschland als Gründungsstandort unattraktiv wird?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Die Statistik ist deutlich: Deutschland hat eine der höchsten Abgabenlast im EU-Raum. Kombiniert aus:</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">4. Bürokratie &amp;amp; Regulierung: Top-3-Risiko mit Straf-Folgen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Das Paradoxe an deutscher Bürokratie: Sie hat echte Vorteile.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">5. Fachkräftemangel – Ein Attraktivitätsproblem, nicht ein Mangel-Problem?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Die Lüge: “Es gibt einen Fachkräftemangel”</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
 
     <section class="brt-section brt-section--alt" aria-labelledby="author-box">
       <div class="brt-container brt-article__author brt-fade-up">
-        
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
         <div>
-          <h2 id="author-box" class="brt-h3">Till Manfred Blania</h2>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
           <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
           <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
         </div>
@@ -435,7 +592,7 @@ Unternehmer:innen zögern Investitionen hinaus, weil sie nicht wissen, ob sich d
         <ul class="brt-blog-grid brt-stagger">
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/emotionale-fuehrung-kmu-eisbergmodell-risiko/">
-<div class="brt-card__thumb"><img src="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.png" alt="Emotional Leadership and the Organizational Iceberg" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.webp" alt="Emotional Leadership and the Organizational Iceberg" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-480w.webp 480w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-960w.webp 960w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-1440w.webp 1440w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche Unternehmensrisiken steuert</h3>
@@ -447,7 +604,7 @@ Unternehmer:innen zögern Investitionen hinaus, weil sie nicht wissen, ob sich d
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe/">
-<div class="brt-card__thumb"><img src="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.png" alt="family business succession leadership clarity SME Germany" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.webp" alt="family business succession leadership clarity SME Germany" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-480w.webp 480w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-960w.webp 960w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-1440w.webp 1440w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Familiennachfolge und Generationskonflikt: Was nach der formalen Übergabe alles schiefgehen kann</h3>
@@ -459,7 +616,7 @@ Unternehmer:innen zögern Investitionen hinaus, weil sie nicht wissen, ob sich d
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/sicherheit-unternehmen-risikomanagement-kmu/">
-<div class="brt-card__thumb"><img src="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.png" alt="Frame 24" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.webp" alt="Frame 24" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-480w.webp 480w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-960w.webp 960w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-1440w.webp 1440w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird</h3>
@@ -504,7 +661,7 @@ Unternehmer:innen zögern Investitionen hinaus, weil sie nicht wissen, ob sich d
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../../kontakt/">Kontakt</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../../impressum/">Impressum</a></li>
         <li><a href="../../datenschutz/">Datenschutz</a></li>
         <li><a href="../../agb/">AGB</a></li>

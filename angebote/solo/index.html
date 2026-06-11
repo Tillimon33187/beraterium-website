@@ -20,6 +20,7 @@
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" href="../../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../../css/brt-fallback.css">
@@ -32,7 +33,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -78,9 +82,7 @@
         <div class="brt-page-hero__actions"><a class="brt-btn" href="../../kontakt/">Kostenloses Erstgespräch buchen</a><a class="brt-btn brt-btn--outline" href="#optionen">Die 3 Optionen ansehen →</a></div>
         </div>
       <div class="brt-page-hero__media brt-fade-up" style="--fade-delay: 120ms">
-        <div class="brt-image-placeholder" role="img" aria-label="Solo-Selbstständige beim Risiko-Kompass mit Beraterium">
-          <span class="brt-image-placeholder__label">Bild folgt</span>
-        </div>
+        <img src="../../img/angebote/solo/hero.webp" alt="Solo-Selbstständige beim Risiko-Kompass mit Beraterium" class="brt-page-hero__img" width="1535" height="1024" srcset="../../img/angebote/solo/hero-480w.webp 480w, ../../img/angebote/solo/hero-960w.webp 960w, ../../img/angebote/solo/hero-1440w.webp 1440w, ../../img/angebote/solo/hero.webp 1535w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
       </div>
       </div>
     </section>
@@ -172,20 +174,44 @@
         </header>
         <div class="brt-faq brt-fade-up">
           <details class="brt-faq__item">
-            <summary>Lohnt sich das, wenn ich nur ich bin?</summary>
-            <p class="brt-body">Gerade dann. Fällst du aus, gibt es keinen Puffer.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Lohnt sich das, wenn ich nur ich bin?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Gerade dann. Fällst du aus, gibt es keinen Puffer.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Wie viel Zeit kostet es mich?</summary>
-            <p class="brt-body">Eine Session von 2–3 Stunden plus ein kurzes Kick-off. Mehr nicht.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie viel Zeit kostet es mich?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Eine Session von 2–3 Stunden plus ein kurzes Kick-off. Mehr nicht.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Ich finde Risiko-Themen unangenehm – wird das ein Angst-Termin?</summary>
-            <p class="brt-body">Nein. Es geht um Klarheit und Handlungsfähigkeit, nicht um Angst.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Ich finde Risiko-Themen unangenehm – wird das ein Angst-Termin?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Nein. Es geht um Klarheit und Handlungsfähigkeit, nicht um Angst.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Was bringt mir der KI-Impulsgeber konkret?</summary>
-            <p class="brt-body">Er liefert statistische Einschätzungen und Erfahrungswerte, damit deine Bewertung nicht nur auf deinem Bauchgefühl beruht.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was bringt mir der KI-Impulsgeber konkret?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Er liefert statistische Einschätzungen und Erfahrungswerte, damit deine Bewertung nicht nur auf deinem Bauchgefühl beruht.</p>
+            </div>
           </details>
         </div>
       </div>
@@ -229,7 +255,7 @@
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../../kontakt/">Kontakt</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../../impressum/">Impressum</a></li>
         <li><a href="../../datenschutz/">Datenschutz</a></li>
         <li><a href="../../agb/">AGB</a></li>

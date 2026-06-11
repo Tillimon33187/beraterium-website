@@ -6,14 +6,22 @@ import json
 from html import escape
 from pathlib import Path
 
+from _i18n import hreflang_links, language_switcher_html
+
 from _cms import (
     BlogPost,
     TeamMember,
-    article_toc_html,
+    article_author_sidebar_html,
+    article_faq_section_html,
+    faq_section_html,
+    author_name_link_html,
+    article_sidebar_html,
+    article_youtube_embed_html,
     blog_card_html,
     blog_filters_html,
     blog_posting_schema,
     format_date_de,
+    header_logo_html,
     home_team_section_html,
     img_html,
     load_blog_posts,
@@ -26,6 +34,37 @@ from _cms import (
 )
 
 SITE = Path(__file__).parent
+
+IMG_HOME_ANALYSE = "img/home/analyse-situation.webp"
+IMG_METHODE_GEFAHRENKATALOG = "img/methode/gefahrenkatalog-3-ebenen.webp"
+IMG_UEBER_UNS_RISIKORADAR = "img/ueber-uns/risikoradar.webp"
+IMG_ANGEBOT_STARTUPS_HERO = "img/angebote/startups/hero.webp"
+IMG_ANGEBOT_KMU_HERO = "img/angebote/kmu/hero.webp"
+IMG_ANGEBOT_SOLO_HERO = "img/angebote/solo/hero.webp"
+
+
+def _depth_from_pre(pre: str) -> int:
+    return pre.count("/")
+
+
+def split_media_html(
+    src: str,
+    alt: str,
+    depth: int,
+    *,
+    contain: bool = False,
+    hover_zoom: bool = False,
+) -> str:
+    css_class = "brt-split__media-img--contain" if contain else ""
+    aspect = "3/2" if contain else "4/3"
+    media = img_html(src, alt, depth, css_class=css_class, aspect=aspect, high_detail=hover_zoom)
+    slot_style = "--fade-delay: 120ms"
+    if hover_zoom:
+        slot_style += f"; --hover-zoom-aspect: {aspect.replace('/', ' / ')}"
+    zoom_class = " brt-split__media--hover-zoom" if hover_zoom else ""
+    return f"""        <div class="brt-split__media{zoom_class} brt-fade-up" style="{slot_style}">
+          {media}
+        </div>"""
 
 COOKIEYES_HEAD = """  <!-- Start cookieyes banner -->
   <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
@@ -124,7 +163,7 @@ def footer_html(depth: int) -> str:
       <h2>Kontakt</h2>
       <ul>
         <li><a href="{pre}kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="{pre}kontakt/">Kontakt</a></li>
+        <li><a href="{pre}kontaktformular/">Kontaktformular</a></li>
         <li><a href="{pre}impressum/">Impressum</a></li>
         <li><a href="{pre}datenschutz/">Datenschutz</a></li>
         <li><a href="{pre}agb/">AGB</a></li>
@@ -150,6 +189,8 @@ def shell(
     home = pre or "./"
     robots = '\n  <meta name="robots" content="noindex">' if noindex else ""
     ld = f"\n  <script type=\"application/ld+json\">\n{json_ld}\n  </script>" if json_ld else ""
+    hreflang = hreflang_links(canonical, current_locale="de")
+    lang_switch = language_switcher_html(current_locale="de", canonical=canonical, depth=depth)
     return f"""<!doctype html>
 <html lang="de">
 
@@ -159,7 +200,7 @@ def shell(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
   <meta name="description" content="{description}">
-  <link rel="canonical" href="https://www.beraterium.de{canonical}">{robots}
+  <link rel="canonical" href="https://www.beraterium.de{canonical}">{robots}{hreflang}
 
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{description}">
@@ -170,6 +211,7 @@ def shell(
   <link rel="icon" href="{pre}favicon.ico" sizes="any">
   <link rel="icon" href="{pre}icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="{pre}css/brt.css" data-brt-css>
   <link rel="stylesheet" href="{pre}css/brt-fallback.css">
@@ -182,7 +224,8 @@ def shell(
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="{home}" aria-label="Beraterium Startseite">Beraterium</a>
+{header_logo_html(home, pre)}
+{lang_switch}
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -217,6 +260,7 @@ def hero(
     compact: bool = False,
     split: bool = False,
     media_label: str = "",
+    media_src: str = "",
     actions: str = "",
 ) -> str:
     cls = "brt-page-hero brt-page-hero--dark"
@@ -226,11 +270,22 @@ def hero(
         cls += " brt-page-hero--split"
     media = ""
     if split:
+        depth = _depth_from_pre(pre)
+        if media_src:
+            media_inner = img_html(
+                media_src,
+                media_label,
+                depth,
+                css_class="brt-page-hero__img",
+                aspect="4/3",
+            )
+        else:
+            media_inner = f"""        <div class="brt-image-placeholder" role="img" aria-label="{media_label}">
+          <span class="brt-image-placeholder__label">Bild folgt</span>
+        </div>"""
         media = f"""
       <div class="brt-page-hero__media brt-fade-up" style="--fade-delay: 120ms">
-        <div class="brt-image-placeholder" role="img" aria-label="{media_label}">
-          <span class="brt-image-placeholder__label">Bild folgt</span>
-        </div>
+        {media_inner}
       </div>"""
     act = f'\n        <div class="brt-page-hero__actions">{actions}</div>' if actions else ""
     return f"""
@@ -286,27 +341,8 @@ def guarantee(pre: str, h2: str = "Doppelte Garantie") -> str:
     </section>"""
 
 
-def faq_section(items: list[tuple[str, str]], *, alt: bool = False) -> str:
-    alt_cls = " brt-section--alt" if alt else ""
-    blocks = []
-    for q, a in items:
-        blocks.append(
-            f"""          <details class="brt-faq__item">
-            <summary>{q}</summary>
-            <p class="brt-body">{a}</p>
-          </details>"""
-        )
-    return f"""
-    <section class="brt-section{alt_cls}" aria-labelledby="faq-title">
-      <div class="brt-container">
-        <header class="brt-section__header brt-fade-up">
-          <h2 id="faq-title" class="brt-h2">Häufige Fragen</h2>
-        </header>
-        <div class="brt-faq brt-fade-up">
-{chr(10).join(blocks)}
-        </div>
-      </div>
-    </section>"""
+def faq_section(items: list[tuple[str, str]], *, alt: bool = False, title: str = "Häufige Fragen") -> str:
+    return faq_section_html(items, title=title, alt=alt)
 
 
 def write(rel: str, html: str) -> None:
@@ -322,6 +358,11 @@ def gen_ueber_uns() -> None:
         team_teaser_card(m, 1)
         for m in load_team_members()
         if m.active and m.show_on_ueber_uns
+    )
+    radar_media = split_media_html(
+        IMG_UEBER_UNS_RISIKORADAR,
+        "Netzwerk und Zusammenarbeit bei RisikoRadar",
+        1,
     )
     main = (
         hero(
@@ -369,11 +410,7 @@ def gen_ueber_uns() -> None:
           <p class="brt-body">Aus unserer Arbeit ist RisikoRadar entstanden: eine Community, in der Unternehmer und Experten offen über Risiken sprechen, Erfahrungen teilen und voneinander lernen. Denn Risiken lassen sich besser verstehen, wenn man nicht allein darüber nachdenkt. Und wenn aus Erkenntnissen konkrete Schritte werden, entstehen Arbeitsräume, in denen Teams gemeinsam Lösungen entwickeln und umsetzen.</p>
           <a class="brt-btn brt-btn--ghost" href="../risikoradar/">RisikoRadar entdecken →</a>
         </div>
-        <div class="brt-split__media brt-fade-up" style="--fade-delay: 120ms">
-          <div class="brt-image-placeholder" role="img" aria-label="Netzwerk und Zusammenarbeit bei RisikoRadar">
-            <span class="brt-image-placeholder__label">RisikoRadar</span>
-          </div>
-        </div>
+{radar_media}
       </div>
     </section>
     <section class="brt-quote-band brt-quote-band--accent" aria-label="Zitat">
@@ -395,7 +432,7 @@ def gen_ueber_uns() -> None:
       </div>
     </section>"""
     )
-    main = main.replace("{team_cards}", team_cards)
+    main = main.replace("{team_cards}", team_cards).replace("{radar_media}", radar_media)
     main += cta_band(
         pre,
         "Lernen wir uns kennen.",
@@ -585,15 +622,18 @@ def gen_methode() -> None:
             actions=f'<a class="brt-btn" href="{pre}kontakt/">Erstgespräch buchen</a>',
         )
         + f"""
-    <nav class="brt-anchor-nav" aria-label="Sprungnavigation">
-      <div class="brt-container">
-        <ul>
-          <li><a href="#gefahrenkatalog">Gefahrenkatalog</a></li>
-          <li><a href="#bewertung">Bewertung</a></li>
-          <li><a href="#inventar">Inventar</a></li>
-          <li><a href="#umsetzung">Umsetzung</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
+    <nav class="brt-anchor-nav" aria-label="Sprungnavigation auf dieser Seite" data-anchor-nav>
+      <div class="brt-container brt-anchor-nav__inner">
+        <p class="brt-anchor-nav__label">Auf dieser Seite</p>
+        <div class="brt-anchor-nav__track">
+          <ul class="brt-anchor-nav__list">
+            <li><a class="brt-anchor-nav__link" href="#gefahrenkatalog">Gefahrenkatalog</a></li>
+            <li><a class="brt-anchor-nav__link" href="#bewertung">Bewertung</a></li>
+            <li><a class="brt-anchor-nav__link" href="#inventar">Inventar</a></li>
+            <li><a class="brt-anchor-nav__link" href="#umsetzung">Umsetzung</a></li>
+            <li><a class="brt-anchor-nav__link" href="#faq">FAQ</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <section id="gefahrenkatalog" class="brt-section" aria-labelledby="s3-title">
@@ -603,11 +643,7 @@ def gen_methode() -> None:
           <p class="brt-body">Der Gefahrenkatalog sammelt zunächst neutral und vollständig, was einem Unternehmen schaden kann – ohne zu bewerten, wie wahrscheinlich oder schlimm etwas ist. Damit die Zahl möglicher Gefahren handhabbar bleibt, ist der Katalog auf drei klare Ebenen begrenzt.</p>
           <p class="brt-body">Wir arbeiten bewusst mit Gefahren, weil sie eine neutrale Ausgangsbasis bilden. Erst im zweiten Schritt werden daraus Risiken – wenn wir bewerten, wie relevant eine Gefahr konkret für Ihr Unternehmen ist.</p>
         </div>
-        <div class="brt-split__media brt-fade-up" style="--fade-delay: 120ms">
-          <div class="brt-image-placeholder" role="img" aria-label="Der Gefahrenkatalog von Beraterium mit drei Ebenen">
-            <span class="brt-image-placeholder__label">3-Ebenen-Diagramm</span>
-          </div>
-        </div>
+        {split_media_html(IMG_METHODE_GEFAHRENKATALOG, "Der Gefahrenkatalog von Beraterium mit drei Ebenen", 1, contain=True, hover_zoom=True)}
       </div>
     </section>
     <section id="bewertung" class="brt-section brt-section--alt" aria-labelledby="s4-title">
@@ -666,17 +702,8 @@ def gen_methode() -> None:
         </div>
         <p class="brt-quote" style="margin-top: var(--space-8);">„Wir suchen nicht die meisten Maßnahmen – sondern die richtigen."</p>
       </div>
-    </section>
-    <section id="faq" class="brt-section brt-section--alt" aria-labelledby="faq-title">
-      <div class="brt-container">
-        <header class="brt-section__header brt-fade-up">
-          <h2 id="faq-title" class="brt-h2">Häufige Fragen zur Methode</h2>
-        </header>
-        <div class="brt-faq brt-fade-up">
-{"".join(f'          <details class="brt-faq__item"><summary>{q}</summary><p class="brt-body">{a}</p></details>\n' for q, a in faq)}
-        </div>
-      </div>
     </section>"""
+        + faq_section_html(faq, title="Häufige Fragen zur Methode", section_id="faq", alt=True)
         + cta_band(pre, "Machen Sie Ihre Risiken sichtbar", "Im kostenlosen Erstgespräch zeigen wir Ihnen, wie die Methode konkret für Ihr Unternehmen aussieht.", "Kostenloses Erstgespräch buchen")
     )
     write(
@@ -824,6 +851,7 @@ def gen_lp_startups() -> None:
         hero(pre, "RISIKO-CHECK FÜR STARTUPS", "In 4 Wochen weißt du, welche Risiken dein Wachstum bremsen",
              "Für Gründer und Startup-CEOs mit 2–10 Mitarbeitenden. Du baust, du rennst – wir sorgen dafür, dass dich kein blinder Fleck ausbremst.",
              split=True, media_label="Gründerteam beim Risiko-Check mit Beraterium",
+             media_src=IMG_ANGEBOT_STARTUPS_HERO,
              actions=f'<a class="brt-btn" href="{pre}kontakt/">Kostenloses Erstgespräch buchen</a><a class="brt-btn brt-btn--outline" href="#optionen">Die 3 Optionen ansehen →</a>')
         + """
     <section class="brt-section" aria-labelledby="problem-title">
@@ -890,6 +918,7 @@ def gen_lp_kmu() -> None:
         hero(pre, "RISIKOANALYSE FÜR KMU", "Welche Risiken kosten Ihr Unternehmen wirklich Geld?",
              "Für Geschäftsführer und Inhaber von KMU mit 10 bis über 100 Mitarbeitenden. In rund 6 Wochen bekommen Sie ein vollständiges, in Euro bewertetes Risiko-Lagebild – plus konkreten Fahrplan.",
              split=True, media_label="Geschäftsführung eines Mittelständlers bei der Risikoanalyse",
+             media_src=IMG_ANGEBOT_KMU_HERO,
              actions=f'<a class="brt-btn" href="{pre}kontakt/">Kostenloses Erstgespräch buchen</a><a class="brt-btn brt-btn--outline" href="#optionen">Die 3 Optionen ansehen →</a>')
         + """
     <section class="brt-section" aria-labelledby="problem-title">
@@ -955,6 +984,7 @@ def gen_lp_solo() -> None:
         hero(pre, "RISIKO-KOMPASS FÜR SOLO-SELBSTSTÄNDIGE", "Du bist dein Unternehmen. Weißt du, wo du verletzlich bist?",
              "Für Freiberufler, Einzelunternehmer und Solo-Selbstständige. In 2 Wochen weißt du, welche Risiken dich am härtesten treffen würden – nicht um Angst zu haben, sondern um frei entscheiden zu können.",
              split=True, media_label="Solo-Selbstständige beim Risiko-Kompass mit Beraterium",
+             media_src=IMG_ANGEBOT_SOLO_HERO,
              actions=f'<a class="brt-btn" href="{pre}kontakt/">Kostenloses Erstgespräch buchen</a><a class="brt-btn brt-btn--outline" href="#optionen">Die 3 Optionen ansehen →</a>')
         + """
     <section class="brt-section" aria-labelledby="problem-title">
@@ -1133,30 +1163,42 @@ def gen_blog_singles() -> None:
             if "brt-image-placeholder" not in img:
                 author_img = img
         hero_img = img_html(post.hero_image, post.hero_alt, 2, hero=True, css_class="brt-article__hero-img", aspect="16/9")
-        hero_block = (
-            f'<figure class="brt-article__hero brt-fade-up">{hero_img}</figure>'
+        hero_media = (
+            f'<figure class="brt-article__hero-media">{hero_img}</figure>'
             if "brt-image-placeholder" not in hero_img
-            else f'<div class="brt-article__hero brt-fade-up">{hero_img}</div>'
+            else f'<div class="brt-article__hero-media">{hero_img}</div>'
         )
-        faq_block = ""
-        if post.faq:
-            items = []
-            for item in post.faq:
-                items.append(
-                    f"""          <details class="brt-faq__item">
-            <summary>{escape(item.get("question", ""))}</summary>
-            <p class="brt-body">{escape(item.get("answer", ""))}</p>
-          </details>"""
-                )
-            faq_block = f"""
-    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
-      <div class="brt-container brt-article__faq">
-        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
-        <div class="brt-faq brt-fade-up">
-{chr(10).join(items)}
+        sticky_title = post.title if len(post.title) <= 72 else post.title[:69].rsplit(" ", 1)[0] + "…"
+        progress_block = """
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>"""
+        sticky_bar_block = f"""
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">{escape(post.category)}</span>
+          <p class="brt-article__sticky-title">{escape(sticky_title)}</p>
         </div>
-      </div>
-    </section>"""
+{progress_block}
+      </div>"""
+        youtube_block = article_youtube_embed_html(
+            post.youtube_id,
+            post.title,
+            f"https://www.beraterium.de/blog/{post.slug}/",
+        )
+        author_col = article_author_sidebar_html(author, author_name, post.author, 2, pre)
+        author_meta = author_name_link_html(post.author, author_name, pre)
+        aside_block = article_sidebar_html(post.toc, post.category, 2, pre)
+        lead_block = (
+            f'          <p class="brt-lead brt-article__lead">{escape(post.lead)}</p>\n'
+            if post.lead
+            else ""
+        )
+        back_top_block = """
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>"""
+        faq_block = article_faq_section_html(post.faq)
         related_cards = []
         for slug in post.related_slugs:
             rel_post = all_by_slug.get(slug)
@@ -1179,50 +1221,42 @@ def gen_blog_singles() -> None:
         </ul>
       </div>
     </section>"""
-        toc_block = article_toc_html(post.toc, 2)
-        lead_block = (
-            f'        <p class="brt-lead brt-article__lead">{escape(post.lead)}</p>\n'
-            if post.lead
-            else ""
-        )
-        aside_block = ""
-        if toc_block.strip():
-            aside_block = f"""
-        <aside class="brt-article__aside">
-{toc_block}
-        </aside>"""
         author_box = f"""
     <section class="brt-section brt-section--alt" aria-labelledby="author-box">
       <div class="brt-container brt-article__author brt-fade-up">
         {author_img}
         <div>
-          <h2 id="author-box" class="brt-h3">{escape(author_name)}</h2>
+          <h2 id="author-box" class="brt-h3">{author_name_link_html(post.author, author_name, pre, css_class="brt-article__author-link brt-article__author-link--heading")}</h2>
           <p class="brt-body">{escape(author.teaser_bio if author else "")}</p>
           <a class="brt-btn brt-btn--ghost" href="{pre}team/">Unser Team →</a>
         </div>
       </div>
     </section>"""
         main = f"""
-    <article class="brt-article">
-      <header class="brt-container brt-article__header brt-fade-up">
-        <nav class="brt-breadcrumb" aria-label="Brotkrumen">
-          <a href="{pre}">Start</a> › <a href="{pre}blog/">Blog</a> › <span>{escape(post.category)}</span>
-        </nav>
-        <p class="brt-tag">{escape(post.category)}</p>
-        <h1 class="brt-h1 brt-article__title">{escape(post.title)}</h1>
-        <p class="brt-article__meta brt-meta">
-          <span>{escape(author_name)}</span> · <time datetime="{post.date.isoformat()}">{format_date_de(post.date)}</time> · ca. {post.reading_time_min} Min. Lesezeit
-        </p>
-      </header>
-      {hero_block}
+    <article class="brt-article" data-article>
+{sticky_bar_block}
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">{escape(post.title)}</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">{escape(post.category)}</span> · {author_meta} · <time datetime="{post.date.isoformat()}">{format_date_de(post.date)}</time> · ca. {post.reading_time_min} Min. Lesezeit
+          </p>
+        </div>
+        {hero_media}
+      </div>
       <div class="brt-container brt-article__layout brt-fade-up">
+{author_col}
         <div class="brt-article__main">
-{lead_block}          <div class="brt-article__body">
+{lead_block}          <div class="brt-article__body" id="article-body" tabindex="-1">
 {post.body_html}
           </div>
-        </div>{aside_block}
+        </div>
+{aside_block}
       </div>
+{youtube_block}
     </article>
+{back_top_block}
 {faq_block}
 {author_box}
     <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="article-cta">
@@ -1246,6 +1280,35 @@ def gen_blog_singles() -> None:
                 json_ld=json_ld,
             ),
         )
+
+
+def gen_home_analyse() -> None:
+    path = SITE / "index.html"
+    if not path.exists():
+        return
+    html = path.read_text(encoding="utf-8")
+    media = img_html(
+        IMG_HOME_ANALYSE,
+        "Unternehmer verschafft sich Klarheit über die größten Risiken",
+        0,
+        aspect="4/3",
+    )
+    old = """      <div class="brt-split__media brt-fade-up" style="--fade-delay: 120ms">
+        <div
+          class="brt-image-placeholder"
+          role="img"
+          aria-label="Unternehmer verschafft sich Klarheit über die größten Risiken">
+          <span class="brt-image-placeholder__label">Analyse-Situation</span>
+        </div>
+      </div>"""
+    new = f"""      <div class="brt-split__media brt-fade-up" style="--fade-delay: 120ms">
+        {media}
+      </div>"""
+    if old not in html:
+        print("  skip index.html home analyse (pattern not found)")
+        return
+    path.write_text(html.replace(old, new), encoding="utf-8")
+    print("  updated index.html home analyse")
 
 
 def gen_home_team() -> None:
@@ -1314,46 +1377,51 @@ def gen_kontakt() -> None:
              "30 Minuten, kostenlos, unverbindlich. Sie gehen mit echtem Wissen raus – egal, wie Sie sich danach entscheiden.",
              compact=True)
         + f"""
-    <section class="brt-section" aria-labelledby="contact-title">
-      <div class="brt-container brt-contact-grid brt-fade-up">
-        <div>
-          <h2 id="contact-title" class="brt-h2">Ihr kostenloses Erstgespräch</h2>
-          <p class="brt-body">Wählen Sie direkt einen Termin oder schreiben Sie uns – wir melden uns in der Regel innerhalb eines Werktags.</p>
-          <form class="brt-form" action="{pre}danke/" method="get">
-            <label>Name *
-              <input type="text" name="name" required autocomplete="name">
-            </label>
-            <label>E-Mail *
-              <input type="email" name="email" required autocomplete="email">
-            </label>
-            <label>Unternehmen
-              <input type="text" name="company" autocomplete="organization">
-            </label>
-            <label>Ich bin …
-              <select name="type">
-                <option value="">Bitte wählen</option>
-                <option>Startup</option>
-                <option>KMU</option>
-                <option>Solo-Selbstständige</option>
-                <option>Sonstiges</option>
-              </select>
-            </label>
-            <label>Ihre Nachricht
-              <textarea name="message" placeholder="Worum geht es?"></textarea>
-            </label>
-            <label class="brt-form__check">
-              <input type="checkbox" name="privacy" required>
-              <span>Ich habe die <a href="{pre}datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.</span>
-            </label>
-            <button class="brt-btn" type="submit">Anfrage senden</button>
-          </form>
+    <section class="brt-section brt-section--booking" aria-labelledby="contact-title">
+      <div class="brt-container brt-contact-booking brt-fade-up">
+        <div class="brt-contact-booking__head">
+          <div class="brt-contact-booking__intro">
+            <div class="brt-contact-booking__lead">
+              <p class="brt-tag">30 Minuten · kostenlos · unverbindlich</p>
+              <h2 id="contact-title" class="brt-h2">Ihr kostenloses Erstgespräch</h2>
+              <p class="brt-body">Wählen Sie direkt einen Termin – wir nehmen uns Zeit für Ihre Situation, nicht für Verkaufsargumente.</p>
+            </div>
+            <div class="brt-contact-expect">
+              <h3 class="brt-contact-expect__title">Was Sie erwartet</h3>
+              <ul class="brt-contact-expect__points">
+                <li class="brt-contact-expect__point">
+                  <strong>Kein Verkaufsgespräch</strong>
+                  <span>Kein Pitch – wir erklären, was wir tun und wie unsere Methode funktioniert.</span>
+                </li>
+                <li class="brt-contact-expect__point">
+                  <strong>Praxistipps inklusive</strong>
+                  <span>Konkrete Hinweise, mit denen Sie direkt mit Eigenarbeit und Recherche starten können.</span>
+                </li>
+                <li class="brt-contact-expect__point">
+                  <strong>Selbst umsetzen</strong>
+                  <span>Sie gehen mit genug Klarheit raus, um erste Schritte eigenständig anzugehen.</span>
+                </li>
+                <li class="brt-contact-expect__point">
+                  <strong>Unterstützung optional</strong>
+                  <span>Wenn Sie Begleitung brauchen, besprechen wir die weiteren Schritte gemeinsam – wie unten beschrieben.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <aside class="brt-contact-aside">
+            <p class="brt-contact-aside__label">Alternativ</p>
+            <h3 class="brt-h3">Direkter Draht</h3>
+            <p class="brt-body">Lieber schriftlich? Nutzen Sie unser Kontaktformular – Antwort i. d. R. innerhalb eines Werktags.</p>
+            <a class="brt-btn brt-btn--outline" href="{pre}kontaktformular/">Zum Kontaktformular</a>
+            <ul class="brt-contact-aside__links">
+              <li><a href="mailto:kontakt@beraterium.de">kontakt@beraterium.de</a></li>
+              <li><a href="https://www.linkedin.com/company/beraterium">LinkedIn</a></li>
+            </ul>
+          </aside>
         </div>
-        <aside>
-          <h3 class="brt-h3">Direkter Draht</h3>
-          <p class="brt-body">E-Mail: <a href="mailto:kontakt@beraterium.de">kontakt@beraterium.de</a></p>
-          <p class="brt-body"><a href="https://www.linkedin.com/company/beraterium">LinkedIn</a></p>
-          <p class="brt-meta">Jede Analyse wird von Till und Peter persönlich begleitet. Antwort i. d. R. innerhalb eines Werktags.</p>
-        </aside>
+        <div class="brt-calendly" data-calendly-embed>
+          <div id="beraterium-calendly" class="calendly-inline-widget" data-url="https://calendly.com/beraterium/30min"></div>
+        </div>
       </div>
     </section>
     <section class="brt-section brt-section--alt" aria-labelledby="steps-title">
@@ -1375,9 +1443,100 @@ def gen_kontakt() -> None:
       </div>
     </section>"""
     )
-    write("kontakt/index.html", shell(depth=1, title="Kostenloses Erstgespräch buchen | Beraterium",
-          description="30 Minuten, kostenlos, kein Sales-Pitch: Buchen Sie Ihr Erstgespräch mit Till und Peter und machen Sie Ihre größten Risiken sichtbar.",
-          canonical="/kontakt/", active_nav=None, main=main))
+    write(
+        "kontakt/index.html",
+        shell(
+            depth=1,
+            title="Kostenloses Erstgespräch buchen | Beraterium",
+            description="30 Minuten, kostenlos, kein Sales-Pitch: Buchen Sie Ihr Erstgespräch mit Till und Peter und machen Sie Ihre größten Risiken sichtbar.",
+            canonical="/kontakt/",
+            active_nav=None,
+            main=main,
+        ).replace(
+            f'<script src="{pre}js/brt-site.js"></script>',
+            f'<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>\n<script src="{pre}js/brt-site.js"></script>',
+        ),
+    )
+
+
+def gen_kontaktformular() -> None:
+    pre = "../"
+    main = f"""
+    <section class="brt-page-hero brt-page-hero--dark brt-page-hero--compact" aria-labelledby="page-hero-title">
+      <div class="brt-container">
+        <div class="brt-fade-up">
+          <p class="brt-tag">KONTAKT</p>
+          <h1 id="page-hero-title" class="brt-h1">Kontaktformular</h1>
+          <p class="brt-lead brt-lead--on-dark">Schreiben Sie uns – wir melden uns in der Regel innerhalb eines Werktags.</p>
+        </div>
+      </div>
+    </section>
+    <section class="brt-section" aria-labelledby="form-title">
+      <div class="brt-container brt-contact-form-wrap brt-fade-up">
+        <header class="brt-section__header">
+          <h2 id="form-title" class="brt-h2">Kontaktieren Sie uns direkt</h2>
+          <p class="brt-body">Kontaktieren Sie uns direkt über unser Kontaktformular. Für ein kostenloses Erstgespräch können Sie alternativ direkt einen Termin buchen.</p>
+          <p class="brt-meta"><a href="{pre}kontakt/">Zum Termin buchen →</a></p>
+        </header>
+        <form class="brt-form brt-form--contact" action="https://formsubmit.co/till.blania@beraterium.de" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Neue Kontaktanfrage – Beraterium">
+          <input type="hidden" name="_next" value="https://www.beraterium.de/danke/">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" class="brt-form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label>Name *
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label>E-Mail *
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label>Unternehmen
+            <input type="text" name="company" autocomplete="organization">
+          </label>
+          <label>Ich bin …
+            <select name="type">
+              <option value="">Bitte wählen</option>
+              <option>Startup</option>
+              <option>KMU</option>
+              <option>Solo-Selbstständige</option>
+              <option>Sonstiges</option>
+            </select>
+          </label>
+          <label>Ihre Nachricht *
+            <textarea name="message" required placeholder="Worum geht es?"></textarea>
+          </label>
+          <fieldset class="brt-form__legal">
+            <legend class="brt-form__legal-legend">Bestätigungen</legend>
+            <div class="brt-form__check-group">
+              <label class="brt-form__check" for="agb_accepted">
+                <input type="checkbox" id="agb_accepted" name="agb_accepted" value="Ja">
+                <span>Ich habe die <a href="{pre}agb/">AGB</a> gelesen und akzeptiere sie.</span>
+              </label>
+              <p class="brt-form__error" id="agb-error" role="alert" hidden>Bitte bestätigen Sie die AGB.</p>
+            </div>
+            <div class="brt-form__check-group">
+              <label class="brt-form__check" for="privacy_accepted">
+                <input type="checkbox" id="privacy_accepted" name="privacy_accepted" value="Ja">
+                <span>Ich habe die <a href="{pre}datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten&nbsp;zu.</span>
+              </label>
+              <p class="brt-form__error" id="privacy-error" role="alert" hidden>Bitte bestätigen Sie die Datenschutzerklärung.</p>
+            </div>
+          </fieldset>
+          <button class="brt-btn" type="submit">Nachricht senden</button>
+          <p class="brt-meta">Antwort i. d. R. innerhalb eines Werktags.</p>
+        </form>
+      </div>
+    </section>"""
+    write(
+        "kontaktformular/index.html",
+        shell(
+            depth=1,
+            title="Kontaktformular | Beraterium",
+            description="Kontaktieren Sie Beraterium direkt über unser Kontaktformular. Wir melden uns in der Regel innerhalb eines Werktags.",
+            canonical="/kontaktformular/",
+            active_nav=None,
+            main=main,
+        ),
+    )
 
 
 def gen_impressum() -> None:
@@ -1513,9 +1672,11 @@ if __name__ == "__main__":
     gen_risikoradar()
     gen_blog()
     gen_blog_singles()
+    gen_home_analyse()
     gen_home_team()
     gen_home_blog_teaser()
     gen_kontakt()
+    gen_kontaktformular()
     gen_impressum()
     gen_datenschutz()
     gen_agb()

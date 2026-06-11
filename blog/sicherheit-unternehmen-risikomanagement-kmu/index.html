@@ -20,6 +20,7 @@
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" href="../../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../../css/brt-fallback.css">
@@ -53,7 +54,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -90,21 +94,40 @@
 <div class="brt">
   <main id="main-content">
 
-    <article class="brt-article">
-      <header class="brt-container brt-article__header brt-fade-up">
-        <nav class="brt-breadcrumb" aria-label="Brotkrumen">
-          <a href="../../">Start</a> › <a href="../../blog/">Blog</a> › <span>KMU</span>
-        </nav>
-        <p class="brt-tag">KMU</p>
-        <h1 class="brt-h1 brt-article__title">Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird</h1>
-        <p class="brt-article__meta brt-meta">
-          <span>Till Manfred Blania</span> · <time datetime="2026-01-31">31. Januar 2026</time> · ca. 5 Min. Lesezeit
-        </p>
-      </header>
-      <figure class="brt-article__hero brt-fade-up"><img src="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.png" alt="Frame 24" class="brt-article__hero-img" loading="eager" fetchpriority="high"></figure>
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">KMU</span>
+          <p class="brt-article__sticky-title">Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">KMU</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2026-01-31">31. Januar 2026</time> · ca. 5 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.webp" alt="Frame 24" class="brt-article__hero-img" width="1536" height="1024" srcset="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-480w.webp 480w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-960w.webp 960w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-1440w.webp 1440w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"></figure>
+      </div>
       <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
         <div class="brt-article__main">
-          <div class="brt-article__body">
+          <div class="brt-article__body" id="article-body" tabindex="-1">
 <aside class="brt-article__keypoints" aria-label="Kernaussagen"><p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p><ul class="brt-article__list">
 <li>Priorisiere nach Kritikalität, nicht Wert: Das 120-Tonnen-Edelstahllager kann offen stehen – aber die 5.000-Euro-Spezialwerkzeuge mit 3 Wochen Lieferzeit brauchen Hochsicherheit</li>
 <li>3-2-1-Backup-Regel als Lebensversicherung: 3 Kopien, 2 Medien, 1 offline. 82% aller Ransomware-Angriffe treffen kleine Unternehmen</li>
@@ -155,14 +178,21 @@
 <p class="brt-body">Nutze KI klug: 30-40% Effizienzgewinne sind real, wenn du Risiken managst.</p>
 <p class="brt-body">Akzeptiere Unvollkommenheit: Gut genug, schnell umgesetzt und kontinuierlich verbessert schlägt perfekt geplant und nie realisiert.</p>
 <p class="brt-body">Die zentrale Erkenntnis: Der Mensch ist dein größtes Risiko – und deine größte Chance. Investiere in Sensibilisierung, Kommunikation, Kultur. Denn die beste Firewall, das modernste Schließsystem, das ausgefeilteste Backup – sie sind nur so gut wie die Menschen, die sie nutzen.</p>
-<div class="brt-article__podcast"><p class="brt-article__podcast-label">Risiko Radar Podcast</p><a class="brt-article__podcast-link" href="https://youtu.be/EBHM5Npnipk" target="_blank" rel="noopener noreferrer">Podcast-Folge ansehen →</a></div>
           </div>
         </div>
-        <aside class="brt-article__aside">
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
 
         <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
-          <p class="brt-article__toc-label">Inhalt</p>
-          <ol class="brt-article__toc-list">
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">8 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
             <li><a href="#1-das-echte-risiko-erkennen-nicht-das-offensichtliche-schutzen">1. Das echte Risiko erkennen: Nicht das Offensichtliche schützen</a></li>
             <li><a href="#2-it-sicherheit-drei-unterschatzte-bedrohungen">2. IT-Sicherheit: Drei unterschätzte Bedrohungen</a></li>
             <li><a href="#3-ki-das-zweischneidige-schwert-der-effizienz">3. KI: Das zweischneidige Schwert der Effizienz</a></li>
@@ -171,18 +201,145 @@
             <li><a href="#6-iteratives-risikomanagement-der-risikoball-wird-nie-null">6. Iteratives Risikomanagement: Der Risikoball wird nie null</a></li>
             <li><a href="#7-notfallplanung-die-unterschatzte-achillesferse">7. Notfallplanung: Die unterschätzte Achillesferse</a></li>
             <li><a href="#fazit-pragmatisches-handeln-statt-perfektion">Fazit: Pragmatisches Handeln statt Perfektion</a></li>
-          </ol>
+            </ol>
+          </details>
         </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/kmu/">Klarheits-Fahrplan für KMU</a></li>
+            </ul>
+          </nav>
         </aside>
       </div>
+
+    <section class="brt-article__video" aria-labelledby="article-podcast-video">
+      <div class="brt-container">
+        <div class="brt-article__video-head">
+          <p class="brt-article__video-label" id="article-podcast-video">Risiko Radar Podcast</p>
+          <p class="brt-article__video-deck">🎧 Zur ganzen Podcast Folge geht es hier:</p>
+        </div>
+        <div
+          class="brt-article__video-wrap"
+          data-youtube-embed
+          data-youtube-id="EBHM5Npnipk"
+          data-youtube-page="https://www.beraterium.de/blog/sicherheit-unternehmen-risikomanagement-kmu/"
+          data-youtube-title="Risiko Radar Podcast: Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird"
+        >
+          <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: Risiko Radar Podcast: Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird">
+            <img
+              src="https://i.ytimg.com/vi/EBHM5Npnipk/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/EBHM5Npnipk/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/EBHM5Npnipk/sddefault.jpg 640w"
+              sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
+              alt=""
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              data-youtube-thumb-base="https://i.ytimg.com/vi/EBHM5Npnipk/"
+              onerror="if(this.src.includes('maxresdefault')){this.src='https://i.ytimg.com/vi/EBHM5Npnipk/sddefault.jpg';}else if(this.src.includes('sddefault')){this.src='https://i.ytimg.com/vi/EBHM5Npnipk/hqdefault.jpg';}"
+            >
+            <span class="brt-article__video-play" aria-hidden="true"></span>
+          </button>
+          <a
+            class="brt-article__video-yt-badge"
+            href="https://www.youtube.com/watch?v=EBHM5Npnipk"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch on YouTube"
+          >
+            <span class="brt-article__video-yt-prefix">Watch on</span>
+            <span class="brt-article__video-yt-brand" aria-hidden="true">
+              <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+              </svg>
+              <span class="brt-article__video-yt-name">YouTube</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
     </article>
 
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
+      <div class="brt-container brt-article__faq">
+        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
+        <div class="brt-faq brt-fade-up">
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">1. Das echte Risiko erkennen: Nicht das Offensichtliche schützen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Stell dir vor: Ein Edelstahlhändler lagert 120 Tonnen Material hinter einem einfachen 2-Meter-Zaun. Fahrlässig? Nein. Denn während das sichtbare Inventar kaum bedroht ist, liegt das echte Risiko in einem unscheinbaren Raum: den Spezialwerkzeugen mit drei Wochen Lieferzeit.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">2. IT-Sicherheit: Drei unterschätzte Bedrohungen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Das Backup-Dilemma: Klassische tägliche Backups sind oft wertlos – zeitzone-Fehler, Timestamp-Abweichungen, Datenkonflikte machen Wiederherstellung unmöglich. Bessere Lösung: RAID-5-Systeme kombiniert mit der 3-2-1-Regel: 3 Kopien deiner Daten, auf 2 verschiedenen Medien, 1 davon offline und nicht erreichbar für…</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">3. KI: Das zweischneidige Schwert der Effizienz?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">KI bringt echte Chancen: 34% der KMU nutzen bereits KI für 30-40% Effizienzgewinne. Interviews transkribieren, Daten analysieren, Berichte generieren – früher Tagewerk, heute Stundensache.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">4. Arbeitsschutz: Wenn Fahrlässigkeit persönlich wird?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Arbeitsschutz ist der Bereich, in dem persönliche Haftung greift – auch als GmbH-Geschäftsführer. Ein Beispiel: Handwerker sanieren ein Altbau-Gebäude ohne Atemschutz. Hinter der Trockenbau-Verkleidung: Asbest. Jahre später Lungenkrebs und Durchgriffshaftung auf dich persönlich.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">5. Der Mensch: Größtes Risiko und größte Chance?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Alle Sicherheitssysteme der Welt nützen nichts, wenn der Mensch sie aushebelt. Ein Hochregallager mit automatisierten Transportstraßen: 10 Karossen beim Testen geschrottet, weil die Technik versagte oder Mitarbeiter sie falsch bedienten.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">6. Iteratives Risikomanagement: Der Risikoball wird nie null?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Viele suchen die eine perfekte Lösung. Diese existiert nicht. Risikomanagement ist kontinuierlicher Prozess. Du identifizierst Risiken, bewertest sie, implementierst Maßnahmen – und dann beginnt die nächste Runde. Denn Rahmenbedingungen ändern sich, Maßnahmen schaffen neue Risiken, Wirksamkeit muss überprüft werden.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
 
     <section class="brt-section brt-section--alt" aria-labelledby="author-box">
       <div class="brt-container brt-article__author brt-fade-up">
-        
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
         <div>
-          <h2 id="author-box" class="brt-h3">Till Manfred Blania</h2>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
           <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
           <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
         </div>
@@ -202,7 +359,7 @@
         <ul class="brt-blog-grid brt-stagger">
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/emotionale-fuehrung-kmu-eisbergmodell-risiko/">
-<div class="brt-card__thumb"><img src="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.png" alt="Emotional Leadership and the Organizational Iceberg" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.webp" alt="Emotional Leadership and the Organizational Iceberg" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-480w.webp 480w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-960w.webp 960w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-1440w.webp 1440w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche Unternehmensrisiken steuert</h3>
@@ -214,7 +371,7 @@
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe/">
-<div class="brt-card__thumb"><img src="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.png" alt="family business succession leadership clarity SME Germany" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.webp" alt="family business succession leadership clarity SME Germany" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-480w.webp 480w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-960w.webp 960w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-1440w.webp 1440w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Familiennachfolge und Generationskonflikt: Was nach der formalen Übergabe alles schiefgehen kann</h3>
@@ -226,7 +383,7 @@
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen/">
-<div class="brt-card__thumb"><img src="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.png" alt="Folge 7" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.webp" alt="Folge 7" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-480w.webp 480w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-960w.webp 960w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-1440w.webp 1440w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr Unternehmen bedrohen</h3>
@@ -271,7 +428,7 @@
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../../kontakt/">Kontakt</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../../impressum/">Impressum</a></li>
         <li><a href="../../datenschutz/">Datenschutz</a></li>
         <li><a href="../../agb/">AGB</a></li>

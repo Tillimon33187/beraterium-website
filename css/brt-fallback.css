@@ -34,9 +34,28 @@
       box-sizing: border-box;
     }
     .brt-css-fallback-mode .site-header__logo {
-      color: var(--color-ink);
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
+    }
+
+    .brt-css-fallback-mode .site-header__logo-img {
+      display: block;
+      height: calc(var(--header-height, 5rem) - 0.625rem);
+      width: auto;
+      max-width: 30rem;
+    }
+
+    .brt-css-fallback-mode .site-header__logo-img--dark {
+      display: none;
+    }
+
+    .brt-css-fallback-mode .site-header--solid .site-header__logo-img--light {
+      display: none;
+    }
+
+    .brt-css-fallback-mode .site-header--solid .site-header__logo-img--dark {
+      display: block;
     }
     .brt-css-fallback-mode .site-header__nav {
       display: none;
@@ -84,6 +103,11 @@
       margin: 0 0 1.25rem;
       font-size: clamp(2rem, 6vw, 4rem);
       line-height: 1.05;
+      color: var(--color-ink);
+    }
+    .brt-css-fallback-mode .brt-hero .brt-h1,
+    .brt-css-fallback-mode .brt-page-hero--dark .brt-h1,
+    .brt-css-fallback-mode .brt-page-hero .brt-h1 {
       color: #fff;
     }
     .brt-css-fallback-mode .brt-h2 {

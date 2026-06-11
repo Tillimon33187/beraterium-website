@@ -10,6 +10,9 @@
   <title>Unsere Methode – Risikoanalyse Schritt für Schritt | Beraterium</title>
   <meta name="description" content="So funktioniert die Beraterium-Methode: Gefahrenkatalog in 3 Ebenen, Schaden in Euro bewerten, die richtigen Maßnahmen finden. Verständlich und praxisnah.">
   <link rel="canonical" href="https://www.beraterium.de/methode/">
+  <link rel="alternate" hreflang="de" href="https://www.beraterium.de/methode/">
+  <link rel="alternate" hreflang="en" href="https://en.beraterium.de/method/">
+  <link rel="alternate" hreflang="x-default" href="https://www.beraterium.de/methode/">
 
   <meta property="og:title" content="Unsere Methode – Risikoanalyse Schritt für Schritt | Beraterium">
   <meta property="og:description" content="So funktioniert die Beraterium-Methode: Gefahrenkatalog in 3 Ebenen, Schaden in Euro bewerten, die richtigen Maßnahmen finden. Verständlich und praxisnah.">
@@ -20,6 +23,7 @@
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" href="../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../css/brt-fallback.css">
@@ -32,7 +36,11 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
+<div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://en.beraterium.de/method/" hreflang="en">EN</a></div>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -79,15 +87,18 @@
         </div>
       </div>
     </section>
-    <nav class="brt-anchor-nav" aria-label="Sprungnavigation">
-      <div class="brt-container">
-        <ul>
-          <li><a href="#gefahrenkatalog">Gefahrenkatalog</a></li>
-          <li><a href="#bewertung">Bewertung</a></li>
-          <li><a href="#inventar">Inventar</a></li>
-          <li><a href="#umsetzung">Umsetzung</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
+    <nav class="brt-anchor-nav" aria-label="Sprungnavigation auf dieser Seite" data-anchor-nav>
+      <div class="brt-container brt-anchor-nav__inner">
+        <p class="brt-anchor-nav__label">Auf dieser Seite</p>
+        <div class="brt-anchor-nav__track">
+          <ul class="brt-anchor-nav__list">
+            <li><a class="brt-anchor-nav__link" href="#gefahrenkatalog">Gefahrenkatalog</a></li>
+            <li><a class="brt-anchor-nav__link" href="#bewertung">Bewertung</a></li>
+            <li><a class="brt-anchor-nav__link" href="#inventar">Inventar</a></li>
+            <li><a class="brt-anchor-nav__link" href="#umsetzung">Umsetzung</a></li>
+            <li><a class="brt-anchor-nav__link" href="#faq">FAQ</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <section id="gefahrenkatalog" class="brt-section" aria-labelledby="s3-title">
@@ -97,10 +108,8 @@
           <p class="brt-body">Der Gefahrenkatalog sammelt zunächst neutral und vollständig, was einem Unternehmen schaden kann – ohne zu bewerten, wie wahrscheinlich oder schlimm etwas ist. Damit die Zahl möglicher Gefahren handhabbar bleibt, ist der Katalog auf drei klare Ebenen begrenzt.</p>
           <p class="brt-body">Wir arbeiten bewusst mit Gefahren, weil sie eine neutrale Ausgangsbasis bilden. Erst im zweiten Schritt werden daraus Risiken – wenn wir bewerten, wie relevant eine Gefahr konkret für Ihr Unternehmen ist.</p>
         </div>
-        <div class="brt-split__media brt-fade-up" style="--fade-delay: 120ms">
-          <div class="brt-image-placeholder" role="img" aria-label="Der Gefahrenkatalog von Beraterium mit drei Ebenen">
-            <span class="brt-image-placeholder__label">3-Ebenen-Diagramm</span>
-          </div>
+                <div class="brt-split__media brt-split__media--hover-zoom brt-fade-up" style="--fade-delay: 120ms; --hover-zoom-aspect: 3 / 2">
+          <img src="../img/methode/gefahrenkatalog-3-ebenen.webp" alt="Der Gefahrenkatalog von Beraterium mit drei Ebenen" class="brt-split__media-img--contain" width="1536" height="1024" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
@@ -167,12 +176,56 @@
           <h2 id="faq-title" class="brt-h2">Häufige Fragen zur Methode</h2>
         </header>
         <div class="brt-faq brt-fade-up">
-          <details class="brt-faq__item"><summary>Wie lange dauert eine Risikoanalyse?</summary><p class="brt-body">Je nach Zielgruppe und Umfang typischerweise 2 Wochen (Solo) bis 4 Wochen (Startup). Für KMU richtet sich die Dauer nach Teamgröße und Tiefe. Den genauen Rahmen legen wir im Kick-off fest.</p></details>
-          <details class="brt-faq__item"><summary>Brauche ich Vorwissen oder Vorbereitung?</summary><p class="brt-body">Nein. Sie bringen Ihr Wissen über Ihr Unternehmen mit – die Struktur und die Methode bringen wir mit.</p></details>
-          <details class="brt-faq__item"><summary>Was ist der Unterschied zwischen Gefahr und Risiko?</summary><p class="brt-body">Eine Gefahr ist alles, was schaden kann – neutral gesammelt. Zum Risiko wird sie erst, wenn wir bewerten, wie relevant sie für Ihr Unternehmen ist (Schaden in Euro × Eintrittswahrscheinlichkeit, abzüglich vorhandener Maßnahmen).</p></details>
-          <details class="brt-faq__item"><summary>Was, wenn ich allein arbeite?</summary><p class="brt-body">Dann ersetzen zwei Moderatoren und ein KI-Impulsgeber das fehlende Team, damit die Bewertung trotzdem ausgewogen ist.</p></details>
-          <details class="brt-faq__item"><summary>Setzt ihr die Maßnahmen auch um?</summary><p class="brt-body">Sie entscheiden über den Weg: selbst, mit Ihren Dienstleistern oder durch unsere Koordination über das RisikoRadar-Netzwerk. Beraterium bleibt die Klammer.</p></details>
-
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie lange dauert eine Risikoanalyse?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Je nach Zielgruppe und Umfang typischerweise 2 Wochen (Solo) bis 4 Wochen (Startup). Für KMU richtet sich die Dauer nach Teamgröße und Tiefe. Den genauen Rahmen legen wir im Kick-off fest.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Brauche ich Vorwissen oder Vorbereitung?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Nein. Sie bringen Ihr Wissen über Ihr Unternehmen mit – die Struktur und die Methode bringen wir mit.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist der Unterschied zwischen Gefahr und Risiko?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Eine Gefahr ist alles, was schaden kann – neutral gesammelt. Zum Risiko wird sie erst, wenn wir bewerten, wie relevant sie für Ihr Unternehmen ist (Schaden in Euro × Eintrittswahrscheinlichkeit, abzüglich vorhandener Maßnahmen).</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was, wenn ich allein arbeite?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Dann ersetzen zwei Moderatoren und ein KI-Impulsgeber das fehlende Team, damit die Bewertung trotzdem ausgewogen ist.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Setzt ihr die Maßnahmen auch um?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Sie entscheiden über den Weg: selbst, mit Ihren Dienstleistern oder durch unsere Koordination über das RisikoRadar-Netzwerk. Beraterium bleibt die Klammer.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -215,7 +268,7 @@
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../kontakt/">Kontakt</a></li>
+        <li><a href="../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../impressum/">Impressum</a></li>
         <li><a href="../datenschutz/">Datenschutz</a></li>
         <li><a href="../agb/">AGB</a></li>

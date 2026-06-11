@@ -20,6 +20,7 @@
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" href="../../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../../css/brt-fallback.css">
@@ -53,7 +54,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -90,22 +94,41 @@
 <div class="brt">
   <main id="main-content">
 
-    <article class="brt-article">
-      <header class="brt-container brt-article__header brt-fade-up">
-        <nav class="brt-breadcrumb" aria-label="Brotkrumen">
-          <a href="../../">Start</a> › <a href="../../blog/">Blog</a> › <span>Startup</span>
-        </nav>
-        <p class="brt-tag">Startup</p>
-        <h1 class="brt-h1 brt-article__title">Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist</h1>
-        <p class="brt-article__meta brt-meta">
-          <span>Till Manfred Blania</span> · <time datetime="2025-10-28">28. Oktober 2025</time> · ca. 5 Min. Lesezeit
-        </p>
-      </header>
-      <figure class="brt-article__hero brt-fade-up"><img src="../../img/blog/startup-fehler-vermeiden-risikomanagement-hero.png" alt="Frame 13" class="brt-article__hero-img" loading="eager" fetchpriority="high"></figure>
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">Startup</span>
+          <p class="brt-article__sticky-title">Startups zwischen Aufbruch und Überforderung – Warum Struktur kein…</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">Startup</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2025-10-28">28. Oktober 2025</time> · ca. 5 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/startup-fehler-vermeiden-risikomanagement-hero.webp" alt="Frame 13" class="brt-article__hero-img" width="1536" height="1024" srcset="../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-480w.webp 480w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-960w.webp 960w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-1440w.webp 1440w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"></figure>
+      </div>
       <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
         <div class="brt-article__main">
-        <p class="brt-lead brt-article__lead">Most startups don’t fail because of bad ideas – they fail because of missing structure. Unclear roles, micromanagement, and poor cash flow slow down progress. This article explains how founders can use simple frameworks, clear processes, and practical risk management to build stability, increase spe</p>
-          <div class="brt-article__body">
+          <p class="brt-lead brt-article__lead">Most startups don’t fail because of bad ideas – they fail because of missing structure. Unclear roles, micromanagement, and poor cash flow slow down progress. This article explains how founders can use simple frameworks, clear processes, and practical risk management to build stability, increase spe</p>
+          <div class="brt-article__body" id="article-body" tabindex="-1">
 <p class="brt-body">Viele Startups scheitern nicht an ihrer Idee, sondern an fehlender Struktur. Unklare Rollen, Mikromanagement und mangelhafter Cashflow bremsen Wachstum und Motivation. Der Artikel zeigt, wie Gründer:innen mit einfachen Standards, klaren Prozessen und pragmatischem Risikomanagement Stabilität schaffen – und dadurch schneller, sicherer und nachhaltiger wachsen können.</p>
 <p class="brt-body"><strong>Viele Startups scheitern nicht am Markt, sondern an sich selbst.</strong><strong><br />
 </strong>Fehlende Strukturen, unklare Verantwortlichkeiten und unkontrolliertes Wachstum gehören zu den häufigsten Gründen, warum junge Unternehmen früh ins Straucheln geraten. Dabei ließe sich vieles vermeiden mit Klarheit, Struktur und einem einfachen, praxistauglichen Risikomanagement.</p>
@@ -126,29 +149,133 @@ Gleichzeitig sinkt der Fokus auf das große Ganze, Strategie, Markt, Wachstum bl
 So entsteht eine Organisation, die auch dann funktioniert, wenn der Gründer einmal nicht eingreift, ein entscheidender Schritt hin zur Skalierbarkeit.</p>
 <h2 class="brt-article__h2" id="service-cashflow-und-wettbewerb-die-drei-unterschatzten-risikofaktoren">Service, Cashflow und Wettbewerb - die drei unterschätzten Risikofaktoren</h2>
 <p class="brt-body">Gründer:innen investieren viel Energie in Produktentwicklung, Vertrieb und Marketing. Doch die wirklichen Engpässe entstehen oft dort, wo niemand hinschaut: <strong>Servicequalität, Liquidität und Wettbewerbsfähigkeit.</strong></p>
-<div class="brt-article__podcast"><p class="brt-article__podcast-label">Risiko Radar Podcast</p><a class="brt-article__podcast-link" href="https://youtu.be/I0ODzLcngpk" target="_blank" rel="noopener noreferrer">Podcast-Folge ansehen →</a></div>
           </div>
         </div>
-        <aside class="brt-article__aside">
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
 
         <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
-          <p class="brt-article__toc-label">Inhalt</p>
-          <ol class="brt-article__toc-list">
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">3 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
             <li><a href="#wachstum-ohne-fundament-der-unsichtbare-kipppunkt">Wachstum ohne Fundament - der unsichtbare Kipppunkt</a></li>
             <li><a href="#mikromanagement-kontrolle-die-alles-kostet">Mikromanagement - Kontrolle, die alles kostet</a></li>
             <li><a href="#service-cashflow-und-wettbewerb-die-drei-unterschatzten-risikofaktoren">Service, Cashflow und Wettbewerb - die drei unterschätzten Risikofaktoren</a></li>
-          </ol>
+            </ol>
+          </details>
         </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/startups/">Risiko-Check für Startups</a></li>
+            </ul>
+          </nav>
         </aside>
       </div>
+
+    <section class="brt-article__video" aria-labelledby="article-podcast-video">
+      <div class="brt-container">
+        <div class="brt-article__video-head">
+          <p class="brt-article__video-label" id="article-podcast-video">Risiko Radar Podcast</p>
+          <p class="brt-article__video-deck">🎧 Zur ganzen Podcast Folge geht es hier:</p>
+        </div>
+        <div
+          class="brt-article__video-wrap"
+          data-youtube-embed
+          data-youtube-id="I0ODzLcngpk"
+          data-youtube-page="https://www.beraterium.de/blog/startup-fehler-vermeiden-risikomanagement/"
+          data-youtube-title="Risiko Radar Podcast: Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist"
+        >
+          <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: Risiko Radar Podcast: Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist">
+            <img
+              src="https://i.ytimg.com/vi/I0ODzLcngpk/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/I0ODzLcngpk/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/I0ODzLcngpk/sddefault.jpg 640w"
+              sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
+              alt=""
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              data-youtube-thumb-base="https://i.ytimg.com/vi/I0ODzLcngpk/"
+              onerror="if(this.src.includes('maxresdefault')){this.src='https://i.ytimg.com/vi/I0ODzLcngpk/sddefault.jpg';}else if(this.src.includes('sddefault')){this.src='https://i.ytimg.com/vi/I0ODzLcngpk/hqdefault.jpg';}"
+            >
+            <span class="brt-article__video-play" aria-hidden="true"></span>
+          </button>
+          <a
+            class="brt-article__video-yt-badge"
+            href="https://www.youtube.com/watch?v=I0ODzLcngpk"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch on YouTube"
+          >
+            <span class="brt-article__video-yt-prefix">Watch on</span>
+            <span class="brt-article__video-yt-brand" aria-hidden="true">
+              <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+              </svg>
+              <span class="brt-article__video-yt-name">YouTube</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
     </article>
 
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
+      <div class="brt-container brt-article__faq">
+        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
+        <div class="brt-faq brt-fade-up">
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wachstum ohne Fundament - der unsichtbare Kipppunkt?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Fast jedes Startup erlebt denselben Moment: Aufträge steigen, das Team wächst und plötzlich läuft nichts mehr reibungslos. Kommunikation hakt, Entscheidungen dauern, die Qualität sinkt.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Mikromanagement - Kontrolle, die alles kostet?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Viele Gründer:innen starten mit dem Anspruch, alles selbst zu steuern. Das ist verständlich, schließlich hängt der Erfolg zunächst direkt am eigenen Engagement. Doch sobald das Team wächst, wird Mikromanagement zur Falle.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Service, Cashflow und Wettbewerb - die drei unterschätzten Risikofaktoren?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Gründer:innen investieren viel Energie in Produktentwicklung, Vertrieb und Marketing. Doch die wirklichen Engpässe entstehen oft dort, wo niemand hinschaut: Servicequalität, Liquidität und Wettbewerbsfähigkeit.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
 
     <section class="brt-section brt-section--alt" aria-labelledby="author-box">
       <div class="brt-container brt-article__author brt-fade-up">
-        
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
         <div>
-          <h2 id="author-box" class="brt-h3">Till Manfred Blania</h2>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
           <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
           <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
         </div>
@@ -168,7 +295,7 @@ So entsteht eine Organisation, die auch dann funktioniert, wenn der Gründer ein
         <ul class="brt-blog-grid brt-stagger">
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
           <a class="brt-card__link" href="../../blog/gesundheit-gruender-risikomanagement-ernaehrung/">
-<div class="brt-card__thumb"><img src="../../img/blog/gesundheit-gruender-risikomanagement-ernaehrung-hero.png" alt="Gesundheit als Unternehmensrisiko: Körper, Team und die kleinen Stellschrauben" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/gesundheit-gruender-risikomanagement-ernaehrung-hero.webp" alt="Gesundheit als Unternehmensrisiko: Körper, Team und die kleinen Stellschrauben" class="brt-card__thumb-img" width="1735" height="906" srcset="../../img/blog/gesundheit-gruender-risikomanagement-ernaehrung-hero-480w.webp 480w, ../../img/blog/gesundheit-gruender-risikomanagement-ernaehrung-hero-960w.webp 960w, ../../img/blog/gesundheit-gruender-risikomanagement-ernaehrung-hero-1440w.webp 1440w, ../../img/blog/gesundheit-gruender-risikomanagement-ernaehrung-hero.webp 1735w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">Startup</span>
               <h3 class="brt-h3">Gesundheit als Unternehmensrisiko: Körper, Team und die kleinen Stellschrauben</h3>
@@ -180,7 +307,7 @@ So entsteht eine Organisation, die auch dann funktioniert, wenn der Gründer ein
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
           <a class="brt-card__link" href="../../blog/auslandsgrundung-risiken-standortwahl-strategie/">
-<div class="brt-card__thumb"><img src="../../img/blog/auslandsgrundung-risiken-standortwahl-strategie-hero.png" alt="Wie Gründer Auslandsgründung sicher planen: Standortwahl, Partner, Kultur und 5 Praxistipps für belastbare Entscheidungen." class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/auslandsgrundung-risiken-standortwahl-strategie-hero.webp" alt="Wie Gründer Auslandsgründung sicher planen: Standortwahl, Partner, Kultur und 5 Praxistipps für belastbare Entscheidungen." class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/auslandsgrundung-risiken-standortwahl-strategie-hero-480w.webp 480w, ../../img/blog/auslandsgrundung-risiken-standortwahl-strategie-hero-960w.webp 960w, ../../img/blog/auslandsgrundung-risiken-standortwahl-strategie-hero-1440w.webp 1440w, ../../img/blog/auslandsgrundung-risiken-standortwahl-strategie-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">Startup</span>
               <h3 class="brt-h3">Auslandsgründung strategisch angehen: Risiken, Standortwahl und klare Entscheidungen</h3>
@@ -192,7 +319,7 @@ So entsteht eine Organisation, die auch dann funktioniert, wenn der Gründer ein
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
           <a class="brt-card__link" href="../../blog/risikoradar-community-experten-unternehmer/">
-<div class="brt-card__thumb"><img src="../../img/blog/risikoradar-community-experten-unternehmer-hero.png" alt="Community Risikoradar: Warum Risiken nicht alleine gelöst werden – und was unser geschlossener Expertenclub anders macht" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/risikoradar-community-experten-unternehmer-hero.webp" alt="Community Risikoradar: Warum Risiken nicht alleine gelöst werden – und was unser geschlossener Expertenclub anders macht" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/risikoradar-community-experten-unternehmer-hero-480w.webp 480w, ../../img/blog/risikoradar-community-experten-unternehmer-hero-960w.webp 960w, ../../img/blog/risikoradar-community-experten-unternehmer-hero-1440w.webp 1440w, ../../img/blog/risikoradar-community-experten-unternehmer-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">Startup</span>
               <h3 class="brt-h3">Community Risikoradar: Warum Risiken nicht alleine gelöst werden – und was unser geschlossener Expertenclub anders macht</h3>
@@ -237,7 +364,7 @@ So entsteht eine Organisation, die auch dann funktioniert, wenn der Gründer ein
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../../kontakt/">Kontakt</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../../impressum/">Impressum</a></li>
         <li><a href="../../datenschutz/">Datenschutz</a></li>
         <li><a href="../../agb/">AGB</a></li>

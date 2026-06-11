@@ -20,6 +20,7 @@
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" href="../../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../../css/brt-fallback.css">
@@ -53,7 +54,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -90,21 +94,40 @@
 <div class="brt">
   <main id="main-content">
 
-    <article class="brt-article">
-      <header class="brt-container brt-article__header brt-fade-up">
-        <nav class="brt-breadcrumb" aria-label="Brotkrumen">
-          <a href="../../">Start</a> › <a href="../../blog/">Blog</a> › <span>KMU</span>
-        </nav>
-        <p class="brt-tag">KMU</p>
-        <h1 class="brt-h1 brt-article__title">Familiennachfolge und Generationskonflikt: Was nach der formalen Übergabe alles schiefgehen kann</h1>
-        <p class="brt-article__meta brt-meta">
-          <span>Till Manfred Blania</span> · <time datetime="2026-04-09">9. April 2026</time> · ca. 9 Min. Lesezeit
-        </p>
-      </header>
-      <figure class="brt-article__hero brt-fade-up"><img src="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.png" alt="family business succession leadership clarity SME Germany" class="brt-article__hero-img" loading="eager" fetchpriority="high"></figure>
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">KMU</span>
+          <p class="brt-article__sticky-title">Familiennachfolge und Generationskonflikt: Was nach der formalen…</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Familiennachfolge und Generationskonflikt: Was nach der formalen Übergabe alles schiefgehen kann</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">KMU</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2026-04-09">9. April 2026</time> · ca. 9 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.webp" alt="family business succession leadership clarity SME Germany" class="brt-article__hero-img" width="1672" height="941" srcset="../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-480w.webp 480w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-960w.webp 960w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero-1440w.webp 1440w, ../../img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"></figure>
+      </div>
       <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
         <div class="brt-article__main">
-          <div class="brt-article__body">
+          <div class="brt-article__body" id="article-body" tabindex="-1">
 <aside class="brt-article__keypoints" aria-label="Kernaussagen"><p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p><ul class="brt-article__list">
 <li><strong>Viele Konflikte</strong> nach der Nachfolge sitzen nicht im Gesellschaftsvertrag, sondern in Rollen, Identität und unklarer Führung – das ist ein klassisches Risiko für Mittelstand und Familienunternehmen.</li>
 <li>F<strong>amilie und Organisation</strong> folgen unterschiedlichen Logiken; wenn beide im selben Raum verhandelt werden, entstehen Missverständnisse, die sich als Macht- und Angstspirale zeigen.</li>
@@ -149,11 +172,19 @@
 <p class="brt-body">This article is a factual framing from an advisory and risk perspective; it is not legal, tax, or therapeutic advice.</p>
           </div>
         </div>
-        <aside class="brt-article__aside">
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
 
         <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
-          <p class="brt-article__toc-label">Inhalt</p>
-          <ol class="brt-article__toc-list">
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">14 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
             <li><a href="#warum-der-konflikt-oft-im-bauch-sitzt-obwohl-die-ubergabe-formal-erledigt-ist">Warum der Konflikt oft „im Bauch“ sitzt, obwohl die Übergabe formal erledigt ist</a></li>
             <li><a href="#was-genau-ist-das-drumherum-bei-der-familiennachfolge">Was genau ist „das Drumherum“ bei der Familiennachfolge?</a></li>
             <li><a href="#warum-prallen-familien-und-unternehmenssystem-so-oft-aufeinander">Warum prallen Familien- und Unternehmenssystem so oft aufeinander?</a></li>
@@ -168,43 +199,98 @@
             <li><a href="#wann-lohnt-sich-ein-neutraler-dritter-und-was-sollte-er-nicht-tun">Wann lohnt sich ein neutraler Dritter – und was sollte er nicht tun?</a></li>
             <li><a href="#fazit-erst-klarheit-dann-manahme">Fazit: Erst Klarheit, dann Maßnahme</a></li>
             <li><a href="#quellen">Quellen</a></li>
-          </ol>
+            </ol>
+          </details>
         </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/kmu/">Klarheits-Fahrplan für KMU</a></li>
+            </ul>
+          </nav>
         </aside>
       </div>
+
     </article>
+
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
 
     <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
       <div class="brt-container brt-article__faq">
         <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
         <div class="brt-faq brt-fade-up">
           <details class="brt-faq__item">
-            <summary>Warum eskaliert es nach der Übergabe, obwohl alles formal geregelt ist?</summary>
-            <p class="brt-body">Weil Anteile und Ämter die emotionalen Rollen, die Erwartungen und die Frage „wer führt wirklich?“ nicht automatisch klären. Formalität und gefühlte Macht können auseinanderlaufen.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Warum eskaliert es nach der Übergabe, obwohl alles formal geregelt ist?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Weil Anteile und Ämter die emotionalen Rollen, die Erwartungen und die Frage „wer führt wirklich?“ nicht automatisch klären. Formalität und gefühlte Macht können auseinanderlaufen.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Was meint „Familien- vs. Unternehmenssystem“?</summary>
-            <p class="brt-body">Familie folgt oft Logiken von Nähe und Loyalität; das Unternehmen braucht Zuständigkeit und belastbare Entscheidungen. Werden beide vermischt, entstehen typische Missverständnisse.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was meint „Familien- vs. Unternehmenssystem“?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Familie folgt oft Logiken von Nähe und Loyalität; das Unternehmen braucht Zuständigkeit und belastbare Entscheidungen. Werden beide vermischt, entstehen typische Missverständnisse.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Ist Einmischung des Gründers immer „Machtmissbrauch“?</summary>
-            <p class="brt-body">Nicht zwingend. Häufig stecken Angst vor Kontrollverlust, Schutz des Lebenswerks und unsichere eigene Rolle dahinter – trotzdem bleibt die Wirkung für die Führung riskant.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Ist Einmischung des Gründers immer „Machtmissbrauch“?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Nicht zwingend. Häufig stecken Angst vor Kontrollverlust, Schutz des Lebenswerks und unsichere eigene Rolle dahinter – trotzdem bleibt die Wirkung für die Führung riskant.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Warum sind Mitarbeitende früh betroffen?</summary>
-            <p class="brt-body">Weil sie zwei Signale spüren: unklare Weisungslinie, Lagerbildung, langsamer Entscheidungen – das ist operatives Risiko und oft sichtbar nach außen.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Warum sind Mitarbeitende früh betroffen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Weil sie zwei Signale spüren: unklare Weisungslinie, Lagerbildung, langsamer Entscheidungen – das ist operatives Risiko und oft sichtbar nach außen.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Was ist riskanter: zu schneller Wandel oder zu viel Stillstand?</summary>
-            <p class="brt-body">Beides ist riskant; unkoordinierter Radikalwandel bricht Operationen, Dauer-Einmischung lähmt Führung. Entscheidend sind Priorisierung, Tempo und eine klare Zuständigkeit.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist riskanter: zu schneller Wandel oder zu viel Stillstand?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Beides ist riskant; unkoordinierter Radikalwandel bricht Operationen, Dauer-Einmischung lähmt Führung. Entscheidend sind Priorisierung, Tempo und eine klare Zuständigkeit.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Wann hilft ein externer Moderator oder Mediator?</summary>
-            <p class="brt-body">Wenn interne Gespräche sich wiederholen, Fronten verhärten oder jede Fachfrage emotional überformt wird – neutraler Dritter strukturiert ohne Siegerrolle.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wann hilft ein externer Moderator oder Mediator?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Wenn interne Gespräche sich wiederholen, Fronten verhärten oder jede Fachfrage emotional überformt wird – neutraler Dritter strukturiert ohne Siegerrolle.</p>
+            </div>
           </details>
           <details class="brt-faq__item">
-            <summary>Was ist der kleinste sinnvolle erste Schritt?</summary>
-            <p class="brt-body">Getrennt klären, wer über was entscheidet – und eine einheitliche Außenkommunikation vereinbaren, damit Team und Markt nicht raten müssen.</p>
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist der kleinste sinnvolle erste Schritt?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Getrennt klären, wer über was entscheidet – und eine einheitliche Außenkommunikation vereinbaren, damit Team und Markt nicht raten müssen.</p>
+            </div>
           </details>
         </div>
       </div>
@@ -212,9 +298,9 @@
 
     <section class="brt-section brt-section--alt" aria-labelledby="author-box">
       <div class="brt-container brt-article__author brt-fade-up">
-        
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
         <div>
-          <h2 id="author-box" class="brt-h3">Till Manfred Blania</h2>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
           <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
           <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
         </div>
@@ -234,7 +320,7 @@
         <ul class="brt-blog-grid brt-stagger">
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/emotionale-fuehrung-kmu-eisbergmodell-risiko/">
-<div class="brt-card__thumb"><img src="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.png" alt="Emotional Leadership and the Organizational Iceberg" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.webp" alt="Emotional Leadership and the Organizational Iceberg" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-480w.webp 480w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-960w.webp 960w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero-1440w.webp 1440w, ../../img/blog/emotionale-fuehrung-kmu-eisbergmodell-risiko-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Emotionale Führung und das Eisbergmodell: Was unter der Oberfläche Unternehmensrisiken steuert</h3>
@@ -246,7 +332,7 @@
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/sicherheit-unternehmen-risikomanagement-kmu/">
-<div class="brt-card__thumb"><img src="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.png" alt="Frame 24" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.webp" alt="Frame 24" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-480w.webp 480w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-960w.webp 960w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero-1440w.webp 1440w, ../../img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird</h3>
@@ -258,7 +344,7 @@
         </li>
         <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
           <a class="brt-card__link" href="../../blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen/">
-<div class="brt-card__thumb"><img src="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.png" alt="Folge 7" class="brt-card__thumb-img" loading="lazy" decoding="async"></div>
+<div class="brt-card__thumb"><img src="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.webp" alt="Folge 7" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-480w.webp 480w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-960w.webp 960w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero-1440w.webp 1440w, ../../img/blog/externe-risikofaktoren-fur-kmu-8-einflussfaktoren-die-ihr-unternehmen-bedrohen-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Externe Risikofaktoren für KMU: 8 Einflussfaktoren, die Ihr Unternehmen bedrohen</h3>
@@ -303,7 +389,7 @@
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../../kontakt/">Kontakt</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../../impressum/">Impressum</a></li>
         <li><a href="../../datenschutz/">Datenschutz</a></li>
         <li><a href="../../agb/">AGB</a></li>

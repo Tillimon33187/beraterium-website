@@ -26,6 +26,24 @@ BLOG_CATEGORIES = [
     "Solo",
 ]
 
+CATEGORY_ANGEBOTE: dict[str, list[tuple[str, str]]] = {
+    "Startup": [("startups", "Risiko-Check für Startups")],
+    "KMU": [("kmu", "Klarheits-Fahrplan für KMU")],
+    "Solo": [("solo", "Risiko-Kompass für Solo-Selbstständige")],
+    "HR & Kultur": [("kmu", "Klarheits-Fahrplan für KMU")],
+    "Risikomanagement": [
+        ("startups", "Risiko-Check für Startups"),
+        ("kmu", "Klarheits-Fahrplan für KMU"),
+        ("solo", "Risiko-Kompass für Solo"),
+    ],
+}
+
+DEFAULT_ANGEBOTE = [
+    ("startups", "Risiko-Check für Startups"),
+    ("kmu", "Klarheits-Fahrplan für KMU"),
+    ("solo", "Risiko-Kompass für Solo"),
+]
+
 CATEGORY_SLUGS = {
     "Risikomanagement": "risikomanagement",
     "HR & Kultur": "hr-kultur",
@@ -110,11 +128,19 @@ class BlogPost:
     body_html: str = ""
     toc: list[dict[str, str]] = field(default_factory=list)
     lead: str = ""
+    youtube_id: str = ""
     source_path: Path | None = None
 
 
 def pfx(depth: int) -> str:
     return "../" * depth if depth else ""
+
+
+def header_logo_html(home: str, pre: str) -> str:
+    return f"""    <a class="site-header__logo" href="{home}" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="{pre}img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="{pre}img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>"""
 
 
 def _parse_date(value: Any) -> date:
@@ -166,6 +192,24 @@ def team_section_id(slug: str) -> str:
 
 def team_anchor_id(slug: str) -> str:
     return team_section_id(slug) + "-title"
+
+
+def team_member_url(pre: str, slug: str) -> str:
+    return f"{pre}team/#{team_section_id(slug)}"
+
+
+def author_name_link_html(
+    author_slug: str,
+    author_name: str,
+    pre: str,
+    *,
+    css_class: str = "brt-article__author-link",
+) -> str:
+    name = escape(author_name)
+    if not author_slug:
+        return name
+    href = team_member_url(pre, author_slug)
+    return f'<a class="{css_class}" href="{escape(href)}">{name}</a>'
 
 
 def _reading_time(text: str, minutes: int) -> int:
@@ -228,24 +272,32 @@ def _promote_keypoints(html: str) -> str:
     )
 
 
-def _promote_podcast_cta(html: str) -> str:
+def _youtube_id_from_url(url: str) -> str:
+    if not url:
+        return ""
+    for pattern in (
+        r"youtu\.be/([\w-]{11})",
+        r"youtube\.com/watch\?v=([\w-]{11})",
+        r"youtube\.com/embed/([\w-]{11})",
+        r"youtube\.com/shorts/([\w-]{11})",
+    ):
+        match = re.search(pattern, url)
+        if match:
+            return match.group(1)
+    return ""
+
+
+def _extract_podcast_youtube(html: str) -> tuple[str, str]:
     pattern = (
         r'<h3 class="brt-article__h3"[^>]*>.*?(?:Podcast|🎧).*?</h3>\s*'
         r'<p class="brt-body"><a href="(https?://[^"]+)">([^<]*)</a></p>'
     )
-
-    def repl(match: re.Match[str]) -> str:
-        url, label = match.group(1), match.group(2)
-        return (
-            '<div class="brt-article__podcast">'
-            '<p class="brt-article__podcast-label">Risiko Radar Podcast</p>'
-            f'<a class="brt-article__podcast-link" href="{url}" target="_blank" rel="noopener noreferrer">'
-            f"{label or 'Folge ansehen'} →"
-            "</a>"
-            "</div>"
-        )
-
-    return re.sub(pattern, repl, html, flags=re.DOTALL | re.IGNORECASE)
+    match = re.search(pattern, html, flags=re.DOTALL | re.IGNORECASE)
+    if not match:
+        return html, ""
+    video_id = _youtube_id_from_url(match.group(1))
+    cleaned = re.sub(pattern, "", html, count=1, flags=re.DOTALL | re.IGNORECASE)
+    return cleaned.strip(), video_id
 
 
 def _extract_toc(html: str) -> list[dict[str, str]]:
@@ -260,10 +312,82 @@ def _extract_toc(html: str) -> list[dict[str, str]]:
     return items
 
 
-def _postprocess_article_html(html: str, excerpt: str) -> tuple[str, list[dict[str, str]], str]:
+def _truncate_faq_answer(text: str, limit: int = 320) -> str:
+    cleaned = re.sub(r"\s+", " ", (text or "").strip())
+    if len(cleaned) <= limit:
+        return cleaned
+    return cleaned[: limit - 1].rsplit(" ", 1)[0] + "…"
+
+
+def _faq_from_body_html(html: str, *, limit: int = 6) -> list[dict[str, str]]:
+    items: list[dict[str, str]] = []
+    for match in re.finditer(
+        r'<h2 class="brt-article__h2" id="[^"]+">([^<]+)</h2>\s*'
+        r'(?:<p class="brt-body">(.*?)</p>)?',
+        html,
+        flags=re.DOTALL,
+    ):
+        question = re.sub(r"\s+", " ", match.group(1)).strip()
+        answer = _truncate_faq_answer(re.sub(r"<[^>]+>", "", match.group(2) or ""))
+        if not question or not answer:
+            continue
+        if not question.endswith("?"):
+            question = question.rstrip(".") + "?"
+        items.append({"question": question, "answer": answer})
+        if len(items) >= limit:
+            break
+    return items
+
+
+def _faq_from_keypoints(html: str, *, limit: int = 5) -> list[dict[str, str]]:
+    items: list[dict[str, str]] = []
+    for match in re.finditer(r"<li>(.*?)</li>", html, flags=re.DOTALL):
+        text = _truncate_faq_answer(re.sub(r"<[^>]+>", "", match.group(1)), 280)
+        if len(text) < 40:
+            continue
+        question = text.split(".", 1)[0].strip()
+        if len(question) < 20:
+            question = text[:80].rsplit(" ", 1)[0]
+        if not question.endswith("?"):
+            question = question.rstrip(".") + "?"
+        items.append({"question": question, "answer": text})
+        if len(items) >= limit:
+            break
+    return items
+
+
+def resolve_article_faq(
+    faq: list[dict[str, str]],
+    body_html: str,
+    excerpt: str,
+) -> list[dict[str, str]]:
+    if faq:
+        return faq
+    generated = _faq_from_body_html(body_html)
+    if len(generated) < 3:
+        keypoint_block = re.search(
+            r'<aside class="brt-article__keypoints".*?</aside>',
+            body_html,
+            flags=re.DOTALL,
+        )
+        if keypoint_block:
+            generated.extend(_faq_from_keypoints(keypoint_block.group(0), limit=6 - len(generated)))
+    if generated:
+        return generated[:6]
+    if excerpt:
+        return [
+            {
+                "question": "Worum geht es in diesem Artikel?",
+                "answer": _truncate_faq_answer(excerpt, 400),
+            }
+        ]
+    return []
+
+
+def _postprocess_article_html(html: str, excerpt: str) -> tuple[str, list[dict[str, str]], str, str]:
     html = _unwrap_list_paragraphs(html)
     html = _promote_keypoints(html)
-    html = _promote_podcast_cta(html)
+    html, youtube_id = _extract_podcast_youtube(html)
     toc = _extract_toc(html)
     lead = _clean_excerpt(excerpt)
     if lead:
@@ -273,23 +397,223 @@ def _postprocess_article_html(html: str, excerpt: str) -> tuple[str, list[dict[s
             first_text = re.sub(r"\s+", " ", first_text).strip()
             if first_text[:80] == lead[:80]:
                 lead = ""
-    return html, toc, lead
+    return html, toc, lead, youtube_id
 
 
 def article_toc_html(toc: list[dict[str, str]], depth: int) -> str:
     if not toc:
         return ""
+    count = len(toc)
     items = "\n".join(
         f'            <li><a href="#{escape(item["id"])}">{escape(item["title"])}</a></li>'
         for item in toc
     )
     return f"""
         <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
-          <p class="brt-article__toc-label">Inhalt</p>
-          <ol class="brt-article__toc-list">
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">{count} Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
 {items}
-          </ol>
+            </ol>
+          </details>
         </nav>"""
+
+
+def article_youtube_embed_html(youtube_id: str, title: str, page_url: str = "") -> str:
+    if not youtube_id:
+        return ""
+    safe_title = escape(f"Risiko Radar Podcast: {title}")
+    watch_url = f"https://www.youtube.com/watch?v={youtube_id}"
+    page_attr = f'\n          data-youtube-page="{escape(page_url)}"' if page_url else ""
+    vid = escape(youtube_id)
+    thumb = f"https://i.ytimg.com/vi/{vid}"
+    return f"""
+    <section class="brt-article__video" aria-labelledby="article-podcast-video">
+      <div class="brt-container">
+        <div class="brt-article__video-head">
+          <p class="brt-article__video-label" id="article-podcast-video">Risiko Radar Podcast</p>
+          <p class="brt-article__video-deck">🎧 Zur ganzen Podcast Folge geht es hier:</p>
+        </div>
+        <div
+          class="brt-article__video-wrap"
+          data-youtube-embed
+          data-youtube-id="{vid}"{page_attr}
+          data-youtube-title="{safe_title}"
+        >
+          <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: {safe_title}">
+            <img
+              src="{thumb}/maxresdefault.jpg"
+              srcset="{thumb}/maxresdefault.jpg 1280w, {thumb}/sddefault.jpg 640w"
+              sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
+              alt=""
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              data-youtube-thumb-base="{thumb}/"
+              onerror="if(this.src.includes('maxresdefault')){{this.src='{thumb}/sddefault.jpg';}}else if(this.src.includes('sddefault')){{this.src='{thumb}/hqdefault.jpg';}}"
+            >
+            <span class="brt-article__video-play" aria-hidden="true"></span>
+          </button>
+          <a
+            class="brt-article__video-yt-badge"
+            href="{watch_url}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch on YouTube"
+          >
+            <span class="brt-article__video-yt-prefix">Watch on</span>
+            <span class="brt-article__video-yt-brand" aria-hidden="true">
+              <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+              </svg>
+              <span class="brt-article__video-yt-name">YouTube</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>"""
+
+
+def faq_items_html(items: list[dict[str, str] | tuple[str, str]]) -> str:
+    blocks: list[str] = []
+    for item in items:
+        if isinstance(item, tuple):
+            question, answer = item
+        else:
+            question = item.get("question", "")
+            answer = item.get("answer", "")
+        blocks.append(
+            f"""          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">{escape(question)}</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">{escape(answer)}</p>
+            </div>
+          </details>"""
+        )
+    return "\n".join(blocks)
+
+
+def faq_section_html(
+    items: list[dict[str, str] | tuple[str, str]],
+    *,
+    title: str = "Häufige Fragen",
+    section_id: str = "",
+    heading_id: str = "faq-title",
+    alt: bool = False,
+    container_class: str = "",
+    use_section_header: bool = True,
+) -> str:
+    if not items:
+        return ""
+    alt_cls = " brt-section--alt" if alt else ""
+    id_attr = f' id="{escape(section_id)}"' if section_id else ""
+    container_cls = f"brt-container {container_class}".strip() if container_class else "brt-container"
+    if use_section_header:
+        heading = f"""        <header class="brt-section__header brt-fade-up">
+          <h2 id="{escape(heading_id)}" class="brt-h2">{escape(title)}</h2>
+        </header>"""
+    else:
+        heading = f'        <h2 id="{escape(heading_id)}" class="brt-h2">{escape(title)}</h2>'
+    return f"""
+    <section{id_attr} class="brt-section{alt_cls}" aria-labelledby="{escape(heading_id)}">
+      <div class="{container_cls}">
+{heading}
+        <div class="brt-faq brt-fade-up">
+{faq_items_html(items)}
+        </div>
+      </div>
+    </section>"""
+
+
+def article_faq_section_html(faq: list[dict[str, str]]) -> str:
+    if not faq:
+        return ""
+    return faq_section_html(
+        faq,
+        title="Häufige Fragen",
+        heading_id="article-faq",
+        alt=True,
+        container_class="brt-article__faq",
+        use_section_header=False,
+    )
+
+
+def article_author_sidebar_html(
+    author: TeamMember | None,
+    author_name: str,
+    author_slug: str,
+    depth: int,
+    pre: str,
+) -> str:
+    pre = pre or pfx(depth)
+    img_block = ""
+    if author and author.image:
+        img = img_html(author.image, author.image_alt, depth, css_class="brt-article__author-col-img", aspect="1/1")
+        if "brt-image-placeholder" not in img:
+            img_block = img
+    role = ""
+    if author:
+        role = author.role_tag or (author.approach[:90] + "…" if len(author.approach) > 90 else author.approach)
+    linkedin = ""
+    if author and author.linkedin:
+        linkedin = (
+            f'          <a class="brt-article__author-col-link" href="{escape(author.linkedin)}" '
+            f'target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>\n'
+        )
+    name_link = author_name_link_html(
+        author_slug,
+        author_name,
+        pre,
+        css_class="brt-article__author-col-name",
+    )
+    return f"""
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          {img_block}
+          {name_link}
+          <p class="brt-body brt-article__author-col-role">{escape(role)}</p>
+{linkedin}          <a class="brt-btn brt-btn--outline brt-btn--small" href="{pre}team/">Unser Team →</a>
+        </aside>"""
+
+
+def article_angebote_sidebar_html(category: str, depth: int, pre: str) -> str:
+    pre = pre or pfx(depth)
+    links = CATEGORY_ANGEBOTE.get(category, DEFAULT_ANGEBOTE)
+    items = "\n".join(
+        f'            <li><a href="{pre}angebote/{slug}/">{escape(label)}</a></li>'
+        for slug, label in links
+    )
+    return f"""
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+{items}
+            </ul>
+          </nav>"""
+
+
+def article_sidebar_html(toc: list[dict[str, str]], category: str, depth: int, pre: str) -> str:
+    toc_block = article_toc_html(toc, depth)
+    angebote = article_angebote_sidebar_html(category, depth, pre)
+    if not toc_block.strip() and not angebote.strip():
+        return ""
+    return f"""
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
+{toc_block}
+{angebote}
+        </aside>"""
 
 
 def load_blog_posts(*, include_drafts: bool = False) -> list[BlogPost]:
@@ -310,7 +634,9 @@ def load_blog_posts(*, include_drafts: bool = False) -> list[BlogPost]:
             continue
         reading = _reading_time(body, int(meta.get("reading_time_min", 0) or 0))
         excerpt = _clean_excerpt(meta.get("excerpt", ""))
-        body_html, toc, lead = _postprocess_article_html(_render_markdown(body), excerpt)
+        body_html, toc, lead, youtube_id = _postprocess_article_html(_render_markdown(body), excerpt)
+        meta_youtube = _youtube_id_from_url(str(meta.get("youtube_url", "") or ""))
+        faq = resolve_article_faq(meta.get("faq") or [], body_html, excerpt)
         posts.append(
             BlogPost(
                 title=meta.get("title", path.stem),
@@ -323,15 +649,34 @@ def load_blog_posts(*, include_drafts: bool = False) -> list[BlogPost]:
                 hero_alt=meta.get("hero_alt", meta.get("title", "")),
                 draft=draft,
                 reading_time_min=reading,
-                faq=meta.get("faq") or [],
+                faq=faq,
                 related_slugs=meta.get("related_slugs") or [],
                 body_html=body_html,
                 toc=toc,
                 lead=lead,
+                youtube_id=meta_youtube or youtube_id,
                 source_path=path,
             )
         )
     return sorted(posts, key=lambda p: p.date, reverse=True)
+
+
+def resolve_image_src(src: str) -> str | None:
+    if not src:
+        return None
+    base = Path(src)
+    stem = base.with_suffix("")
+    candidates: list[str] = []
+    if base.suffix:
+        candidates.append(src)
+    for ext in (".webp", ".png", ".jpg", ".jpeg"):
+        candidate = str(stem.with_suffix(ext)).replace("\\", "/")
+        if candidate not in candidates:
+            candidates.append(candidate)
+    for candidate in candidates:
+        if (SITE / candidate).exists():
+            return candidate
+    return None
 
 
 def _image_dimensions(src: str) -> tuple[int, int] | None:
@@ -376,32 +721,29 @@ def img_html(
     hero: bool = False,
     css_class: str = "",
     aspect: str = "16/9",
+    high_detail: bool = False,
 ) -> str:
-    if not src:
-        label = escape(alt or "Bild folgt")
-        return (
-            f'<div class="brt-image-placeholder" role="img" aria-label="{label}" '
-            f'style="aspect-ratio:{aspect}">'
-            f'<span class="brt-image-placeholder__label">Bild folgt</span></div>'
-        )
-    full = SITE / src
-    if not full.exists():
+    resolved = resolve_image_src(src)
+    if not resolved:
         label = escape(alt or "Bild folgt")
         return (
             f'<div class="brt-image-placeholder" role="img" aria-label="{label}" '
             f'style="aspect-ratio:{aspect}">'
             f'<span class="brt-image-placeholder__label">{label}</span></div>'
         )
+    src = resolved
+    full = SITE / src
     pre = pfx(depth)
     url = f"{pre}{src}"
     dims = _image_dimensions(src)
     w_attr = f' width="{dims[0]}"' if dims else ""
     h_attr = f' height="{dims[1]}"' if dims else ""
-    variants = _srcset_variants(src)
     srcset = ""
-    if len(variants) > 1:
-        parts = [f"{pre}{v} {width}w" for v, width in variants]
-        srcset = f' srcset="{", ".join(parts)}" sizes="(max-width: 768px) 100vw, 960px"'
+    if not high_detail:
+        variants = _srcset_variants(src)
+        if len(variants) > 1:
+            parts = [f"{pre}{v} {width}w" for v, width in variants]
+            srcset = f' srcset="{", ".join(parts)}" sizes="(max-width: 768px) 100vw, 960px"'
     loading = ' loading="eager" fetchpriority="high"' if hero else ' loading="lazy" decoding="async"'
     cls = f' class="{css_class}"' if css_class else ""
     return (
@@ -741,6 +1083,7 @@ def gen_sitemap_urls() -> list[str]:
         "/risikoradar/",
         "/blog/",
         "/kontakt/",
+        "/kontaktformular/",
         "/impressum/",
         "/datenschutz/",
         "/agb/",

@@ -20,6 +20,7 @@
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" href="../icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="../css/brt.css" data-brt-css>
   <link rel="stylesheet" href="../css/brt-fallback.css">
@@ -32,7 +33,10 @@
 
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="../" aria-label="Beraterium Startseite">Beraterium</a>
+    <a class="site-header__logo" href="../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
@@ -78,46 +82,51 @@
         </div>
       </div>
     </section>
-    <section class="brt-section" aria-labelledby="contact-title">
-      <div class="brt-container brt-contact-grid brt-fade-up">
-        <div>
-          <h2 id="contact-title" class="brt-h2">Ihr kostenloses Erstgespräch</h2>
-          <p class="brt-body">Wählen Sie direkt einen Termin oder schreiben Sie uns – wir melden uns in der Regel innerhalb eines Werktags.</p>
-          <form class="brt-form" action="../danke/" method="get">
-            <label>Name *
-              <input type="text" name="name" required autocomplete="name">
-            </label>
-            <label>E-Mail *
-              <input type="email" name="email" required autocomplete="email">
-            </label>
-            <label>Unternehmen
-              <input type="text" name="company" autocomplete="organization">
-            </label>
-            <label>Ich bin …
-              <select name="type">
-                <option value="">Bitte wählen</option>
-                <option>Startup</option>
-                <option>KMU</option>
-                <option>Solo-Selbstständige</option>
-                <option>Sonstiges</option>
-              </select>
-            </label>
-            <label>Ihre Nachricht
-              <textarea name="message" placeholder="Worum geht es?"></textarea>
-            </label>
-            <label class="brt-form__check">
-              <input type="checkbox" name="privacy" required>
-              <span>Ich habe die <a href="../datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.</span>
-            </label>
-            <button class="brt-btn" type="submit">Anfrage senden</button>
-          </form>
+    <section class="brt-section brt-section--booking" aria-labelledby="contact-title">
+      <div class="brt-container brt-contact-booking brt-fade-up">
+        <div class="brt-contact-booking__head">
+          <div class="brt-contact-booking__intro">
+            <div class="brt-contact-booking__lead">
+              <p class="brt-tag">30 Minuten · kostenlos · unverbindlich</p>
+              <h2 id="contact-title" class="brt-h2">Ihr kostenloses Erstgespräch</h2>
+              <p class="brt-body">Wählen Sie direkt einen Termin – wir nehmen uns Zeit für Ihre Situation, nicht für Verkaufsargumente.</p>
+            </div>
+            <div class="brt-contact-expect">
+              <h3 class="brt-contact-expect__title">Was Sie erwartet</h3>
+              <ul class="brt-contact-expect__points">
+                <li class="brt-contact-expect__point">
+                  <strong>Kein Verkaufsgespräch</strong>
+                  <span>Kein Pitch – wir erklären, was wir tun und wie unsere Methode funktioniert.</span>
+                </li>
+                <li class="brt-contact-expect__point">
+                  <strong>Praxistipps inklusive</strong>
+                  <span>Konkrete Hinweise, mit denen Sie direkt mit Eigenarbeit und Recherche starten können.</span>
+                </li>
+                <li class="brt-contact-expect__point">
+                  <strong>Selbst umsetzen</strong>
+                  <span>Sie gehen mit genug Klarheit raus, um erste Schritte eigenständig anzugehen.</span>
+                </li>
+                <li class="brt-contact-expect__point">
+                  <strong>Unterstützung optional</strong>
+                  <span>Wenn Sie Begleitung brauchen, besprechen wir die weiteren Schritte gemeinsam – wie unten beschrieben.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <aside class="brt-contact-aside">
+            <p class="brt-contact-aside__label">Alternativ</p>
+            <h3 class="brt-h3">Direkter Draht</h3>
+            <p class="brt-body">Lieber schriftlich? Nutzen Sie unser Kontaktformular – Antwort i. d. R. innerhalb eines Werktags.</p>
+            <a class="brt-btn brt-btn--outline" href="../kontaktformular/">Zum Kontaktformular</a>
+            <ul class="brt-contact-aside__links">
+              <li><a href="mailto:kontakt@beraterium.de">kontakt@beraterium.de</a></li>
+              <li><a href="https://www.linkedin.com/company/beraterium">LinkedIn</a></li>
+            </ul>
+          </aside>
         </div>
-        <aside>
-          <h3 class="brt-h3">Direkter Draht</h3>
-          <p class="brt-body">E-Mail: <a href="mailto:kontakt@beraterium.de">kontakt@beraterium.de</a></p>
-          <p class="brt-body"><a href="https://www.linkedin.com/company/beraterium">LinkedIn</a></p>
-          <p class="brt-meta">Jede Analyse wird von Till und Peter persönlich begleitet. Antwort i. d. R. innerhalb eines Werktags.</p>
-        </aside>
+        <div class="brt-calendly" data-calendly-embed>
+          <div id="beraterium-calendly" class="calendly-inline-widget" data-url="https://calendly.com/beraterium/30min"></div>
+        </div>
       </div>
     </section>
     <section class="brt-section brt-section--alt" aria-labelledby="steps-title">
@@ -170,7 +179,7 @@
       <h2>Kontakt</h2>
       <ul>
         <li><a href="../kontakt/">Erstgespräch buchen</a></li>
-        <li><a href="../kontakt/">Kontakt</a></li>
+        <li><a href="../kontaktformular/">Kontaktformular</a></li>
         <li><a href="../impressum/">Impressum</a></li>
         <li><a href="../datenschutz/">Datenschutz</a></li>
         <li><a href="../agb/">AGB</a></li>
@@ -180,6 +189,7 @@
   <p class="site-footer__legal">© Beraterium 2026</p>
 </footer>
 
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script src="../js/brt-site.js"></script>
 
 </body>
