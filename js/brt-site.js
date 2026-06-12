@@ -638,6 +638,52 @@
     });
   }
 
+  function initKeypointsLayoutDebug() {
+    var items = document.querySelectorAll(".brt-article__keypoints-list li");
+    if (!items.length) return;
+
+    items.forEach(function (li, index) {
+      if (index > 2) return;
+      var cs = window.getComputedStyle(li);
+      var childNodes = Array.prototype.slice.call(li.childNodes).map(function (node) {
+        return {
+          type: node.nodeType,
+          name: node.nodeName,
+          width: node.nodeType === 1 ? node.getBoundingClientRect().width : null,
+          text: node.nodeType === 3 ? (node.textContent || "").trim().slice(0, 40) : null,
+        };
+      });
+      var rects = li.getClientRects();
+      // #region agent log
+      fetch("http://127.0.0.1:7404/ingest/5e5db5d0-caf9-4872-a848-8ab4c3aa70d8", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "e437dd" },
+        body: JSON.stringify({
+          sessionId: "e437dd",
+          runId: "pre-fix",
+          hypothesisId: "A",
+          location: "brt-site.js:initKeypointsLayoutDebug",
+          message: "keypoints li layout snapshot",
+          data: {
+            index: index,
+            liWidth: li.getBoundingClientRect().width,
+            liHeight: li.getBoundingClientRect().height,
+            rectCount: rects.length,
+            childElementCount: li.childElementCount,
+            childNodes: childNodes,
+            display: cs.display,
+            gridTemplateColumns: cs.gridTemplateColumns,
+            wordBreak: cs.wordBreak,
+            overflowWrap: cs.overflowWrap,
+            viewportWidth: window.innerWidth,
+          },
+          timestamp: Date.now(),
+        }),
+      }).catch(function () {});
+      // #endregion
+    });
+  }
+
   function initArticlePage() {
     var article = document.querySelector("[data-article]");
     if (!article) return;
@@ -645,6 +691,7 @@
     initArticleProgress(article);
     initArticleBackTop(article);
     initArticleToc(article);
+    initKeypointsLayoutDebug();
   }
 
   function initYoutubeEmbeds() {
@@ -711,9 +758,17 @@
     var main = article.querySelector(".brt-article__main");
     if (!bar || !hero) return;
 
+    var header = document.querySelector(".site-header");
+
+    function syncStickyBarTop() {
+      if (!header) return;
+      bar.style.top = Math.round(header.getBoundingClientRect().bottom) + "px";
+    }
+
     var ticking = false;
     function update() {
       ticking = false;
+      syncStickyBarTop();
       var scrollY = window.pageYOffset;
       var heroBottom = hero.getBoundingClientRect().bottom + scrollY;
       var pastHero = scrollY > heroBottom - 80;
@@ -723,7 +778,6 @@
         var mainRect = main.getBoundingClientRect();
         var mainTop = mainRect.top + scrollY;
         var mainBottom = mainTop + main.offsetHeight;
-        var header = document.querySelector(".site-header");
         var headerH = header ? header.getBoundingClientRect().height : 84;
         var readStart = scrollY + headerH + 48;
         inText = mainBottom > readStart && mainTop < scrollY + window.innerHeight;
