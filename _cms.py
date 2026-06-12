@@ -1001,7 +1001,7 @@ def home_team_section_html(depth: int = 0) -> str:
   <!-- HOME_TEAM_END -->"""
 
 
-def team_teaser_card(member: TeamMember, depth: int) -> str:
+def team_teaser_card(member: TeamMember, depth: int, *, hidden: bool = False) -> str:
     pre = pfx(depth)
     media = img_html(
         member.image,
@@ -1019,7 +1019,9 @@ def team_teaser_card(member: TeamMember, depth: int) -> str:
         media_block = f'<div class="brt-card__media">{media}</div>'
     bio = member.teaser_bio or member.approach[:120]
     href = f"{pre}team/index.html#{team_section_id(member.slug)}"
-    return f"""          <li class="brt-card brt-card--profile brt-hover-lift">
+    extra_cls = " brt-home-team__card--more" if hidden else ""
+    hidden_attr = " hidden" if hidden else ""
+    return f"""          <li class="brt-card brt-card--profile brt-hover-lift{extra_cls}"{hidden_attr}>
             <a class="brt-card__link" href="{href}">
 {media_block}
               <div class="brt-card__body">
@@ -1028,6 +1030,150 @@ def team_teaser_card(member: TeamMember, depth: int) -> str:
               </div>
             </a>
           </li>"""
+
+
+FOUNDER_PODCAST_YOUTUBE_ID = "shVbfq7n9LQ"
+FOUNDER_PODCAST_TITLE = "Risiko Radar Episode 1 – Wer ist Beraterium?"
+
+
+def founder_podcast_embed_html(youtube_id: str, title: str, page_url: str) -> str:
+    safe_title = escape(title)
+    watch_url = f"https://www.youtube.com/watch?v={youtube_id}"
+    vid = escape(youtube_id)
+    thumb = f"https://i.ytimg.com/vi/{vid}"
+    page_attr = f'\n                data-youtube-page="{escape(page_url)}"'
+    return f"""              <div
+                class="brt-article__video-wrap"
+                data-youtube-embed
+                data-youtube-id="{vid}"{page_attr}
+                data-youtube-title="{safe_title}"
+              >
+                <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: {safe_title}">
+                  <img
+                    src="{thumb}/maxresdefault.jpg"
+                    srcset="{thumb}/maxresdefault.jpg 1280w, {thumb}/sddefault.jpg 640w"
+                    sizes="(min-width: 1024px) min(420px, 40vw), 100vw"
+                    alt="Video-Vorschau: Risiko Radar Folge 1 – Wer ist Beraterium?"
+                    width="1280"
+                    height="720"
+                    loading="lazy"
+                    decoding="async"
+                    data-youtube-thumb-base="{thumb}/"
+                    onerror="if(this.src.includes('maxresdefault')){{this.src='{thumb}/sddefault.jpg';}}else if(this.src.includes('sddefault')){{this.src='{thumb}/hqdefault.jpg';}}"
+                  >
+                  <span class="brt-article__video-play" aria-hidden="true"></span>
+                </button>
+                <a
+                  class="brt-article__video-yt-badge"
+                  href="{watch_url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Auf YouTube ansehen"
+                >
+                  <span class="brt-article__video-yt-prefix">Watch on</span>
+                  <span class="brt-article__video-yt-brand" aria-hidden="true">
+                    <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                      <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                      <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+                    </svg>
+                    <span class="brt-article__video-yt-name">YouTube</span>
+                  </span>
+                </a>
+              </div>"""
+
+
+def ueber_uns_founder_section_html(depth: int = 1) -> str:
+    pre = pfx(depth)
+    page_url = f"{SITE_URL}/ueber-uns/"
+    embed = founder_podcast_embed_html(
+        FOUNDER_PODCAST_YOUTUBE_ID,
+        FOUNDER_PODCAST_TITLE,
+        page_url,
+    )
+    return f"""    <section class="brt-section brt-founder" aria-labelledby="founder-title">
+      <div class="brt-container brt-split brt-split--founder brt-fade-up">
+        <div class="brt-split__text brt-founder__story">
+          <p class="brt-tag">DIE GRÜNDER</p>
+          <h2 id="founder-title" class="brt-h2">Zwei Perspektiven, eine Mission</h2>
+          <p class="brt-founder__lead">Till und Peter haben sich über soziale Netzwerke kennengelernt — unterschiedliche Wege, eine gemeinsame Überzeugung: Risiken sind keine Bedrohung, sondern eine Chance zur Weiterentwicklung. Aus diesem Gespräch wurde Beraterium.</p>
+          <ul class="brt-founder-credentials brt-stagger">
+            <li class="brt-founder-credential">
+              <span class="brt-founder-credential__initial" aria-hidden="true">P</span>
+              <div class="brt-founder-credential__body">
+                <strong class="brt-founder-credential__name">Peter Münstermann</strong>
+                <p class="brt-body">Über 20 Jahre DAX-Konzern — Informationsschutz, IT-Sicherheit und Risikomanagement bis zur Vorstandsebene. Seine Erkenntnis: Nicht die Technik, sondern die Menschen entscheiden über Sicherheit.</p>
+              </div>
+            </li>
+            <li class="brt-founder-credential">
+              <span class="brt-founder-credential__initial" aria-hidden="true">T</span>
+              <div class="brt-founder-credential__body">
+                <strong class="brt-founder-credential__name">Till Manfred Blania</strong>
+                <p class="brt-body">Startups, Forschung, Personalentwicklung — mehrfacher Gründer und Ökonom. Mit eigener Analysemethode erkennt er früh, wo Teams blockiert sind und Kultur trägt.</p>
+              </div>
+            </li>
+          </ul>
+          <p class="brt-body brt-founder__closer">Peter ruhig, strukturiert, erfahren. Till mutig, verändernd, immer auf der Suche nach der Chance im Risiko. Zusammen: Konzern-Erfahrung mit Start-up-Spirit — auf Augenhöhe.</p>
+          <p class="brt-section__cta">
+            <a class="brt-btn brt-btn--ghost" href="https://www.youtube.com/@Beraterium">Alle Folgen auf YouTube →</a>
+            <a class="brt-btn brt-btn--outline" href="{pre}team/">Team kennenlernen →</a>
+          </p>
+        </div>
+        <aside class="brt-founder__media brt-fade-up" style="--fade-delay: 120ms" aria-labelledby="founder-podcast">
+          <div class="brt-founder-podcast">
+            <header class="brt-founder-podcast__head">
+              <p class="brt-tag brt-tag--small">Risiko Radar · Folge 1</p>
+              <h3 id="founder-podcast" class="brt-h3">Wer ist Beraterium?</h3>
+              <p class="brt-meta">Till &amp; Peter im Gespräch — der Einstieg in den Podcast.</p>
+            </header>
+            <div class="brt-founder-podcast__video">
+{embed}
+            </div>
+            <footer class="brt-founder-podcast__foot">
+              <a class="brt-founder-podcast__link" href="{pre}blog/risk-radar-episode-1-who-is-beraterium/">Artikel zur Folge →</a>
+            </footer>
+          </div>
+        </aside>
+      </div>
+    </section>"""
+
+
+def ueber_uns_team_section_html(depth: int = 1) -> str:
+    pre = pfx(depth)
+    members = [m for m in load_team_members() if m.active and m.show_on_ueber_uns]
+    by_slug = {m.slug: m for m in members}
+    featured = [by_slug[s] for s in HOME_TEAM_FEATURED_SLUGS if s in by_slug]
+    featured_slugs = {m.slug for m in featured}
+    more = [m for m in members if m.slug not in featured_slugs]
+    cards = "\n".join(team_teaser_card(m, depth) for m in featured)
+    if more:
+        cards += "\n" + "\n".join(team_teaser_card(m, depth, hidden=True) for m in more)
+        toggle = """        <p class="brt-home-team__toggle-wrap brt-fade-up">
+          <button
+            type="button"
+            class="brt-home-team__toggle"
+            aria-expanded="false"
+            aria-controls="ueber-uns-team-cards"
+            data-more-label="Mehr anzeigen"
+            data-less-label="Weniger anzeigen">
+            Mehr anzeigen
+          </button>
+        </p>"""
+    else:
+        toggle = ""
+    return f"""    <section class="brt-section" id="ueber-uns-team" aria-labelledby="team-teaser">
+      <div class="brt-container">
+        <header class="brt-section__header brt-fade-up">
+          <h2 id="team-teaser" class="brt-h2">Die Menschen hinter Beraterium</h2>
+        </header>
+        <ul class="brt-cards-3col brt-stagger" id="ueber-uns-team-cards">
+{cards}
+        </ul>
+{toggle}
+        <p class="brt-section__cta brt-fade-up">
+          <a class="brt-btn brt-btn--ghost" href="{pre}team/">Unser Team →</a>
+        </p>
+      </div>
+    </section>"""
 
 
 def person_schema(member: TeamMember) -> dict[str, Any]:

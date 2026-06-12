@@ -131,7 +131,7 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-inline-start: auto;
+  flex-shrink: 0;
 }
 
 .site-header__lang-current {
@@ -157,8 +157,10 @@
   color: var(--color-text, #0e1116);
 }
 
-.site-header--solid .site-header__lang-current {
-  opacity: 0.55;
+@media (min-width: 1024px) {
+  .site-header__nav .site-header__lang {
+    margin-right: 0.25rem;
+  }
 }
 
 .site-header__logo {
@@ -1772,6 +1774,13 @@
 /* Founder block — Über uns */
 .brt-founder {
   background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+}
+
+.brt-founder .brt-fade-up,
+.brt-founder .brt-fade-up.is-visible,
+.brt-founder .brt-stagger > * {
+  opacity: 1;
+  transform: none;
 }
 
 .brt-split--founder {
@@ -3699,7 +3708,7 @@
 
 .brt-article__sticky-bar {
   position: fixed;
-  top: var(--header-height);
+  top: calc(var(--header-height) - 1px);
   left: 0;
   right: 0;
   z-index: 19;

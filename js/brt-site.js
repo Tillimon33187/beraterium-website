@@ -234,14 +234,21 @@
     var menuMq = window.matchMedia("(min-width: 1024px)");
     var isInnerPage = document.body.classList.contains("brt-page--inner");
 
+    function syncHeaderHeight() {
+      if (!header) return;
+      document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+    }
+
     function updateHeaderState() {
       if (!header) return;
       if (isInnerPage) {
         header.classList.add("site-header--solid");
+        syncHeaderHeight();
         return;
       }
       var shouldBeSolid = window.scrollY > 20 || (nav && nav.classList.contains("is-open"));
       header.classList.toggle("site-header--solid", shouldBeSolid);
+      syncHeaderHeight();
     }
 
     if (navToggle && nav) {
@@ -333,6 +340,7 @@
     });
 
     window.addEventListener("scroll", updateHeaderState, { passive: true });
+    window.addEventListener("resize", updateHeaderState, { passive: true });
     updateHeaderState();
 
     if (location.hash) {

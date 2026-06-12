@@ -29,7 +29,8 @@ from _cms import (
     person_schema,
     team_by_slug,
     team_profile_section,
-    team_teaser_card,
+    ueber_uns_founder_section_html,
+    ueber_uns_team_section_html,
     write_sitemap,
 )
 
@@ -225,12 +226,12 @@ def shell(
 <header class="site-header site-header--solid" aria-label="Hauptnavigation">
   <div class="site-header__inner">
 {header_logo_html(home, pre)}
-{lang_switch}
     <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
     <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
       <ul>
 {nav_html(depth, active_nav)}
       </ul>
+{lang_switch}
       <a class="brt-btn brt-btn--outline site-header__cta" href="{pre}kontakt/">Erstgespräch buchen</a>
     </nav>
   </div>
@@ -354,11 +355,6 @@ def write(rel: str, html: str) -> None:
 
 def gen_ueber_uns() -> None:
     pre = "../"
-    team_cards = "\n".join(
-        team_teaser_card(m, 1)
-        for m in load_team_members()
-        if m.active and m.show_on_ueber_uns
-    )
     radar_media = split_media_html(
         IMG_UEBER_UNS_RISIKORADAR,
         "Netzwerk und Zusammenarbeit bei RisikoRadar",
@@ -402,12 +398,15 @@ def gen_ueber_uns() -> None:
         </ul>
       </div>
     </section>
+"""
+        + ueber_uns_founder_section_html(1)
+        + """
     <section class="brt-section" aria-labelledby="radar-teaser">
       <div class="brt-container brt-split">
         <div class="brt-split__text brt-fade-up">
           <p class="brt-tag">MEHR ALS BERATUNG</p>
           <h2 id="radar-teaser" class="brt-h2">Aus Erkenntnissen werden Schritte</h2>
-          <p class="brt-body">Aus unserer Arbeit ist RisikoRadar entstanden: eine Community, in der Unternehmer und Experten offen über Risiken sprechen, Erfahrungen teilen und voneinander lernen. Denn Risiken lassen sich besser verstehen, wenn man nicht allein darüber nachdenkt. Und wenn aus Erkenntnissen konkrete Schritte werden, entstehen Arbeitsräume, in denen Teams gemeinsam Lösungen entwickeln und umsetzen.</p>
+          <p class="brt-body">Im Gegensatz zu Facebook-Gruppen, offenen Foren oder LinkedIn ist RisikoRadar ein geschlossener Club: Zugang nur über Empfehlung oder Bewerbung. Kein stilles Mitlesen, kein Network-Marketing — sondern geprüfte Experten, die wirklich beitragen. Ein einzelner Berater deckt vielleicht 80&nbsp;% ab; Risiken hängen aber zusammen — IT, Arbeitsschutz, Führung, DSGVO. In RisikoRadar arbeiten mehrere Experten an einer Lösung. Kunden erhalten einen kostenfreien Jahreszugang.</p>
           <a class="brt-btn brt-btn--ghost" href="../risikoradar/">RisikoRadar entdecken →</a>
         </div>
 {radar_media}
@@ -418,21 +417,10 @@ def gen_ueber_uns() -> None:
         <p class="brt-quote-band__text">„Beraterium ist ein Denkraum für Unternehmer, in dem Risiken sichtbar werden und bessere Entscheidungen entstehen."</p>
       </div>
     </section>
-    <section class="brt-section" aria-labelledby="team-teaser">
-      <div class="brt-container">
-        <header class="brt-section__header brt-fade-up">
-          <h2 id="team-teaser" class="brt-h2">Die Menschen hinter Beraterium</h2>
-        </header>
-        <ul class="brt-cards-3col brt-stagger">
-{team_cards}
-        </ul>
-        <p class="brt-section__cta brt-fade-up">
-          <a class="brt-btn brt-btn--ghost" href="../team/">Unser Team →</a>
-        </p>
-      </div>
-    </section>"""
+"""
+        + ueber_uns_team_section_html(1)
     )
-    main = main.replace("{team_cards}", team_cards).replace("{radar_media}", radar_media)
+    main = main.replace("{radar_media}", radar_media)
     main += cta_band(
         pre,
         "Lernen wir uns kennen.",
