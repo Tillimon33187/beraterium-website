@@ -21,8 +21,12 @@
   <meta property="og:locale" content="de_DE">
 
   <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-dark.ico" sizes="any" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="icon.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="icon-dark.png" type="image/png" sizes="192x192" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0E1116">
+  <link rel="manifest" href="site.webmanifest">
 
   <link rel="stylesheet" href="css/brt.css" data-brt-css>
   <link rel="stylesheet" href="css/brt-fallback.css">
@@ -235,25 +239,16 @@
       </header>
       <ul class="brt-cards-3col brt-stagger">
         <li class="brt-card brt-card--target brt-hover-lift">
-          <div class="brt-card__icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c3-4.5 6-7.5 7.5-7.5S15 12 18 16.5"/><path d="M12 3v6"/><path d="M9 6l3-3 3 3"/></svg>
-          </div>
           <h3 class="brt-h3">Startups</h3>
           <p class="brt-body">Schnelles Wachstum, viele Baustellen. Wir zeigen Ihnen in 4 Wochen, welche Risiken Sie ausbremsen könnten – bevor es teuer wird.</p>
           <a class="brt-btn brt-btn--ghost" href="angebote/startups/">BlindSpot-Check für Startups →</a>
         </li>
-        <li class="brt-card brt-card--target brt-card--featured brt-hover-lift">
-          <div class="brt-card__icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
-          </div>
+        <li class="brt-card brt-card--target brt-hover-lift">
           <h3 class="brt-h3">KMU &amp; Mittelstand</h3>
           <p class="brt-body">Kapital erhalten, Entscheidungen absichern, Zukunft sichern. Risikomanagement und HR-Analyse, die zu Ihrem Betrieb passen – nicht zu einem Konzern.</p>
           <a class="brt-btn brt-btn--ghost" href="angebote/kmu/">BlindSpot-Check für KMU →</a>
         </li>
         <li class="brt-card brt-card--target brt-hover-lift">
-          <div class="brt-card__icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
           <h3 class="brt-h3">Solo-Selbstständige</h3>
           <p class="brt-body">Sie sind Ihr Unternehmen. Fällt Ihre Person aus, steht alles. In 2 Wochen wissen Sie, wo Sie wirklich verletzlich sind.</p>
           <a class="brt-btn brt-btn--ghost" href="angebote/solo/">BlindSpot-Check für Solo →</a>
@@ -307,30 +302,57 @@
   </section>
 
   <!-- S6 — Doppelte Garantie -->
-  <section class="brt-section brt-section--alt" aria-labelledby="garantie-title">
+  <section class="brt-section brt-section--guarantee" aria-labelledby="garantie-title">
     <div class="brt-container">
-      <header class="brt-section__header brt-fade-up">
+      <header class="brt-section__header brt-section__header--center brt-fade-up">
         <p class="brt-tag">Ihr Risiko liegt bei uns</p>
         <h2 id="garantie-title" class="brt-h2">Doppelte Garantie</h2>
+        <p class="brt-body brt-section__lede">Zwei klare Versprechen – wenn wir nicht liefern, erstatten wir den vollen Betrag.</p>
       </header>
       <ul class="brt-guarantee-duo brt-stagger">
         <li class="brt-card brt-card--guarantee brt-hover-lift">
-          <div class="brt-card__icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div class="brt-guarantee__visual">
+            <div class="brt-guarantee__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <span class="brt-guarantee__num" aria-hidden="true">01</span>
           </div>
           <h3 class="brt-h3">Relevanz-Garantie</h3>
           <p class="brt-quote">„Wir finden kein relevantes Risiko? Geld zurück."</p>
           <p class="brt-body">Identifiziert die Analyse kein einziges Risiko mit relevanter Schadenshöhe (Schwelle vorab gemeinsam definiert), erstatten wir den vollen Betrag.</p>
         </li>
         <li class="brt-card brt-card--guarantee brt-hover-lift">
-          <div class="brt-card__icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <div class="brt-guarantee__visual">
+            <div class="brt-guarantee__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <span class="brt-guarantee__num" aria-hidden="true">02</span>
           </div>
           <h3 class="brt-h3">Nutzen-Garantie</h3>
           <p class="brt-quote">„Kein messbarer Nutzen? Geld zurück."</p>
           <p class="brt-body">Wir legen vor dem Start gemeinsam 3–5 Nutzen-Kriterien fest. Wird am Ende keines erfüllt, bekommen Sie den vollen Betrag zurück. Ohne Diskussion.</p>
         </li>
       </ul>
+      <aside class="brt-guarantee-cta brt-fade-up" aria-label="Erstgespräch vereinbaren">
+        <div class="brt-guarantee-cta__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+        <div class="brt-guarantee-cta__copy">
+          <p class="brt-guarantee-cta__lead">Lassen Sie uns Ihr Risiko in Klarheit verwandeln.</p>
+          <p class="brt-guarantee-cta__sub">Vereinbaren Sie jetzt ein unverbindliches Erstgespräch.</p>
+        </div>
+        <a class="brt-btn brt-btn--white" href="kontakt/">Jetzt Termin vereinbaren →</a>
+        <div class="brt-guarantee-cta__team">
+          <div class="brt-guarantee-cta__avatars" aria-hidden="true">
+            <img src="img/team/till-blania.webp" alt="" width="80" height="80" loading="lazy" decoding="async">
+            <img src="img/team/peter-muenstermann.webp" alt="" width="80" height="80" loading="lazy" decoding="async">
+          </div>
+          <div>
+            <p class="brt-guarantee-cta__team-name">Ihr Beraterium-Team</p>
+            <p class="brt-guarantee-cta__team-note">Wir sind für Sie da.</p>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -343,44 +365,54 @@
       </header>
       <ul class="brt-cards-3col brt-stagger" id="home-team-cards">
         <li class="brt-card brt-card--profile brt-hover-lift">
+          <a class="brt-card__link" href="team/#tillblania">
           <div class="brt-card__media"><img src="img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-card__media-img" width="1200" height="1600" srcset="img/team/till-blania-480w.webp 480w, img/team/till-blania-960w.webp 960w, img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
           <div class="brt-card__body">
             <h3 class="brt-h3">Till Manfred Blania</h3>
             <p class="brt-meta brt-meta--accent">Geschäftsführer · HR-Management-Ansatz</p>
             <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups. Bringt Führungskräfte und Mitarbeitende zusammen, damit Lösungen entstehen, die wirklich funktionieren.</p>
           </div>
+          </a>
         </li>
         <li class="brt-card brt-card--profile brt-hover-lift">
+          <a class="brt-card__link" href="team/#petermuenstermann">
           <div class="brt-card__media"><img src="img/team/peter-muenstermann.webp" alt="Peter Münstermann, Entwickler des Risikomanagement-Ansatzes bei Beraterium" class="brt-card__media-img" width="1200" height="1600" srcset="img/team/peter-muenstermann-480w.webp 480w, img/team/peter-muenstermann-960w.webp 960w, img/team/peter-muenstermann.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
           <div class="brt-card__body">
             <h3 class="brt-h3">Peter Münstermann</h3>
             <p class="brt-meta brt-meta--accent">Risikomanagement-Ansatz · 20 Jahre Konzern</p>
             <p class="brt-body">Moderiert offene Gespräche über Risiken, Chancen und Lösungen – strukturiert, aber menschlich. Macht Risikomanagement greifbar, verständlich und praktisch umsetzbar.</p>
           </div>
+          </a>
         </li>
         <li class="brt-card brt-card--profile brt-hover-lift">
+          <a class="brt-card__link" href="team/#aleksandrapolosukhina">
           <div class="brt-card__media"><img src="img/team/aleksandra-polosukhina.webp" alt="Aleksandra Polosukhina, Leiterin Marketing und PR bei Beraterium" class="brt-card__media-img" width="1200" height="1600" srcset="img/team/aleksandra-polosukhina-480w.webp 480w, img/team/aleksandra-polosukhina-960w.webp 960w, img/team/aleksandra-polosukhina.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
           <div class="brt-card__body">
             <h3 class="brt-h3">Aleksandra Polosukhina</h3>
             <p class="brt-meta brt-meta--accent">Leiterin Marketing und PR</p>
             <p class="brt-body">Marketing- und PR-Expertin mit über sieben Jahren Erfahrung – stärkt Teams durch clevere Kommunikation und gezieltes Employer Branding.</p>
           </div>
+          </a>
         </li>
         <li class="brt-card brt-card--profile brt-hover-lift brt-home-team__card--more" hidden>
+          <a class="brt-card__link" href="team/#torstenwalterhelbig">
           <div class="brt-card__media"><img src="img/team/torsten-walter-helbig.webp" alt="Torsten Walter Helbig, Vertreter vor Ort Chemnitz bei Beraterium" class="brt-card__media-img" width="1200" height="1600" srcset="img/team/torsten-walter-helbig-480w.webp 480w, img/team/torsten-walter-helbig-960w.webp 960w, img/team/torsten-walter-helbig.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
           <div class="brt-card__body">
             <h3 class="brt-h3">Torsten Walter Helbig</h3>
             <p class="brt-meta brt-meta--accent">Vertreter vor Ort · Chemnitz</p>
             <p class="brt-body">Seit über 31 Jahren unabhängiger Finanzberater – entwickelt robuste Cashflow-Architekturen für nachhaltige Sicherheit und finanzielle Freiheit.</p>
           </div>
+          </a>
         </li>
         <li class="brt-card brt-card--profile brt-hover-lift brt-home-team__card--more" hidden>
+          <a class="brt-card__link" href="team/#joachimlau">
           <div class="brt-card__media"><img src="img/team/joachim-lau.webp" alt="Joachim Lau, Experte für die Textilindustrie bei Beraterium" class="brt-card__media-img" width="1200" height="1600" srcset="img/team/joachim-lau-480w.webp 480w, img/team/joachim-lau-960w.webp 960w, img/team/joachim-lau.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
           <div class="brt-card__body">
             <h3 class="brt-h3">Joachim Lau</h3>
             <p class="brt-meta brt-meta--accent">Experte Textilindustrie · 20 Jahre Branche</p>
             <p class="brt-body">Bringt Geschäftsführung und Mitarbeiter zusammen, um Optimierungen umzusetzen, die im Arbeitsalltag funktionieren – von der Modebranche bis zur IT-Modernisierung.</p>
           </div>
+          </a>
         </li>
       </ul>
       <p class="brt-home-team__toggle-wrap brt-fade-up">
@@ -395,7 +427,7 @@
         </button>
       </p>
       <p class="brt-section__cta brt-fade-up">
-        <a class="brt-btn brt-btn--ghost" href="team/">Mehr über das Team →</a>
+        <a class="brt-btn brt-btn--outline" href="team/">Mehr über das Team →</a>
       </p>
     </div>
   </section>
@@ -419,7 +451,8 @@
       <header class="brt-section__header brt-section__header--row brt-fade-up">
         <div>
           <p class="brt-tag">Einblicke</p>
-          <h2 id="blog-title" class="brt-h2">Aus dem Beraterium-Blog</h2>
+          <h2 id="blog-title" class="brt-h2">Experten-Einblicke von Beraterium</h2>
+          <p class="brt-body">Kurze, praxisnahe Artikel zu Risiko, Führung und Entscheidungen — geschrieben vom Beraterium-Team für Gründer, KMU und Selbstständige.</p>
         </div>
         <a class="brt-btn brt-btn--outline" href="blog/">Alle Artikel →</a>
       </header>
@@ -466,28 +499,77 @@
   <!-- BLOG_TEASER_END -->
 
   <!-- Aus der Praxis — weitere Cases folgen -->
-  <section class="brt-section brt-section--alt" aria-labelledby="praxis-title">
+  <section class="brt-section brt-section--alt brt-testimonials" aria-labelledby="praxis-title">
     <div class="brt-container">
-      <header class="brt-section__header brt-fade-up">
+      <header class="brt-section__header brt-section__header--center brt-fade-up">
+        <div class="brt-testimonials__stars" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
         <p class="brt-tag">Aus der Praxis</p>
         <h2 id="praxis-title" class="brt-h2">Was der BlindSpot-Check sichtbar macht</h2>
-        <p class="brt-body">Zwei anonymisierte Beispiele – das größte Risiko liegt fast nie dort, wo man es vermutet.</p>
+        <p class="brt-body">Anonymisierte Beispiele aus echten Projekten – das größte Risiko liegt fast nie dort, wo man es vermutet.</p>
       </header>
-      <ul class="brt-cards-3col brt-stagger" style="--cards: 2;">
-        <li class="brt-card brt-hover-lift">
-          <p class="brt-meta brt-meta--accent">Gründer · Finanzbranche</p>
-          <h3 class="brt-h3">Das wahre Top-Risiko war ein blinder Fleck</h3>
-          <p class="brt-body">Finanzierung und Markt hatte er im Blick. „Zwingend zuerst" war am Ende ein anderes Feld: die Qualität seiner Analyse- und Entscheidungsmodelle. Ergebnis: ein priorisiertes Risikoportfolio statt einer endlosen Liste.</p>
-          <a class="brt-btn brt-btn--ghost" href="angebote/startups/">Mehr für Startups →</a>
-        </li>
-        <li class="brt-card brt-hover-lift">
-          <p class="brt-meta brt-meta--accent">Solo-Selbstständige · Kreativhandwerk</p>
-          <h3 class="brt-h3">Nicht alles brennt gleich stark</h3>
-          <p class="brt-body">Kein einzelnes „Super-Risiko", sondern vier gleich tragende Schwerpunkte – IT/Cyber, Reputation, physischer Totalausfall und fehlende Prozesse. Aus „alles brennt" wurde eine klare Reihenfolge.</p>
-          <a class="brt-btn brt-btn--ghost" href="angebote/solo/">Mehr für Solo →</a>
-        </li>
-      </ul>
-      <p class="brt-meta brt-fade-up" style="margin-top: var(--space-6); text-align: center;">Erfahrung quer durch Branchen – von Transport &amp; Logistik über Handwerk und Produktion bis IT und Sport &amp; Fitness.</p>
+
+      <div class="brt-testimonials__carousel brt-fade-up" data-testimonials-carousel>
+        <div class="brt-testimonials__viewport" tabindex="0" role="region" aria-label="Kundenstimmen aus der Praxis">
+          <ul class="brt-testimonials__track">
+            <li class="brt-testimonial-card">
+              <article class="brt-testimonial-card__inner">
+                <div class="brt-testimonial-card__stars" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <blockquote class="brt-testimonial-card__quote">
+                  <p class="brt-testimonial-card__headline">Das wahre Top-Risiko war ein blinder Fleck</p>
+                  <p class="brt-testimonial-card__text">Finanzierung und Markt hatte er im Blick. „Zwingend zuerst" war am Ende ein anderes Feld: die Qualität seiner Analyse- und Entscheidungsmodelle. Ergebnis: ein priorisiertes Risikoportfolio statt einer endlosen Liste.</p>
+                </blockquote>
+                <footer class="brt-testimonial-card__author">
+                  <div class="brt-testimonial-card__avatar" aria-hidden="true">GF</div>
+                  <cite class="brt-testimonial-card__name">Gründer · Finanzbranche</cite>
+                </footer>
+                <a class="brt-btn brt-btn--ghost brt-testimonial-card__link" href="angebote/startups/">Mehr für Startups →</a>
+              </article>
+            </li>
+            <li class="brt-testimonial-card">
+              <article class="brt-testimonial-card__inner">
+                <div class="brt-testimonial-card__stars" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <blockquote class="brt-testimonial-card__quote">
+                  <p class="brt-testimonial-card__headline">Nicht alles brennt gleich stark</p>
+                  <p class="brt-testimonial-card__text">Kein einzelnes „Super-Risiko", sondern vier gleich tragende Schwerpunkte – IT/Cyber, Reputation, physischer Totalausfall und fehlende Prozesse. Aus „alles brennt" wurde eine klare Reihenfolge.</p>
+                </blockquote>
+                <footer class="brt-testimonial-card__author">
+                  <div class="brt-testimonial-card__avatar" aria-hidden="true">SS</div>
+                  <cite class="brt-testimonial-card__name">Solo-Selbstständige · Kreativhandwerk</cite>
+                </footer>
+                <a class="brt-btn brt-btn--ghost brt-testimonial-card__link" href="angebote/solo/">Mehr für Solo →</a>
+              </article>
+            </li>
+          </ul>
+        </div>
+        <div class="brt-testimonials__nav">
+          <button type="button" class="brt-testimonials__btn brt-testimonials__btn--prev" aria-label="Vorherige Stimme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="brt-testimonials__btn brt-testimonials__btn--next" aria-label="Nächste Stimme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <p class="brt-meta brt-testimonials__footnote brt-fade-up">Erfahrung quer durch Branchen – von Transport &amp; Logistik über Handwerk und Produktion bis IT und Sport &amp; Fitness.</p>
     </div>
   </section>
 

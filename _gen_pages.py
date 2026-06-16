@@ -312,32 +312,66 @@ def cta_band(pre: str, h2: str, body: str, btn: str = "Erstgespräch buchen") ->
     </section>"""
 
 
-def guarantee(pre: str, h2: str = "Doppelte Garantie") -> str:
+def guarantee(
+    pre: str,
+    h2: str = "Doppelte Garantie",
+    *,
+    tag: str = "Ihr Risiko liegt bei uns",
+    subtitle: str = "Zwei klare Versprechen – wenn wir nicht liefern, erstatten wir den vollen Betrag.",
+) -> str:
+    img = f"{pre}img/team/"
     return f"""
-    <section class="brt-section brt-section--alt" aria-labelledby="garantie-title">
+    <section class="brt-section brt-section--guarantee" aria-labelledby="garantie-title">
       <div class="brt-container">
-        <header class="brt-section__header brt-fade-up">
-          <p class="brt-tag">Ihr Risiko liegt bei uns</p>
+        <header class="brt-section__header brt-section__header--center brt-fade-up">
+          <p class="brt-tag">{tag}</p>
           <h2 id="garantie-title" class="brt-h2">{h2}</h2>
+          <p class="brt-body brt-section__lede">{subtitle}</p>
         </header>
         <ul class="brt-guarantee-duo brt-stagger">
           <li class="brt-card brt-card--guarantee brt-hover-lift">
-            <div class="brt-card__icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div class="brt-guarantee__visual">
+              <div class="brt-guarantee__icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="brt-guarantee__num" aria-hidden="true">01</span>
             </div>
             <h3 class="brt-h3">Relevanz-Garantie</h3>
             <p class="brt-quote">„Wir finden kein relevantes Risiko? Geld zurück."</p>
             <p class="brt-body">Identifiziert die Analyse kein einziges Risiko mit relevanter Schadenshöhe (Schwelle vorab gemeinsam definiert), erstatten wir den vollen Betrag.</p>
           </li>
           <li class="brt-card brt-card--guarantee brt-hover-lift">
-            <div class="brt-card__icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <div class="brt-guarantee__visual">
+              <div class="brt-guarantee__icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <span class="brt-guarantee__num" aria-hidden="true">02</span>
             </div>
             <h3 class="brt-h3">Nutzen-Garantie</h3>
             <p class="brt-quote">„Kein messbarer Nutzen? Geld zurück."</p>
             <p class="brt-body">Wir legen vor dem Start gemeinsam 3–5 Nutzen-Kriterien fest. Wird am Ende keines erfüllt, bekommen Sie den vollen Betrag zurück. Ohne Diskussion.</p>
           </li>
         </ul>
+        <aside class="brt-guarantee-cta brt-fade-up" aria-label="Erstgespräch vereinbaren">
+          <div class="brt-guarantee-cta__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div class="brt-guarantee-cta__copy">
+            <p class="brt-guarantee-cta__lead">Lassen Sie uns Ihr Risiko in Klarheit verwandeln.</p>
+            <p class="brt-guarantee-cta__sub">Vereinbaren Sie jetzt ein unverbindliches Erstgespräch.</p>
+          </div>
+          <a class="brt-btn brt-btn--white" href="{pre}kontakt/">Jetzt Termin vereinbaren →</a>
+          <div class="brt-guarantee-cta__team">
+            <div class="brt-guarantee-cta__avatars" aria-hidden="true">
+              <img src="{img}till-blania.webp" alt="" width="80" height="80" loading="lazy" decoding="async">
+              <img src="{img}peter-muenstermann.webp" alt="" width="80" height="80" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <p class="brt-guarantee-cta__team-name">Ihr Beraterium-Team</p>
+              <p class="brt-guarantee-cta__team-note">Wir sind für Sie da.</p>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>"""
 
@@ -1050,16 +1084,20 @@ def gen_risikoradar() -> None:
       </div>
     </section>
     <section class="brt-section brt-section--alt" aria-labelledby="dual-cta">
-      <div class="brt-container brt-two-col brt-fade-up">
+      <div class="brt-container brt-two-col brt-two-col--cta brt-fade-up">
         <div>
           <h3 class="brt-h3">Sie suchen Umsetzung?</h3>
           <p class="brt-body">Nach Ihrer Risikoanalyse stellen wir Ihnen bei Bedarf genau die Experten zusammen, die zu Ihren Top-Risiken passen – schon geprüft, kein Google-Roulette.</p>
-          <a class="brt-btn" href="../kontakt/">Erstgespräch buchen →</a>
+          <p class="brt-section__cta">
+            <a class="brt-btn brt-btn--outline" href="../kontakt/">Erstgespräch buchen →</a>
+          </p>
         </div>
         <div>
           <h3 class="brt-h3">Sie sind Experte und möchten mitwirken?</h3>
           <p class="brt-body">RisikoRadar wächst über Empfehlung und Bewerbung. Wenn Sie Qualität, Vertrauen und echte Zusammenarbeit schätzen, freuen wir uns über Ihre Nachricht.</p>
-          <a class="brt-btn brt-btn--outline" href="../kontakt/">Als Experte bewerben →</a>
+          <p class="brt-section__cta">
+            <a class="brt-btn brt-btn--outline" href="../kontakt/">Als Experte bewerben →</a>
+          </p>
         </div>
       </div>
     </section>"""
@@ -1313,7 +1351,7 @@ def gen_home_team() -> None:
         path.write_text(before + section + after, encoding="utf-8")
     else:
         legacy_start = "  <!-- S7 — Die Köpfe -->"
-        legacy_end = '        <a class="brt-btn brt-btn--ghost" href="team/">Mehr über das Team →</a>\n      </p>\n    </div>\n  </section>'
+        legacy_end = '        <a class="brt-btn brt-btn--outline" href="team/">Mehr über das Team →</a>\n      </p>\n    </div>\n  </section>'
         if legacy_start not in html or legacy_end not in html:
             return
         before = html.split(legacy_start)[0]
@@ -1342,7 +1380,8 @@ def gen_home_blog_teaser() -> None:
       <header class="brt-section__header brt-section__header--row brt-fade-up">
         <div>
           <p class="brt-tag">Einblicke</p>
-          <h2 id="blog-title" class="brt-h2">Aus dem Beraterium-Blog</h2>
+          <h2 id="blog-title" class="brt-h2">Experten-Einblicke von Beraterium</h2>
+          <p class="brt-body">Kurze, praxisnahe Artikel zu Risiko, Führung und Entscheidungen — geschrieben vom Beraterium-Team für Gründer, KMU und Selbstständige.</p>
         </div>
         <a class="brt-btn brt-btn--outline" href="blog/">Alle Artikel →</a>
       </header>
