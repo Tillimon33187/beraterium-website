@@ -119,10 +119,9 @@ def language_switcher_html(*, current_locale: str, canonical: str, depth: int) -
     """Compact DE | EN switcher for header/footer."""
     if current_locale == "en":
         other_locale = "de"
-        other_url = f"{DE_SITE_URL}/"
     else:
         other_locale = "en"
-        other_url = f"{EN_SITE_URL}/"
+    other_url = alternate_url(canonical, from_locale=current_locale, to_locale=other_locale)
     current_label = "DE" if current_locale == "de" else "EN"
     other_label = "EN" if current_locale == "de" else "DE"
     return (
