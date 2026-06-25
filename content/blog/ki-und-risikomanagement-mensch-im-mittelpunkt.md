@@ -4,8 +4,8 @@ slug: ki-und-risikomanagement-mensch-im-mittelpunkt
 date: '2026-02-15'
 category: HR & Kultur
 author: till-blania
-excerpt: AI is a powerful tool – but risks arise where humans and AI aren’t thought
-  through together. How to handle AI risks and stay in control.
+excerpt: 'KI ist ein mächtiges Werkzeug — Risiken entstehen, wo Mensch und KI nicht zusammen gedacht werden. So behalten Sie die Kontrolle über KI-Risiken im Unternehmen.'
+
 hero_image: img/blog/ki-und-risikomanagement-mensch-im-mittelpunkt-hero.png
 hero_alt: Frame 26
 draft: false

@@ -5,9 +5,8 @@ slug: mitarbeitersensibilisierung-risikobewusste-kultur
 date: '2026-03-05'
 category: HR & Kultur
 author: till-blania
-excerpt: 'Certificates aren’t enough: open error culture, risk-driven training, and
-  “safety in dialogue” – how to get employee risk awareness right for founders and
-  SMEs.'
+excerpt: 'Zertifikate reichen nicht: offene Fehlerkultur, risikobasierte Schulungen und Sicherheit im Dialog — so gelingt Mitarbeitersensibilisierung in KMU und Startups.'
+
 hero_image: img/blog/mitarbeitersensibilisierung-risikobewusste-kultur-hero.png
 hero_alt: Beraterium Risiken verteilen in KMU und Startups
 draft: false

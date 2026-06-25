@@ -181,6 +181,63 @@
     }
   }
 
+  function initCaseStudies() {
+    document.querySelectorAll("[data-case-studies]").forEach(function (root) {
+      var panels = Array.prototype.slice.call(root.querySelectorAll("[data-case-study-panel]"));
+      var tabs = Array.prototype.slice.call(root.querySelectorAll("[data-case-study-tab]"));
+      var prevBtn = root.querySelector("[data-case-study-prev]");
+      var nextBtn = root.querySelector("[data-case-study-next]");
+      if (!panels.length) return;
+
+      var current = 0;
+
+      function show(index) {
+        current = (index + panels.length) % panels.length;
+        panels.forEach(function (panel, i) {
+          var active = i === current;
+          panel.hidden = !active;
+          panel.classList.toggle("is-active", active);
+        });
+        tabs.forEach(function (tab, i) {
+          var active = i === current;
+          tab.classList.toggle("is-active", active);
+          tab.setAttribute("aria-selected", active ? "true" : "false");
+          tab.tabIndex = active ? 0 : -1;
+        });
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () {
+          show(i);
+        });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          show(current - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          show(current + 1);
+        });
+      }
+
+      root.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          show(current - 1);
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          show(current + 1);
+        }
+      });
+
+      show(0);
+    });
+  }
+
   function initTestimonialsCarousel() {
     document.querySelectorAll("[data-testimonials-carousel]").forEach(function (carousel) {
       var viewport = carousel.querySelector(".brt-testimonials__viewport");
@@ -468,11 +525,41 @@
     update();
   }
 
+  function initCompareColumnHover() {
+    var table = document.querySelector(".brt-compare__table");
+    if (!table || !window.matchMedia("(hover: hover)").matches) return;
+
+    function highlightCol(col) {
+      table.querySelectorAll(".brt-compare__col-hover").forEach(function (el) {
+        el.classList.remove("brt-compare__col-hover");
+      });
+      if (col < 2 || col > 4) return;
+      table.querySelectorAll(
+        "thead .brt-compare__head:nth-child(" + col + "), tbody td:nth-child(" + col + "), tfoot td:nth-child(" + col + ")"
+      ).forEach(function (el) {
+        el.classList.add("brt-compare__col-hover");
+      });
+    }
+
+    table.addEventListener("mouseover", function (e) {
+      var cell = e.target.closest("th, td");
+      if (!cell || !table.contains(cell)) return;
+      var col = cell.cellIndex + 1;
+      highlightCol(col);
+    });
+
+    table.addEventListener("mouseleave", function () {
+      highlightCol(0);
+    });
+  }
+
   function initBerateriumSite() {
     initTeamExpandToggle();
     initTeamBioToggle();
+    initCaseStudies();
     initTestimonialsCarousel();
     initStepsFlowScroll();
+    initCompareColumnHover();
 
     if (location.hash) {
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";

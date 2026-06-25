@@ -44,6 +44,7 @@ BLOG_SLUG_MAP: dict[str, str] = {
     "risk-radar-episode-1-who-is-beraterium": "risk-radar-episode-1-who-is-beraterium",
     "sicherheit-unternehmen-risikomanagement-kmu": "business-security-risk-management-smb",
     "startup-fehler-vermeiden-risikomanagement": "startup-mistakes-avoid-risk-management",
+    "theorie-praxis-risikomanagement-standards-kmu": "theory-practice-risk-management-standards-smb",
     "ubernimm-die-kontrolle-uber-deine-risiken-bevor-sie-dich-kontrollieren": "take-control-of-your-risks-before-they-control-you",
     "warum-mitarbeiter-riskante-entscheidungen-treffen": "why-employees-make-risky-decisions",
     "what-is-risk-management": "what-is-risk-management",

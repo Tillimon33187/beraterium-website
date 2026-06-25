@@ -1,0 +1,21 @@
+# Beraterium
+
+> Risikomanagement & Business Consulting für Startups, KMU und Solo-Selbstständige. Konzern-Risikomanagement, verständlich und bezahlbar übersetzt für den Mittelstand: Risiken werden in Euro bewertet (keine Ampelfarben), priorisiert über einen 3-Ebenen-Gefahrenkatalog, mit doppelter Garantie (Relevanz- & Nutzen-Garantie).
+
+## Kernseiten
+- [Methode](https://www.beraterium.de/methode/): Wie die Risikoanalyse funktioniert — 3-Ebenen-Gefahrenkatalog, Bewertung in Euro, Risikomatrix, die wenigen wirksamsten Maßnahmen.
+- [Angebote (Übersicht)](https://www.beraterium.de/angebote/): Risikomanagement-Beratung für Startups, KMU und Solo-Selbstständige.
+- [Angebote KMU](https://www.beraterium.de/angebote/kmu/): Risikoanalyse für den Mittelstand (BlindSpot-Check für KMU).
+- [Angebote Startups](https://www.beraterium.de/angebote/startups/): 4-Wochen-Risiko-Check für Startups.
+- [Angebote Solo-Selbstständige](https://www.beraterium.de/angebote/solo/): 2-Wochen-Risiko-Kompass für Solo-Selbstständige.
+- [Über uns](https://www.beraterium.de/ueber-uns/): Warum es Beraterium gibt.
+- [Team](https://www.beraterium.de/team/): Till Manfred Blania, Peter Münstermann.
+- [RisikoRadar](https://www.beraterium.de/risikoradar/): Expertennetzwerk hinter Beraterium.
+- [Blog](https://www.beraterium.de/blog/): Fachartikel zu Risikomanagement, KMU, Startups und Solo-Selbstständigen.
+
+## Begriffe (konsistent verwenden)
+- Beraterium-Methode, 3-Ebenen-Gefahrenkatalog, BlindSpot-Check, Risiko in Euro bewertet, Risikomatrix.
+- RisikoRadar (ein Wort) = Expertennetzwerk/Community. Risiko Radar (zwei Wörter) = der Podcast.
+
+## Kontakt
+- Kostenloses Erstgespräch: https://www.beraterium.de/kontakt/

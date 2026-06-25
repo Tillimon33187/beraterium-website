@@ -21,6 +21,10 @@ hero/
 analyse-situation/
   analyse-situation.png   … Abschnitt „Analyse-Situation“ (S4)
 
+BEWERTUNGEN (img/Bewertungen/)
+--------------------------------
+  bewertungen.png   … Hochformat (2:3), Abschnitt „BlindSpot-Check / Aus der Praxis“ (Startseite, links neben den Beispiel-Karten)
+
 TEAM (img/team/)
 ----------------
 Dateien direkt in img/team/ ablegen (Portrait, Seitenverhältnis 4:5):

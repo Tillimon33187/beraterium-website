@@ -119,6 +119,7 @@ class BlogPost:
     category: str
     author: str
     excerpt: str
+    seo_title: str = ""
     hero_image: str = ""
     hero_alt: str = ""
     draft: bool = True
@@ -237,6 +238,8 @@ def _render_markdown(body: str) -> str:
     html = re.sub(r"<blockquote>", '<blockquote class="brt-article__quote">', html)
     html = re.sub(r"<ul>", '<ul class="brt-article__list">', html)
     html = re.sub(r"<ol>", '<ol class="brt-article__list brt-article__list--ordered">', html)
+    html = re.sub(r"<table>", '<div class="brt-table-wrap brt-article__table" tabindex="0"><table class="brt-table">', html)
+    html = re.sub(r"</table>", "</table></div>", html)
     return html
 
 
@@ -573,7 +576,7 @@ def article_youtube_embed_html(youtube_id: str, title: str, page_url: str = "") 
               src="{thumb}/maxresdefault.jpg"
               srcset="{thumb}/maxresdefault.jpg 1280w, {thumb}/sddefault.jpg 640w"
               sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
-              alt=""
+              alt="{safe_title}"
               width="1280"
               height="720"
               loading="lazy"
@@ -767,8 +770,9 @@ def load_blog_posts(*, include_drafts: bool = False) -> list[BlogPost]:
                 category=meta.get("category", "Risikomanagement"),
                 author=meta.get("author", ""),
                 excerpt=excerpt,
+                seo_title=str(meta.get("seo_title", "") or "").strip(),
                 hero_image=meta.get("hero_image", ""),
-                hero_alt=meta.get("hero_alt", meta.get("title", "")),
+                hero_alt=normalize_hero_alt(str(meta.get("hero_alt", "") or ""), str(meta.get("title", path.stem))),
                 draft=draft,
                 reading_time_min=reading,
                 faq=faq,
@@ -781,6 +785,30 @@ def load_blog_posts(*, include_drafts: bool = False) -> list[BlogPost]:
             )
         )
     return sorted(posts, key=lambda p: p.date, reverse=True)
+
+
+
+def normalize_hero_alt(hero_alt: str, title: str) -> str:
+    """DE-Alt für Blog-Hero; ersetzt Platzhalter-Namen aus CMS/Import."""
+    alt = (hero_alt or "").strip()
+    title = (title or "").strip()
+    low = alt.lower()
+    junk_starts = (
+        "frame ", "group ", "chatgpt ", "bildschirmfoto", "episode #", "folge ",
+        "theory ", "family business", "emotional leadership",
+    )
+    if not alt or any(low.startswith(p) for p in junk_starts) or "oct 21" in low:
+        return _hero_alt_from_title(title)
+    if len(alt) < 20 and low.startswith("folge"):
+        return _hero_alt_from_title(title)
+    if alt.endswith(" und was du") or alt.endswith(" – und"):
+        return _hero_alt_from_title(title)
+    return alt[:125]
+
+
+def _hero_alt_from_title(title: str) -> str:
+    text = f"Beitragsbild: {title}"
+    return text[:125] if len(text) > 125 else text
 
 
 def resolve_image_src(src: str) -> str | None:
@@ -1320,6 +1348,32 @@ def person_schema(member: TeamMember) -> dict[str, Any]:
     return data
 
 
+BLOG_SHELL_TITLE_SUFFIX = " | Beraterium Blog"
+BLOG_META_DESC_MAX = 155
+
+
+def blog_shell_title(post: BlogPost) -> str:
+    """Page <title> for blog posts: optional seo_title, max ~60 chars total."""
+    base = (post.seo_title or post.title).strip()
+    full = f"{base}{BLOG_SHELL_TITLE_SUFFIX}"
+    if len(full) <= 60:
+        return full
+    max_base = 60 - len(BLOG_SHELL_TITLE_SUFFIX)
+    trimmed = base[:max_base]
+    if " " in trimmed:
+        trimmed = trimmed.rsplit(" ", 1)[0].rstrip("–—-:, ")
+    return f"{trimmed}{BLOG_SHELL_TITLE_SUFFIX}"
+
+
+def blog_meta_description(excerpt: str) -> str:
+    """Meta description capped at 155 chars (word-safe)."""
+    text = (excerpt or "").strip()
+    if len(text) <= BLOG_META_DESC_MAX:
+        return text
+    trimmed = text[: BLOG_META_DESC_MAX - 1].rsplit(" ", 1)[0]
+    return trimmed.rstrip("–—-:, ") + "…"
+
+
 def blog_posting_schema(post: BlogPost, author: TeamMember | None) -> str:
     author_obj: dict[str, Any] = {"@type": "Person", "name": author.name if author else "Beraterium"}
     if author and author.image:
@@ -1339,6 +1393,104 @@ def blog_posting_schema(post: BlogPost, author: TeamMember | None) -> str:
     if post.hero_image:
         graph["image"] = f"{SITE_URL}/{post.hero_image}"
     return json.dumps(graph, ensure_ascii=False, indent=2)
+
+
+def _faq_pairs(items: list[dict[str, str] | tuple[str, str]]) -> list[tuple[str, str]]:
+    """Normalisiert FAQ-Items (dict ODER (frage, antwort)-Tupel) zu (q, a)-Paaren."""
+    pairs: list[tuple[str, str]] = []
+    for it in items:
+        if isinstance(it, dict):
+            q = it.get("question") or it.get("frage") or it.get("q") or ""
+            a = it.get("answer") or it.get("antwort") or it.get("a") or ""
+        else:
+            q, a = it[0], it[1]
+        q, a = (q or "").strip(), (a or "").strip()
+        if q and a:
+            pairs.append((q, a))
+    return pairs
+
+
+def faq_page_schema(items: list[dict[str, str] | tuple[str, str]]) -> str:
+    """FAQPage-JSON-LD aus denselben FAQ-Items, die auch sichtbar gerendert werden.
+
+    GEO/AEO: Schema NUR fuer sichtbar vorhandene Q&A erzeugen (gleiche Quelle wie
+    faq_section_html / article_faq_section_html), damit Markup und Seite uebereinstimmen.
+    """
+    pairs = _faq_pairs(items)
+    if not pairs:
+        return ""
+    graph = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for q, a in pairs
+        ],
+    }
+    return json.dumps(graph, ensure_ascii=False, indent=2)
+
+
+def service_schema(
+    *,
+    name: str,
+    description: str,
+    url: str,
+    audience: str | None = None,
+    service_type: str = "Risikomanagement-Beratung",
+    area_served: str = "DE",
+) -> str:
+    """Service-JSON-LD fuer Angebots-/Leistungsseiten. Provider verweist auf die
+    Organization aus dem Home-@graph (#organization)."""
+    graph: dict[str, Any] = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": service_type,
+        "name": name,
+        "description": description,
+        "url": f"{SITE_URL}{url}",
+        "provider": {"@id": f"{SITE_URL}/#organization"},
+        "areaServed": {"@type": "Country", "name": area_served},
+    }
+    if audience:
+        graph["audience"] = {"@type": "Audience", "audienceType": audience}
+    return json.dumps(graph, ensure_ascii=False, indent=2)
+
+
+def speakable_webpage_schema(
+    url: str,
+    *,
+    selectors: list[str] | None = None,
+) -> str:
+    """SpeakableSpecification fuer Sprachassistenten (GEO/AEO)."""
+    sels = selectors or [".brt-faq__answer", ".brt-highlight-box", ".brt-body"]
+    graph: dict[str, Any] = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": f"{SITE_URL}{url}#webpage",
+        "url": f"{SITE_URL}{url}",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": sels,
+        },
+    }
+    return json.dumps(graph, ensure_ascii=False, indent=2)
+
+
+def combine_jsonld(*blocks: str) -> str:
+    """Mehrere JSON-LD-Strings in EINEN Script-Block (JSON-Array) zusammenfassen.
+
+    schema.org/Google erlauben ein Array mehrerer Typen in einem ld+json-Block.
+    """
+    parsed = [json.loads(b) for b in blocks if b and b.strip()]
+    if not parsed:
+        return ""
+    if len(parsed) == 1:
+        return json.dumps(parsed[0], ensure_ascii=False, indent=2)
+    return json.dumps(parsed, ensure_ascii=False, indent=2)
 
 
 def gen_sitemap_urls() -> list[str]:
@@ -1368,10 +1520,17 @@ def gen_sitemap_urls() -> list[str]:
 
 def write_sitemap() -> None:
     urls = gen_sitemap_urls()
+    # <lastmod> je Blog-URL aus dem Veroeffentlichungsdatum (Re-Crawl-Signal fuer Google).
+    blog_lastmod = {
+        f"{SITE_URL}/blog/{post.slug}/": post.date.isoformat()
+        for post in load_blog_posts()
+    }
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for url in urls:
         lines.append("  <url>")
         lines.append(f"    <loc>{url}</loc>")
+        if url in blog_lastmod:
+            lines.append(f"    <lastmod>{blog_lastmod[url]}</lastmod>")
         lines.append("  </url>")
     lines.append("</urlset>")
     (SITE / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")

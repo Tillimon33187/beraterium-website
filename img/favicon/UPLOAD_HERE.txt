@@ -1,0 +1,17 @@
+Browser-Tab-Icon (Favicon) — getrennt von Header-Logos in img/logo/
+
+Zwei Dateien hier ablegen:
+  fav.png         — schwarzes Logo für Light Mode
+  fav_white.png   — weißes Logo für Dark Mode
+
+Min. 192×192 px empfohlen. Transparenter Hintergrund OK.
+
+Dann neu generieren:
+  cd Webseite/site
+  python3 _gen_favicon.py
+  python3 _gen_pages.py
+
+Erzeugt favicon.ico, icon.png, apple-touch-icon.png (Light)
+sowie favicon-dark.ico, icon-dark.png (Dark) im Site-Root.
+
+HTML nutzt prefers-color-scheme — der Browser wählt das passende Icon.

@@ -73,6 +73,20 @@ Local clones live in `_refs/` at the project root:
 
 ## Build & Dev
 
+**Lokale Vorschau:** `Webseite/site/index.html` per Doppelklick öffnen (Chrome, Safari, Firefox). Oder Doppelklick auf `Webseite/START-LOKAL.command` bzw. `Webseite/site/ÖFFNEN.command`.
+
+Blog-Artikel: jeweilige `blog/<slug>/index.html` direkt öffnen.
+
+**Comet** blockiert CSS/Bilder unter `file://` — dort nur optional:
+
+```bash
+python3 Webseite/preview-local.py
+# DE → http://127.0.0.1:8765/
+# EN → http://127.0.0.1:8766/
+```
+
+Optional (Webpack, nur `site/`):
+
 ```bash
 cd Webseite/site
 npm install

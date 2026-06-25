@@ -5,10 +5,8 @@ slug: startup-fehler-vermeiden-risikomanagement
 date: '2025-10-28'
 category: Startup
 author: till-blania
-excerpt: Most startups don’t fail because of bad ideas – they fail because of missing
-  structure. Unclear roles, micromanagement, and poor cash flow slow down progress.
-  This article explains how founders can use simple frameworks, clear processes, and
-  practical risk management to build stability, increase spe
+excerpt: 'Die meisten Startups scheitern nicht an der Idee, sondern an fehlender Struktur. Wie Gründer mit klaren Prozessen und Risikomanagement Stabilität aufbauen.'
+
 hero_image: img/blog/startup-fehler-vermeiden-risikomanagement-hero.png
 hero_alt: Frame 13
 draft: false

@@ -4,4 +4,28 @@
 User-agent: *
 Disallow:
 
+# KI-Suchmaschinen / LLM-Crawler explizit erlauben (GEO/AEO):
+# Beraterium soll in KI-Antworten auftauchen und korrekt zitiert werden.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://www.beraterium.de/sitemap.xml
+LLM: https://www.beraterium.de/llms.txt

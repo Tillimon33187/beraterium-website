@@ -25,7 +25,7 @@ related_slugs: []
 
 Die Straße von Hormuz ist ein Nadelöhr zwischen Iran und Oman – kaum 30 Kilometer breit, davon nur rund 8 Kilometer befahrbar. Durch diesen schmalen Korridor fließen 20 bis 30 Prozent des weltweiten Öl- und Gastransports. Kuwait, Saudi-Arabien, Irak, Katar, die Vereinigten Arabischen Emirate – die größten Energieexporteure der Welt sind auf diese Passage angewiesen. Als Iran die Blockade durchsetzte, war das keine symbolische Geste. Es war ein wirtschaftlicher Angriff auf die globale Energieversorgung, und er funktioniert. Für europäische Unternehmen mag das abstrakt klingen: Nur etwa 13 Prozent des europäischen LNG- und Ölimports kommen direkt aus den Golfstaaten. Aber der Ölmarkt ist global. Wenn ein Drittel des weltweiten Angebots gestört wird, steigen die Preise überall – egal, woher man selbst bezieht. Das ist keine Theorie. Das ist das, was gerade passiert.
 
-![](https://www.beraterium.de/wp-content/uploads/2026/03/81a770be-85ef-43e9-ac6d-3e18f20a48bf.ada6d4b1-566e-48d3-9369-6d158fb92ea8-1024x497.webp)
+![Karte: Iran-Krise und globale Lieferketten-Risiken für Unternehmen](https://www.beraterium.de/wp-content/uploads/2026/03/81a770be-85ef-43e9-ac6d-3e18f20a48bf.ada6d4b1-566e-48d3-9369-6d158fb92ea8-1024x497.webp)
 
 ## Was kosten 40 Prozent Preisanstieg – in deinem Unternehmen?
 

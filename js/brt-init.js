@@ -2,10 +2,18 @@
   "use strict";
 
   var cssLink = document.querySelector("link[data-brt-css]");
+  var fallbackLink = document.querySelector('link[href*="brt-fallback.css"]');
+  var logoImg = document.querySelector(".site-header__logo-img--light");
 
   if (cssLink) {
     cssLink.addEventListener("error", function () {
       document.documentElement.classList.add("brt-css-fallback-mode");
+    });
+  }
+
+  if (logoImg) {
+    logoImg.addEventListener("error", function () {
+      /* fail-open: alt text remains */
     });
   }
 
@@ -21,5 +29,24 @@
         document.documentElement.classList.add("brt-css-fallback-mode");
       }
     }
+
+    if (location.protocol === "file:" && cssLink && !cssLink.sheet) {
+      showFileProtocolHint();
+    }
   });
+
+  function showFileProtocolHint() {
+    if (document.getElementById("brt-file-protocol-hint")) return;
+    var hint = document.createElement("div");
+    hint.id = "brt-file-protocol-hint";
+    hint.setAttribute("role", "status");
+    hint.innerHTML =
+      "<strong>Lokale Vorschau:</strong> In diesem Browser werden CSS und Bilder unter <code>file://</code> blockiert. " +
+      "Seite in <strong>Chrome</strong> oder <strong>Safari</strong> öffnen (Doppelklick auf <code>index.html</code> oder <code>ÖFFNEN.command</code>). " +
+      "Alternativ nur für Comet: <code>python3 Webseite/preview-local.py</code> → http://127.0.0.1:8765/";
+    hint.style.cssText =
+      "margin:1rem;padding:1rem;background:#fff3cd;color:#0e1116;border:1px solid #856404;" +
+      "font:14px/1.5 system-ui,sans-serif;";
+    document.body.insertBefore(hint, document.body.firstChild);
+  }
 })();

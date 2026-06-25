@@ -4,10 +4,8 @@ slug: what-is-risk-management
 date: '2025-10-21'
 category: HR & Kultur
 author: till-blania
-excerpt: 'Risk management is more than avoiding losses – it’s the art of identifying
-  uncertainty, assessing it, and taking control of it. This article breaks down the
-  essentials: What is a hazard? How does it become a risk? And why are probability
-  and impact the key to informed business decisions? With clear '
+excerpt: 'Risikomanagement ist mehr als Verluste vermeiden — es identifiziert Unsicherheit, bewertet sie und macht sie steuerbar. Was ist eine Gefahr, wann wird sie zum Risiko?'
+
 hero_image: img/blog/what-is-risk-management-hero.png
 hero_alt: ChatGPT Image Oct 21, 2025, 08_45_58 PM
 draft: false
