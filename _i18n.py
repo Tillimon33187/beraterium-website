@@ -48,6 +48,7 @@ BLOG_SLUG_MAP: dict[str, str] = {
     "ubernimm-die-kontrolle-uber-deine-risiken-bevor-sie-dich-kontrollieren": "take-control-of-your-risks-before-they-control-you",
     "warum-mitarbeiter-riskante-entscheidungen-treffen": "why-employees-make-risky-decisions",
     "what-is-risk-management": "what-is-risk-management",
+    "zeit-als-risikofaktor-unternehmer-risikomanagement": "time-as-risk-factor-entrepreneurs-risk-management",
 }
 
 EN_STATIC_ROUTE_MAP: dict[str, str] = {v: k for k, v in STATIC_ROUTE_MAP.items()}

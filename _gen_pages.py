@@ -41,7 +41,7 @@ from _cms import (
 )
 
 SITE = Path(__file__).parent
-BRT_ASSET_VERSION = "20260626-case-studies"
+BRT_ASSET_VERSION = "20260626-header-hero"
 
 ALT_TILL = "Till Manfred Blania, Geschäftsführer Beraterium"
 ALT_PETER = "Peter Münstermann, Beraterium"
@@ -228,6 +228,7 @@ def shell(
 
   <link rel="stylesheet" href="{pre}css/brt.css?v={BRT_ASSET_VERSION}" data-brt-css>
   <link rel="stylesheet" href="{pre}css/brt-fallback.css?v={BRT_ASSET_VERSION}">
+  <link rel="stylesheet" href="{pre}css/brt-layout-fix.css?v={BRT_ASSET_VERSION}">
   <script src="{pre}js/brt-init.js"></script>{ld}
 </head>
 

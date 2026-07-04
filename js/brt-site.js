@@ -576,7 +576,9 @@
 
     function syncHeaderHeight() {
       if (!header) return;
-      document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+      var measured = header.offsetHeight;
+      var synced = menuMq.matches ? Math.min(measured, 96) : measured;
+      document.documentElement.style.setProperty("--header-height", synced + "px");
     }
 
     function updateHeaderState() {
