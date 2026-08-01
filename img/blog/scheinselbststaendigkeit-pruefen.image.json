@@ -1,0 +1,76 @@
+{
+  "title": "false-self-employment-check-hero",
+  "slug": "scheinselbststaendigkeit-pruefen-hero",
+  "language": "de",
+  "intent": "editorial",
+  "subject": "A composed freelancer at a bright desk reviews a simple checklist card with five abstract check items beside a laptop, symbolising a structured self-check of employment status — one item subtly highlighted in amber, clarity instead of legal anxiety.",
+  "context": "Beraterium blog hero for the article on false self-employment (Scheinselbststaendigkeit): how to recognise the criteria, the 83% rule of thumb and the official status determination procedure. Theme: checking your own status calmly and systematically. Warm, professional B2B editorial, reassuring, not stock photo, no courtroom or legal-drama clichés.",
+  "platform_website": {
+    "orientation": "landscape",
+    "primary_export_px": { "width": 1920, "height": 1080 },
+    "aspect_ratio": "16:9 (blog hero — displayed full-width above article)",
+    "upload_source_png": "Webseite/site/img/blog/scheinselbststaendigkeit-pruefen-hero.png",
+    "optimized_variants": "Build creates scheinselbststaendigkeit-pruefen-hero.webp plus -480w, -960w, -1440w responsive WebP from the PNG source",
+    "best_practice_notes": "Wide 16:9 hero; single freelancer plus one clear checklist card as focal points; generous negative space in upper third; readable at thumbnail and full width.",
+    "safe_zone": "Keep main subject in central 90% width; avoid critical detail in extreme left/right 5% and bottom 10%."
+  },
+  "composition": {
+    "shot_type": "medium",
+    "camera_angle": "eye-level",
+    "depth": "foreground one clean checklist card with five abstract tick rows on the desk, midground focused freelancer with laptop and coffee cup, soft background modern workspace with window light",
+    "aspect_ratios": ["16:9", "4:3", "1:1"]
+  },
+  "lighting": {
+    "style": "soft warm natural window light with gentle falloff",
+    "direction": "from left",
+    "contrast": "medium-low"
+  },
+  "color_palette": {
+    "primary": "#1F2A44",
+    "secondary": "#00A3FF",
+    "accent": "#F2B134",
+    "background": "#F5F7FA"
+  },
+  "style": {
+    "visual_style": "clean editorial realism",
+    "detail_level": "medium-high",
+    "mood": "calm, methodical, self-assured — checking facts, not fearing an audit"
+  },
+  "ai_disclosure": {
+    "required": true,
+    "label_de": "KI-generiertes Bild",
+    "label_en": "AI-generated image",
+    "placement": "small legible label in the bottom-right corner of the image; never alt-text only",
+    "prompt_instruction": "Small legible caption text 'KI-generiertes Bild' in the bottom-right corner: small clean sans-serif, white at ~70% opacity, unobtrusive but readable."
+  },
+  "optional_text_overlay": {
+    "recommended_for_blog_hero": false,
+    "display_language": "de",
+    "line_1_optional": "",
+    "typography": "Prefer no text on image — article H1 renders above hero.",
+    "prompt_instruction": "No readable text on the checklist card; abstract tick rows and shapes only, one row highlighted in amber."
+  },
+  "negative_prompt": [
+    "no watermarks or text except the small AI-disclosure label bottom right",
+    "no distorted hands",
+    "no extra fingers",
+    "no readable text on card or screen (only exception: the small AI-disclosure label bottom right)",
+    "no third-party logos",
+    "no courtroom, gavel or paragraph-symbol clichés",
+    "no red alarm icons",
+    "no anxious or distressed facial expression",
+    "no low-resolution artifacts",
+    "no identifiable real persons or celebrities",
+    "no Beraterium logo unless brand-approved",
+    "no generic stock photo look",
+    "no cluttered composition"
+  ],
+  "seo": {
+    "target_keyword": "scheinselbstständigkeit prüfen",
+    "alt_text": "Freelancerin prüft anhand einer Kriterienliste ihren Selbstständigkeits-Status am Schreibtisch",
+    "caption": "Scheinselbstständigkeit systematisch prüfen – fünf Kriterien und die 83-%-Faustregel.",
+    "filename": "scheinselbststaendigkeit-pruefen-hero-16x9.webp",
+    "image_title": "Scheinselbstständigkeit prüfen: Kriterien und Statusfeststellung"
+  },
+  "generation_prompt_single_block_en": "Landscape editorial photograph 1920x1080, 16:9. Bright modern workspace, navy charcoal tones (#1F2A44) with cyan (#00A3FF) and amber (#F2B134) accents. Midground: composed freelancer in smart casual at a tidy desk with laptop and coffee cup, calmly reviewing one clean checklist card. Foreground: the checklist card with five abstract tick rows (no readable text), one row subtly highlighted in amber. Soft warm window light from left, medium-low contrast, methodical self-assured mood — someone checking facts, not fearing an audit. Generous negative space upper third for blog header. Clean editorial realism, medium-high detail. In the bottom-right corner add a small legible caption text 'KI-generiertes Bild' in a small clean sans-serif, white at about 70% opacity — unobtrusive but readable at full width and thumbnail size. No other readable text, no watermarks, no third-party logos, no courtroom or paragraph-symbol clichés, no alarm symbols, no distorted hands. Safe zone: main subject central 90% width."
+}

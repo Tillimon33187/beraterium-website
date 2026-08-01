@@ -1,0 +1,75 @@
+{
+  "title": "risk-management-consulting-sme-provider-comparison-hero",
+  "slug": "risikomanagement-beratung-kmu-anbieter-hero",
+  "language": "de",
+  "intent": "editorial",
+  "subject": "A confident SME managing director sits at a bright meeting table comparing four risk-management provider options on a clean printed comparison sheet, one column subtly highlighted, symbolising an informed choice between provider types.",
+  "context": "Beraterium blog hero for the article 'Risikomanagement-Beratung für KMU: Welcher Anbieter passt?'. Theme: choosing the right risk-management consulting partner for the German Mittelstand. Professional B2B editorial, decision-making mood, not stock photo.",
+  "platform_website": {
+    "orientation": "landscape",
+    "primary_export_px": { "width": 1920, "height": 1080 },
+    "aspect_ratio": "16:9 (blog hero — displayed full-width above article)",
+    "upload_source_png": "Webseite/site/img/blog/risikomanagement-beratung-kmu-anbieter-hero.png",
+    "optimized_variants": "Build creates risikomanagement-beratung-kmu-anbieter-hero.webp plus -480w, -960w, -1440w responsive WebP from the PNG source",
+    "best_practice_notes": "Wide 16:9 hero; single clear focal point on the comparison sheet and decision-maker; generous negative space in upper third; readable at thumbnail and full width.",
+    "safe_zone": "Keep main subject in central 90% width; avoid critical detail in extreme left/right 5% and bottom 10%."
+  },
+  "composition": {
+    "shot_type": "medium-wide",
+    "camera_angle": "slightly elevated eye-level",
+    "depth": "foreground corner of comparison sheet and pen, midground managing director reviewing options, soft background modern office with window light",
+    "aspect_ratios": ["16:9", "4:3", "1:1"]
+  },
+  "lighting": {
+    "style": "soft natural window light with gentle cinematic falloff",
+    "direction": "from left",
+    "contrast": "medium"
+  },
+  "color_palette": {
+    "primary": "#1F2A44",
+    "secondary": "#00A3FF",
+    "accent": "#F2B134",
+    "background": "#F5F7FA"
+  },
+  "style": {
+    "visual_style": "clean editorial realism",
+    "detail_level": "medium-high",
+    "mood": "confident, considered, trustworthy — an informed decision, not sales pressure"
+  },
+  "ai_disclosure": {
+    "required": true,
+    "label_de": "KI-generiertes Bild",
+    "label_en": "AI-generated image",
+    "placement": "small legible label in the bottom-right corner of the image; never alt-text only",
+    "prompt_instruction": "Small legible caption text 'KI-generiertes Bild' in the bottom-right corner: small clean sans-serif, white at ~70% opacity, unobtrusive but readable."
+  },
+  "optional_text_overlay": {
+    "recommended_for_blog_hero": false,
+    "display_language": "de",
+    "line_1_optional": "",
+    "typography": "Prefer no text on image — article H1 renders above hero.",
+    "prompt_instruction": "No readable text, numbers or logos on the comparison sheet; abstract rows/columns only."
+  },
+  "negative_prompt": [
+    "no watermarks or text except the small AI-disclosure label bottom right",
+    "no distorted hands",
+    "no extra fingers",
+    "no readable text or numbers on the sheet (only exception: the small AI-disclosure label bottom right)",
+    "no third-party logos",
+    "no generic stock photo handshake",
+    "no low-resolution artifacts",
+    "no identifiable real persons or celebrities",
+    "no Beraterium logo unless brand-approved",
+    "no generic stock photo look",
+    "no cluttered composition",
+    "no red alarm icons"
+  ],
+  "seo": {
+    "target_keyword": "risikomanagement beratung mittelstand",
+    "alt_text": "Mittelständische Geschäftsführerin vergleicht Risikomanagement-Anbieter an einem Besprechungstisch mit Vergleichstabelle",
+    "caption": "Vier Anbietertypen für Risikomanagement-Beratung im Mittelstand – die Wahl hängt von Größe, Ziel und Ressourcen ab.",
+    "filename": "risikomanagement-beratung-kmu-anbieter-hero-16x9.webp",
+    "image_title": "Risikomanagement-Beratung für KMU – Anbietervergleich"
+  },
+  "generation_prompt_single_block_en": "Landscape editorial photograph 1920x1080, 16:9. Modern SME meeting room, navy charcoal tones (#1F2A44) with cyan (#00A3FF) and amber (#F2B134) accents on subtle UI/paper elements. Foreground: corner of a clean printed comparison sheet with four abstract columns (one softly highlighted) and a pen. Midground: confident business owner in smart casual reviewing the options thoughtfully. Soft window light from left, medium contrast, considered credible mood. Generous negative space upper third for blog header. Clean editorial realism, medium-high detail. In the bottom-right corner add a small legible caption text 'KI-generiertes Bild' in a small clean sans-serif, white at about 70% opacity — unobtrusive but readable at full width and thumbnail size. No other readable text, no watermarks, no third-party logos, no stock-photo clichés, no distorted hands. Safe zone: main subject central 90% width."
+}

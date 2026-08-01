@@ -1,0 +1,75 @@
+{
+  "title": "biggest-risks-self-employed-freelancers-hero",
+  "slug": "risiken-selbststaendige-freelancer-hero",
+  "language": "de",
+  "intent": "editorial",
+  "subject": "A calm solo freelancer at a tidy home-office desk reviews three simple risk cards or notes beside a laptop, symbolising the three core risks of self-employment: own capacity, client concentration and status — clarity instead of overwhelm.",
+  "context": "Beraterium blog hero for the article on the biggest risks for the self-employed and freelancers and who helps. Theme: solo entrepreneurs carrying risk alone, gaining an overview. Warm, professional B2B editorial, reassuring and clear, not stock photo.",
+  "platform_website": {
+    "orientation": "landscape",
+    "primary_export_px": { "width": 1920, "height": 1080 },
+    "aspect_ratio": "16:9 (blog hero — displayed full-width above article)",
+    "upload_source_png": "Webseite/site/img/blog/risiken-selbststaendige-freelancer-hero.png",
+    "optimized_variants": "Build creates risiken-selbststaendige-freelancer-hero.webp plus -480w, -960w, -1440w responsive WebP from the PNG source",
+    "best_practice_notes": "Wide 16:9 hero; single freelancer as focal point with three abstract risk cards; generous negative space in upper third; readable at thumbnail and full width.",
+    "safe_zone": "Keep main subject in central 90% width; avoid critical detail in extreme left/right 5% and bottom 10%."
+  },
+  "composition": {
+    "shot_type": "medium",
+    "camera_angle": "eye-level",
+    "depth": "foreground three simple abstract risk cards on the desk, midground focused freelancer with laptop, soft background home office with plants and window light",
+    "aspect_ratios": ["16:9", "4:3", "1:1"]
+  },
+  "lighting": {
+    "style": "soft warm natural window light with gentle falloff",
+    "direction": "from right",
+    "contrast": "medium-low"
+  },
+  "color_palette": {
+    "primary": "#1F2A44",
+    "secondary": "#00A3FF",
+    "accent": "#F2B134",
+    "background": "#F5F7FA"
+  },
+  "style": {
+    "visual_style": "clean editorial realism",
+    "detail_level": "medium-high",
+    "mood": "calm, focused, reassuring — taking control alone, not anxious"
+  },
+  "ai_disclosure": {
+    "required": true,
+    "label_de": "KI-generiertes Bild",
+    "label_en": "AI-generated image",
+    "placement": "small legible label in the bottom-right corner of the image; never alt-text only",
+    "prompt_instruction": "Small legible caption text 'KI-generiertes Bild' in the bottom-right corner: small clean sans-serif, white at ~70% opacity, unobtrusive but readable."
+  },
+  "optional_text_overlay": {
+    "recommended_for_blog_hero": false,
+    "display_language": "de",
+    "line_1_optional": "",
+    "typography": "Prefer no text on image — article H1 renders above hero.",
+    "prompt_instruction": "No readable text on the cards; abstract icons or shapes only."
+  },
+  "negative_prompt": [
+    "no watermarks or text except the small AI-disclosure label bottom right",
+    "no distorted hands",
+    "no extra fingers",
+    "no readable text on cards or screen (only exception: the small AI-disclosure label bottom right)",
+    "no third-party logos",
+    "no red alarm icons",
+    "no anxious or distressed facial expression",
+    "no low-resolution artifacts",
+    "no identifiable real persons or celebrities",
+    "no Beraterium logo unless brand-approved",
+    "no generic stock photo look",
+    "no cluttered composition"
+  ],
+  "seo": {
+    "target_keyword": "risiken selbstständige",
+    "alt_text": "Selbstständiger Freelancer prüft am Laptop seine wichtigsten Geschäftsrisiken in ruhiger Arbeitsumgebung",
+    "caption": "Die drei Kernrisiken der Selbstständigkeit im Überblick – Ausfall, Kundenkonzentration und Scheinselbstständigkeit.",
+    "filename": "risiken-selbststaendige-freelancer-hero-16x9.webp",
+    "image_title": "Die größten Risiken für Selbstständige und Freelancer"
+  },
+  "generation_prompt_single_block_en": "Landscape editorial photograph 1920x1080, 16:9. Bright modern home office, navy charcoal tones (#1F2A44) with cyan (#00A3FF) and amber (#F2B134) accents. Midground: calm focused solo freelancer in smart casual working at a tidy desk with a laptop. Foreground: three simple abstract risk cards with icon-like shapes (no readable text). Soft warm window light from right, medium-low contrast, reassuring focused mood — someone gaining an overview, not anxious. Generous negative space upper third for blog header. Clean editorial realism, medium-high detail. In the bottom-right corner add a small legible caption text 'KI-generiertes Bild' in a small clean sans-serif, white at about 70% opacity — unobtrusive but readable at full width and thumbnail size. No other readable text, no watermarks, no third-party logos, no alarm symbols, no stock-photo clichés, no distorted hands. Safe zone: main subject central 90% width."
+}

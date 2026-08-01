@@ -5,6 +5,14 @@
   <!-- Start cookieyes banner -->
   <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
   <!-- End cookieyes banner -->
+  <!-- Google tag (gtag.js) — lädt erst nach Analytics-Einwilligung (CookieYes) -->
+  <script type="text/plain" data-cookieyes="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W"></script>
+  <script type="text/plain" data-cookieyes="analytics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BM435GHE6W');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Risikomanagement-Beratung KMU, Startups & Solo | Beraterium</title>
@@ -25,9 +33,9 @@
   <meta name="theme-color" content="#0E1116">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <link rel="stylesheet" href="../css/brt.css?v=20260626-header-hero" data-brt-css>
-  <link rel="stylesheet" href="../css/brt-fallback.css?v=20260626-header-hero">
-  <link rel="stylesheet" href="../css/brt-layout-fix.css?v=20260626-header-hero">
+  <link rel="stylesheet" href="../css/brt.css?v=20260715-blindspot-v5" data-brt-css>
+  <link rel="stylesheet" href="../css/brt-fallback.css?v=20260715-blindspot-v5">
+  <link rel="stylesheet" href="../css/brt-layout-fix.css?v=20260715-blindspot-v5">
   <script src="../js/brt-init.js"></script>
   <script type="application/ld+json">
 {
@@ -47,7 +55,7 @@
       "name": "Was kostet Risikomanagement-Beratung bei Beraterium?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Der Umfang hängt von Unternehmensgröße und gewählter Option ab. Preise besprechen wir transparent im kostenlosen Erstgespräch — vor jedem Angebot."
+        "text": "Das Kernpaket Risiko-Analyse 360° kostet 3.475 € (Bundle aus Analyse, Strategie und Budgetplanung). Einzelmodule: Analyse 1.725 €, Strategie-Sitzung 2.175 €, Budgetplanung 1.250 €. Workshops ab 57 € pro Person, der Erst-Check für Startups ist kostenlos. Alle Preise transparent auf der Preisseite."
       }
     },
     {
@@ -93,6 +101,8 @@
             <li><a href="../angebote/startups/">Startups</a></li>
             <li><a href="../angebote/kmu/">KMU</a></li>
             <li><a href="../angebote/solo/">Solo-Selbstständige</a></li>
+            <li><a href="../schulungen/">Schulungen</a></li>
+            <li><a href="../preise/">Preise</a></li>
           </ul>
         </li>
         <li><a href="../methode/">Methode</a></li>
@@ -107,6 +117,15 @@
           </ul>
         </li>
         <li><a href="../risikoradar/">RisikoRadar</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../tools/" class="site-header__parent-link" aria-expanded="false">
+            Tools
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Tools">
+            <li><a href="../tools/blindspot-check/">Blindspot Check</a></li>
+          </ul>
+        </li>
         <li><a href="../blog/">Blog</a></li>
       </ul>
 <div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://www.beraterium.com/services/" hreflang="en">EN</a></div>
@@ -272,7 +291,7 @@
           <li class="brt-card brt-hover-lift"><h3 class="brt-h3">Führungskräfte-Interviews</h3><p class="brt-body">Tiefe 1:1-Gespräche mit Ihren Führungskräften, transkribiert und in Mustern ausgewertet.</p></li>
           <li class="brt-card brt-hover-lift"><h3 class="brt-h3">Auswertung &amp; Handlungsempfehlungen</h3><p class="brt-body">Aus den Daten werden konkrete Maßnahmen mit Prioritäten, Reihenfolge und Timeline.</p></li>
         </ul>
-        <p class="brt-meta brt-fade-up" style="margin-top: var(--space-6); text-align: center;">Preise und Umfang je nach Teamgröße – im Erstgespräch klären wir, was zu Ihnen passt.</p>
+        <p class="brt-meta brt-fade-up" style="margin-top: var(--space-6); text-align: center;">Preise und Umfang je nach Teamgröße – alle Preise transparent auf der <a href="../preise/">Preisseite</a>.</p>
       </div>
     </section>
     <section class="brt-section brt-case-studies" aria-labelledby="case-studies-title">
@@ -303,7 +322,7 @@
                 <div class="brt-case-study__body">
                   <div class="brt-case-study__block">
                     <p class="brt-case-study__label">Ansatz</p>
-                    <h4 class="brt-case-study__headline">Blindspot Check (Stufe&nbsp;1)</h4>
+                    <h4 class="brt-case-study__headline"><a href="../tools/blindspot-check/">Blindspot Check</a> (Stufe&nbsp;1)</h4>
                     <p class="brt-body">Systematische Kerngefahren-Matrix: Leitfrage, Schadenszenario, Euro-Stufen, Eintrittswahrscheinlichkeit und Inventar – was das Risiko bereits mindert.</p>
                   </div>
                   <div class="brt-case-study__block">
@@ -381,6 +400,7 @@
             <h3 class="brt-h3">Relevanz-Garantie</h3>
             <p class="brt-quote">„Wir finden kein relevantes Risiko? Geld zurück."</p>
             <p class="brt-body">Identifiziert die Analyse kein einziges Risiko mit relevanter Schadenshöhe (Schwelle vorab gemeinsam definiert), erstatten wir den vollen Betrag.</p>
+            <a href="../relevanz-garantie/">Mehr erfahren →</a>
           </li>
           <li class="brt-card brt-card--guarantee brt-hover-lift">
             <div class="brt-guarantee__visual">
@@ -391,7 +411,8 @@
             </div>
             <h3 class="brt-h3">Nutzen-Garantie</h3>
             <p class="brt-quote">„Kein messbarer Nutzen? Geld zurück."</p>
-            <p class="brt-body">Wir legen vor dem Start gemeinsam 3–5 Nutzen-Kriterien fest. Wird am Ende keines erfüllt, bekommen Sie den vollen Betrag zurück. Ohne Diskussion.</p>
+            <p class="brt-body">Wir legen vor dem Start gemeinsam drei Nutzen-Kriterien fest – zwei messbare, eines emotional. Wird am Ende auch nur eines nicht erfüllt, bekommen Sie den vollen Betrag zurück. Ohne Diskussion.</p>
+            <a href="../nutzen-garantie/">Mehr erfahren →</a>
           </li>
         </ul>
         <aside class="brt-guarantee-cta brt-fade-up" aria-label="Erstgespräch vereinbaren">
@@ -439,7 +460,7 @@
               <span class="brt-faq__chevron" aria-hidden="true"></span>
             </summary>
             <div class="brt-faq__answer">
-              <p class="brt-body">Der Umfang hängt von Unternehmensgröße und gewählter Option ab. Preise besprechen wir transparent im kostenlosen Erstgespräch — vor jedem Angebot.</p>
+              <p class="brt-body">Das Kernpaket Risiko-Analyse 360° kostet 3.475 € (Bundle aus Analyse, Strategie und Budgetplanung). Einzelmodule: Analyse 1.725 €, Strategie-Sitzung 2.175 €, Budgetplanung 1.250 €. Workshops ab 57 € pro Person, der Erst-Check für Startups ist kostenlos. Alle Preise transparent auf der Preisseite.</p>
             </div>
           </details>
           <details class="brt-faq__item">
@@ -490,6 +511,27 @@
         <li><a href="../angebote/kmu/">KMU</a></li>
         <li><a href="../angebote/solo/">Solo-Selbstständige</a></li>
         <li><a href="../angebote/">Übersicht</a></li>
+        <li><a href="../preise/">Preise &amp; Leistungen</a></li>
+        <li><a href="../schulungen/">Schulungen</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Lösungen</h2>
+      <ul>
+        <li><a href="../loesungen/nis2/">NIS2-Betroffenheit</a></li>
+        <li><a href="../loesungen/nachfolge/">Unternehmensnachfolge</a></li>
+        <li><a href="../loesungen/cyberangriff/">Cyberangriff</a></li>
+        <li><a href="../loesungen/selbststaendig-absichern/">Selbstständig absichern</a></li>
+        <li><a href="../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko</a></li>
+        <li><a href="../loesungen/investor-due-diligence/">Investor Due Diligence</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beraterium vor Ort</h2>
+      <ul>
+        <li><a href="../standort/muenchen/">München</a></li>
+        <li><a href="../standort/sachsen/">Sachsen</a></li>
+        <li><a href="../standort/nrw/">NRW</a></li>
       </ul>
     </section>
     <section>
@@ -499,6 +541,8 @@
         <li><a href="../team/">Team</a></li>
         <li><a href="../mission-vision/">Mission &amp; Vision</a></li>
         <li><a href="../methode/">Methode</a></li>
+        <li><a href="../nutzen-garantie/">Nutzen-Garantie</a></li>
+        <li><a href="../relevanz-garantie/">Relevanz-Garantie</a></li>
       </ul>
     </section>
     <section>
@@ -516,7 +560,7 @@
   <p class="site-footer__legal">© Beraterium 2026</p>
 </footer>
 
-<script src="../js/brt-site.js?v=20260626-header-hero"></script>
+<script src="../js/brt-site.js?v=20260715-blindspot-v5"></script>
 
 </body>
 </html>

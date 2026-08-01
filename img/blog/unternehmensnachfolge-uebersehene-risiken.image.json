@@ -1,0 +1,96 @@
+{
+  "title": "business-succession-overlooked-risks-hero",
+  "slug": "unternehmensnachfolge-uebersehene-risiken-hero",
+  "language": "de",
+  "intent": "editorial",
+  "subject": "Zwei Generationen am Holz-Konferenztisch: Senior und Nachfolger besprechen gemeinsam eine Übergabe-Checkliste und Unternehmensunterlagen — ruhige, kollaborative Nachfolgeplanung, kein Konflikt.",
+  "context": "Beraterium-Blog-Hero zum Artikel über übersehene Nachfolge-Risiken im deutschen Mittelstand (Wissenstransfer, Führungsakzeptanz, Finanzierung). Stil wie die anderen GEO-Blog-Heroes (Cyberangriff, Schlüsselperson, Cashflow): fotorealistisch, B2B-editorial, warm, konstruktiv.",
+  "platform_website": {
+    "orientation": "landscape",
+    "primary_export_px": { "width": 1920, "height": 1080 },
+    "aspect_ratio": "16:9",
+    "upload_source_png": "Webseite/site/img/blog/unternehmensnachfolge-uebersehene-risiken-hero.png",
+    "optimized_variants": "Build erzeugt unternehmensnachfolge-uebersehene-risiken-hero.webp plus -480w, -960w, -1440w",
+    "best_practice_notes": "16:9 Hero; zwei Personen + Checkliste als Story; oberes Drittel etwas Luft; in Karten-Vorschau und Vollbreite lesbar.",
+    "safe_zone": "Hauptmotiv in mittleren 90 % Breite; oben rechts ~35 % für Logo freihalten; unten rechts ~20 % für KI-Vermerk freihalten."
+  },
+  "composition": {
+    "shot_type": "medium wide",
+    "camera_angle": "eye-level, leicht frontal",
+    "depth": "Vordergrund: Übergabe-Checkliste auf dem Tisch mit abstrakten Häkchen-Zeilen (kein lesbarer Text). Mittelgrund: älterer Unternehmer (graues Haar, Brille, dunkelblauer Pullover) und jüngerer Nachfolger (hellgraues Hemd) sitzen nebeneinander und besprechen Unterlagen ruhig und kollaborativ. Hintergrund: modernes Büro, dunkelblaue Wand, Regal, Fensterlicht von links, dezente cyan/amber Akzente.",
+    "aspect_ratios": ["16:9"]
+  },
+  "lighting": {
+    "style": "weiches warmes Tageslicht",
+    "direction": "von links (Fenster)",
+    "contrast": "mittel-niedrig"
+  },
+  "color_palette": {
+    "primary": "#1F2A44",
+    "secondary": "#00A3FF",
+    "accent": "#F2B134",
+    "background": "#F5F7FA"
+  },
+  "style": {
+    "visual_style": "clean editorial realism",
+    "detail_level": "medium-high",
+    "mood": "ruhig, kollaborativ, vorausschauend — Übergabe wird gemeinsam geplant"
+  },
+  "brand_overlay": {
+    "required": true,
+    "placement": "oben rechts, ca. 3 % Rand",
+    "logo_asset": "Webseite/site/img/logo/logo-white.png",
+    "logo_description": "Weißes Beraterium-Logo: links rundes Emblem (Dreiecke), rechts Wortmarke BERATERIUM in Serif, darunter dünne Linie und Tagline CORE ELEMENT FOR EFFECTIVE RISK CONTROL in Sans-Serif, alles weiß.",
+    "size_hint": "Logo-Breite ca. 34 % der Bildbreite",
+    "prompt_instruction_de": "Oben rechts im Bild das offizielle weiße Beraterium-Logo platzieren: rundes geometrisches Emblem + Text BERATERIUM + Tagline CORE ELEMENT FOR EFFECTIVE RISK CONTROL. Logo klar lesbar, nicht vom Motiv verdeckt.",
+    "prompt_instruction_en": "Top-right corner: place the official white Beraterium logo lockup — circular geometric emblem + wordmark BERATERIUM + tagline CORE ELEMENT FOR EFFECTIVE RISK CONTROL in small caps. Logo clearly legible, not obscured by subjects."
+  },
+  "ai_disclosure": {
+    "required": true,
+    "label_de": "KI-generiertes Bild",
+    "label_en": "AI-generated image",
+    "placement": "unten rechts, ca. 2,5 % Rand",
+    "prompt_instruction_de": "Unten rechts gut lesbarer Vermerk 'KI-generiertes Bild' in weißer Sans-Serif auf halbtransparentem dunkelblauem Badge (#041E42, ~70 % Deckkraft). Muss in Vollbild UND Thumbnail lesbar sein.",
+    "prompt_instruction_en": "Bottom-right: clearly legible caption 'KI-generiertes Bild' in white sans-serif on a semi-transparent dark navy badge (#041E42, ~70% opacity). Must be readable at full width and thumbnail size."
+  },
+  "optional_text_overlay": {
+    "recommended_for_blog_hero": false,
+    "display_language": "de",
+    "prompt_instruction": "Kein weiterer Text im Motiv — keine lesbaren Worte auf Checkliste, Papieren oder Bildschirmen."
+  },
+  "negative_prompt": [
+    "no watermarks except Beraterium logo top-right and KI label bottom-right",
+    "no distorted hands or extra fingers",
+    "no readable text on papers, screens or checklist (exceptions: Beraterium logo and KI label only)",
+    "no third-party logos or brand names",
+    "no angry argument, family-drama or shouting clichés",
+    "no red alarm icons or warning triangles",
+    "no anxious, crying or distressed faces",
+    "no low-resolution artifacts or blur on faces",
+    "no identifiable real persons or celebrities",
+    "no generic stock-photo look",
+    "no cluttered composition",
+    "no duplicate or overlapping KI labels"
+  ],
+  "seo": {
+    "target_keyword": "nachfolge mittelstand risiken",
+    "alt_text": "Zwei Generationen am Konferenztisch mit Übergabe-Checkliste und Unternehmensunterlagen bei der Nachfolgeplanung",
+    "caption": "Unternehmensnachfolge im Mittelstand: die drei übersehenen Risikofelder vor der Übergabe.",
+    "filename": "unternehmensnachfolge-uebersehene-risiken-hero-16x9.webp",
+    "image_title": "Nachfolge-Risiken im Mittelstand: vor der Übergabe übersehen"
+  },
+  "generation_prompt_single_block_de": "Fotorealistisches Editorial-Bild, Querformat 1920×1080, 16:9. Helles modernes Büro, Navy/Anthrazit (#1F2A44) mit Cyan (#00A3FF) und Amber (#F2B134) Akzenten. Mittelgrund: älterer Unternehmer und jüngerer Nachfolger in Smart Casual sitzen nebeneinander an einem Holz-Konferenztisch und besprechen ruhig Unterlagen — kollaborative Nachfolgeplanung, kein Streit. Vordergrund: saubere Übergabe-Checkliste mit abstrakten Häkchen-Zeilen, kein lesbarer Text auf Papieren. Weiches warmes Tageslicht von links, ruhige vorausschauende Stimmung. Oben rechts: weißes Beraterium-Logo (Emblem + BERATERIUM + Tagline CORE ELEMENT FOR EFFECTIVE RISK CONTROL). Unten rechts: gut lesbarer Vermerk 'KI-generiertes Bild' in weißer Sans-Serif auf halbtransparentem dunkelblauem Badge. Keine anderen Texte, keine fremden Logos, keine Familien-Drama-Klischees, keine Alarm-Symbole, keine verzerrten Hände.",
+  "generation_prompt_single_block_en": "Landscape editorial photograph 1920x1080, 16:9. Bright modern office, navy charcoal (#1F2A44) with cyan (#00A3FF) and amber (#F2B134) accents. Midground: senior business owner and younger successor in smart casual sitting side by side at a wooden conference table, calmly reviewing handover documents together — collaborative succession planning, not conflict. Foreground: clean handover checklist with abstract tick rows, no readable text on papers. Soft warm daylight from left, calm forward-looking mood. Top-right: official white Beraterium logo lockup (geometric emblem + BERATERIUM wordmark + tagline CORE ELEMENT FOR EFFECTIVE RISK CONTROL). Bottom-right: clearly legible 'KI-generiertes Bild' in white sans-serif on semi-transparent dark navy badge — readable at thumbnail size. No other readable text, no third-party logos, no family-drama clichés, no alarm symbols, no distorted hands.",
+  "post_processing_fallback": {
+    "when": "Falls Generator Logo oder KI-Vermerk unleserlich weglässt",
+    "logo_png": "Webseite/site/img/logo/logo-white.png",
+    "logo_position": "top-right, width ~34% of image, 3% margin",
+    "ki_label_text": "KI-generiertes Bild",
+    "ki_label_position": "bottom-right, white text on dark navy rounded badge"
+  },
+  "generator_hints": {
+    "recommended_aspect_ratio": "16:9",
+    "recommended_resolution": "1920x1080",
+    "upload_after_generation": "PNG als Webseite/site/img/blog/unternehmensnachfolge-uebersehene-risiken-hero.png speichern, dann: cd Webseite/site && .venv/bin/python _optimize_images.py && .venv/bin/python _gen_pages.py"
+  }
+}

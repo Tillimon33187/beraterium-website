@@ -5,6 +5,14 @@
   <!-- Start cookieyes banner -->
   <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
   <!-- End cookieyes banner -->
+  <!-- Google tag (gtag.js) — lädt erst nach Analytics-Einwilligung (CookieYes) -->
+  <script type="text/plain" data-cookieyes="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W"></script>
+  <script type="text/plain" data-cookieyes="analytics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BM435GHE6W');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Risikomanagement Mittelstand – 6 Wochen | Beraterium</title>
@@ -25,9 +33,9 @@
   <meta name="theme-color" content="#0E1116">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <link rel="stylesheet" href="../../css/brt.css?v=20260626-header-hero" data-brt-css>
-  <link rel="stylesheet" href="../../css/brt-fallback.css?v=20260626-header-hero">
-  <link rel="stylesheet" href="../../css/brt-layout-fix.css?v=20260626-header-hero">
+  <link rel="stylesheet" href="../../css/brt.css?v=20260715-blindspot-v5" data-brt-css>
+  <link rel="stylesheet" href="../../css/brt-fallback.css?v=20260715-blindspot-v5">
+  <link rel="stylesheet" href="../../css/brt-layout-fix.css?v=20260715-blindspot-v5">
   <script src="../../js/brt-init.js"></script>
   <script type="application/ld+json">
 [
@@ -130,6 +138,8 @@
             <li><a href="../../angebote/startups/">Startups</a></li>
             <li><a href="../../angebote/kmu/" aria-current="page">KMU</a></li>
             <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+            <li><a href="../../schulungen/">Schulungen</a></li>
+            <li><a href="../../preise/">Preise</a></li>
           </ul>
         </li>
         <li><a href="../../methode/">Methode</a></li>
@@ -144,6 +154,15 @@
           </ul>
         </li>
         <li><a href="../../risikoradar/">RisikoRadar</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../tools/" class="site-header__parent-link" aria-expanded="false">
+            Tools
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Tools">
+            <li><a href="../../tools/blindspot-check/">Blindspot Check</a></li>
+          </ul>
+        </li>
         <li><a href="../../blog/">Blog</a></li>
       </ul>
 <div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://www.beraterium.com/services/smb/" hreflang="en">EN</a></div>
@@ -227,7 +246,7 @@
             <a class="brt-btn brt-btn--outline" href="../../kontakt/">Erstgespräch buchen</a>
           </li>
         </ul>
-        <p class="brt-meta brt-centered-cta brt-fade-up" style="margin-top: var(--space-8);">Preise besprechen wir individuell im Erstgespräch – passend zu Phase und Umfang.</p>
+        <p class="brt-meta brt-centered-cta brt-fade-up" style="margin-top: var(--space-8);">Analysepakete ab 3.475 € Festpreis. Alle Preise transparent auf der <a href="../../preise/">Preisseite</a>.</p>
       </div>
     </section>
     <section class="brt-section brt-section--guarantee" aria-labelledby="garantie-title">
@@ -248,6 +267,7 @@
             <h3 class="brt-h3">Relevanz-Garantie</h3>
             <p class="brt-quote">„Wir finden kein relevantes Risiko? Geld zurück."</p>
             <p class="brt-body">Identifiziert die Analyse kein einziges Risiko mit relevanter Schadenshöhe (Schwelle vorab gemeinsam definiert), erstatten wir den vollen Betrag.</p>
+            <a href="../../relevanz-garantie/">Mehr erfahren →</a>
           </li>
           <li class="brt-card brt-card--guarantee brt-hover-lift">
             <div class="brt-guarantee__visual">
@@ -258,7 +278,8 @@
             </div>
             <h3 class="brt-h3">Nutzen-Garantie</h3>
             <p class="brt-quote">„Kein messbarer Nutzen? Geld zurück."</p>
-            <p class="brt-body">Wir legen vor dem Start gemeinsam 3–5 Nutzen-Kriterien fest. Wird am Ende keines erfüllt, bekommen Sie den vollen Betrag zurück. Ohne Diskussion.</p>
+            <p class="brt-body">Wir legen vor dem Start gemeinsam drei Nutzen-Kriterien fest – zwei messbare, eines emotional. Wird am Ende auch nur eines nicht erfüllt, bekommen Sie den vollen Betrag zurück. Ohne Diskussion.</p>
+            <a href="../../nutzen-garantie/">Mehr erfahren →</a>
           </li>
         </ul>
         <aside class="brt-guarantee-cta brt-fade-up" aria-label="Erstgespräch vereinbaren">
@@ -352,6 +373,11 @@
         </div>
       </div>
     </section>
+    <section class="brt-section" aria-label="Ratgeber-Empfehlung">
+      <div class="brt-container brt-fade-up">
+        <p class="brt-body">Geschäftsführung, Meister, Vertrieb: Wie Sie Schlüsselpersonen im Mittelstand erkennen und absichern, lesen Sie im Ratgeber <a href="../../blog/schluesselpersonrisiko-erkennen-absichern/">Schlüsselpersonrisiko erkennen, bewerten und absichern &rarr;</a></p>
+      </div>
+    </section>
     <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="final-cta">
       <div class="brt-container brt-cta-band__inner brt-fade-up">
         <h2 id="final-cta" class="brt-h2 brt-h2--on-dark">Verschaffen Sie sich Klarheit – bevor ein Risiko zuschlägt</h2>
@@ -377,6 +403,27 @@
         <li><a href="../../angebote/kmu/">KMU</a></li>
         <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
         <li><a href="../../angebote/">Übersicht</a></li>
+        <li><a href="../../preise/">Preise &amp; Leistungen</a></li>
+        <li><a href="../../schulungen/">Schulungen</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Lösungen</h2>
+      <ul>
+        <li><a href="../../loesungen/nis2/">NIS2-Betroffenheit</a></li>
+        <li><a href="../../loesungen/nachfolge/">Unternehmensnachfolge</a></li>
+        <li><a href="../../loesungen/cyberangriff/">Cyberangriff</a></li>
+        <li><a href="../../loesungen/selbststaendig-absichern/">Selbstständig absichern</a></li>
+        <li><a href="../../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko</a></li>
+        <li><a href="../../loesungen/investor-due-diligence/">Investor Due Diligence</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beraterium vor Ort</h2>
+      <ul>
+        <li><a href="../../standort/muenchen/">München</a></li>
+        <li><a href="../../standort/sachsen/">Sachsen</a></li>
+        <li><a href="../../standort/nrw/">NRW</a></li>
       </ul>
     </section>
     <section>
@@ -386,6 +433,8 @@
         <li><a href="../../team/">Team</a></li>
         <li><a href="../../mission-vision/">Mission &amp; Vision</a></li>
         <li><a href="../../methode/">Methode</a></li>
+        <li><a href="../../nutzen-garantie/">Nutzen-Garantie</a></li>
+        <li><a href="../../relevanz-garantie/">Relevanz-Garantie</a></li>
       </ul>
     </section>
     <section>
@@ -403,7 +452,7 @@
   <p class="site-footer__legal">© Beraterium 2026</p>
 </footer>
 
-<script src="../../js/brt-site.js?v=20260626-header-hero"></script>
+<script src="../../js/brt-site.js?v=20260715-blindspot-v5"></script>
 
 </body>
 </html>

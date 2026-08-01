@@ -10,7 +10,10 @@ excerpt: 'Die meisten Startups scheitern nicht an der Idee, sondern an fehlender
 hero_image: img/blog/startup-fehler-vermeiden-risikomanagement-hero.png
 hero_alt: Frame 13
 draft: false
-related_slugs: []
+related_slugs:
+  - schluesselpersonrisiko-erkennen-absichern
+  - cashflow-analyse-risikomanagement-kmu
+  - what-is-risk-management
 ---
 
 Viele Startups scheitern nicht an ihrer Idee, sondern an fehlender Struktur. Unklare Rollen, Mikromanagement und mangelhafter Cashflow bremsen Wachstum und Motivation. Der Artikel zeigt, wie Gründer:innen mit einfachen Standards, klaren Prozessen und pragmatischem Risikomanagement Stabilität schaffen – und dadurch schneller, sicherer und nachhaltiger wachsen können.
@@ -94,6 +97,8 @@ Ein kurzer Risiko-Workshop reicht aus, um die größten Schwachstellen zu identi
 Die Antworten schaffen Priorität und Orientierung. Entscheidungen werden faktenbasiert, Teams handlungsfähig.  
 Und: Eine offene Risikokultur sorgt dafür, dass Probleme rechtzeitig erkannt werden, bevor sie teuer werden.  
 Wer Risiken sichtbar macht, gewinnt Sicherheit und damit Mut für Wachstum.
+
+Spätestens wenn ein Investor nach deinem Risk Assessment fragt, zahlt sich diese Vorarbeit doppelt aus. Wie du dein Startup gezielt auf diese Prüfung vorbereitest, zeigt die Lösungsseite [Investor Due Diligence](/loesungen/investor-due-diligence/).
 
 ## Fünf praktische Schritte für Gründer:innen
 

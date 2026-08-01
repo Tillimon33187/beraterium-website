@@ -9,7 +9,10 @@ excerpt: 'Risikomanagement ist mehr als Verluste vermeiden — es identifiziert 
 hero_image: img/blog/what-is-risk-management-hero.png
 hero_alt: ChatGPT Image Oct 21, 2025, 08_45_58 PM
 draft: false
-related_slugs: []
+related_slugs:
+  - schluesselpersonrisiko-erkennen-absichern
+  - startup-fehler-vermeiden-risikomanagement
+  - risikomanagement-beratung-kmu-anbieter
 ---
 
 Risikomanagement ist mehr als nur Schadensvermeidung – es ist die Kunst, Unsicherheiten zu erkennen, zu bewerten und gezielt zu steuern.  

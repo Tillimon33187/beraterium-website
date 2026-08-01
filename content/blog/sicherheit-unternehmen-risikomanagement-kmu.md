@@ -10,7 +10,10 @@ excerpt: '* Priorisiere nach Kritikalität, nicht Wert: Das 120-Tonnen-Edelstahl
 hero_image: img/blog/sicherheit-unternehmen-risikomanagement-kmu-hero.png
 hero_alt: Frame 24
 draft: false
-related_slugs: []
+related_slugs:
+  - cyberangriff-was-tun-kmu
+  - mitarbeitersensibilisierung-risikobewusste-kultur
+  - risikomanagement-beratung-kmu-anbieter
 ---
 
 * Priorisiere nach Kritikalität, nicht Wert: Das 120-Tonnen-Edelstahllager kann offen stehen – aber die 5.000-Euro-Spezialwerkzeuge mit 3 Wochen Lieferzeit brauchen Hochsicherheit
@@ -38,6 +41,8 @@ Das Backup-Dilemma: Klassische tägliche Backups sind oft wertlos – zeitzone-F
 QR-Code-Phishing (Quishing): Eine neue Phishing-Variante nutzt QR-Codes in E-Mails oder auf Parkautomaten. Herkömmliche Anti-Virus-Programme erkennen QR-Codes nur als Bilder – der schädliche Link bleibt unsichtbar. Wenn dein Mitarbeiter den Code scannt, umgeht er alle Firmenfirewalls. Eine halbe Million solcher Angriffe wurden bereits dokumentiert. Mitarbeitersensibilisierung ist hier Pflicht.
 
 Ransomware-Realität: 82% aller Ransomware-Angriffe treffen kleine Unternehmen. Die Abwehr funktioniert nur, wenn du getestete Backups hast, Mitarbeiter sensibilisierst, Zugriffe limitierst und Zero-Trust-Architektur umsetzt – jeder Zugriff wird überprüft, auch aus dem internen Netzwerk.
+
+Was im Ernstfall in den ersten zwei Stunden zu tun ist, zeigt die Lösungsseite [Cyberangriff – was tun?](/loesungen/cyberangriff/). Und ob dein Unternehmen unter die neuen Meldepflichten fällt, klärt die Übersicht [NIS2 für KMU](/loesungen/nis2/).
 
 ## 3\. KI: Das zweischneidige Schwert der Effizienz 
 

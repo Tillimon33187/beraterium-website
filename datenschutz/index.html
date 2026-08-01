@@ -5,6 +5,14 @@
   <!-- Start cookieyes banner -->
   <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
   <!-- End cookieyes banner -->
+  <!-- Google tag (gtag.js) — lädt erst nach Analytics-Einwilligung (CookieYes) -->
+  <script type="text/plain" data-cookieyes="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W"></script>
+  <script type="text/plain" data-cookieyes="analytics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BM435GHE6W');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Datenschutzerklärung | Beraterium</title>
@@ -25,9 +33,9 @@
   <meta name="theme-color" content="#0E1116">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <link rel="stylesheet" href="../css/brt.css?v=20260626-header-hero" data-brt-css>
-  <link rel="stylesheet" href="../css/brt-fallback.css?v=20260626-header-hero">
-  <link rel="stylesheet" href="../css/brt-layout-fix.css?v=20260626-header-hero">
+  <link rel="stylesheet" href="../css/brt.css?v=20260715-blindspot-v5" data-brt-css>
+  <link rel="stylesheet" href="../css/brt-fallback.css?v=20260715-blindspot-v5">
+  <link rel="stylesheet" href="../css/brt-layout-fix.css?v=20260715-blindspot-v5">
   <script src="../js/brt-init.js"></script>
 </head>
 
@@ -53,6 +61,8 @@
             <li><a href="../angebote/startups/">Startups</a></li>
             <li><a href="../angebote/kmu/">KMU</a></li>
             <li><a href="../angebote/solo/">Solo-Selbstständige</a></li>
+            <li><a href="../schulungen/">Schulungen</a></li>
+            <li><a href="../preise/">Preise</a></li>
           </ul>
         </li>
         <li><a href="../methode/">Methode</a></li>
@@ -67,6 +77,15 @@
           </ul>
         </li>
         <li><a href="../risikoradar/">RisikoRadar</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../tools/" class="site-header__parent-link" aria-expanded="false">
+            Tools
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Tools">
+            <li><a href="../tools/blindspot-check/">Blindspot Check</a></li>
+          </ul>
+        </li>
         <li><a href="../blog/">Blog</a></li>
       </ul>
 <div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://www.beraterium.com/privacy/" hreflang="en">EN</a></div>
@@ -81,7 +100,7 @@
     <section class="brt-section" aria-labelledby="legal-title">
       <div class="brt-container brt-legal">
         <h1 id="legal-title" class="brt-h2">Datenschutzerklärung</h1>
-        <p class="brt-meta brt-meta--legal">Stand: 09.06.2026</p>
+        <p class="brt-meta brt-meta--legal">Stand: 17.07.2026</p>
 
         <p>der Beraterium GbR, Dr.-Maria-Grollmuß-Straße 14, 02625 Bautzen, Deutschland</p>
 
@@ -190,7 +209,7 @@
         <p>Unsere Website kann Cookies und vergleichbare Technologien einsetzen. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden.</p>
         <p><strong>Technisch notwendige Cookies</strong> dienen dem Betrieb der Website (z. B. Speicherung Ihrer Cookie-Einstellungen). Sie werden — soweit erforderlich — auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO bzw. § 25 Abs. 2 TTDSG gesetzt.</p>
         <p><strong>Statistik- und Marketing-Cookies</strong> setzen wir nur ein, wenn Sie über unser Consent-Banner ausdrücklich zugestimmt haben (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TTDSG). Sie können Ihre Einwilligung jederzeit mit gleicher Leichtigkeit widerrufen wie Sie sie erteilt haben.</p>
-        <p>Consent-Management-Tool (CMP): [PLATZHALTER z. B. Borlabs Cookie / Complianz / Cookiebot — nur eintragen, wenn live]</p>
+        <p>Consent-Management-Tool (CMP): <strong>CookieYes</strong> (CookieYes Limited, UK/EU). Über das Banner können Sie einzelne Kategorien (z. B. Statistik) an- oder abwählen und Ihre Einwilligung jederzeit widerrufen. Datenschutzhinweise CookieYes: <a href="https://www.cookieyes.com/privacy-policy/" rel="noopener noreferrer" target="_blank">https://www.cookieyes.com/privacy-policy/</a></p>
         <p>Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben oder generell ausschließen. Bei Deaktivierung technisch notwendiger Cookies kann die Funktionalität eingeschränkt sein.</p>
 
         <h3>Server-Logfiles</h3>
@@ -219,9 +238,11 @@
         <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO. Widerruf jederzeit über den Abmeldelink im Newsletter oder per E-Mail an <a href="mailto:info@beraterium.de">info@beraterium.de</a>.</p>
         <p>Newsletter-Dienst: [PLATZHALTER z. B. Brevo (Sendinblue), Frankfurt/ EU] — AVV erforderlich.</p>
 
-        <h3>Webanalyse</h3>
-        <p><em>[Nur veröffentlichen, wenn Analytics live ist]</em></p>
-        <p>Zur Reichweitenmessung nutzen wir [PLATZHALTER z. B. Plausible Analytics (EU) / Matomo (self-hosted, DE)]. Das Tool ist [cookielos / consent-pflichtig — konkretisieren]. Verarbeitet werden anonymisierte bzw. pseudonymisierte Nutzungsdaten (z. B. aufgerufene Seiten, Referrer, ungefährer Standort, Gerätetyp). Rechtsgrundlage bei cookieloser Reichweitenmessung ohne Personenbezug: Art. 6 Abs. 1 lit. f DSGVO; bei Cookies: Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG.</p>
+        <h3>Webanalyse (Google Analytics 4)</h3>
+        <p>Zur Reichweitenmessung nutzen wir <strong>Google Analytics 4</strong> (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; Mutterunternehmen: Google LLC, USA). Mess-ID: <code>G-BM435GHE6W</code>. Google Analytics setzt Cookies bzw. vergleichbare Technologien ein und erhebt Nutzungsdaten (z. B. aufgerufene Seiten, Verweildauer, ungefährer Standort auf Basis der IP-Adresse, Gerätetyp, Browser, Referrer). Die IP-Adresse wird in der Regel vor Speicherung gekürzt (IP-Anonymisierung).</p>
+        <p>Die Einbindung erfolgt <strong>erst nach Ihrer Einwilligung</strong> über unser CookieYes-Banner (Kategorie «Statistik» / Analytics). Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG. Sie können die Einwilligung jederzeit widerrufen (Cookie-Einstellungen im Banner).</p>
+        <p>Google kann Daten in die USA übermitteln. Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert; zusätzlich werden EU-Standardvertragsklauseln gemäß Art. 46 DSGVO eingesetzt. Wir haben mit Google einen Auftragsverarbeitungsvertrag (AVV) abgeschlossen.</p>
+        <p>Datenschutzhinweise Google: <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">https://policies.google.com/privacy</a> · Opt-out Browser-Add-on: <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">https://tools.google.com/dlpage/gaoptout</a></p>
 
         <h3>Schriftarten (self-hosted)</h3>
         <p>Zur einheitlichen Darstellung nutzen wir die Schrift <strong>Inter</strong>. Die Schriftdateien werden <strong>von unserem eigenen Webserver</strong> ausgeliefert. Beim Seitenaufruf werden <strong>keine</strong> Verbindungen zu Google Fonts, Adobe Fonts oder anderen externen Font-Anbietern hergestellt. Es werden dadurch <strong>keine</strong> personenbezogenen Daten an Drittanbieter übermittelt.</p>
@@ -243,7 +264,7 @@
 
         <h2>8. Änderungen dieser Datenschutzerklärung</h2>
         <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder Änderungen unserer Leistungen abbildet. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
-        <p><strong>Stand: 09.06.2026</strong></p>
+        <p><strong>Stand: 17.07.2026</strong></p>
 
         <p class="brt-legal__footer-links">
           <a href="../impressum/">Impressum</a> · <a href="../agb/">AGB</a>
@@ -269,6 +290,27 @@
         <li><a href="../angebote/kmu/">KMU</a></li>
         <li><a href="../angebote/solo/">Solo-Selbstständige</a></li>
         <li><a href="../angebote/">Übersicht</a></li>
+        <li><a href="../preise/">Preise &amp; Leistungen</a></li>
+        <li><a href="../schulungen/">Schulungen</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Lösungen</h2>
+      <ul>
+        <li><a href="../loesungen/nis2/">NIS2-Betroffenheit</a></li>
+        <li><a href="../loesungen/nachfolge/">Unternehmensnachfolge</a></li>
+        <li><a href="../loesungen/cyberangriff/">Cyberangriff</a></li>
+        <li><a href="../loesungen/selbststaendig-absichern/">Selbstständig absichern</a></li>
+        <li><a href="../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko</a></li>
+        <li><a href="../loesungen/investor-due-diligence/">Investor Due Diligence</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beraterium vor Ort</h2>
+      <ul>
+        <li><a href="../standort/muenchen/">München</a></li>
+        <li><a href="../standort/sachsen/">Sachsen</a></li>
+        <li><a href="../standort/nrw/">NRW</a></li>
       </ul>
     </section>
     <section>
@@ -278,6 +320,8 @@
         <li><a href="../team/">Team</a></li>
         <li><a href="../mission-vision/">Mission &amp; Vision</a></li>
         <li><a href="../methode/">Methode</a></li>
+        <li><a href="../nutzen-garantie/">Nutzen-Garantie</a></li>
+        <li><a href="../relevanz-garantie/">Relevanz-Garantie</a></li>
       </ul>
     </section>
     <section>
@@ -295,7 +339,7 @@
   <p class="site-footer__legal">© Beraterium 2026</p>
 </footer>
 
-<script src="../js/brt-site.js?v=20260626-header-hero"></script>
+<script src="../js/brt-site.js?v=20260715-blindspot-v5"></script>
 
 </body>
 </html>

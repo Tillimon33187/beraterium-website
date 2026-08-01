@@ -1,0 +1,76 @@
+{
+  "title": "key-person-risk-hub-hero",
+  "slug": "schluesselpersonrisiko-erkennen-absichern-hero",
+  "language": "de",
+  "intent": "editorial",
+  "subject": "A printed organisational chart on a wooden meeting table where all connection lines converge on one highlighted person card in amber, with a hand placing a second card beside it — symbolising identifying the single point of failure and building redundancy.",
+  "context": "Beraterium blog hero for the cross-persona hub article on key person risk: what it is, how it differs for SMEs, startups and solo self-employed, and which immediate measures reduce it. Theme: one person carrying too many unique functions, and the calm structured act of de-risking it. Warm, professional B2B editorial, constructive, not alarmist.",
+  "platform_website": {
+    "orientation": "landscape",
+    "primary_export_px": { "width": 1920, "height": 1080 },
+    "aspect_ratio": "16:9 (blog hero — displayed full-width above article)",
+    "upload_source_png": "Webseite/site/img/blog/schluesselpersonrisiko-erkennen-absichern-hero.png",
+    "optimized_variants": "Build creates schluesselpersonrisiko-erkennen-absichern-hero.webp plus -480w, -960w, -1440w responsive WebP from the PNG source",
+    "best_practice_notes": "Wide 16:9 hero; the org chart with one amber-highlighted node is the visual story; generous negative space in upper third; readable at thumbnail and full width.",
+    "safe_zone": "Keep the highlighted node in central 90% width; avoid critical detail in extreme left/right 5% and bottom 10%."
+  },
+  "composition": {
+    "shot_type": "top-down to slightly angled tabletop shot",
+    "camera_angle": "high angle, about 45 degrees",
+    "depth": "foreground printed org chart with abstract person cards connected by lines, one card highlighted in amber where most lines converge, a hand placing a second blank card next to it; background softly blurred meeting table with coffee cups and a notebook",
+    "aspect_ratios": ["16:9", "4:3", "1:1"]
+  },
+  "lighting": {
+    "style": "soft warm natural daylight",
+    "direction": "from top left",
+    "contrast": "medium-low"
+  },
+  "color_palette": {
+    "primary": "#1F2A44",
+    "secondary": "#00A3FF",
+    "accent": "#F2B134",
+    "background": "#F5F7FA"
+  },
+  "style": {
+    "visual_style": "clean editorial realism",
+    "detail_level": "medium-high",
+    "mood": "analytical, constructive, calm — spotting the dependency and fixing it"
+  },
+  "ai_disclosure": {
+    "required": true,
+    "label_de": "KI-generiertes Bild",
+    "label_en": "AI-generated image",
+    "placement": "small legible label in the bottom-right corner of the image; never alt-text only",
+    "prompt_instruction": "Small legible caption text 'KI-generiertes Bild' in the bottom-right corner: small clean sans-serif, white at ~70% opacity, unobtrusive but readable."
+  },
+  "optional_text_overlay": {
+    "recommended_for_blog_hero": false,
+    "display_language": "de",
+    "line_1_optional": "",
+    "typography": "Prefer no text on image — article H1 renders above hero.",
+    "prompt_instruction": "No readable names or text on the chart; abstract person icons and connection lines only, one node highlighted in amber."
+  },
+  "negative_prompt": [
+    "no watermarks or text except the small AI-disclosure label bottom right",
+    "no distorted hands",
+    "no extra fingers",
+    "no readable text or names on the chart (only exception: the small AI-disclosure label bottom right)",
+    "no third-party logos",
+    "no red alarm icons or broken-chain clichés",
+    "no hospital or sickbed imagery",
+    "no anxious facial expressions",
+    "no low-resolution artifacts",
+    "no identifiable real persons or celebrities",
+    "no Beraterium logo unless brand-approved",
+    "no generic stock photo look",
+    "no cluttered composition"
+  ],
+  "seo": {
+    "target_keyword": "schlüsselperson absichern unternehmen",
+    "alt_text": "Organigramm auf einem Tisch mit einer hervorgehobenen Schlüsselperson, um die sich alle Verbindungen bündeln",
+    "caption": "Schlüsselpersonrisiko erkennen: Wo alle Verbindungen an einer Person hängen, entsteht ein Single Point of Failure.",
+    "filename": "schluesselpersonrisiko-erkennen-absichern-hero-16x9.webp",
+    "image_title": "Schlüsselpersonrisiko erkennen und absichern"
+  },
+  "generation_prompt_single_block_en": "Landscape editorial photograph 1920x1080, 16:9, high angle about 45 degrees over a wooden meeting table, navy charcoal tones (#1F2A44) with cyan (#00A3FF) and amber (#F2B134) accents. Foreground: a printed organisational chart with abstract person cards connected by clean lines, most lines converging on one card highlighted in amber (no readable names or text, abstract person icons only). A well-groomed hand places a second blank card next to the highlighted one, symbolising building redundancy. Background: softly blurred meeting table with coffee cup and notebook. Soft warm daylight from top left, medium-low contrast, analytical constructive mood — spotting a dependency and fixing it calmly. Generous negative space upper third for blog header. Clean editorial realism, medium-high detail. In the bottom-right corner add a small legible caption text 'KI-generiertes Bild' in a small clean sans-serif, white at about 70% opacity — unobtrusive but readable at full width and thumbnail size. No other readable text, no watermarks, no third-party logos, no broken-chain or alarm clichés, no hospital imagery, no distorted hands. Safe zone: highlighted node central 90% width."
+}

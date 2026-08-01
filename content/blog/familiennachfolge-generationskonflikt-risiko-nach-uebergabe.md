@@ -11,7 +11,10 @@ excerpt: Viele Konflikte nach der Nachfolge sitzen nicht im Gesellschaftsvertrag
 hero_image: img/blog/familiennachfolge-generationskonflikt-risiko-nach-uebergabe-hero.png
 hero_alt: family business succession leadership clarity SME Germany
 draft: false
-related_slugs: []
+related_slugs:
+  - unternehmensnachfolge-uebersehene-risiken
+  - schluesselpersonrisiko-erkennen-absichern
+  - emotionale-fuehrung-kmu-eisbergmodell-risiko
 faq:
 - question: Warum eskaliert es nach der Übergabe, obwohl alles formal geregelt ist?
   answer: Weil Anteile und Ämter die emotionalen Rollen, die Erwartungen und die Frage

@@ -5,6 +5,14 @@
   <!-- Start cookieyes banner -->
   <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
   <!-- End cookieyes banner -->
+  <!-- Google tag (gtag.js) — lädt erst nach Analytics-Einwilligung (CookieYes) -->
+  <script type="text/plain" data-cookieyes="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W"></script>
+  <script type="text/plain" data-cookieyes="analytics">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BM435GHE6W');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog – Risikomanagement & Mittelstand | Beraterium</title>
@@ -25,9 +33,9 @@
   <meta name="theme-color" content="#0E1116">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <link rel="stylesheet" href="../css/brt.css?v=20260626-header-hero" data-brt-css>
-  <link rel="stylesheet" href="../css/brt-fallback.css?v=20260626-header-hero">
-  <link rel="stylesheet" href="../css/brt-layout-fix.css?v=20260626-header-hero">
+  <link rel="stylesheet" href="../css/brt.css?v=20260715-blindspot-v5" data-brt-css>
+  <link rel="stylesheet" href="../css/brt-fallback.css?v=20260715-blindspot-v5">
+  <link rel="stylesheet" href="../css/brt-layout-fix.css?v=20260715-blindspot-v5">
   <script src="../js/brt-init.js"></script>
 </head>
 
@@ -53,6 +61,8 @@
             <li><a href="../angebote/startups/">Startups</a></li>
             <li><a href="../angebote/kmu/">KMU</a></li>
             <li><a href="../angebote/solo/">Solo-Selbstständige</a></li>
+            <li><a href="../schulungen/">Schulungen</a></li>
+            <li><a href="../preise/">Preise</a></li>
           </ul>
         </li>
         <li><a href="../methode/">Methode</a></li>
@@ -67,6 +77,15 @@
           </ul>
         </li>
         <li><a href="../risikoradar/">RisikoRadar</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../tools/" class="site-header__parent-link" aria-expanded="false">
+            Tools
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Tools">
+            <li><a href="../tools/blindspot-check/">Blindspot Check</a></li>
+          </ul>
+        </li>
         <li><a href="../blog/" aria-current="page">Blog</a></li>
       </ul>
 <div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://www.beraterium.com/blog/" hreflang="en">EN</a></div>
@@ -92,7 +111,7 @@
         <header class="brt-section__header brt-section__header--row brt-fade-up">
           <div>
             <h2 id="blog-grid" class="brt-h2">Alle Artikel</h2>
-            <p class="brt-body">21 Beiträge zu Risikomanagement, Führung und Unternehmenspraxis.</p>
+            <p class="brt-body">28 Beiträge zu Risikomanagement, Führung und Unternehmenspraxis.</p>
           </div>
         </header>
         <nav class="brt-blog-filters" aria-label="Kategorien">
@@ -104,7 +123,91 @@
           <a href="#" data-filter="solo" class="">Solo</a>
         </nav>
         <ul class="brt-blog-grid brt-stagger" id="blog-grid-list">
-        <li class="brt-card brt-card--blog brt-hover-lift brt-card--featured" data-category="risikomanagement">
+        <li class="brt-card brt-card--blog brt-hover-lift brt-card--featured" data-category="kmu">
+          <a class="brt-card__link" href="../blog/cashflow-analyse-risikomanagement-kmu/">
+<div class="brt-card__thumb"><img src="../img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp" alt="Unternehmer prüft Liquiditätsentwicklung und Cashflow-Kennzahlen auf einem Dashboard im Büro" class="brt-card__thumb-img" width="1672" height="941" srcset="../img/blog/cashflow-analyse-risikomanagement-kmu-hero-480w.webp 480w, ../img/blog/cashflow-analyse-risikomanagement-kmu-hero-960w.webp 960w, ../img/blog/cashflow-analyse-risikomanagement-kmu-hero-1440w.webp 1440w, ../img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Was ist eine Cashflow-Analyse – und wie hängt sie mit Risikomanagement für KMU zusammen?</h3>
+              <p class="brt-meta">15. Juli 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Eine Cashflow-Analyse zeigt, ob Ihr Unternehmen laufende Zahlungen decken kann – unabhängig vom Gewinn. Sie macht Liquiditätsrisiken im KMU früh…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/cyberangriff-was-tun-kmu/">
+<div class="brt-card__thumb"><img src="../img/blog/cyberangriff-was-tun-kmu-hero.webp" alt="IT-Verantwortlicher in einem KMU arbeitet konzentriert eine Notfall-Checkliste nach einem Cyberangriff ab" class="brt-card__thumb-img" width="1672" height="941" srcset="../img/blog/cyberangriff-was-tun-kmu-hero-480w.webp 480w, ../img/blog/cyberangriff-was-tun-kmu-hero-960w.webp 960w, ../img/blog/cyberangriff-was-tun-kmu-hero-1440w.webp 1440w, ../img/blog/cyberangriff-was-tun-kmu-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Cyberangriff auf mein Unternehmen – was tun? Soforthilfe für KMU</h3>
+              <p class="brt-meta">15. Juli 2026 · ca. 3 Min.</p>
+              <p class="brt-body brt-card__excerpt">Nach einem Cyberangriff zählen die ersten 2 Stunden. Die Sofortmaßnahmen-Checkliste für KMU, Meldepflichten und Fristen – plus Prävention ohne…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="solo">
+          <a class="brt-card__link" href="../blog/risiken-selbststaendige-freelancer/">
+<div class="brt-card__thumb"><img src="../img/blog/risiken-selbststaendige-freelancer-hero.webp" alt="Selbstständiger Freelancer prüft am Laptop seine wichtigsten Geschäftsrisiken in ruhiger Arbeitsumgebung" class="brt-card__thumb-img" width="1672" height="941" srcset="../img/blog/risiken-selbststaendige-freelancer-hero-480w.webp 480w, ../img/blog/risiken-selbststaendige-freelancer-hero-960w.webp 960w, ../img/blog/risiken-selbststaendige-freelancer-hero-1440w.webp 1440w, ../img/blog/risiken-selbststaendige-freelancer-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Solo</span>
+              <h3 class="brt-h3">Was sind die größten Risiken für Selbstständige und Freelancer – und wer hilft dabei?</h3>
+              <p class="brt-meta">15. Juli 2026 · ca. 3 Min.</p>
+              <p class="brt-body brt-card__excerpt">Die drei größten Risiken für Selbstständige: Ausfall der Arbeitskraft, Kundenkonzentration und Scheinselbstständigkeit. So erkennen Sie – und wer…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/risikomanagement-beratung-kmu-anbieter/">
+<div class="brt-card__thumb"><img src="../img/blog/risikomanagement-beratung-kmu-anbieter-hero.webp" alt="Mittelständische Geschäftsführerin vergleicht Risikomanagement-Anbieter an einem Besprechungstisch mit Vergleichstabelle" class="brt-card__thumb-img" width="1672" height="941" srcset="../img/blog/risikomanagement-beratung-kmu-anbieter-hero-480w.webp 480w, ../img/blog/risikomanagement-beratung-kmu-anbieter-hero-960w.webp 960w, ../img/blog/risikomanagement-beratung-kmu-anbieter-hero-1440w.webp 1440w, ../img/blog/risikomanagement-beratung-kmu-anbieter-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Risikomanagement-Beratung für KMU: Welcher Anbieter passt zu welchem Unternehmen?</h3>
+              <p class="brt-meta">15. Juli 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Risikomanagement-Beratung im Mittelstand: vier Anbietertypen von Big-4-Prüfern bis Eigenregie – welcher zu Ihrem KMU passt und woran Sie das erkennen.</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="solo">
+          <a class="brt-card__link" href="../blog/scheinselbststaendigkeit-pruefen/">
+<div class="brt-card__thumb"><img src="../img/blog/scheinselbststaendigkeit-pruefen-hero.webp" alt="Freelancerin prüft anhand einer Kriterienliste ihren Selbstständigkeits-Status am Schreibtisch" class="brt-card__thumb-img" width="1672" height="941" srcset="../img/blog/scheinselbststaendigkeit-pruefen-hero-480w.webp 480w, ../img/blog/scheinselbststaendigkeit-pruefen-hero-960w.webp 960w, ../img/blog/scheinselbststaendigkeit-pruefen-hero-1440w.webp 1440w, ../img/blog/scheinselbststaendigkeit-pruefen-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Solo</span>
+              <h3 class="brt-h3">Was ist Scheinselbstständigkeit – und wie prüfe ich, ob ich betroffen bin?</h3>
+              <p class="brt-meta">15. Juli 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Scheinselbstständigkeit erkennen – die wichtigsten Kriterien, die 83-%-Faustregel, der Ablauf der Statusfeststellung und was eine Nachforderung…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="risikomanagement">
+          <a class="brt-card__link" href="../blog/schluesselpersonrisiko-erkennen-absichern/">
+<div class="brt-card__thumb"><img src="../img/blog/schluesselpersonrisiko-erkennen-absichern-hero.webp" alt="Organigramm auf einem Tisch mit einer hervorgehobenen Schlüsselperson, um die sich alle Verbindungen bündeln" class="brt-card__thumb-img" width="1672" height="941" srcset="../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-480w.webp 480w, ../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-960w.webp 960w, ../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-1440w.webp 1440w, ../img/blog/schluesselpersonrisiko-erkennen-absichern-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Risikomanagement</span>
+              <h3 class="brt-h3">Schlüsselpersonrisiko: erkennen, bewerten und absichern – für KMU, Startups und Solo-Selbstständige</h3>
+              <p class="brt-meta">15. Juli 2026 · ca. 3 Min.</p>
+              <p class="brt-body brt-card__excerpt">Das Schlüsselpersonrisiko trifft KMU, Startups und Solo-Selbstständige unterschiedlich hart. So erkennst du unverzichtbare Personen – und sicherst…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../blog/unternehmensnachfolge-uebersehene-risiken/">
+<div class="brt-card__thumb"><img src="../img/blog/unternehmensnachfolge-uebersehene-risiken-hero.webp" alt="Zwei Generationen am Konferenztisch mit Übergabe-Checkliste und Unternehmensunterlagen bei der Nachfolgeplanung" class="brt-card__thumb-img" width="1672" height="941" srcset="../img/blog/unternehmensnachfolge-uebersehene-risiken-hero-480w.webp 480w, ../img/blog/unternehmensnachfolge-uebersehene-risiken-hero-960w.webp 960w, ../img/blog/unternehmensnachfolge-uebersehene-risiken-hero-1440w.webp 1440w, ../img/blog/unternehmensnachfolge-uebersehene-risiken-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Welche Risiken werden bei der Unternehmensnachfolge im Mittelstand am häufigsten übersehen?</h3>
+              <p class="brt-meta">15. Juli 2026 · ca. 3 Min.</p>
+              <p class="brt-body brt-card__excerpt">Bei der Nachfolge treffen Wissenstransfer, Führungsakzeptanz und Finanzierung zusammen. Diese Risikofelder werden vor der Übergabe am häufigsten…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="risikomanagement">
           <a class="brt-card__link" href="../blog/zeit-als-risikofaktor-unternehmer-risikomanagement/">
 <div class="brt-card__thumb"><img src="../img/blog/zeit-als-risikofaktor-unternehmer-risikomanagement-hero.webp" alt="Entrepreneur reviewing time allocation on calendar beside risk dashboard in modern office" class="brt-card__thumb-img" width="1672" height="941" srcset="../img/blog/zeit-als-risikofaktor-unternehmer-risikomanagement-hero-480w.webp 480w, ../img/blog/zeit-als-risikofaktor-unternehmer-risikomanagement-hero-960w.webp 960w, ../img/blog/zeit-als-risikofaktor-unternehmer-risikomanagement-hero-1440w.webp 1440w, ../img/blog/zeit-als-risikofaktor-unternehmer-risikomanagement-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
             <div class="brt-card__body">
@@ -242,7 +345,7 @@
             <div class="brt-card__body">
               <span class="brt-tag brt-tag--small">KMU</span>
               <h3 class="brt-h3">Sicherheit im Unternehmen: Wenn der Mensch zum größten Risiko wird</h3>
-              <p class="brt-meta">31. Januar 2026 · ca. 5 Min.</p>
+              <p class="brt-meta">31. Januar 2026 · ca. 6 Min.</p>
               <p class="brt-body brt-card__excerpt">Priorisiere nach Kritikalität, nicht Wert: Das 120-Tonnen-Edelstahllager kann offen stehen – aber die 5.000-Euro-Spezialwerkzeuge mit 3 Wochen…</p>
               <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
             </div>
@@ -390,6 +493,27 @@
         <li><a href="../angebote/kmu/">KMU</a></li>
         <li><a href="../angebote/solo/">Solo-Selbstständige</a></li>
         <li><a href="../angebote/">Übersicht</a></li>
+        <li><a href="../preise/">Preise &amp; Leistungen</a></li>
+        <li><a href="../schulungen/">Schulungen</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Lösungen</h2>
+      <ul>
+        <li><a href="../loesungen/nis2/">NIS2-Betroffenheit</a></li>
+        <li><a href="../loesungen/nachfolge/">Unternehmensnachfolge</a></li>
+        <li><a href="../loesungen/cyberangriff/">Cyberangriff</a></li>
+        <li><a href="../loesungen/selbststaendig-absichern/">Selbstständig absichern</a></li>
+        <li><a href="../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko</a></li>
+        <li><a href="../loesungen/investor-due-diligence/">Investor Due Diligence</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beraterium vor Ort</h2>
+      <ul>
+        <li><a href="../standort/muenchen/">München</a></li>
+        <li><a href="../standort/sachsen/">Sachsen</a></li>
+        <li><a href="../standort/nrw/">NRW</a></li>
       </ul>
     </section>
     <section>
@@ -399,6 +523,8 @@
         <li><a href="../team/">Team</a></li>
         <li><a href="../mission-vision/">Mission &amp; Vision</a></li>
         <li><a href="../methode/">Methode</a></li>
+        <li><a href="../nutzen-garantie/">Nutzen-Garantie</a></li>
+        <li><a href="../relevanz-garantie/">Relevanz-Garantie</a></li>
       </ul>
     </section>
     <section>
@@ -416,7 +542,7 @@
   <p class="site-footer__legal">© Beraterium 2026</p>
 </footer>
 
-<script src="../js/brt-site.js?v=20260626-header-hero"></script>
+<script src="../js/brt-site.js?v=20260715-blindspot-v5"></script>
 
 </body>
 </html>
