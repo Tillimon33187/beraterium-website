@@ -75,6 +75,7 @@ IMG_ANGEBOT_KMU_HERO = "img/angebote/kmu/hero.webp"
 IMG_ANGEBOT_SOLO_HERO = "img/angebote/solo/hero.webp"
 IMG_RELEVANZ_SCHWELLE = "img/garantie/relevanz-schwelle.webp"
 IMG_NUTZEN_KRITERIEN = "img/garantie/nutzen-kriterien.webp"
+IMG_BLINDSPOT_WARUM = "img/tools/blindspot-warum.webp"
 
 
 def _depth_from_pre(pre: str) -> int:
@@ -4119,12 +4120,15 @@ def gen_blindspot_check() -> None:
             compact=True,
             actions='<a class="brt-btn brt-btn--on-dark brt-btn--lg" href="#brt-blindspot">Check jetzt starten</a>',
         )
-        + """
-    <section class="brt-section brt-section--narrow" aria-labelledby="warum-title">
-      <div class="brt-container brt-fade-up">
-        <h2 id="warum-title" class="brt-h2">Warum ein Blindspot Check?</h2>
-        <p class="brt-body">Die meisten Unternehmen scheitern nicht an den Risiken, die sie kennen — sondern an denen, die sie nie betrachtet haben. Der Blindspot Check macht diese blinden Flecken sichtbar: Er prüft 15 der über 100 Gefahrenbereiche aus unserem 3-Ebenen-Gefahrenkatalog, verteilt auf die Bereiche <strong>Mensch</strong>, <strong>Technik</strong> und <strong>Operatives</strong>.</p>
-        <p class="brt-body">Jede Frage beschreibt ein konkretes Szenario. Sie bewerten, wie kritisch es für Sie wäre — und ob Sie bereits Maßnahmen vorbereitet haben. Daraus entsteht Ihr persönliches Risikoprofil mit Ampelstatus je Frage.</p>
+        + f"""
+    <section class="brt-section" aria-labelledby="warum-title">
+      <div class="brt-container brt-split">
+        <div class="brt-split__text brt-fade-up">
+          <h2 id="warum-title" class="brt-h2">Warum ein Blindspot Check?</h2>
+          <p class="brt-body">Die meisten Unternehmen scheitern nicht an den Risiken, die sie kennen — sondern an denen, die sie nie betrachtet haben. Der Blindspot Check macht diese blinden Flecken sichtbar: Er prüft 15 der über 100 Gefahrenbereiche aus unserem 3-Ebenen-Gefahrenkatalog, verteilt auf die Bereiche <strong>Mensch</strong>, <strong>Technik</strong> und <strong>Operatives</strong>.</p>
+          <p class="brt-body">Jede Frage beschreibt ein konkretes Szenario. Sie bewerten, wie kritisch es für Sie wäre — und ob Sie bereits Maßnahmen vorbereitet haben. Daraus entsteht Ihr persönliches Risikoprofil mit Ampelstatus je Frage.</p>
+        </div>
+        {split_media_html(IMG_BLINDSPOT_WARUM, "Blindspot Check macht übersehene Unternehmensrisiken in den Bereichen Mensch, Technik und Operatives sichtbar", 2, contain=True)}
       </div>
     </section>
     <section id="check" class="brt-section brt-section--alt" aria-labelledby="check-title">
