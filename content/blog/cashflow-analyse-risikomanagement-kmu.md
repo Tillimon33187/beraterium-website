@@ -7,7 +7,7 @@ secondary_keywords:
   - liquiditätsengpass
   - kundenkonzentration risiko
 slug: cashflow-analyse-risikomanagement-kmu
-date: '2026-07-15'
+date: '2026-07-08'
 category: KMU
 author: till-blania
 excerpt: 'Eine Cashflow-Analyse zeigt, ob Ihr Unternehmen laufende Zahlungen decken kann – unabhängig vom Gewinn. Sie macht Liquiditätsrisiken im KMU früh sichtbar.'
@@ -33,6 +33,18 @@ faq:
   - question: Was passiert mit dem Cashflow, wenn ein Großkunde wegbricht?
     answer: Bricht ein Kunde mit hohem Umsatzanteil weg, fehlen die eingeplanten Einzahlungen sofort, während die Fixkosten weiterlaufen. Je höher die Kundenkonzentration, desto schneller entsteht daraus ein Liquiditätsengpass. Deshalb gehört Kundenkonzentration zu den wichtigsten Frühindikatoren im Cashflow-Risiko.
 ---
+
+* Eine Cashflow-Analyse zeigt, ob Ihr Unternehmen laufende Zahlungen decken kann – unabhängig vom Gewinn. Sie macht Liquiditätsrisiken im KMU früh sichtbar.
+
+  * Gewinn und Cashflow sind nicht dasselbe: Ein Unternehmen kann profitabel sein und trotzdem zahlungsunfähig werden, wenn Rechnungen offen bleiben oder Tilgungen laufen.
+
+  * Drei Frühwarnsignale für Liquiditätsrisiko: Reichweite der Rücklagen, Debitorenlaufzeit und Kundenkonzentration – ohne teure Software beobachtbar.
+
+  * Kennzahlen zeigen, dass ein Risiko besteht – Beraterium bewertet Liquiditätsrisiko zusätzlich in Euro, damit vergleichbar wird, was wirklich wiegt.
+
+  * Der Wegfall eines Großkunden ist das klassische Schockereignis: Einzahlungen fehlen sofort, Fixkosten laufen weiter – besonders bei hoher Kundenkonzentration.
+
+  * Eine rollierende Liquiditätsvorschau ist das günstigste Werkzeug gegen böse Überraschungen – monatlich aktualisiert, vor größeren Entscheidungen vertieft.
 
 ## Was ist eine Cashflow-Analyse – und warum ist sie Risikomanagement?
 

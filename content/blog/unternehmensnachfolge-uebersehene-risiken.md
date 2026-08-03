@@ -7,7 +7,7 @@ secondary_keywords:
   - betriebsübergabe vorbereiten
   - generationenwechsel unternehmen
 slug: unternehmensnachfolge-uebersehene-risiken
-date: '2026-07-15'
+date: '2026-07-24'
 category: KMU
 author: till-blania
 excerpt: 'Bei der Nachfolge treffen Wissenstransfer, Führungsakzeptanz und Finanzierung zusammen. Diese Risikofelder werden vor der Übergabe am häufigsten übersehen.'
@@ -33,6 +33,18 @@ faq:
   - question: Wie bereitet Beraterium eine Nachfolge für Bank und Beirat vor?
     answer: "Im 6-Wochen-Klarheits-Fahrplan für KMU wird das Nachfolge-Risiko wie jedes andere Risiko erfasst, in Euro bewertet und im Risiko-Portfolio-Report dokumentiert. Bank und Beirat bekommen damit ein vorzeigbares Lagebild — nicht nur eine Absichtserklärung, sondern priorisierte Risiken mit Maßnahmen."
 ---
+
+* Bei der Nachfolge treffen Wissenstransfer, Führungsakzeptanz und Finanzierung zusammen. Diese Risikofelder werden vor der Übergabe am häufigsten übersehen.
+
+  * Drei Risikofelder bei jeder Nachfolge: Wissenstransfer (implizites Führungswissen), Führungsakzeptanz (Vertrauen von Mitarbeitenden und Kunden) und Finanzierungsstruktur.
+
+  * Zwischen 2026 und 2030 stehen in Deutschland rund 186.000 Nachfolgen an – wer spät startet, verhandelt mit Bank und Nachfolger unter Zeitdruck.
+
+  * Ein notarieller Vertrag regelt Anteile und Haftung – aber nicht, ob Wissen übertragen wurde oder Kunden dem Nachfolger vertrauen.
+
+  * Betriebsübergabe gelingt mit dokumentiertem Wissen, aktiver Kundenübergabe und transparenten Haftungsrisiken aus der Vergangenheit.
+
+  * Ein Risiko-Portfolio-Report in Euro macht die Nachfolgevorbereitung für Bank und Beirat vorzeigbar – nicht nur eine Absichtserklärung.
 
 ## Welche Risiken werden bei der Nachfolge übersehen – die Kurzantwort
 

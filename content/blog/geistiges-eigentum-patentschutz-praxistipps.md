@@ -16,16 +16,17 @@ draft: false
 related_slugs: []
 ---
 
-## KI und Risikomanagement: Warum der Mensch der entscheidende Faktor bleibt
+* Patente und Marken gelten nur dort, wo du sie anmeldest. Wer nur in Deutschland oder der EU schützt, kann in China oder den USA von anderen „übernommen“ werden – die Patentschrift ist öffentlich.
 
-  * 24\. Februar 2026
+  * Patente und Marken gelten nur in angemeldeten Märkten – wer international expandiert, sollte früh in Produktions- und Absatzmärkten Schutz anmelden.
 
-  * **Patente und Marken gelten nur dort, wo du sie anmeldest.** Wer nur in Deutschland oder der EU schützt, kann in China oder den USA von anderen „übernommen“ werden – die Patentschrift ist öffentlich. Wer expandieren will, sollte früh in den relevanten Märkten (z. B. China) Schutz anmelden.
-  * **Recht haben heißt nicht, Recht durchsetzen zu können.** Verträge, NDAs und Wettbewerbsverbote helfen – aber Durchsetzung kostet Zeit, Geld und ist oft schwierig. Organisatorische und kulturelle Maßnahmen sind genauso wichtig.
-  * **Nicht alles ist patentierbar.** Technische Erzeugnisse und Verfahren ja; Marken, Design, Gebrauchsmuster separat. Internes Know-how, Prozesse, Rezepturen oft nicht – da helfen NDAs, Dokumentation und Kultur.
-  * **Know-how-Abfluss: Wissen hat Halbwertszeit** , aber der Verlust von Schlüsselpersonen und fehlendes Offboarding können das Unternehmen härter treffen als das, was der Ex-Mitarbeiter „mitnimmt“. Gute Kultur und reibungsloses Offboarding reduzieren Risiko und Imageschaden.
-  * **5 Praxistipps:** (1) Marken-/Patentschutz in Produktions- und Absatzmärkten (z. B. China) vorinvestieren. (2) Prozesse und prozessentscheidende Mitarbeiter dokumentieren. (3) Kultur, in der Wissen und Menschen wertgeschätzt werden. (4) Alles schützen, was schützbar ist; für den Rest: schneller und innovativer sein. (5) Wissenstransfer von erfahrenen Mitarbeitern sicherstellen.
-  * **Innovation und Struktur sind oft wichtiger als Patente.** Pixar, Apple, Coca-Cola (Rezept nur im Safe) zeigen: Mit guter Idee, guten Prozessen und Wettbewerbsvorteil kann man auch ohne umfassenden Patentschutz erfolgreich sein – wenn man am Ball bleibt.
+  * Recht haben heißt nicht, Recht durchsetzen zu können: NDAs und Verträge helfen, aber Durchsetzung kostet Zeit, Geld und Nerven.
+
+  * Nicht alles ist patentierbar – internes Know-how, Prozesse und Rezepturen brauchen Dokumentation, Kultur und Wissenstransfer statt Patent.
+
+  * Know-how-Abfluss trifft oft härter als mitgenommenes Wissen: Der Verlust der Person, fehlendes Offboarding und undokumentierte Prozesse sind das eigentliche Risiko.
+
+  * Innovation, Struktur und Geschwindigkeit sind oft wichtiger als umfassender Patentschutz – schützen, was geht, aber nicht nur auf Rechtliches verlassen.
 
 ## Warum jetzt über geistiges Eigentum und Patentschutz?
 

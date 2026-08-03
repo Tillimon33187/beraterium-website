@@ -6,7 +6,7 @@ secondary_keywords:
   - cyberangriff soforthilfe kmu
   - cyberangriff melden bsi
 slug: cyberangriff-was-tun-kmu
-date: '2026-07-15'
+date: '2026-07-12'
 category: KMU
 author: till-blania
 excerpt: 'Nach einem Cyberangriff zählen die ersten 2 Stunden. Die Sofortmaßnahmen-Checkliste für KMU, Meldepflichten und Fristen – plus Prävention ohne IT-Team.'
@@ -32,6 +32,18 @@ faq:
   - question: Wie ordnet Beraterium das Cyberrisiko in die Gesamt-Risikoanalyse ein?
     answer: Cyberrisiken sind eine von mehreren Gefahrenklassen im 3-Ebenen-Gefahrenkatalog von Beraterium. Sie werden nicht isoliert betrachtet, sondern gemeinsam mit Ausfall-, Markt- und Finanzrisiken in Euro bewertet und in der Risikomatrix priorisiert – so zeigt sich, ob Cyber wirklich das dringendste Risiko ist oder ein anderes Thema zuerst behandelt werden sollte.
 ---
+
+* Nach einem Cyberangriff zählen die ersten 2 Stunden. Die Sofortmaßnahmen-Checkliste für KMU, Meldepflichten und Fristen – plus Prävention ohne IT-Team.
+
+  * Im Ernstfall zuerst isolieren: Betroffene Systeme vom Netz trennen, nichts löschen oder entschlüsseln, Experten hinzuziehen – Geschwindigkeit schlägt Perfektion.
+
+  * Mehrere Meldefristen laufen parallel: DSGVO 72 Stunden bei Datenabfluss, NIS2 24/72 Stunden für regulierte Unternehmen, Versicherung sofort informieren.
+
+  * Die wirksamsten Präventionsmaßnahmen brauchen keine IT-Abteilung: Zwei-Faktor-Authentifizierung, Offline-Backups mit Restore-Test, automatische Updates, Phishing-Schulungen.
+
+  * Ein schriftlicher Notfallplan mit Zuständigkeiten und Kontakten auf Papier ist entscheidend – wenn die Systeme ausfallen, hilft nur, was außerhalb der IT erreichbar ist.
+
+  * Cyber ist selten das einzige Risiko: Im 3-Ebenen-Gefahrenkatalog wird es in Euro neben Ausfall-, Markt- und Finanzrisiken priorisiert.
 
 ## Was tun nach einem Cyberangriff – die Kurzantwort
 

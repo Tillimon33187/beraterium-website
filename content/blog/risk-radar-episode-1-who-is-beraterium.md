@@ -13,6 +13,18 @@ draft: false
 related_slugs: []
 ---
 
+* In der ersten Episode des Podcasts „Risiko Radar“ stellen Till Blania und Peter Münstermann die Idee hinter Beraterium vor: Risikomanagement einfach, praxisnah und menschlich.
+
+  * KMU und Startups stehen vor denselben Risiken wie Konzerne – nur mit deutlich weniger Ressourcen; Beraterium macht Risikomanagement auf Augenhöhe greifbar.
+
+  * Peter bringt Konzern-Erfahrung in Informationsschutz mit, Till Startup-Kultur und HR-Analyse – zusammen verbinden sie Methodik und Menschlichkeit.
+
+  * Der Ansatz ist modular und praxisnah: keine ISO-Aktenordner, sondern Handlungssicherheit durch ehrliche Inventur und gemeinsame Umsetzung.
+
+  * Ein Beispiel aus der Folge: vergessene GmbH-Geschäftsführerbestellung – formal klein, existenziell groß; genau solche blinden Flecken findet der Beraterium-Ansatz.
+
+  * Risikomanagement bedeutet nicht Angst, sondern vorbereitet sein – der Podcast teilt wöchentlich Einblicke für sicheres, gesundes Wachstum.
+
 In der ersten Episode des Podcasts **„Risiko Radar“** stellen **Till Blania** und **Peter Münstermann** die Idee hinter **Beraterium** vor: Risikomanagement einfach, praxisnah und menschlich.  
 
 Mit langjähriger Erfahrung aus Konzern- und Start-up-Welt zeigen sie, wie Unternehmen Risiken frühzeitig erkennen und sicher wachsen können – ohne Bürokratie, aber mit Struktur, Klarheit und Verantwortung.  

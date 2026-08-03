@@ -15,9 +15,19 @@ draft: false
 related_slugs: []
 ---
 
-## Die wahren Gründe für riskantes Verhalten im Unternehmen - das müssen KMU wissen, um Ausfälle zu vermeiden
+* Warum treffen Mitarbeitende riskante Entscheidungen – selbst wenn sie die möglichen Folgen kennen? In KMU entstehen die größten Risiken oft durch Menschen, nicht durch Technik.
 
-  * 27\. November 2025
+  * Die meisten Risiken entstehen durch Routine, Überlastung, unausgesprochene Erwartungen und soziale Dynamiken – nicht durch fehlende Regeln allein.
+
+  * Selbstüberschätzung aus Erfahrung ist leise und gefährlich: Wer tausendfach denselben Handgriff gemacht hat, verliert Respekt vor dem, was passieren könnte.
+
+  * Managementdruck durch knappe Ressourcen und permanente Dringlichkeit verstärkt riskantes Verhalten – Geschwindigkeit wird belohnt, Sorgfalt nicht.
+
+  * Der wahre Ursprung vieler Ausfälle ist fehlende Kommunikation: nicht melden, was sich falsch anfühlt, weil niemand Probleme machen will.
+
+  * KMU reduzieren Risiken nachhaltig durch offene Kommunikation, realistische Erwartungen und Anerkennung für Sorgfalt statt reiner Geschwindigkeit.
+
+## Die wahren Gründe für riskantes Verhalten im Unternehmen - das müssen KMU wissen, um Ausfälle zu vermeiden
 
 **Warum treffen Mitarbeitende riskante Entscheidungen – selbst wenn sie die möglichen Folgen kennen?****  
 **In vielen kleinen und mittelständischen Unternehmen entstehen die größten Risiken nicht durch Technik oder fehlende Prozesse, sondern durch Menschen: durch Routine, Überlastung, unausgesprochene Erwartungen und soziale Dynamiken im Team.

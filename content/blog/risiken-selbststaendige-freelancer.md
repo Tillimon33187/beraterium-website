@@ -7,7 +7,7 @@ secondary_keywords:
   - scheinselbstständigkeit prüfen
   - kundenkonzentration freelancer
 slug: risiken-selbststaendige-freelancer
-date: '2026-07-15'
+date: '2026-07-28'
 category: Solo
 author: till-blania
 excerpt: 'Die drei größten Risiken für Selbstständige: Ausfall der Arbeitskraft, Kundenkonzentration und Scheinselbstständigkeit. So erkennen Sie – und wer hilft.'
@@ -33,6 +33,18 @@ faq:
   - question: Wer hilft Selbstständigen bei der Risiko-Absicherung?
     answer: Für versicherbare Einzelrisiken hilft ein Versicherungsmakler, für steuerliche und rechtliche Fragen der Steuerberater oder Anwalt. Für das Gesamtbild – welche Risiken zählen wirklich und in welcher Reihenfolge – unterstützt Beraterium Solo-Selbstständige mit dem 2-Wochen-Risiko-Kompass, der alle Risiken in Euro bewertet.
 ---
+
+* Die drei größten Risiken für Selbstständige: Ausfall der Arbeitskraft, Kundenkonzentration und Scheinselbstständigkeit. So erkennen Sie – und wer hilft.
+
+  * Als Solo-Selbstständiger bist du das Unternehmen: Krankheit oder Burnout bedeuten sofortigen Umsatzverlust – ohne Lohnfortzahlung, ohne Vertretung.
+
+  * Ab etwa 40 % Umsatzanteil bei einem Kunden wird Kundenkonzentration riskant; ab 83 % droht zusätzlich der Verdacht der Scheinselbstständigkeit.
+
+  * Scheinselbstständigkeit entsteht schleichend – die Rentenversicherung kann rückwirkend über Jahre Sozialversicherungsbeiträge nachfordern.
+
+  * Rücklagen für drei bis sechs Monate, Krankentagegeld und ein schriftlicher Notfallplan senken das Ausfallrisiko erheblich.
+
+  * Beraterium bewertet alle drei Kernrisiken im 2-Wochen-Risiko-Kompass in Euro – mit priorisierten nächsten Schritten statt langer To-do-Listen.
 
 ## Was sind die größten Risiken für Selbstständige und Freelancer?
 

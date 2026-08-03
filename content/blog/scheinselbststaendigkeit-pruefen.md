@@ -6,7 +6,7 @@ secondary_keywords:
   - statusfeststellung freelancer
   - scheinselbstständigkeit wie viele auftraggeber
 slug: scheinselbststaendigkeit-pruefen
-date: '2026-07-15'
+date: '2026-07-20'
 category: Solo
 author: till-blania
 excerpt: 'Scheinselbstständigkeit erkennen – die wichtigsten Kriterien, die 83-%-Faustregel, der Ablauf der Statusfeststellung und was eine Nachforderung kostet.'
@@ -32,6 +32,18 @@ faq:
   - question: Wie hilft Beraterium beim Scheinselbstständigkeitsrisiko?
     answer: Beraterium bewertet das Scheinselbstständigkeitsrisiko als Teil des 2-Wochen-Risiko-Kompasses – zusammen mit Ausfall- und Kundenkonzentrationsrisiko. Das Ergebnis ist eine Euro-Bewertung des konkreten Szenarios und priorisierte Maßnahmen, etwa Diversifikation der Auftraggeber oder eine Statusfeststellung.
 ---
+
+* Scheinselbstständigkeit erkennen – die wichtigsten Kriterien, die 83-%-Faustregel, der Ablauf der Statusfeststellung und was eine Nachforderung kostet.
+
+  * Scheinselbstständigkeit liegt vor, wenn formal Freelancer-Arbeit faktisch wie Angestelltenverhältnis aussieht – ein Auftraggeber, Weisungsbindung, feste Zeiten.
+
+  * Wer mehr als 83 % seines Umsatzes von einem Auftraggeber erzielt, gerät schnell unter Verdacht – entscheidender ist aber die Art der Zusammenarbeit.
+
+  * Die Statusfeststellung der Deutschen Rentenversicherung schafft Rechtssicherheit – idealerweise im ersten Monat beantragen, bevor Beitragsrisiken auflaufen.
+
+  * Im schlimmsten Fall drohen dem Auftraggeber rückwirkende Nachzahlungen über Jahre – für den Freelancer der Verlust des Kunden und wirtschaftliche Existenzgefahr.
+
+  * Beraterium bewertet das Statusrisiko im 2-Wochen-Risiko-Kompass in Euro – mit Maßnahmen wie Diversifikation, Vertragsanpassung oder Statusfeststellung.
 
 ## Was ist Scheinselbstständigkeit – kurz erklärt?
 

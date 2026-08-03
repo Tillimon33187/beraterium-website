@@ -6,7 +6,7 @@ secondary_keywords:
   - key person risiko
   - schlüsselpersonrisiko
 slug: schluesselpersonrisiko-erkennen-absichern
-date: '2026-07-15'
+date: '2026-08-01'
 category: Risikomanagement
 author: till-blania
 excerpt: 'Das Schlüsselpersonrisiko trifft KMU, Startups und Solo-Selbstständige unterschiedlich hart. So erkennst du unverzichtbare Personen – und sicherst sie ab.'
@@ -32,6 +32,18 @@ faq:
   - question: Wie erfasst Beraterium Schlüsselpersonen systematisch?
     answer: Im 3-Ebenen-Gefahrenkatalog von Beraterium ist der Ausfall von Schlüsselpersonen eine eigene Gefahrenklasse. In der Analyse wird für jede kritische Funktion geprüft, wer sie trägt, ob Wissen dokumentiert ist und was ein Ausfall kostet. Das Ergebnis fließt in die Risikomatrix ein und wird gegen alle anderen Unternehmensrisiken priorisiert.
 ---
+
+* Das Schlüsselpersonrisiko trifft KMU, Startups und Solo-Selbstständige unterschiedlich hart. So erkennst du unverzichtbare Personen – und sicherst sie ab.
+
+  * Schlüsselperson ist, wer zwei von drei Testfragen mit Ja beantwortet: Prozess stoppt, Wissen nur im Kopf, Kundenbeziehungen hängen persönlich daran.
+
+  * Beim Solo ist die Person das Unternehmen; im KMU bündeln oft GF oder Meister exklusives Wissen; in Startups konzentrieren sich Produkt und Investorenvertrauen auf Gründer.
+
+  * Vier Sofortmaßnahmen: Wissen dokumentieren, Vertretungsregelung schriftlich festlegen, Kundenbeziehungen auf zwei Schultern verteilen, Notfallordner anlegen.
+
+  * Key-Person-Versicherung federt finanzielle Schäden ab – ersetzt aber weder Wissensverteilung noch Vertretungsregelung.
+
+  * Im 3-Ebenen-Gefahrenkatalog wird jedes Ausfallszenario in Euro bewertet und gegen Cyber-, Liquiditäts- und andere Risiken priorisiert.
 
 ## Was ist ein Schlüsselpersonrisiko – kurz erklärt?
 

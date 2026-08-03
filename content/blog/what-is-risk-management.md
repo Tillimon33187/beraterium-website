@@ -15,6 +15,18 @@ related_slugs:
   - risikomanagement-beratung-kmu-anbieter
 ---
 
+* Risikomanagement ist mehr als Verluste vermeiden — es identifiziert Unsicherheit, bewertet sie und macht sie steuerbar.
+
+  * Eine Gefahr ist die Möglichkeit einer Störung – ein Risiko entsteht erst durch Eintrittswahrscheinlichkeit und Schadensausmaß kombiniert.
+
+  * Die Grundformel: Risiko = Eintrittswahrscheinlichkeit × Schadensausmaß – damit werden Gefahren vergleichbar und priorisierbar.
+
+  * Die Risikomatrix ordnet Risiken systematisch ein und zeigt, wo Prävention den größten Nutzen bringt.
+
+  * Risikomanagement schafft Klarheit und Handlungsspielraum – nicht Angst, sondern souveränes Steuern von Unsicherheit.
+
+  * Für KMU, Startups und Solo-Selbstständige ist es kein Konzern-Luxus, sondern die Basis für stabiles Wachstum.
+
 Risikomanagement ist mehr als nur Schadensvermeidung – es ist die Kunst, Unsicherheiten zu erkennen, zu bewerten und gezielt zu steuern.  
 In diesem Artikel erklären wir die Grundlagen: Was ist eine Gefahr? Wie entsteht daraus ein Risiko? Und warum ist das Verständnis von Eintrittswahrscheinlichkeit und Schadensausmaß entscheidend für den Unternehmenserfolg?
 
