@@ -7,7 +7,7 @@ secondary_keywords:
   - betriebsübergabe vorbereiten
   - generationenwechsel unternehmen
 slug: unternehmensnachfolge-uebersehene-risiken
-date: '2026-07-15'
+date: '2026-07-24'
 category: KMU
 author: till-blania
 excerpt: 'Bei der Nachfolge treffen Wissenstransfer, Führungsakzeptanz und Finanzierung zusammen. Diese Risikofelder werden vor der Übergabe am häufigsten übersehen.'

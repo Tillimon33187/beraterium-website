@@ -7,7 +7,7 @@ secondary_keywords:
   - risikoanalyse kmu
   - risikomanagement ohne bürokratie
 slug: risikomanagement-beratung-kmu-anbieter
-date: '2026-07-15'
+date: '2026-07-16'
 category: KMU
 author: till-blania
 excerpt: 'Risikomanagement-Beratung im Mittelstand: vier Anbietertypen von Big-4-Prüfern bis Eigenregie – welcher zu Ihrem KMU passt und woran Sie das erkennen.'

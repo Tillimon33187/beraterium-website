@@ -6,7 +6,7 @@ secondary_keywords:
   - cyberangriff soforthilfe kmu
   - cyberangriff melden bsi
 slug: cyberangriff-was-tun-kmu
-date: '2026-07-15'
+date: '2026-07-12'
 category: KMU
 author: till-blania
 excerpt: 'Nach einem Cyberangriff zählen die ersten 2 Stunden. Die Sofortmaßnahmen-Checkliste für KMU, Meldepflichten und Fristen – plus Prävention ohne IT-Team.'

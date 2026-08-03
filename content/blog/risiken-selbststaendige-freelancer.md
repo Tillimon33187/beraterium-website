@@ -7,7 +7,7 @@ secondary_keywords:
   - scheinselbstständigkeit prüfen
   - kundenkonzentration freelancer
 slug: risiken-selbststaendige-freelancer
-date: '2026-07-15'
+date: '2026-07-28'
 category: Solo
 author: till-blania
 excerpt: 'Die drei größten Risiken für Selbstständige: Ausfall der Arbeitskraft, Kundenkonzentration und Scheinselbstständigkeit. So erkennen Sie – und wer hilft.'

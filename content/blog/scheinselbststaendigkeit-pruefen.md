@@ -6,7 +6,7 @@ secondary_keywords:
   - statusfeststellung freelancer
   - scheinselbstständigkeit wie viele auftraggeber
 slug: scheinselbststaendigkeit-pruefen
-date: '2026-07-15'
+date: '2026-07-20'
 category: Solo
 author: till-blania
 excerpt: 'Scheinselbstständigkeit erkennen – die wichtigsten Kriterien, die 83-%-Faustregel, der Ablauf der Statusfeststellung und was eine Nachforderung kostet.'

@@ -6,7 +6,7 @@ secondary_keywords:
   - key person risiko
   - schlüsselpersonrisiko
 slug: schluesselpersonrisiko-erkennen-absichern
-date: '2026-07-15'
+date: '2026-08-01'
 category: Risikomanagement
 author: till-blania
 excerpt: 'Das Schlüsselpersonrisiko trifft KMU, Startups und Solo-Selbstständige unterschiedlich hart. So erkennst du unverzichtbare Personen – und sicherst sie ab.'

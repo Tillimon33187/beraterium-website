@@ -7,7 +7,7 @@ secondary_keywords:
   - liquiditätsengpass
   - kundenkonzentration risiko
 slug: cashflow-analyse-risikomanagement-kmu
-date: '2026-07-15'
+date: '2026-07-08'
 category: KMU
 author: till-blania
 excerpt: 'Eine Cashflow-Analyse zeigt, ob Ihr Unternehmen laufende Zahlungen decken kann – unabhängig vom Gewinn. Sie macht Liquiditätsrisiken im KMU früh sichtbar.'
