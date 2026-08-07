@@ -1,0 +1,331 @@
+/* Druck-/PDF-Stylesheet fuer alle Seiten (media="print").
+   Ziel: "Als PDF speichern" auf den /loesungen/-Landingpages liefert eine
+   sauber lesbare 2-3-seitige A4-Kurzpraesentation statt eines 1:1-Ausdrucks
+   der Webseite. Gilt global, verbessert also den Ausdruck aller Seiten. */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  /* Chrome/Firefox: keine Hintergrundflaechen/-farben auf Papier verschwenden. */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* .brt-fade-up/.brt-stagger starten mit opacity:0 und werden erst per
+     IntersectionObserver beim Scrollen auf "is-visible" gesetzt (js/brt-site.js).
+     Beim Drucken/PDF-Export wird nie gescrollt, der Observer feuert also fuer
+     Inhalte unterhalb des ersten Viewports nie - der Text bliebe unsichtbar,
+     wuerde aber trotzdem seinen Platz belegen (grosse Leerflaechen, mehr
+     Seiten als noetig). Fuer print immer den sichtbaren Endzustand erzwingen. */
+  .brt-fade-up,
+  .brt-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  /* Navigation, Cookie-Banner und dekorative Elemente gehoeren nicht ins PDF. */
+  .site-header,
+  .site-footer,
+  .brt-skip-link,
+  .brt-lang-switch,
+  #cookieyes,
+  .cky-consent-container,
+  .cky-overlay,
+  .cky-btn-revisit,
+  [data-brt-print] {
+    display: none !important;
+  }
+
+  /* Hoehere Spezifitaet als die spaetere .brt-btn-Regel, sonst gewinnt deren
+     "display: inline !important" gegen das obige "display: none" (gleiche
+     Spezifitaet, spaetere Regel im Cascade) und der PDF-Button wuerde im
+     Ausdruck als Textlink erscheinen. */
+  .brt-btn[data-brt-print] {
+    display: none !important;
+  }
+
+  .brt {
+    background: #fff !important;
+  }
+
+  .brt-page-hero,
+  .brt-page-hero--dark,
+  .brt-section--alt,
+  .brt-section--dark,
+  .brt-cta-band,
+  .brt-cta-band--dark,
+  .brt-highlight-box,
+  .brt-card,
+  .brt-contrast-card,
+  .brt-stat-row,
+  .brt-quote-band--dark {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .brt-h1,
+  .brt-h2,
+  .brt-h3,
+  .brt-body,
+  .brt-lead,
+  .brt-lead--on-dark,
+  .brt-body--on-dark,
+  .brt-h2--on-dark,
+  .brt-tag,
+  .brt-meta,
+  .brt-stat__number,
+  .brt-stat__label {
+    color: #111 !important;
+  }
+
+  /* Sektionen einspaltig, ohne Kartenraster, damit A4 nicht ueberlaeuft. */
+  .brt-cards-3col,
+  .brt-stagger,
+  .brt-list-check,
+  .brt-contrast-duo,
+  .brt-guarantee-duo {
+    display: block !important;
+  }
+
+  .brt-cards-3col > li,
+  .brt-stagger > li,
+  .brt-contrast-duo > li {
+    margin-bottom: 0.2cm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Nummerierte Schritt-Karten (z. B. "So laeuft es ab"): die grosse
+     Zahlen-Badge (clamp 24-32px + 16px margin) kostet pro Karte fast 50px
+     reinen Leerraum. Im Druck steht die Nummer stattdessen inline vor der
+     Ueberschrift. */
+  .brt-method-step__num {
+    display: inline !important;
+    font-size: 10pt !important;
+    margin: 0 0.15cm 0 0 !important;
+  }
+
+  .brt-method-step__num + .brt-h3 {
+    display: inline !important;
+  }
+
+  .brt-table,
+  .brt-table-wrap {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Bewusst KEIN "section { page-break-inside: avoid }": bei kompakter
+     Kurzpraesentation ist fast jede Section kuerzer als eine A4-Seite, aber
+     "avoid" auf dem kompletten <section>-Element schiebt die naechste
+     Section auf eine neue Seite, sobald sie nicht mehr komplett in den Rest
+     der aktuellen Seite passt - das erzeugt grosse Leerraeume statt eines
+     kompakten 2-3-Seiten-Dokuments. Tabellen/Karten/Listenelemente (oben)
+     bleiben weiterhin atomar, nur der Seitenumbruch zwischen Sections ist
+     frei.*/
+
+  /* CTA-Buttons als Text mit Link statt Kachel; nur die zwei Haupt-CTAs
+     (Erstgespraech, Blindspot Check) zeigen die Ziel-URL, da man ein PDF
+     nicht anklicken kann. Alle anderen Links bleiben ohne URL-Anhang. */
+  .brt-btn {
+    display: inline !important;
+    background: none !important;
+    color: #0b3d91 !important;
+    padding: 0 !important;
+    border: none !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+  }
+
+  a[data-print-url]::after {
+    content: " (" attr(data-print-url) ")";
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .brt-page-hero__actions,
+  .brt-cta-band__inner {
+    display: block !important;
+  }
+
+  /* Nur die direkten CTA-Buttons (Erstgespraech/Blindspot) als Block stapeln.
+     ".brt-cta-band__inner a" (ohne >) wuerde auch den kleinen Link IN der
+     Notiz ("Noch nicht so weit? <a>Blindspot Check</a> - 10 Minuten...")
+     erfassen und mitten im Satz umbrechen. */
+  .brt-page-hero__actions a,
+  .brt-cta-band__inner > a {
+    display: block;
+    margin: 0.1cm 0;
+  }
+
+  .brt-cta-band .brt-meta {
+    font-size: 8.5pt !important;
+    margin-top: 0.1cm !important;
+  }
+
+  /* Kompakt-Layout fuer die /loesungen/-Kurzpraesentation: die Landingpages
+     sind fuer den Bildschirm auf viel Weissraum und grosse Typografie
+     ausgelegt (clamp() mit vw-Anteil, der beim Drucken kaum kleiner wird).
+     Ohne diese Overrides landet man bei 12+ A4-Seiten statt 2-3. Feste
+     pt/cm-Werte statt clamp(), damit die Groesse unabhaengig vom
+     Rendering-Viewport bleibt. */
+  .brt-tag {
+    font-size: 8pt !important;
+    margin-bottom: 0.15cm !important;
+  }
+
+  .brt-h1 {
+    font-size: 20pt !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.25cm !important;
+  }
+
+  .brt-h2 {
+    font-size: 14pt !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.2cm !important;
+  }
+
+  .brt-h3 {
+    font-size: 11pt !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.1cm !important;
+  }
+
+  .brt-body,
+  .brt-lead {
+    font-size: 9.5pt !important;
+    line-height: 1.28 !important;
+    max-width: none !important;
+    margin-bottom: 0.15cm !important;
+  }
+
+  .brt-section,
+  .brt-section--compact,
+  .brt-section--guarantee,
+  .brt-stat-row {
+    padding-block: 0.4cm !important;
+  }
+
+  .brt-page-hero {
+    padding: 0.6cm 0 !important;
+  }
+
+  .brt-section__header {
+    margin-bottom: 0.3cm !important;
+  }
+
+  .brt-faq__summary {
+    padding: 0.15cm 0.25cm !important;
+    font-size: 9.5pt !important;
+  }
+
+  .brt-faq__answer {
+    padding: 0 0.25cm 0.2cm !important;
+  }
+
+  .brt-faq__answer .brt-body {
+    font-size: 9pt !important;
+  }
+
+  .brt-faq__question {
+    font-size: 9.5pt !important;
+    line-height: 1.25 !important;
+  }
+
+  .brt-card,
+  .brt-highlight-box {
+    padding: 0.2cm 0.3cm !important;
+    box-shadow: none !important;
+  }
+
+  .brt-list-check {
+    margin-top: 0.15cm !important;
+    gap: 0.15cm !important;
+  }
+
+  /* Der 4-Spalten-Grid greift normalerweise erst ab 768px Breakpoint; der
+     Druck-Viewport (A4 minus Raender) liegt knapp darunter, sonst wuerden
+     die vier Stats in 2 Reihen statt 1 Reihe umbrechen. */
+  .brt-stat-row__list {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.3cm !important;
+  }
+
+  .brt-stat__number {
+    font-size: 16pt !important;
+  }
+
+  .brt-stat__label {
+    font-size: 8pt !important;
+  }
+
+  .brt-table th,
+  .brt-table td {
+    padding: 0.15cm 0.25cm !important;
+    font-size: 8.5pt !important;
+  }
+
+  /* Weiterfuehrende Links (Blog-Crosslinks, Ueberblick-Karten) sind reine
+     Klick-Navigation zu anderen Seiten - in einem ausgedruckten Dokument
+     ohne Wert und verantworten allein ueber die Haelfte der Seitenzahl
+     (Blog-Karten mit 200px-Vorschaubildern). Die zwei Haupt-CTAs oben und
+     im CTA-Band bleiben die einzigen Links mit URL-Anhang. */
+  section[aria-labelledby="lp-related-title"],
+  section[aria-labelledby="overview-title"] {
+    display: none !important;
+  }
+
+  /* Steps-Flow ist ein animiertes SVG-Diagramm fuers Bildschirm-Layout;
+     im Druck reicht die reine Schritt-Liste ohne Pfad/Plattform-Grafik. */
+  .brt-steps-flow {
+    display: block !important;
+    gap: 0 !important;
+  }
+
+  .brt-steps-flow__diagram,
+  .brt-steps-flow__platform {
+    display: none !important;
+  }
+
+  .brt-steps-flow__list {
+    position: static !important;
+    min-height: auto !important;
+  }
+
+  .brt-steps-flow__item {
+    position: static !important;
+    max-width: none !important;
+    display: block !important;
+    margin: 0 0 0.2cm !important;
+    padding-left: 0 !important;
+  }
+
+  .brt-steps-flow__item + .brt-steps-flow__item {
+    margin-top: 0 !important;
+  }
+
+  .brt-steps-flow__copy {
+    padding: 0 !important;
+    background: none !important;
+  }
+
+  .brt-steps-flow__copy .brt-h3 {
+    font-size: 10.5pt !important;
+    display: inline !important;
+  }
+
+  .brt-steps-flow__copy .brt-body {
+    font-size: 9pt !important;
+  }
+}

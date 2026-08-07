@@ -628,6 +628,14 @@
     });
   }
 
+  function initPrintButton() {
+    document.querySelectorAll("[data-brt-print]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        window.print();
+      });
+    });
+  }
+
   function initBerateriumSite() {
     initTeamExpandToggle();
     initTeamBioToggle();
@@ -636,6 +644,7 @@
     initCardsSlider();
     initStepsFlowScroll();
     initCompareColumnHover();
+    initPrintButton();
 
     if (location.hash) {
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";

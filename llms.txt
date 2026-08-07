@@ -27,6 +27,9 @@
 - [Selbstständig absichern](https://www.beraterium.de/loesungen/selbststaendig-absichern/): Ausfall, Kundenabhängigkeit und Scheinselbstständigkeit für Solo-Selbstständige.
 - [Schlüsselperson-Risiko](https://www.beraterium.de/loesungen/schluesselperson-risiko/): Was passiert wenn eine Schlüsselperson ausfällt – für KMU, Startups und Solo.
 - [Due Diligence Startup](https://www.beraterium.de/loesungen/investor-due-diligence/): Startup investor-ready machen, Risiko-Portfolio für Investoren in 4 Wochen.
+- [Risikoanalyse Startup: Kosten & Ablauf](https://www.beraterium.de/loesungen/risikoanalyse-startup/): Ablauf, Dauer und Festpreis der Risiko-Analyse 360° (3.475 €) für Startups – Top 5–10 Risiken in Euro bewertet.
+- [Risikoanalyse KMU: Kosten & Ablauf](https://www.beraterium.de/loesungen/risikoanalyse-kmu/): Ablauf, Dauer und Festpreis der Risiko-Analyse 360° (3.475 €) für den Mittelstand – Top 5–10 Risiken in Euro bewertet.
+- [Risikoanalyse Selbstständige: Kosten](https://www.beraterium.de/loesungen/risikoanalyse-solo/): Ablauf, Dauer und Preis der Risiko-Beratung (ab 97 €) für Solo-Selbstständige – Top 5–10 Risiken in Euro bewertet.
 
 ## Ratgeber (ausgewählte Artikel)
 - [Risikomanagement-Beratung für KMU: Anbietervergleich](https://www.beraterium.de/blog/risikomanagement-beratung-kmu-anbieter/): Vier Anbietertypen (Big 4, spezialisierter KMU-Berater, Versicherungsmakler, Eigenregie) – welcher passt zu welchem Unternehmen und was kostet es.

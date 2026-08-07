@@ -88,6 +88,15 @@
     <loc>https://www.beraterium.de/loesungen/investor-due-diligence/</loc>
   </url>
   <url>
+    <loc>https://www.beraterium.de/loesungen/risikoanalyse-startup/</loc>
+  </url>
+  <url>
+    <loc>https://www.beraterium.de/loesungen/risikoanalyse-kmu/</loc>
+  </url>
+  <url>
+    <loc>https://www.beraterium.de/loesungen/risikoanalyse-solo/</loc>
+  </url>
+  <url>
     <loc>https://www.beraterium.de/standort/muenchen/</loc>
   </url>
   <url>
@@ -113,6 +122,10 @@
   </url>
   <url>
     <loc>https://www.beraterium.de/agb/</loc>
+  </url>
+  <url>
+    <loc>https://www.beraterium.de/blog/ki-verordnung-deutschland-unternehmen/</loc>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://www.beraterium.de/blog/ki-unternehmen-risiken-agenten-marie-ossenkopf/</loc>
