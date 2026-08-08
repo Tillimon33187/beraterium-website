@@ -2557,6 +2557,7 @@ def gen_landingpage(cfg: dict) -> None:
         + lp_steps_section_html(cfg)
         + lp_facts_table_html(cfg.get("facts_table"))
         + lp_deep_sections_html(cfg.get("deep_sections", []), start=1)
+        + (guarantee(pre, du=cfg.get("du", False)) if cfg.get("guarantee_section") else "")
         + f"""
     <section class="brt-section" aria-labelledby="overview-title">
       <div class="brt-container">
@@ -3341,7 +3342,7 @@ LP_CONFIGS: list[dict] = [
         ),
         "hero_cta": "Kostenloses Erstgespräch buchen",
         "hero_cta2": {"label": "Blindspot Quick Check (10 Min)", "href": "tools/blindspot-check/"},
-        "pdf_button": True,
+        "guarantee_section": True,
         "criteria_tag": "DIREKT-CHECK",
         "criteria_h2": "Passt eine Risikoanalyse zu deinem Startup?",
         "criteria_intro": "Eine strukturierte Risikoanalyse lohnt sich für dich, wenn mindestens eines dieser Kriterien zutrifft:",
@@ -3362,9 +3363,9 @@ LP_CONFIGS: list[dict] = [
         "pain_h2": "Was passiert, wenn diese drei Risiken unentdeckt bleiben?",
         "pain_intro": "Als Gründer trägst du Risiken, die im Alltag unsichtbar bleiben – bis ein Investor oder ein Ausfall sie sichtbar macht.",
         "pain_cards": [
-            ("Schlüsselperson-Risiko", "Hängt Produkt oder Vertrieb an einer Person – meist dir selbst? Fällst du aus, steht das Startup still."),
+            ("Schlüsselperson-Risiko", 'Hängt Produkt oder Vertrieb an einer Person – meist dir selbst? Fällst du aus, steht das Startup still. Mehr dazu: <a href="../../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko erkennen</a>.'),
             ("Runway und Burn-Rate", "Rund 32 % der scheiternden Startups scheitern an Cash, nicht am Produkt. Ohne klares Bild wird Runway erst zum Thema, wenn es zu spät ist."),
-            ("Due Diligence", "Investoren fragen nach deinem Risk Assessment. Ohne strukturiertes Risikobild wirkt das wie Unsicherheit – nicht wie Kontrolle."),
+            ("Due Diligence", 'Investoren fragen nach deinem Risk Assessment. Ohne strukturiertes Risikobild wirkt das wie Unsicherheit – nicht wie Kontrolle. Mehr dazu: <a href="../../loesungen/investor-due-diligence/">Investor Due Diligence vorbereiten</a>.'),
         ],
         "overview_tag": "WEITERFÜHREND",
         "overview_h2": "Wie hängt die Risikoanalyse mit dem restlichen Angebot zusammen?",
@@ -3397,15 +3398,6 @@ LP_CONFIGS: list[dict] = [
                     "Strategie-Workshop: für die wichtigsten Risiken konkrete, umsetzbare Maßnahmen entwickeln – mit Umsetzungsplan",
                     "Budget-Workshop: eigene Ressourcen vs. externe Dienstleister abwägen, orientiert am Schaden aus der Analyse",
                     "Jede Phase endet mit einem Report und einem Nachbereitungsgespräch mit der Geschäftsführung",
-                ],
-            },
-            {
-                "tag": "UNSER RISIKO, NICHT DEINS",
-                "h2": "Warum trägst du hier kein Risiko?",
-                "intro": "Beraterium arbeitet mit doppelter Garantie – für dich als Gründer ein kalkulierbares Investment statt eines Blindflugs.",
-                "paragraphs": [
-                    '„Wir finden kein relevantes Risiko? Geld zurück.“ Identifiziert die Analyse kein einziges Risiko mit relevanter Schadenshöhe, erstatten wir den vollen Betrag. Mehr dazu: <a href="../../relevanz-garantie/">Relevanz-Garantie</a>.',
-                    '„Kein messbarer Nutzen? Geld zurück.“ Wird am Ende auch nur eines der drei vereinbarten Kriterien nicht erfüllt, erstatten wir 100 % des Projektpreises. Mehr dazu: <a href="../../nutzen-garantie/">Nutzen-Garantie</a>.',
                 ],
             },
         ],
@@ -3462,7 +3454,7 @@ LP_CONFIGS: list[dict] = [
         ),
         "hero_cta": "Kostenloses Erstgespräch buchen",
         "hero_cta2": {"label": "Blindspot Quick Check (10 Min)", "href": "tools/blindspot-check/"},
-        "pdf_button": True,
+        "guarantee_section": True,
         "criteria_tag": "DIREKT-CHECK",
         "criteria_h2": "Passt eine Risikoanalyse zu Ihrem Unternehmen?",
         "criteria_intro": "Eine strukturierte Risikoanalyse lohnt sich für Sie, wenn mindestens eines dieser Kriterien zutrifft:",
@@ -3483,9 +3475,9 @@ LP_CONFIGS: list[dict] = [
         "pain_h2": "Was passiert, wenn diese drei Risiken unentdeckt bleiben?",
         "pain_intro": "Im gewachsenen Mittelstand verstecken sich Risiken oft in Prozessen, die niemand mehr hinterfragt.",
         "pain_cards": [
-            ("GF-Haftung und NIS2", "NIS2 und weitere Regulatorik machen Risikomanagement zur Geschäftsführerpflicht – ohne dokumentierte Analyse haften Sie persönlich."),
-            ("Nachfolge", "Bis 2030 stehen rund 186.000 Unternehmensübergaben an. Ohne belastbares Risikobild wird die Übergabe für Bank, Beirat oder Nachfolger schwer einschätzbar."),
-            ("Abhängigkeiten in gewachsenen Prozessen", "Schlüsselpersonen, Einzel-Lieferanten oder undokumentiertes Wissen entstehen unbemerkt über Jahre – und werden erst im Ernstfall sichtbar."),
+            ("GF-Haftung und NIS2", 'NIS2 und weitere Regulatorik machen Risikomanagement zur Geschäftsführerpflicht – ohne dokumentierte Analyse haften Sie persönlich. Mehr dazu: <a href="../../loesungen/nis2/">NIS2-Betroffenheit prüfen</a>.'),
+            ("Nachfolge", 'Bis 2030 stehen rund 186.000 Unternehmensübergaben an. Ohne belastbares Risikobild wird die Übergabe für Bank, Beirat oder Nachfolger schwer einschätzbar. Mehr dazu: <a href="../../loesungen/nachfolge/">Risiken bei der Unternehmensnachfolge</a>.'),
+            ("Abhängigkeiten in gewachsenen Prozessen", 'Schlüsselpersonen, Einzel-Lieferanten oder undokumentiertes Wissen entstehen unbemerkt über Jahre – und werden erst im Ernstfall sichtbar. Mehr dazu: <a href="../../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko erkennen</a>.'),
         ],
         "overview_tag": "WEITERFÜHREND",
         "overview_h2": "Wie hängt die Risikoanalyse mit dem restlichen Angebot zusammen?",
@@ -3518,15 +3510,6 @@ LP_CONFIGS: list[dict] = [
                     "Strategie-Workshop: für die wichtigsten Risiken konkrete, umsetzbare Maßnahmen entwickeln – mit Umsetzungsplan",
                     "Budget-Workshop: eigene Ressourcen vs. externe Dienstleister abwägen, orientiert am Schaden aus der Analyse",
                     "Jede Phase endet mit einem Report und einem Nachbereitungsgespräch mit der Geschäftsführung",
-                ],
-            },
-            {
-                "tag": "UNSER RISIKO, NICHT IHRES",
-                "h2": "Warum tragen Sie hier kein Risiko?",
-                "intro": "Beraterium arbeitet mit doppelter Garantie – für Sie ein kalkulierbares Investment statt eines Blindflugs.",
-                "paragraphs": [
-                    '„Wir finden kein relevantes Risiko? Geld zurück.“ Identifiziert die Analyse kein einziges Risiko mit relevanter Schadenshöhe, erstatten wir den vollen Betrag. Mehr dazu: <a href="../../relevanz-garantie/">Relevanz-Garantie</a>.',
-                    '„Kein messbarer Nutzen? Geld zurück.“ Wird am Ende auch nur eines der drei vereinbarten Kriterien nicht erfüllt, erstatten wir 100 % des Projektpreises. Mehr dazu: <a href="../../nutzen-garantie/">Nutzen-Garantie</a>.',
                 ],
             },
         ],
@@ -3583,7 +3566,7 @@ LP_CONFIGS: list[dict] = [
         ),
         "hero_cta": "Kostenloses Erstgespräch buchen",
         "hero_cta2": {"label": "Blindspot Quick Check (10 Min)", "href": "tools/blindspot-check/"},
-        "pdf_button": True,
+        "guarantee_section": True,
         "criteria_tag": "DIREKT-CHECK",
         "criteria_h2": "Passt eine Risikoanalyse zu deiner Selbstständigkeit?",
         "criteria_intro": "Eine strukturierte Risikoanalyse lohnt sich für dich, wenn mindestens eines dieser Kriterien zutrifft:",
@@ -3604,9 +3587,9 @@ LP_CONFIGS: list[dict] = [
         "pain_h2": "Was passiert, wenn diese drei Risiken unentdeckt bleiben?",
         "pain_intro": "Als Selbstständiger trägst du jedes Risiko allein – ohne Betriebsrat, ohne Vertretung, ohne IT-Abteilung.",
         "pain_cards": [
-            ("Ausfall durch Krankheit", "Es gibt keine Lohnfortzahlung – schon 4–6 Wochen Krankheit oder Burnout können existenzbedrohend werden, während Fixkosten weiterlaufen."),
-            ("Kundenabhängigkeit", "Macht ein Hauptkunde einen Großteil deines Umsatzes aus, entscheidet dessen Budgetplanung über deine Existenz."),
-            ("Keine Vertretung", "Ohne Kollegen oder Netzwerk-Kontakt mit Zugriff auf deine laufenden Projekte steht bei Ausfall alles still – auch gegenüber deinen Kunden."),
+            ("Ausfall durch Krankheit", 'Es gibt keine Lohnfortzahlung – schon 4–6 Wochen Krankheit oder Burnout können existenzbedrohend werden, während Fixkosten weiterlaufen. Mehr dazu: <a href="../../loesungen/selbststaendig-absichern/">Als Selbstständiger absichern</a>.'),
+            ("Kundenabhängigkeit", 'Macht ein Hauptkunde einen Großteil deines Umsatzes aus, entscheidet dessen Budgetplanung über deine Existenz. Mehr dazu: <a href="../../blog/risiken-selbststaendige-freelancer/">Risiken für Selbstständige</a>.'),
+            ("Keine Vertretung", 'Ohne Kollegen oder Netzwerk-Kontakt mit Zugriff auf deine laufenden Projekte steht bei Ausfall alles still – auch gegenüber deinen Kunden. Mehr dazu: <a href="../../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko erkennen</a>.'),
         ],
         "overview_tag": "WEITERFÜHREND",
         "overview_h2": "Wie hängt die Risikoanalyse mit dem restlichen Angebot zusammen?",
@@ -3639,15 +3622,6 @@ LP_CONFIGS: list[dict] = [
                     "Top 5–10 Risiken benannt und priorisiert – Basis für Versicherungs- oder Bankgespräche",
                     "Ergebnis als Report dokumentiert, inklusive Nachbereitungsgespräch zur Einordnung",
                     "Ideal, wenn du zunächst nur Klarheit über die Risikolage willst, ohne direkt in die Maßnahmenplanung zu gehen",
-                ],
-            },
-            {
-                "tag": "UNSER RISIKO, NICHT DEINS",
-                "h2": "Warum trägst du hier kein Risiko?",
-                "intro": "Beraterium arbeitet mit doppelter Garantie – für dich ein kalkulierbares Investment statt eines Blindflugs.",
-                "paragraphs": [
-                    '„Wir finden kein relevantes Risiko? Geld zurück.“ Identifiziert die Analyse kein einziges Risiko mit relevanter Schadenshöhe, erstatten wir den vollen Betrag. Mehr dazu: <a href="../../relevanz-garantie/">Relevanz-Garantie</a>.',
-                    '„Kein messbarer Nutzen? Geld zurück.“ Wird am Ende auch nur eines der drei vereinbarten Kriterien nicht erfüllt, erstatten wir 100 % des Projektpreises. Mehr dazu: <a href="../../nutzen-garantie/">Nutzen-Garantie</a>.',
                 ],
             },
         ],
