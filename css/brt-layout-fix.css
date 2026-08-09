@@ -270,3 +270,10 @@
   font-size: 0.875rem;
   color: var(--color-muted);
 }
+
+/* Tools cards: align CTA buttons at card bottom */
+.brt-card--target .brt-section__cta {
+  margin-top: auto;
+  padding-top: var(--space-6);
+  text-align: left;
+}
