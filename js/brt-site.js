@@ -1137,6 +1137,13 @@
 
         wrap.classList.add("brt-article__video-wrap--playing");
         wrap.replaceChild(iframe, poster);
+        if (typeof window.brtTrack === "function") {
+          window.brtTrack("video_play", {
+            video_provider: "youtube",
+            video_id: videoId,
+            page_path: location.pathname,
+          });
+        }
       });
     });
   }

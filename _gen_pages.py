@@ -62,7 +62,7 @@ from _cms import (
 )
 
 SITE = Path(__file__).parent
-BRT_ASSET_VERSION = "20260807-lp-pdf-v1"
+BRT_ASSET_VERSION = "20260810-ga4-events-v1"
 
 ALT_TILL = "Till Manfred Blania, Geschäftsführer Beraterium"
 ALT_PETER = "Peter Münstermann, Beraterium"
@@ -375,6 +375,7 @@ def shell(
 
 {footer_html(depth)}
 
+<script src="{pre}js/brt-analytics.js?v={BRT_ASSET_VERSION}"></script>
 <script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>{extra_scripts}
 
 </body>
@@ -3965,8 +3966,8 @@ def gen_standort(cfg: dict) -> None:
             json_ld=ld,
             og_image=(f"https://www.beraterium.de/{member.image}" if member and member.image else ""),
         ).replace(
-            f'<script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>',
-            f'<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>\n<script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>',
+            f'<script src="{pre}js/brt-analytics.js?v={BRT_ASSET_VERSION}"></script>\n<script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>',
+            f'<script src="{pre}js/brt-analytics.js?v={BRT_ASSET_VERSION}"></script>\n<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>\n<script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>',
         ),
     )
 
@@ -4973,6 +4974,30 @@ def gen_home_analytics() -> None:
     print("  updated index.html home analytics")
 
 
+def gen_home_scripts() -> None:
+    """Home index.html: Analytics + Site + Hero JS synchronisieren."""
+    path = SITE / "index.html"
+    if not path.exists():
+        return
+    html = path.read_text(encoding="utf-8")
+    block = (
+        f'<script src="js/brt-analytics.js?v={BRT_ASSET_VERSION}"></script>\n'
+        f'<script src="js/brt-site.js?v={BRT_ASSET_VERSION}"></script>\n'
+        f'<script src="js/brt-hero.js?v={BRT_ASSET_VERSION}"></script>\n'
+    )
+    start = '<script src="js/brt-site.js?v='
+    i = html.find(start)
+    if i < 0:
+        print("  skip index.html home scripts (anchor not found)")
+        return
+    body = html.find("</body>", i)
+    if body < 0:
+        print("  skip index.html home scripts (body end not found)")
+        return
+    path.write_text(html[:i] + block + html[body:], encoding="utf-8")
+    print("  updated index.html home scripts")
+
+
 def gen_home_nav() -> None:
     """Home index.html: Hauptnavigation aus nav_html() synchronisieren."""
     path = SITE / "index.html"
@@ -5172,8 +5197,8 @@ def gen_kontakt() -> None:
             main=main,
             json_ld=page_schema(faq_page_schema(kontakt_faq)),
         ).replace(
-            f'<script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>',
-            f'<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>\n<script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>',
+            f'<script src="{pre}js/brt-analytics.js?v={BRT_ASSET_VERSION}"></script>\n<script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>',
+            f'<script src="{pre}js/brt-analytics.js?v={BRT_ASSET_VERSION}"></script>\n<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>\n<script src="{pre}js/brt-site.js?v={BRT_ASSET_VERSION}"></script>',
         ),
     )
 
@@ -5445,6 +5470,7 @@ if __name__ == "__main__":
     gen_home_blog_teaser()
     gen_home_nav()
     gen_home_analytics()
+    gen_home_scripts()
     gen_home_tools_teaser()
     gen_home_footer()
     gen_kontakt()
