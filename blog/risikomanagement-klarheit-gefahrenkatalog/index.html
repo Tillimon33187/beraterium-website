@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
+  <!-- End cookieyes banner -->
+  <!-- Google Consent Mode v2 + GA4 (CookieYes setzt analytics_storage) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-BM435GHE6W');
+    function brtGrantAnalyticsConsent() {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+    document.addEventListener('cookieyes_consent_update', function (event) {
+      var accepted = (event.detail && event.detail.accepted) || [];
+      if (accepted.indexOf('analytics') !== -1) brtGrantAnalyticsConsent();
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        try {
+          if (typeof getCkyConsent === 'function' && getCkyConsent().categories.analytics) {
+            brtGrantAnalyticsConsent();
+          }
+        } catch (e) {}
+      }, 800);
+    });
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Klarheit im Risikomanagement | Beraterium Blog</title>
+  <meta name="description" content="ChatGPT liefert 30 Risiken — ohne Klarheit bleibt eine Wolke. Beraterium zeigt den Weg über Gefahrenkatalog, Team-Dialog und Euro-Bewertung.">
+  <link rel="canonical" href="https://www.beraterium.de/blog/risikomanagement-klarheit-gefahrenkatalog/">
+  <link rel="alternate" hreflang="de" href="https://www.beraterium.de/blog/risikomanagement-klarheit-gefahrenkatalog/">
+  <link rel="alternate" hreflang="en" href="https://www.beraterium.com/blog/risk-management-clarity-hazard-catalog/">
+  <link rel="alternate" hreflang="x-default" href="https://www.beraterium.de/blog/risikomanagement-klarheit-gefahrenkatalog/">
+
+  <meta property="og:title" content="Klarheit im Risikomanagement | Beraterium Blog">
+  <meta property="og:description" content="ChatGPT liefert 30 Risiken — ohne Klarheit bleibt eine Wolke. Beraterium zeigt den Weg über Gefahrenkatalog, Team-Dialog und Euro-Bewertung.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.beraterium.de/blog/risikomanagement-klarheit-gefahrenkatalog/">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://www.beraterium.de/img/blog/risikomanagement-klarheit-gefahrenkatalog-hero.webp">
+
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="../../icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <link rel="stylesheet" href="../../css/brt.css?v=20260810-ga4-events-v1" data-brt-css>
+  <link rel="stylesheet" href="../../css/brt-fallback.css?v=20260810-ga4-events-v1">
+  <link rel="stylesheet" href="../../css/brt-layout-fix.css?v=20260810-ga4-events-v1">
+  <link rel="stylesheet" href="../../css/brt-print.css?v=20260810-ga4-events-v1" media="print">
+  <script src="../../js/brt-init.js"></script>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Klarheit im Risikomanagement: vom Gefahrenkatalog zur Euro-Bewertung",
+    "description": "ChatGPT liefert 30 Risiken — ohne Klarheit bleibt eine Wolke. Beraterium zeigt den Weg über Gefahrenkatalog, Team-Dialog und Euro-Bewertung.",
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-16",
+    "author": {
+      "@type": "Person",
+      "name": "Till Manfred Blania",
+      "image": "https://www.beraterium.de/img/team/till-blania.webp"
+    },
+    "publisher": {
+      "@id": "https://www.beraterium.de/#organization"
+    },
+    "mainEntityOfPage": "https://www.beraterium.de/blog/risikomanagement-klarheit-gefahrenkatalog/",
+    "inLanguage": "de-DE",
+    "image": "https://www.beraterium.de/img/blog/risikomanagement-klarheit-gefahrenkatalog-hero.webp"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Warum reicht eine ChatGPT-Risikoliste allein nicht für Klarheit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eine KI-Liste liefert generische Gefahren und statistische Wahrscheinlichkeiten ohne den Kontext Ihres Unternehmens. Sie vergrößert oft die Wolke, beantwortet aber nicht, welche Risiken wirklich relevant sind und wie hoch der Schaden in Euro ausfällt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie viele Gefahren sollte ein Gefahrenkatalog enthalten?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für die meisten Unternehmen liegen 80 bis 100 Gefahren im sinnvollen Rahmen — weniger wird ungenau, deutlich mehr wird unhandlich. Entscheidend ist Vollständigkeit über Kategorien wie IT, HR, Produktion und Reputation, nicht die reine Zahl."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Warum müssen Mitarbeitende in den Risikodialog einbezogen werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mitarbeitende sehen Prozessprobleme, Lieferengpässe und Kundenunzufriedenheit oft zuerst. Ohne offene Rückmeldung fehlen genau die Informationen, die eine Risikoliste von außen nicht liefern kann."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Warum bewertet Beraterium Risiken in Euro statt nur in Hoch/Mittel/Niedrig?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Euro-Beträge machen Schaden und Eintrittswahrscheinlichkeit vergleichbar und trennen diffuse Ängste von konkreten Geschäftsrisiken. So entsteht ein Portfolio, in dem die größten Risiken rechts oben sichtbar werden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ersetzt eine ISO-Checkliste den Risikodialog im Team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Checklisten sind Papier — sie lassen sich abhaken, ohne dass Wissen verinnerlicht wird. Ein moderierter Dialog holt Erfahrungen, Nuancen und blinde Flecken aus dem Unternehmen, die weder Norm noch KI allein abdecken."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann ich Risikomanagement ohne externe Beratung selbst umsetzen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, wenn Sie Zeit für Gefahrenkatalog, Teamgespräche, Euro-Bewertung und Maßnahmenplanung mitbringen. Der Mehrwert externer Moderation liegt vor allem in neutraler Führung, Rückfragen und dem Blick von außen — nicht in geheimem Know-how."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist der erste Schritt, wenn ich in einer Risiko-Wolke stecke?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kategorien festlegen — etwa IT, HR, Produktion, Supply Chain und Reputation — und daraus einen ersten Gefahrenkatalog aufbauen. Danach drei bis fünf Mitarbeitende holen und die Liste im Dialog gegen die Realität Ihres Alltags spiegeln."
+        }
+      }
+    ]
+  }
+]
+  </script>
+</head>
+
+<body class="brt-page brt-page--inner">
+
+<a class="brt-skip-link" href="#main-content">Zum Inhalt springen</a>
+
+<header class="site-header site-header--solid" aria-label="Hauptnavigation">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
+    <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
+      <ul>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../angebote/" class="site-header__parent-link" aria-expanded="false">
+            Angebote
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Angebote">
+            <li><a href="../../angebote/startups/">Startups</a></li>
+            <li><a href="../../angebote/kmu/">KMU</a></li>
+            <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+            <li><a href="../../schulungen/">Schulungen</a></li>
+            <li><a href="../../preise/">Preise</a></li>
+          </ul>
+        </li>
+        <li><a href="../../methode/">Methode</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../ueber-uns/" class="site-header__parent-link" aria-expanded="false">
+            Über uns
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Über uns">
+            <li><a href="../../ueber-uns/">Über das Unternehmen</a></li>
+            <li><a href="../../team/">Unser Team</a></li>
+          </ul>
+        </li>
+        <li><a href="../../risikoradar/">RisikoRadar</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../tools/" class="site-header__parent-link" aria-expanded="false">
+            Tools
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Tools">
+            <li><a href="../../tools/blindspot-check/">Blindspot Check</a></li>
+          </ul>
+        </li>
+        <li><a href="../../blog/" aria-current="page">Blog</a></li>
+      </ul>
+<div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://www.beraterium.com/blog/risk-management-clarity-hazard-catalog/" hreflang="en">EN</a></div>
+      <a class="brt-btn brt-btn--outline site-header__cta" href="../../kontakt/">Erstgespräch buchen</a>
+    </nav>
+  </div>
+</header>
+
+<div class="brt">
+  <main id="main-content">
+
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">Risikomanagement</span>
+          <p class="brt-article__sticky-title">Klarheit im Risikomanagement: vom Gefahrenkatalog zur Euro-Bewertung</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Klarheit im Risikomanagement: vom Gefahrenkatalog zur Euro-Bewertung</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">Risikomanagement</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2026-08-16">16. August 2026</time> · ca. 7 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/risikomanagement-klarheit-gefahrenkatalog-hero.webp" alt="Entrepreneur untangling a cloud of risk sticky notes into a structured hazard catalogue on a workshop table" class="brt-article__hero-img" width="1536" height="1024" srcset="../../img/blog/risikomanagement-klarheit-gefahrenkatalog-hero-480w.webp 480w, ../../img/blog/risikomanagement-klarheit-gefahrenkatalog-hero-960w.webp 960w, ../../img/blog/risikomanagement-klarheit-gefahrenkatalog-hero-1440w.webp 1440w, ../../img/blog/risikomanagement-klarheit-gefahrenkatalog-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"></figure>
+      </div>
+      <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
+        <div class="brt-article__main">
+          <div class="brt-article__body" id="article-body" tabindex="-1">
+<aside class="brt-article__keypoints" aria-label="Kernaussagen"><div class="brt-article__keypoints-head"><div class="brt-article__keypoints-head-copy"><p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p><p class="brt-article__keypoints-deck">Kernaussagen auf einen Blick</p></div></div><ul class="brt-article__list brt-article__keypoints-list">
+<li><a class="brt-article__keypoints-link" href="#warum-euro-bewertung-risiken-vergleichbar-macht">ChatGPT liefert 30 Risiken — ohne Klarheit bleibt eine Wolke. Beraterium zeigt den Weg über Gefahrenkatalog, Team-Dialog und Euro-Bewertung.</a></li>
+<li><a class="brt-article__keypoints-link" href="#warum-viele-unternehmer-in-der-risiko-wolke-stecken-bleiben">Viele Unternehmer starten mit einer KI-Liste oder ISO-Checkliste — und stehen danach vor Dutzenden Punkten ohne Priorität.</a></li>
+<li><a class="brt-article__keypoints-link" href="#warum-risiken-leise-sind-und-versicherung-allein-selten-reicht">Risiken sind oft leise: Was laut in der Presse steht, ist selten das, was im eigenen Betrieb zuerst schadet.</a></li>
+<li><a class="brt-article__keypoints-link" href="#warum-risiken-leise-sind-und-versicherung-allein-selten-reicht">Versicherung schafft ein Gefühl der Sicherheit — deckt aber häufig nicht den vollen Schaden ab, etwa Kundenverlust oder Reputation.</a></li>
+<li><a class="brt-article__keypoints-link" href="#warum-risiken-leise-sind-und-versicherung-allein-selten-reicht">Mitarbeitende sehen Prozesschaos und Lieferprobleme zuerst — sprechen aber selten offen, wenn Hierarchie oder Schuldzuweisung im Raum stehen.</a></li>
+<li><a class="brt-article__keypoints-link" href="#warum-euro-bewertung-risiken-vergleichbar-macht">Klarheit spart Zeit: Prozessverluste und Feuerwehr-Alltag sind Risiken mit hoher Eintrittswahrscheinlichkeit und messbarem Euro-Schaden.</a></li>
+<li><a class="brt-article__keypoints-link" href="#was-nach-der-bewertung-kommt-ursachen-manahmen-externe-hilfe">Der Ausweg: Gefahrenkatalog, Team-Dialog, Euro-Bewertung — dann Ursachen und Maßnahmen gemeinsam priorisieren.</a></li>
+</ul></aside><h2 class="brt-article__h2" id="warum-viele-unternehmer-in-der-risiko-wolke-stecken-bleiben">Warum viele Unternehmer in der Risiko-Wolke stecken bleiben</h2>
+<p class="brt-body">Till Blania und Peter Münstermann haben Folge 21 des Risiko Radar einer Frage aus der Beraterium-Community gewidmet: Man hat sich Risiken vorgenommen, vielleicht ChatGPT nach 20 oder 30 Gefahren gefragt — und steht danach vor einer Wolke. Was nun? Priorisieren? Ignorieren? Noch mehr recherchieren?</p>
+<p class="brt-body">Das Muster kennen Startups, Solo-Selbstständige und Mittelständler gleichermaßen. Irgendwann tauchen Lieferausfälle, verlorene Kundenmails oder unzuverlässige Partner auf — und plötzlich wird klar, dass „irgendwann Risiken angehen" nicht dasselbe ist wie Klarheit. Oft passiert der Impuls zur Handlung erst, wenn bereits Schaden entstanden ist. Nicht aus Faulheit, sondern weil im Tagesgeschäft die stillen Risiken unsichtbar bleiben.</p>
+<h2 class="brt-article__h2" id="was-eine-chatgpt-liste-liefert-und-was-ihr-fehlt">Was eine ChatGPT-Liste liefert — und was ihr fehlt</h2>
+<p class="brt-body">Eine Anfrage an ChatGPT kann ein wertvoller erster Impuls sein. Sie liefert einen Ausblick, nennt Gefahren, die man selbst übersehen hätte, und hilft beim Brainstorming. Was sie nicht liefert: den Spirit im Unternehmen, den aktuellen Umbruch, die Erfahrungen der Lageristin oder die Lücke in der Versicherungspolice.</p>
+<p class="brt-body">Peter Münstermann formuliert es pointiert: KI gibt oft Antworten, die sich über Jahre verfestigt haben — manchmal zu 80 Prozent „wichtig", ohne dass jemand die Rahmenbedingungen prüft. Statistische Branchendaten sind nicht dasselbe wie „Was ist bei uns schon passiert?" Wer nur nach außen schaut, baut teure Glaskugel-Prognosen. Wer aus internen Erfahrungen lernt, trifft meistens eher den Kern.</p>
+<h2 class="brt-article__h2" id="warum-risiken-leise-sind-und-versicherung-allein-selten-reicht">Warum Risiken leise sind — und Versicherung allein selten reicht</h2>
+<p class="brt-body">Laute Risiken liest man in Zeitungen. Die stillen Risiken verstecken sich im Alltag: der Techniker, der eine Woche auf ein Ersatzteil wartet; der Kunde, der nach zwei Monaten Lieferausfall zum Wettbewerber wechselt; der Imageschaden, den keine Police ersetzt.</p>
+<p class="brt-body">Till Blania bringt das Beispiel Produktionsbrand: Die Versicherung zahlt vielleicht den Zeitwert der Maschine — aber nicht automatisch eine neue Anlage, nicht den Kundenstamm und nicht den Ruf als verlässlicher Lieferant. „Ich bin abgesichert" ist deshalb oft eine Fehleinschätzung, nicht böser Wille. <a href="/blog/what-is-risk-management/">Risikomanagement</a> beginnt dort, wo man nachfragt: Was greift wirklich — und was hängt noch dran?</p>
+<h2 class="brt-article__h2" id="warum-mitarbeitende-oft-schweigen-und-was-das-kostet">Warum Mitarbeitende oft schweigen — und was das kostet</h2>
+<p class="brt-body">Peter Münstermann ist überzeugt: Mitarbeitende sehen Probleme zuerst. Sie spüren Überlastung, kennen Kundenunzufriedenheit und erleben täglich, wo Prozesse stocken. Was die Führungskraft erreicht, ist meist nur ein Ausschnitt.</p>
+<p class="brt-body">Warum schweigen Menschen? Hierarchie spielt eine Rolle — besonders im Mittelstand. Wer als Lagerist Brandschutz- oder Arbeitsschutzlücken anspricht, fürchtet manchmal Abwehr statt Dialog. Dazu kommt die Angst vor Schuldzuweisung: Risiko wird schnell mit Versagen verwechselt. Beraterium hebt solche Gespräche deshalb auf eine neutrale Ebene: nicht „Wer ist schuld?", sondern „Welche Auswirkung hat das — und wie wahrscheinlich ist es?"</p>
+<p class="brt-body">Mehr dazu, warum Vertrauen und offene Kommunikation das Fundament sind, steht im Artikel <a href="/blog/mensch-vertrauen-risikomanagement/">Mensch, Vertrauen und Risikomanagement</a>.</p>
+<h2 class="brt-article__h2" id="was-fuhrungskrafte-wirklich-gewinnen-zeit-statt-nur-schadensvermeidung">Was Führungskräfte wirklich gewinnen: Zeit statt nur Schadensvermeidung</h2>
+<p class="brt-body">„Brauchen wir nicht", „haben wir schon", „kostet es nicht mehr, als es bringt?" — drei klassische Einwände gegen Risikomanagement. Till Blania antwortet mit einem oft übersehenen Nutzen: <strong>Zeit</strong>.</p>
+<p class="brt-body">Risikomanagement ist nicht nur IT, Versicherung oder Supply Chain. Es sind auch Prozesse, in denen täglich Stunden verschwinden — der Geschäftsführer als Feuerwehrmann, das Drittel der Arbeitszeit für Bürokram beim Solopreneur. Alles, was Geld kostet und eine Eintrittswahrscheinlichkeit hat, ist ein Risiko. Wer ein Drittel von zehn Stunden à 100 Euro verliert, merkt das am Monatsende — auch ohne klassischen Schadensfall.</p>
+<p class="brt-body">Klarheit bringt selten sofort mehr Umsatz. Sie reduziert Verluste, Prioritäten und Reaktionszeit. Wer weiß, wo Prozesse hängen, kann strukturiert handeln statt permanent löschen. Der Zusammenhang zwischen Zeitverlust und unternehmerischem Risiko ist in <a href="/blog/zeit-als-risikofaktor-unternehmer-risikomanagement/">Zeit als Risikofaktor</a> vertieft.</p>
+<h2 class="brt-article__h2" id="warum-checklisten-und-iso-allein-selten-klarheit-schaffen">Warum Checklisten und ISO allein selten Klarheit schaffen</h2>
+<p class="brt-body">ISO-Normen und Checklisten haben ihren Platz — wer den Podcast verfolgt, kennt die Grenzen. „Haben wir schon intern" heißt manchmal: Jemand optimiert Prozesse, während der Chef glaubt, es laufe Risikomanagement.</p>
+<p class="brt-body">Peter Münstermann warnt vor dem Abhaken: Papier ist geduldig. Eine Frage, ein Kreuz, erledigt — theoretisch korrekt, praktisch wirkungslos. Checklisten kennen weder den Generationswechsel im Familienbetrieb noch die Kaffeepause-Wahrheit im Fitnessstudio. Deshalb setzt Beraterium auf <strong>Risikodialog</strong>: Menschen erzählen, was ihnen schon untergekommen ist — und aus diffusen Befürchtungen werden gemeinsam getragene Einschätzungen.</p>
+<h2 class="brt-article__h2" id="wie-ein-gefahrenkatalog-als-basis-funktioniert">Wie ein Gefahrenkatalog als Basis funktioniert</h2>
+<p class="brt-body">Der erste konkrete Schritt: Kategorien wählen — IT, HR, Produktion, Maschinen, Supply Chain, Reputation, Umwelt, Versorgung. Daraus entsteht ein <strong>Gefahrenkatalog</strong> mit etwa 80 bis 100 Einträgen. KI kann beim Sammeln helfen, wenn man pro Kategorie 10 bis 20 Gefahren abfragt. Weniger wird ungenau, deutlich mehr unhandlich.</p>
+<p class="brt-body">Peter Münstermann verweist auf die Dimension des Themas: Das BSI listet allein rund 1.500 Gefahren — mit Maßnahmen pro Eintrag. Niemand soll das eins zu eins kopieren. Die Kunst liegt im Zuschneiden: Das Startup mit drei Leuten braucht andere Schwerpunkte als der Familienbetrieb mit Asien-Bezug in der Werkzeuglieferung. Dieselbe Gefahr kann in Technik, Prozess oder menschlichem Handeln dominant sein — deshalb jede Gefahr <strong>an einer Stelle</strong> platzieren und gewichten.</p>
+<div class="brt-table-wrap brt-article__table" tabindex="0"><table class="brt-table">
+<thead>
+<tr>
+<th><strong>Schritt</strong></th>
+<th><strong>Ziel</strong></th>
+<th><strong>Typischer Fehler</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kategorien festlegen</td>
+<td>Vollständigkeit ohne Chaos</td>
+<td>Nur Branchen-Top-of-Mind</td>
+</tr>
+<tr>
+<td>80–100 Gefahren sammeln</td>
+<td>Breite Abdeckung</td>
+<td>Zu wenig oder 500 Punkte ohne Priorität</td>
+</tr>
+<tr>
+<td>Dominante Einordnung</td>
+<td>Klare Verantwortung</td>
+<td>Dieselbe Gefahr fünfmal duplizieren</td>
+</tr>
+<tr>
+<td>Auf Unternehmen zuschneiden</td>
+<td>Relevanz</td>
+<td>BSI-Katalog ungefiltert übernehmen</td>
+</tr>
+</tbody>
+</table></div>
+<h2 class="brt-article__h2" id="wie-der-team-dialog-blinde-flecken-sichtbar-macht">Wie der Team-Dialog blinde Flecken sichtbar macht</h2>
+<p class="brt-body">Der Gefahrenkatalog ist die Landkarte — der Dialog ist die Expedition. Drei bis fünf Mitarbeitende aus unterschiedlichen Bereichen holen, Szenarien durchgehen, offen fragen: Passiert das bei uns? Wie oft? Was würde es kosten?</p>
+<p class="brt-body">Das setzt Vertrauen voraus. Ohne Feedback-Kultur bekommt man höfliche oder schwammige Antworten — dann ist der Workshop Zeitverschwendung. Till Blania ist ehrlich: Wer weiß, dass Mitarbeitende nicht offen sprechen, sollte den Schritt nicht vortäuschen. Langfristig lohnt sich Kulturarbeit; kurzfristig hilft manchmal ein moderierter externer Blick.</p>
+<p class="brt-body">Wer die Mitarbeitenden früh einbindet — bei Identifikation, Bewertung und Maßnahmen — senkt die Hürde bei der Umsetzung. Ideen, die das Team mitentwickelt hat, werden eher gelebt als Regeln, die von oben kommen.</p>
+<h2 class="brt-article__h2" id="warum-euro-bewertung-risiken-vergleichbar-macht">Warum Euro-Bewertung Risiken vergleichbar macht</h2>
+<p class="brt-body">„Das passiert unheimlich oft" und „oh Gott, großer Schaden" — beides allein reicht nicht. Peter Münstermann besteht auf <strong>Euro-Beträge</strong>: Stillstand durch Stromausfall, fehlende Werkzeuge, entgangener Umsatz, Entlassungskosten — vieles lässt sich beziffern, wenn man die Mühe investiert.</p>
+<p class="brt-body">Aus Schaden und Eintrittswahrscheinlichkeit entsteht das Portfolio: je weiter rechts oben, desto dringender. Neutral, sachlich, ohne Schuldzuweisung — erst die Auswirkung auf den Index, danach Ursachen und Maßnahmen. Das unterscheidet <a href="/blog/risikoanalyse-startup-solo-selbststaendige-methode/">Berateriums Methode</a> von einer bloßen Risikoliste: Erst Klarheit über Größenordnung, dann Handlung.</p>
+<h2 class="brt-article__h2" id="was-nach-der-bewertung-kommt-ursachen-manahmen-externe-hilfe">Was nach der Bewertung kommt: Ursachen, Maßnahmen, externe Hilfe</h2>
+<p class="brt-body">Gefundene Risiken brauchen Ursachen und Maßnahmen — idealerweise wieder im Team, nicht allein am Wochenende im Homeoffice des Chefs. Manchmal reicht internes Know-how: ein motivierter Mitarbeitender, ein langjähriger IT-Partner, ein Brandschutz-Dienstleister mit Historie im Betrieb.</p>
+<p class="brt-body">Wo interne Kapazität fehlt, hilft ein <strong>Budget aus der Risikobewertung</strong>: Wie viel darf eine Maßnahme kosten, um das Risiko sinnvoll zu reduzieren? Externe Expertise — Versicherungs-Check, Prozessdigitalisierung, Führungs-Coaching — wird so zur Investition, nicht zur Bauchlandung.</p>
+<p class="brt-body">Till Blania betont: Das lässt sich selbst umsetzen, wenn Zeit da ist. KI erleichtert Recherche und Struktur. Der Mehrwert professioneller Moderation liegt in Einbeziehung der Menschen, Rückfragen und Routine — nicht in einem verschlossenen Geheimnis.</p>
+<h2 class="brt-article__h2" id="fazit-aus-der-wolke-wird-ein-handelbares-bild">Fazit: Aus der Wolke wird ein handelbares Bild</h2>
+<p class="brt-body">Klarheit im Risikomanagement entsteht nicht durch mehr ungefilterte Listen, sondern durch einen durchdachten <strong>Gefahrenkatalog</strong>, ehrlichen <strong>Team-Dialog</strong> und <strong>Euro-Bewertung</strong>. Wer von ChatGPT-Risiken, ISO-Kästchen oder Bauchgefühl zu diesem Dreiklang kommt, sieht, welche Risiken wirklich zählen — und gewinnt Zeit, die vorher in Reaktion und Unsicherheit floss.</p>
+<p class="brt-body"><strong>Nächster Schritt:</strong> Legen Sie fünf Kategorien für Ihr Unternehmen fest und sammeln Sie pro Kategorie zehn Gefahren — per Workshop oder mit KI als Sparringspartner. Holen Sie anschließend zwei Mitarbeitende dazu und fragen Sie bei drei Einträgen: „Ist das bei uns schon passiert — und was hätte es gekostet?"</p>
+<p class="brt-article__ai-disclosure brt-meta">Dieser Text wurde mit Unterstützung von KI erstellt und redaktionell geprüft.</p>
+          </div>
+        </div>
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
+
+        <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">11 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
+            <li><a href="#warum-viele-unternehmer-in-der-risiko-wolke-stecken-bleiben">Warum viele Unternehmer in der Risiko-Wolke stecken bleiben</a></li>
+            <li><a href="#was-eine-chatgpt-liste-liefert-und-was-ihr-fehlt">Was eine ChatGPT-Liste liefert — und was ihr fehlt</a></li>
+            <li><a href="#warum-risiken-leise-sind-und-versicherung-allein-selten-reicht">Warum Risiken leise sind — und Versicherung allein selten reicht</a></li>
+            <li><a href="#warum-mitarbeitende-oft-schweigen-und-was-das-kostet">Warum Mitarbeitende oft schweigen — und was das kostet</a></li>
+            <li><a href="#was-fuhrungskrafte-wirklich-gewinnen-zeit-statt-nur-schadensvermeidung">Was Führungskräfte wirklich gewinnen: Zeit statt nur Schadensvermeidung</a></li>
+            <li><a href="#warum-checklisten-und-iso-allein-selten-klarheit-schaffen">Warum Checklisten und ISO allein selten Klarheit schaffen</a></li>
+            <li><a href="#wie-ein-gefahrenkatalog-als-basis-funktioniert">Wie ein Gefahrenkatalog als Basis funktioniert</a></li>
+            <li><a href="#wie-der-team-dialog-blinde-flecken-sichtbar-macht">Wie der Team-Dialog blinde Flecken sichtbar macht</a></li>
+            <li><a href="#warum-euro-bewertung-risiken-vergleichbar-macht">Warum Euro-Bewertung Risiken vergleichbar macht</a></li>
+            <li><a href="#was-nach-der-bewertung-kommt-ursachen-manahmen-externe-hilfe">Was nach der Bewertung kommt: Ursachen, Maßnahmen, externe Hilfe</a></li>
+            <li><a href="#fazit-aus-der-wolke-wird-ein-handelbares-bild">Fazit: Aus der Wolke wird ein handelbares Bild</a></li>
+            </ol>
+          </details>
+        </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/startups/">Risiko-Check für Startups</a></li>
+            <li><a href="../../angebote/kmu/">Klarheits-Fahrplan für KMU</a></li>
+            <li><a href="../../angebote/solo/">Risiko-Kompass für Solo</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+
+    <section class="brt-article__video" aria-labelledby="article-podcast-video">
+      <div class="brt-container">
+        <div class="brt-article__video-head">
+          <p class="brt-article__video-label" id="article-podcast-video">Risiko Radar Podcast</p>
+          <p class="brt-article__video-deck">🎧 Zur ganzen Podcast Folge geht es hier:</p>
+        </div>
+        <div
+          class="brt-article__video-wrap"
+          data-youtube-embed
+          data-youtube-id="HO1xrW4XbhQ"
+          data-youtube-page="https://www.beraterium.de/blog/risikomanagement-klarheit-gefahrenkatalog/"
+          data-youtube-title="Risiko Radar Podcast: Klarheit im Risikomanagement: vom Gefahrenkatalog zur Euro-Bewertung"
+        >
+          <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: Risiko Radar Podcast: Klarheit im Risikomanagement: vom Gefahrenkatalog zur Euro-Bewertung">
+            <img
+              src="https://i.ytimg.com/vi/HO1xrW4XbhQ/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/HO1xrW4XbhQ/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/HO1xrW4XbhQ/sddefault.jpg 640w"
+              sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
+              alt="Risiko Radar Podcast: Klarheit im Risikomanagement: vom Gefahrenkatalog zur Euro-Bewertung"
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              data-youtube-thumb-base="https://i.ytimg.com/vi/HO1xrW4XbhQ/"
+              onerror="if(this.src.includes('maxresdefault')){this.src='https://i.ytimg.com/vi/HO1xrW4XbhQ/sddefault.jpg';}else if(this.src.includes('sddefault')){this.src='https://i.ytimg.com/vi/HO1xrW4XbhQ/hqdefault.jpg';}"
+            >
+            <span class="brt-article__video-play" aria-hidden="true"></span>
+          </button>
+          <a
+            class="brt-article__video-yt-badge"
+            href="https://www.youtube.com/watch?v=HO1xrW4XbhQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch on YouTube"
+          >
+            <span class="brt-article__video-yt-prefix">Watch on</span>
+            <span class="brt-article__video-yt-brand" aria-hidden="true">
+              <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+              </svg>
+              <span class="brt-article__video-yt-name">YouTube</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+    </article>
+
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
+      <div class="brt-container brt-article__faq">
+        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
+        <div class="brt-faq brt-fade-up">
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Warum reicht eine ChatGPT-Risikoliste allein nicht für Klarheit?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Eine KI-Liste liefert generische Gefahren und statistische Wahrscheinlichkeiten ohne den Kontext Ihres Unternehmens. Sie vergrößert oft die Wolke, beantwortet aber nicht, welche Risiken wirklich relevant sind und wie hoch der Schaden in Euro ausfällt.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie viele Gefahren sollte ein Gefahrenkatalog enthalten?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Für die meisten Unternehmen liegen 80 bis 100 Gefahren im sinnvollen Rahmen — weniger wird ungenau, deutlich mehr wird unhandlich. Entscheidend ist Vollständigkeit über Kategorien wie IT, HR, Produktion und Reputation, nicht die reine Zahl.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Warum müssen Mitarbeitende in den Risikodialog einbezogen werden?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Mitarbeitende sehen Prozessprobleme, Lieferengpässe und Kundenunzufriedenheit oft zuerst. Ohne offene Rückmeldung fehlen genau die Informationen, die eine Risikoliste von außen nicht liefern kann.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Warum bewertet Beraterium Risiken in Euro statt nur in Hoch/Mittel/Niedrig?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Euro-Beträge machen Schaden und Eintrittswahrscheinlichkeit vergleichbar und trennen diffuse Ängste von konkreten Geschäftsrisiken. So entsteht ein Portfolio, in dem die größten Risiken rechts oben sichtbar werden.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Ersetzt eine ISO-Checkliste den Risikodialog im Team?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Nein. Checklisten sind Papier — sie lassen sich abhaken, ohne dass Wissen verinnerlicht wird. Ein moderierter Dialog holt Erfahrungen, Nuancen und blinde Flecken aus dem Unternehmen, die weder Norm noch KI allein abdecken.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Kann ich Risikomanagement ohne externe Beratung selbst umsetzen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Ja, wenn Sie Zeit für Gefahrenkatalog, Teamgespräche, Euro-Bewertung und Maßnahmenplanung mitbringen. Der Mehrwert externer Moderation liegt vor allem in neutraler Führung, Rückfragen und dem Blick von außen — nicht in geheimem Know-how.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist der erste Schritt, wenn ich in einer Risiko-Wolke stecke?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Kategorien festlegen — etwa IT, HR, Produktion, Supply Chain und Reputation — und daraus einen ersten Gefahrenkatalog aufbauen. Danach drei bis fünf Mitarbeitende holen und die Liste im Dialog gegen die Realität Ihres Alltags spiegeln.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="author-box">
+      <div class="brt-container brt-article__author brt-fade-up">
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+        <div>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
+          <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
+          <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
+        </div>
+      </div>
+    </section>
+    <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="article-cta">
+      <div class="brt-container brt-cta-band__inner brt-fade-up">
+        <h2 id="article-cta" class="brt-h2 brt-h2--on-dark">Risiken im eigenen Unternehmen klären?</h2>
+        <p class="brt-body brt-body--on-dark">Buchen Sie ein kostenloses Erstgespräch – 30 Minuten, unverbindlich.</p>
+        <a class="brt-btn brt-btn--on-dark" href="../../kontakt/">Erstgespräch buchen</a>
+      </div>
+    </section>
+
+    <section class="brt-section" aria-labelledby="related-posts">
+      <div class="brt-container">
+        <h2 id="related-posts" class="brt-h2">Weitere Artikel</h2>
+        <ul class="brt-blog-grid brt-stagger">
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../../blog/what-is-risk-management/">
+<div class="brt-card__thumb"><img src="../../img/blog/what-is-risk-management-hero.webp" alt="Beitragsbild: Was ist eigentlich Risikomanagement?" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/what-is-risk-management-hero-480w.webp 480w, ../../img/blog/what-is-risk-management-hero-960w.webp 960w, ../../img/blog/what-is-risk-management-hero-1440w.webp 1440w, ../../img/blog/what-is-risk-management-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Was ist eigentlich Risikomanagement?</h3>
+              <p class="brt-meta">21. Oktober 2025 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Risikomanagement ist mehr als Verluste vermeiden — es identifiziert Unsicherheit, bewertet sie und macht sie steuerbar. Was ist eine Gefahr, wann…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../../blog/mensch-vertrauen-risikomanagement/">
+<div class="brt-card__thumb"><img src="../../img/blog/mensch-vertrauen-risikomanagement-hero.webp" alt="Beitragsbild: Der Mensch als Risiko und Schlüssel zum Erfolg" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/mensch-vertrauen-risikomanagement-hero-480w.webp 480w, ../../img/blog/mensch-vertrauen-risikomanagement-hero-960w.webp 960w, ../../img/blog/mensch-vertrauen-risikomanagement-hero-1440w.webp 1440w, ../../img/blog/mensch-vertrauen-risikomanagement-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Der Mensch als Risiko und Schlüssel zum Erfolg</h3>
+              <p class="brt-meta">12. November 2025 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Der Artikel zeigt, warum Menschen im Unternehmen gleichzeitig das größte Risiko und die wichtigste Ressource sind. Technik, Prozesse und Regeln…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
+          <a class="brt-card__link" href="../../blog/risikoanalyse-startup-solo-selbststaendige-methode/">
+<div class="brt-card__thumb"><img src="../../img/blog/risikoanalyse-startup-solo-selbststaendige-methode-hero.webp" alt="Two advisors and a founder sketching a realistic risk scenario on a small workshop table" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/risikoanalyse-startup-solo-selbststaendige-methode-hero-480w.webp 480w, ../../img/blog/risikoanalyse-startup-solo-selbststaendige-methode-hero-960w.webp 960w, ../../img/blog/risikoanalyse-startup-solo-selbststaendige-methode-hero-1440w.webp 1440w, ../../img/blog/risikoanalyse-startup-solo-selbststaendige-methode-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Startup</span>
+              <h3 class="brt-h3">Risikoanalyse für Startups und Solo: die neue Methode</h3>
+              <p class="brt-meta">9. August 2026 · ca. 9 Min.</p>
+              <p class="brt-body brt-card__excerpt">Beraterium hat die Risikoanalyse für Startups und Solo-Selbstständige neu aufgebaut: Szenarien statt Checklisten, gezielte Fragen statt hundert…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer" aria-label="Footer">
+  <div class="site-footer__inner">
+    <section>
+      <h2>Beraterium</h2>
+      <p>Konzern-Risikomanagement, übersetzt für den Mittelstand.</p>
+      <a href="https://www.linkedin.com/company/beraterium">LinkedIn</a>
+      <a href="https://www.youtube.com/@Beraterium">YouTube</a>
+    </section>
+    <section>
+      <h2>Angebote</h2>
+      <ul>
+        <li><a href="../../angebote/startups/">Startups</a></li>
+        <li><a href="../../angebote/kmu/">KMU</a></li>
+        <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+        <li><a href="../../angebote/">Übersicht</a></li>
+        <li><a href="../../preise/">Preise &amp; Leistungen</a></li>
+        <li><a href="../../schulungen/">Schulungen</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Lösungen</h2>
+      <ul>
+        <li><a href="../../loesungen/nis2/">NIS2-Betroffenheit</a></li>
+        <li><a href="../../loesungen/nachfolge/">Unternehmensnachfolge</a></li>
+        <li><a href="../../loesungen/cyberangriff/">Cyberangriff</a></li>
+        <li><a href="../../loesungen/selbststaendig-absichern/">Selbstständig absichern</a></li>
+        <li><a href="../../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko</a></li>
+        <li><a href="../../loesungen/investor-due-diligence/">Investor Due Diligence</a></li>
+        <li><a href="../../loesungen/risikoanalyse-startup/">Risikoanalyse Startup</a></li>
+        <li><a href="../../loesungen/risikoanalyse-kmu/">Risikoanalyse KMU</a></li>
+        <li><a href="../../loesungen/risikoanalyse-solo/">Risikoanalyse Selbstständige</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beraterium vor Ort</h2>
+      <ul>
+        <li><a href="../../standort/muenchen/">München</a></li>
+        <li><a href="../../standort/sachsen/">Sachsen</a></li>
+        <li><a href="../../standort/nrw/">NRW</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Unternehmen</h2>
+      <ul>
+        <li><a href="../../ueber-uns/">Über uns</a></li>
+        <li><a href="../../team/">Team</a></li>
+        <li><a href="../../mission-vision/">Mission &amp; Vision</a></li>
+        <li><a href="../../methode/">Methode</a></li>
+        <li><a href="../../nutzen-garantie/">Nutzen-Garantie</a></li>
+        <li><a href="../../relevanz-garantie/">Relevanz-Garantie</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
+        <li><a href="../../barrierefreiheit/">Barrierefreiheit</a></li>
+        <li><a href="../../impressum/">Impressum</a></li>
+        <li><a href="../../datenschutz/">Datenschutz</a></li>
+        <li><a href="../../agb/">AGB</a></li>
+      </ul>
+    </section>
+  </div>
+  <p class="site-footer__legal">© Beraterium 2026</p>
+</footer>
+
+<script src="../../js/brt-analytics.js?v=20260810-ga4-events-v1"></script>
+<script src="../../js/brt-site.js?v=20260810-ga4-events-v1"></script>
+
+</body>
+</html>
