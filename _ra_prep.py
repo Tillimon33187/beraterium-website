@@ -587,9 +587,7 @@ STRINGS: dict[str, dict[str, str]] = {
     "de": {
         "intro_title": "Vorbereitung für Ihre Risikoanalyse",
         "intro_text": (
-            "Mit diesem Fragebogen bereiten Sie den Workshop optimal vor. "
-            "Die Angaben helfen uns, den Termin zielgerichtet zu planen. "
-            "Dauer: etwa 15–20 Minuten."
+            "Klicken Sie auf „Fragebogen starten“ — die Angaben dauern etwa 15–20 Minuten."
         ),
         "start": "Fragebogen starten",
         "progress": "Schritt {current} von {total}",
@@ -635,9 +633,7 @@ STRINGS: dict[str, dict[str, str]] = {
     "en": {
         "intro_title": "Prepare for your risk analysis",
         "intro_text": (
-            "This questionnaire helps you prepare for the workshop. "
-            "Your answers help us plan the session effectively. "
-            "Estimated time: 15–20 minutes."
+            "Click „Start questionnaire“ — allow about 15–20 minutes."
         ),
         "start": "Start questionnaire",
         "progress": "Step {current} of {total}",

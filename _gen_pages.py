@@ -78,6 +78,7 @@ IMG_ANGEBOT_SOLO_HERO = "img/angebote/solo/hero.webp"
 IMG_RELEVANZ_SCHWELLE = "img/garantie/relevanz-schwelle.webp"
 IMG_NUTZEN_KRITERIEN = "img/garantie/nutzen-kriterien.webp"
 IMG_BLINDSPOT_WARUM = "img/tools/blindspot-warum.webp"
+IMG_RA_PREP_VORBEREITUNG = "img/tools/ra-prep-vorbereitung.webp"
 
 
 def _depth_from_pre(pre: str) -> int:
@@ -4693,13 +4694,55 @@ def gen_ra_prep() -> None:
             actions='<a class="brt-btn brt-btn--on-dark brt-btn--lg" href="#brt-ra-prep">Fragebogen starten</a>',
         )
         + f"""
+    <section class="brt-section" aria-labelledby="rap-warum-title">
+      <div class="brt-container brt-split">
+        <div class="brt-split__text brt-fade-up">
+          <h2 id="rap-warum-title" class="brt-h2">Warum dieser Fragebogen?</h2>
+          <p class="brt-body">Eine gute Risikoanalyse beginnt nicht im Termin — sondern mit dem richtigen Kontext. Ihre Antworten helfen uns, Schwerpunkte zu setzen, passende Beispiele vorzubereiten und den Workshop an Ihre Branche, Größe und aktuelle Lage anzupassen.</p>
+          <p class="brt-body">Je konkreter Ihre Angaben, desto weniger Zeit verbringen wir mit Standardfragen — und desto mehr mit den Themen, die für Ihr Unternehmen wirklich zählen.</p>
+          <ul class="rap-intro__meta" aria-label="Hinweise zum Fragebogen">
+            <li><span class="rap-intro__meta-label">Dauer</span> 15–20&nbsp;Minuten</li>
+            <li><span class="rap-intro__meta-label">Pflicht</span> Kontakt, Datenschutz, AGB</li>
+            <li><span class="rap-intro__meta-label">Felder</span> nur ausfüllen, was zutrifft</li>
+          </ul>
+        </div>
+        {split_media_html(IMG_RA_PREP_VORBEREITUNG, "Berater und Unternehmer bereiten gemeinsam eine Risikoanalyse vor — strukturierte Vorbereitung am Workshop-Tisch", 2, contain=True)}
+      </div>
+    </section>
     <section id="fragebogen" class="brt-section brt-section--alt" aria-labelledby="rap-title">
       <div class="brt-container">
         <header class="brt-section__header brt-fade-up">
-          <p class="brt-tag">VORBEREITUNG</p>
-          <h2 id="rap-title" class="brt-h2">Fragebogen zur Risikoanalyse</h2>
-          <p class="brt-body brt-section__lede">Bitte füllen Sie alle für Sie relevanten Felder aus. Pflicht sind Ihre Kontaktdaten sowie die Bestätigung von Datenschutz und AGB.</p>
+          <p class="brt-tag">FRAGEBOGEN</p>
+          <h2 id="rap-title" class="brt-h2">Online ausfüllen</h2>
+          <p class="brt-body brt-section__lede">Der Fragebogen führt Sie Schritt für Schritt durch fünf Themenbereiche. Sie können jederzeit zurückspringen und am Ende alles prüfen, bevor Sie absenden.</p>
         </header>
+        <ul class="rap-topics brt-stagger" aria-label="Themenbereiche im Fragebogen">
+          <li class="rap-topic brt-card">
+            <p class="rap-topic__num" aria-hidden="true">01</p>
+            <h3 class="rap-topic__title brt-h3">Unternehmen &amp; Organisation</h3>
+            <p class="rap-topic__desc">Angebot, Rechtsform, Mitarbeitende, Standorte</p>
+          </li>
+          <li class="rap-topic brt-card">
+            <p class="rap-topic__num" aria-hidden="true">02</p>
+            <h3 class="rap-topic__title brt-h3">Tätigkeit &amp; Außenwirkung</h3>
+            <p class="rap-topic__desc">Räumlichkeiten, Reichweite, Website, Social Media</p>
+          </li>
+          <li class="rap-topic brt-card">
+            <p class="rap-topic__num" aria-hidden="true">03</p>
+            <h3 class="rap-topic__title brt-h3">Ziele &amp; Schwerpunkte</h3>
+            <p class="rap-topic__desc">Erwartungen, aktuelle Sorgen, kritische Bereiche</p>
+          </li>
+          <li class="rap-topic brt-card">
+            <p class="rap-topic__num" aria-hidden="true">04</p>
+            <h3 class="rap-topic__title brt-h3">Erfahrung &amp; Vorsorge</h3>
+            <p class="rap-topic__desc">Störungen, Schutzmaßnahmen, Szenarien</p>
+          </li>
+          <li class="rap-topic brt-card">
+            <p class="rap-topic__num" aria-hidden="true">05</p>
+            <h3 class="rap-topic__title brt-h3">Workshop</h3>
+            <p class="rap-topic__desc">Teilnehmende, Ansprechpartner, Besonderheiten</p>
+          </li>
+        </ul>
         <div id="brt-ra-prep" class="rap-widget brt-fade-up" aria-live="polite"></div>
       </div>
     </section>"""
