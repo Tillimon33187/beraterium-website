@@ -17,6 +17,7 @@ GOALS = [
     {"value": "versicherungen", "de": "Versicherungen überprüfen", "en": "Review insurance"},
     {"value": "investitionen", "de": "Investitionen absichern", "en": "Safeguard investments"},
     {"value": "unternehmenswert", "de": "Unternehmenswert steigern", "en": "Increase company value"},
+    {"value": "weitere", "de": "Weitere", "en": "Other"},
 ]
 
 CRITICAL_AREAS = [
@@ -28,6 +29,18 @@ CRITICAL_AREAS = [
     {"value": "lieferanten", "de": "Lieferanten", "en": "Suppliers"},
     {"value": "finanzen", "de": "Finanzen", "en": "Finance"},
     {"value": "wissen", "de": "Wissen", "en": "Knowledge"},
+    {"value": "weitere", "de": "Weitere", "en": "Other"},
+]
+
+SOCIAL_PLATFORMS = [
+    {"value": "keine", "de": "Kein Social-Media-Auftritt", "en": "No social media presence"},
+    {"value": "linkedin", "de": "LinkedIn", "en": "LinkedIn"},
+    {"value": "instagram", "de": "Instagram", "en": "Instagram"},
+    {"value": "facebook", "de": "Facebook", "en": "Facebook"},
+    {"value": "x", "de": "X (Twitter)", "en": "X (Twitter)"},
+    {"value": "youtube", "de": "YouTube", "en": "YouTube"},
+    {"value": "tiktok", "de": "TikTok", "en": "TikTok"},
+    {"value": "weitere", "de": "Weitere", "en": "Other"},
 ]
 
 INCIDENTS = [
@@ -38,6 +51,8 @@ INCIDENTS = [
     {"value": "rechtsstreit", "de": "Rechtsstreitigkeiten", "en": "Legal disputes"},
     {"value": "personalausfall", "de": "Personalausfälle", "en": "Staff absences"},
     {"value": "finanzverlust", "de": "Größere finanzielle Verluste", "en": "Major financial losses"},
+    {"value": "keine", "de": "Keine der genannten Vorfälle", "en": "None of the above"},
+    {"value": "weitere", "de": "Weitere", "en": "Other"},
 ]
 
 PROTECTIONS = [
@@ -47,7 +62,7 @@ PROTECTIONS = [
     {"value": "vertretung", "de": "Vertretungsregelungen", "en": "Deputy arrangements"},
     {"value": "arbeitsschutz", "de": "Arbeitsschutz", "en": "Occupational safety"},
     {"value": "qm", "de": "Qualitätsmanagement", "en": "Quality management"},
-    {"value": "sonstige", "de": "Sonstige Sicherheitsmaßnahmen", "en": "Other security measures"},
+    {"value": "weitere", "de": "Weitere", "en": "Other"},
 ]
 
 PARTICIPANTS = [
@@ -64,7 +79,13 @@ SCENARIOS = [
     {"value": "produkte", "de": "Neue Produkte", "en": "New products"},
     {"value": "nachfolge", "de": "Unternehmensnachfolge", "en": "Business succession"},
     {"value": "existenz", "de": "Existenzsicherung", "en": "Ensuring survival"},
+    {"value": "weitere", "de": "Weitere", "en": "Other"},
 ]
+
+WEITERE_HINT = {
+    "de": "Mehrere Einträge möglich — z. B. zeilenweise. Beim Ausfüllen wird „Weitere“ automatisch ausgewählt.",
+    "en": "You can add several items (e.g. one per line). Selecting this field auto-checks “Other”.",
+}
 
 ROOMS = [
     {"value": "eigene", "de": "Eigene Räume", "en": "Own premises"},
@@ -74,7 +95,9 @@ ROOMS = [
 
 REACH = [
     {"value": "regional", "de": "Regional", "en": "Regional"},
+    {"value": "dach", "de": "DACH-Raum", "en": "DACH region"},
     {"value": "deutschland", "de": "Deutschlandweit", "en": "Nationwide (Germany)"},
+    {"value": "europa", "de": "Europa", "en": "Europe"},
     {"value": "international", "de": "International", "en": "International"},
 ]
 
@@ -82,6 +105,18 @@ REACH = [
 def _opts(items: list[dict], locale: str) -> list[dict]:
     key = "en" if locale == "en" else "de"
     return [{"value": o["value"], "label": o[key]} for o in items]
+
+
+def _weitere_detail(locale: str, *, label_de: str, label_en: str) -> dict:
+    en = locale == "en"
+    return {
+        "type": "textarea",
+        "label": label_en if en else label_de,
+        "hint": WEITERE_HINT["en" if en else "de"],
+        "required": False,
+        "rows": 3,
+        "linked_auto_value": "weitere",
+    }
 
 
 def _steps(locale: str) -> list[dict]:
@@ -158,16 +193,16 @@ def _steps(locale: str) -> list[dict]:
                     "id": "unternehmen_beschreibung",
                     "type": "textarea",
                     "label": (
-                        "Products, services and focus"
+                        "What does your company do? What do you offer?"
                         if en
-                        else "Produkte, Dienstleistungen und Schwerpunkt"
+                        else "Womit beschäftigt sich Ihr Unternehmen? Was bieten Sie an?"
                     ),
                     "hint": (
                         "Which products or services are central to your business?"
                         if en
                         else "Welche Produkte oder Dienstleistungen stehen im Mittelpunkt?"
                     ),
-                    "required": False,
+                    "required": True,
                     "rows": 5,
                 },
             ],
@@ -176,22 +211,22 @@ def _steps(locale: str) -> list[dict]:
             "id": "organisation",
             "title": "Organisation" if en else "Organisation",
             "intro": (
-                "Basic facts about your company structure."
+                "How is your company organised?"
                 if en
-                else "Grundlegende Angaben zur Struktur Ihres Unternehmens."
+                else "Wie ist Ihr Unternehmen organisiert?"
             ),
             "fields": [
                 {
                     "id": "rechtsform",
                     "type": "text",
                     "label": "Legal form" if en else "Rechtsform",
-                    "required": False,
+                    "required": True,
                 },
                 {
                     "id": "gruendungsjahr",
                     "type": "text",
                     "label": "Year founded" if en else "Gründungsjahr",
-                    "required": False,
+                    "required": True,
                 },
                 {
                     "id": "mitarbeiter",
@@ -201,7 +236,7 @@ def _steps(locale: str) -> list[dict]:
                         if en
                         else "Anzahl der Mitarbeitenden (inkl. Teilzeit/Freiberufler)"
                     ),
-                    "required": False,
+                    "required": True,
                 },
             ],
         },
@@ -209,30 +244,30 @@ def _steps(locale: str) -> list[dict]:
             "id": "taetigkeit",
             "title": "Scope of operations" if en else "Tätigkeitsgebiet",
             "intro": (
-                "Where and how you operate."
+                "Where do you operate?"
                 if en
-                else "Wo und wie Sie tätig sind."
+                else "Wo sind Sie tätig?"
             ),
             "fields": [
                 {
                     "id": "standorte",
                     "type": "textarea",
                     "label": "Location(s)" if en else "Standort(e)",
-                    "required": False,
+                    "required": True,
                     "rows": 3,
                 },
                 {
                     "id": "raeume",
                     "type": "checkbox_group",
                     "label": "Premises" if en else "Räumlichkeiten",
-                    "required": False,
+                    "required": True,
                     "options": _opts(ROOMS, locale),
                 },
                 {
                     "id": "reichweite",
                     "type": "checkbox_group",
                     "label": "Geographic reach" if en else "Geografische Reichweite",
-                    "required": False,
+                    "required": True,
                     "options": _opts(REACH, locale),
                 },
             ],
@@ -248,15 +283,40 @@ def _steps(locale: str) -> list[dict]:
             "fields": [
                 {
                     "id": "website",
-                    "type": "url",
+                    "type": "text",
                     "label": "Website" if en else "Internetseite",
-                    "required": False,
+                    "hint": (
+                        "Address or domain is enough — a full https:// link is not required."
+                        if en
+                        else "Adresse oder Domain reicht — ein vollständiger https://-Link ist nicht nötig."
+                    ),
+                    "required": True,
                 },
                 {
                     "id": "social_media",
-                    "type": "text",
-                    "label": "Social media" if en else "Social-Media-Auftritte",
-                    "required": False,
+                    "type": "checkbox_group",
+                    "label": (
+                        "Social media presence"
+                        if en
+                        else "Social-Media-Auftritte"
+                    ),
+                    "hint": (
+                        "Which platforms do you use? No profile links needed."
+                        if en
+                        else "Auf welchen Plattformen sind Sie aktiv? Links zu Profilen sind nicht nötig."
+                    ),
+                    "required": True,
+                    "options": _opts(SOCIAL_PLATFORMS, locale),
+                    "detail_field": "social_media_weitere",
+                },
+                {
+                    "id": "social_media_weitere",
+                    "linked_group": "social_media",
+                    **_weitere_detail(
+                        locale,
+                        label_de="Weitere Plattformen",
+                        label_en="Other platforms",
+                    ),
                 },
                 {
                     "id": "imagebroschuere",
@@ -283,14 +343,18 @@ def _steps(locale: str) -> list[dict]:
                     "id": "ziele",
                     "type": "checkbox_group",
                     "label": "Goals (multiple choice)" if en else "Ziele (Mehrfachauswahl)",
-                    "required": False,
+                    "required": True,
                     "options": _opts(GOALS, locale),
+                    "detail_field": "ziele_weitere",
                 },
                 {
-                    "id": "ziele_sonstiges",
-                    "type": "text",
-                    "label": "Other" if en else "Sonstiges",
-                    "required": False,
+                    "id": "ziele_weitere",
+                    "linked_group": "ziele",
+                    **_weitere_detail(
+                        locale,
+                        label_de="Weitere Ziele",
+                        label_en="Other goals",
+                    ),
                 },
             ],
         },
@@ -307,9 +371,12 @@ def _steps(locale: str) -> list[dict]:
                     "id": "sorgen",
                     "type": "textarea",
                     "label": (
-                        "What worries you most? Where are the biggest challenges?"
+                        "What worries you most right now? Where do you see the biggest challenges?"
                         if en
-                        else "Was bereitet Ihnen Sorgen? Wo sehen Sie die größten Herausforderungen?"
+                        else (
+                            "Was bereitet Ihnen aktuell die meisten Sorgen? "
+                            "Wo sehen Sie die größten Herausforderungen?"
+                        )
                     ),
                     "required": False,
                     "rows": 5,
@@ -329,8 +396,18 @@ def _steps(locale: str) -> list[dict]:
                     "id": "kritische_bereiche",
                     "type": "checkbox_group",
                     "label": "Areas" if en else "Bereiche",
-                    "required": False,
+                    "required": True,
                     "options": _opts(CRITICAL_AREAS, locale),
+                    "detail_field": "kritische_bereiche_weitere",
+                },
+                {
+                    "id": "kritische_bereiche_weitere",
+                    "linked_group": "kritische_bereiche",
+                    **_weitere_detail(
+                        locale,
+                        label_de="Weitere kritische Bereiche",
+                        label_en="Other critical areas",
+                    ),
                 },
             ],
         },
@@ -338,24 +415,32 @@ def _steps(locale: str) -> list[dict]:
             "id": "stoerungen",
             "title": "Disruptions & losses" if en else "Störungen & Schäden",
             "intro": (
-                "Have there been disruptions or losses in recent years?"
+                "Have there already been disruptions or losses in recent years?"
                 if en
-                else "Gab es in den letzten Jahren Störungen oder Schäden?"
+                else "Gab es in den letzten Jahren bereits Störungen oder Schäden?"
             ),
             "fields": [
                 {
                     "id": "stoerungen",
                     "type": "checkbox_group",
                     "label": "Types" if en else "Art der Vorfälle",
-                    "required": False,
+                    "required": True,
                     "options": _opts(INCIDENTS, locale),
+                    "detail_field": "stoerungen_details",
                 },
                 {
                     "id": "stoerungen_details",
+                    "linked_group": "stoerungen",
                     "type": "textarea",
-                    "label": "Details (optional)" if en else "Details (optional)",
+                    "label": (
+                        "Details on disruptions or losses"
+                        if en
+                        else "Details zu Störungen oder Schäden"
+                    ),
+                    "hint": WEITERE_HINT["en" if en else "de"],
                     "required": False,
                     "rows": 4,
+                    "linked_auto_value": "weitere",
                 },
             ],
         },
@@ -372,15 +457,18 @@ def _steps(locale: str) -> list[dict]:
                     "id": "schutz",
                     "type": "checkbox_group",
                     "label": "Measures" if en else "Maßnahmen",
-                    "required": False,
+                    "required": True,
                     "options": _opts(PROTECTIONS, locale),
+                    "detail_field": "schutz_weitere",
                 },
                 {
-                    "id": "schutz_sonstiges",
-                    "type": "textarea",
-                    "label": "Other / notes" if en else "Sonstiges / Ergänzungen",
-                    "required": False,
-                    "rows": 3,
+                    "id": "schutz_weitere",
+                    "linked_group": "schutz",
+                    **_weitere_detail(
+                        locale,
+                        label_de="Weitere Schutzmaßnahmen",
+                        label_en="Other safeguards",
+                    ),
                 },
             ],
         },
@@ -397,7 +485,7 @@ def _steps(locale: str) -> list[dict]:
                     "id": "teilnehmer",
                     "type": "checkbox_group",
                     "label": "Participants" if en else "Teilnehmende",
-                    "required": False,
+                    "required": True,
                     "options": _opts(PARTICIPANTS, locale),
                 },
             ],
@@ -433,14 +521,18 @@ def _steps(locale: str) -> list[dict]:
                     "id": "szenario",
                     "type": "checkbox_group",
                     "label": "Scenario" if en else "Szenario",
-                    "required": False,
+                    "required": True,
                     "options": _opts(SCENARIOS, locale),
+                    "detail_field": "szenario_weitere",
                 },
                 {
-                    "id": "szenario_sonstiges",
-                    "type": "text",
-                    "label": "Other" if en else "Sonstiges",
-                    "required": False,
+                    "id": "szenario_weitere",
+                    "linked_group": "szenario",
+                    **_weitere_detail(
+                        locale,
+                        label_de="Weitere Szenarien",
+                        label_en="Other scenarios",
+                    ),
                 },
             ],
         },
@@ -448,18 +540,26 @@ def _steps(locale: str) -> list[dict]:
             "id": "besonderheiten",
             "title": "Special circumstances" if en else "Besonderheiten",
             "intro": (
+                "Are there any special circumstances we should know about? "
                 "Anything that could influence the workshop."
                 if en
-                else "Alles, was den Workshop beeinflussen könnte."
+                else (
+                    "Gibt es Besonderheiten, die wir kennen sollten? "
+                    "Alles, was den Workshop beeinflussen könnte."
+                )
             ),
             "fields": [
                 {
                     "id": "besonderheiten",
                     "type": "textarea",
                     "label": (
-                        "Planned investments, changes, dependencies, special customers …"
+                        "Planned investments, ongoing changes, dependencies, "
+                        "special customers or requirements …"
                         if en
-                        else "Geplante Investitionen, Veränderungen, Abhängigkeiten, besondere Kunden …"
+                        else (
+                            "Geplante Investitionen, laufende Veränderungen, "
+                            "Abhängigkeiten, besondere Kunden oder Auflagen …"
+                        )
                     ),
                     "required": False,
                     "rows": 5,
@@ -516,6 +616,7 @@ STRINGS: dict[str, dict[str, str]] = {
         ),
         "privacy_link": "Datenschutzerklärung",
         "terms_link": "AGB",
+        "validation_checkbox": "Bitte wählen Sie mindestens eine Option.",
         "validation_required": "Bitte füllen Sie dieses Pflichtfeld aus.",
         "validation_salutation": "Bitte wählen Sie eine Anrede.",
         "validation_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
@@ -564,6 +665,7 @@ STRINGS: dict[str, dict[str, str]] = {
         "privacy_link": "Privacy policy",
         "terms_link": "Terms & conditions",
         "validation_required": "Please fill in this required field.",
+        "validation_checkbox": "Please select at least one option.",
         "validation_salutation": "Please select a salutation.",
         "validation_email": "Please enter a valid email address.",
         "validation_phone": "Please enter a phone number.",

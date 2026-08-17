@@ -67,6 +67,7 @@ BLOG_SLUG_MAP: dict[str, str] = {
     "warum-mitarbeiter-riskante-entscheidungen-treffen": "why-employees-make-risky-decisions",
     "what-is-risk-management": "what-is-risk-management",
     "zeit-als-risikofaktor-unternehmer-risikomanagement": "time-as-risk-factor-entrepreneurs-risk-management",
+    "notfallplan-unternehmen-payment-ausfall": "business-emergency-plan-payment-outage-smb",
 }
 
 EN_STATIC_ROUTE_MAP: dict[str, str] = {v: k for k, v in STATIC_ROUTE_MAP.items()}

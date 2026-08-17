@@ -860,9 +860,9 @@ def case_studies_section(pre: str, *, en: bool = False) -> str:
                 "title": "Solo-Selbstständige im laufenden Betrieb",
                 "meta": [("industry", "Kreativhandwerk"), ("phase", "Laufender Betrieb, Wachstum"), ("team", "1 Person, projektweise Unterstützung")],
                 "text": "Viele Baustellen, wenig Zeit – aber keine gemeinsame Priorität. Was zuerst angehen, ohne sich im Hamsterrad zu verlieren, war unklar. Alle Risiken trägt sie allein: Kunden, IT, Räume, Verträge, Social Media.",
-                "approach_headline": "Stufe&nbsp;1 + Stufe&nbsp;2",
-                "approach_body": "Stufe&nbsp;1 machte vier gleich gewichtete Top-Risiken sichtbar. In Stufe&nbsp;2 wurden daraus Bearbeitungslogiken – IT/Cyber, Reputation, physischer Totalausfall und Organisation – mit Aufwand-Wirkungs-Abwägung.",
-                "stats": [("4", "Top-Risiken: IT/Cyber, Reputation, Totalausfall, Prozesse"), ("A–D", "Stufe-2-Blöcke mit nächsten Schritten"), ("3", "Phasen: Sofort, 1–3 Monate, Folgetermine"), ("↓", "Kapazität für Top-Risiken frei")],
+                "approach_headline": "Stufe&nbsp;1 + Stufe&nbsp;2 + Folgemodule",
+                "approach_body": "Stufe&nbsp;1: vier gleich gewichtete Top-Risiken. Stufe&nbsp;2: Bearbeitungslogiken für IT/Cyber, Reputation, Totalausfall und Organisation. Folgemodule: Finanztransparenz (Umsatzmix, Hebel) und fokussierter 3-Monats-Akquise-Test.",
+                "stats": [("4", "Top-Risiken: IT/Cyber, Reputation, Totalausfall, Prozesse"), ("A–D", "Stufe-2-Blöcke mit nächsten Schritten"), ("3", "Phasen: Sofort, 1–3 Monate, Folgetermine"), ("↗", "Umsatzmix + 1 Kanal-Test")],
                 "quote": "&bdquo;Stufe&nbsp;1 hat gezeigt, welche wirklich das Gebäude tragen – Stufe&nbsp;2, wie ich sie ohne Selbstzerstörung angehen kann.&ldquo;",
             },
             {
@@ -4671,7 +4671,7 @@ def gen_blindspot_check() -> None:
 
 
 # Nach Apps-Script-Deploy: URL hier eintragen (gleiche Web-App-URL wie EN).
-RA_PREP_SUBMIT_URL = ""
+RA_PREP_SUBMIT_URL = "https://script.google.com/macros/s/AKfycbzJDCClA9HKNK99xIjsvt9S9hCYDPtFd9nF4OlV3YPxqqzK9uOXyRz9AdLlXsEfy9gq/exec"
 
 
 def gen_ra_prep() -> None:
