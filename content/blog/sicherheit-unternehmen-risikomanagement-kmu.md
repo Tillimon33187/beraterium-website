@@ -25,6 +25,8 @@ related_slugs:
   * Notfallplanung für Hidden Champions: Ein ausgefallenes Spezialgerät kann dich 14 Tage außer Gefecht setzen. Alternativlieferanten sind keine Luxus, sondern Überlebensnotwendigkeit
 
 ## 1\. Das echte Risiko erkennen: Nicht das Offensichtliche schützen
+[Cyberangriffe auf KMU](/loesungen/cyberangriff/) sind heute eines der häufigsten operativen Risiken — neben physischer Sicherheit.
+
 
 Stell dir vor: Ein Edelstahlhändler lagert 120 Tonnen Material hinter einem einfachen 2-Meter-Zaun. Fahrlässig? Nein. Denn während das sichtbare Inventar kaum bedroht ist, liegt das echte Risiko in einem unscheinbaren Raum: den Spezialwerkzeugen mit drei Wochen Lieferzeit.
 

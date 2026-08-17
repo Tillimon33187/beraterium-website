@@ -22,6 +22,8 @@ related_slugs: []
   * **Der Mensch steht im Mittelpunkt.** Fachkräfte aus betroffenen Regionen, Pendler mit steigenden Spritkosten, verunsicherte Teams – wer das ignoriert, verliert Leute.
 
 ## 30 Kilometer, die die Weltwirtschaft in die Knie zwingen
+Externe Schocks gehören ins Risiko-Lagebild — der [Klarheits-Fahrplan für KMU](/angebote/kmu/) bewertet Lieferketten- und Energierisiken in Euro.
+
 
 Die Straße von Hormuz ist ein Nadelöhr zwischen Iran und Oman – kaum 30 Kilometer breit, davon nur rund 8 Kilometer befahrbar. Durch diesen schmalen Korridor fließen 20 bis 30 Prozent des weltweiten Öl- und Gastransports. Kuwait, Saudi-Arabien, Irak, Katar, die Vereinigten Arabischen Emirate – die größten Energieexporteure der Welt sind auf diese Passage angewiesen. Als Iran die Blockade durchsetzte, war das keine symbolische Geste. Es war ein wirtschaftlicher Angriff auf die globale Energieversorgung, und er funktioniert. Für europäische Unternehmen mag das abstrakt klingen: Nur etwa 13 Prozent des europäischen LNG- und Ölimports kommen direkt aus den Golfstaaten. Aber der Ölmarkt ist global. Wenn ein Drittel des weltweiten Angebots gestört wird, steigen die Preise überall – egal, woher man selbst bezieht. Das ist keine Theorie. Das ist das, was gerade passiert.
 

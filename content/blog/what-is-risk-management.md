@@ -30,7 +30,7 @@ related_slugs:
 Risikomanagement ist mehr als nur Schadensvermeidung – es ist die Kunst, Unsicherheiten zu erkennen, zu bewerten und gezielt zu steuern.  
 In diesem Artikel erklären wir die Grundlagen: Was ist eine Gefahr? Wie entsteht daraus ein Risiko? Und warum ist das Verständnis von Eintrittswahrscheinlichkeit und Schadensausmaß entscheidend für den Unternehmenserfolg?
 
-Anhand klarer Definitionen und praktischer Beispiele zeigen wir, wie Risikomanagement hilft, Klarheit zu schaffen, Prioritäten zu setzen und langfristig Sicherheit und Stabilität aufzubauen.
+Anhand klarer Definitionen und praktischer Beispiele zeigen wir, wie Risikomanagement hilft, Klarheit zu schaffen, Prioritäten zu setzen und langfristig Sicherheit und Stabilität aufzubauen. Die [Risikobewertung in Euro](/methode/) macht Gefahren vergleichbar — statt Ampelfarben.
 
 ## Von Gefahren, Risiken und Chancen, wie Unternehmen Klarheit gewinnen
 

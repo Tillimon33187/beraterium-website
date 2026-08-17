@@ -60,7 +60,7 @@ Drei Entwicklungen erklären, warum das Thema 2026 nicht mehr nur Tech-Leads bet
 * **Geschwindigkeit der Innovation:** Software-Prototypen entstehen in Stunden statt Quartalen. Wer nicht experimentiert, kann bei Plattform- oder Produktzyklen abgehängt werden — unabhängig von Unternehmensgröße.
 * **Schwache Nachvollziehbarkeit:** Wenn ein Agent handelt, ist oft unklar, wer ihn losgeschickt hat, welche Zwischenagenten entstanden sind und ob der Auftrag von außen manipuliert wurde.
 
-Für Risikomanagement heißt das: KI gehört in dasselbe Inventar wie [Cyber-Risiken im KMU](/blog/cyberangriff-was-tun-kmu/) — mit Szenario, Schaden in Euro, Wahrscheinlichkeit und klarer Verantwortungszuweisung. Nicht als Zukunftsmusik, sondern als laufender Betrieb.
+Für Risikomanagement heißt das: KI gehört in dasselbe Inventar wie [Cyber-Risiken im KMU](/blog/cyberangriff-was-tun-kmu/) — mit Szenario, Schaden in Euro, Wahrscheinlichkeit und klarer Verantwortungszuweisung. Mehr zur operativen Seite: [Cyberangriff — was tun?](/loesungen/cyberangriff/). Nicht als Zukunftsmusik, sondern als laufender Betrieb.
 
 ## Was Agenten leisten — und was sie nur vortäuschen
 

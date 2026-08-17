@@ -32,6 +32,8 @@ Mit langjähriger Erfahrung aus Konzern- und Start-up-Welt zeigen sie, wie Unter
 Ihr Ansatz: individuelle Lösungen statt Standards, der Mensch im Mittelpunkt und die Überzeugung, dass echtes Risikomanagement Sicherheit und Chancen zugleich schafft.
 
 ## Risikomanagement neu gedacht – mit Herz, Erfahrung und gesundem Menschenverstand
+Beraterium ist eine [Risikomanagement-Beratung für KMU, Startups und Solo-Selbstständige](/angebote/) — moderiert, in Euro bewertet, mit doppelter Garantie.
+
 
 Mit der ersten Episode des Podcasts _„Risiko Radar“_ stellen **Till Blania** und **Peter Münstermann** die Menschen und die Idee hinter **Beraterium** vor, einer Initiative, die Risikomanagement für kleine und mittelständische Unternehmen endlich greifbar und umsetzbar macht.  
 

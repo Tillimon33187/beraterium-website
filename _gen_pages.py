@@ -21,6 +21,8 @@ from _schulungen import SCHULUNG_CONFIGS
 
 from _blindspot import blindspot_config_json
 from _blindspot import selfcheck as blindspot_selfcheck
+from _ra_prep import ra_prep_config_json
+from _ra_prep import selfcheck as ra_prep_selfcheck
 
 from _cms import (
     BlogPost,
@@ -1694,13 +1696,14 @@ def gen_angebote() -> None:
     pre = "../"
     angebote_faq = [
         ("Welches Angebot passt zu mir – Startup, KMU oder Solo?", "Startups (4 Wochen) für Gründerteams, KMU (6 Wochen) für vollständiges Lagebild ab ca. 10 Mitarbeitenden, Solo (2 Wochen) für Einzelunternehmer. Im Erstgespräch klären wir, was passt."),
+        ("Was ist der Unterschied zwischen Risikobewertung und Risikomanagement-Beratung?", "Risikobewertung bewertet Schadenshöhe und Eintrittswahrscheinlichkeit in Euro — die Grundlage für Prioritäten. Risikomanagement-Beratung umfasst Analyse, Maßnahmen und Umsetzung mit unserem 3-Ebenen-Gefahrenkatalog. Details zur Methode finden Sie auf der Methode-Seite."),
         ("Was kostet Risikomanagement-Beratung bei Beraterium?", "Das Kernpaket Risiko-Analyse 360° kostet 3.475 € (Bundle aus Analyse, Strategie und Budgetplanung). Einzelmodule: Analyse 1.725 €, Strategie-Sitzung 2.175 €, Budgetplanung 1.250 €. Workshops ab 57 € pro Person, der Erst-Check für Startups ist kostenlos. Alle Preise transparent auf der Preisseite."),
         ("Gibt es eine Garantie?", "Ja: Doppelte Garantie — Relevanz und Nutzen. Kein relevantes Risiko gefunden oder kein Mehrwert? Geld zurück."),
         ("Brauche ich ISO-Zertifizierung oder Konzern-Methodik?", "Nein. Beraterium übersetzt Konzern-Methodik in praxisnahe Schritte für KMU, Startups und Solo — ohne Bürokratie-Overhead."),
     ]
     main = (
         hero(pre, "UNSERE ANGEBOTE", "Risikomanagement-Beratung: Der passende Check für Ihre Situation",
-             "Ob Gründerteam, Mittelständler oder Solo-Selbstständige: Sie bekommen Konzern-Methodik, übersetzt auf Ihre Realität – mit klarem Ergebnis und doppelter Garantie.",
+             "Ob Gründerteam, Mittelständler oder Solo-Selbstständige: strukturierte Risikobewertung in Euro und Risikomanagement-Beratung mit Konzern-Methodik — übersetzt auf Ihre Realität, mit doppelter Garantie.",
              compact=True,
              actions=f'<a class="brt-btn" href="{pre}kontakt/">Kostenloses Erstgespräch buchen</a>')
         + """
@@ -4528,8 +4531,8 @@ def gen_blindspot_check() -> None:
     canonical = "/tools/blindspot-check/"
     config_json = blindspot_config_json(
         locale="de",
-        submit_url="https://script.google.com/macros/s/AKfycbxOVMHI01byul3j0QqJ-MGgDdnw9l_HMKwgoyZlHteAftWo7rnGN7I-R9r77XJvCqmSDQ/exec",
-        report_url="https://script.google.com/macros/s/AKfycbxOVMHI01byul3j0QqJ-MGgDdnw9l_HMKwgoyZlHteAftWo7rnGN7I-R9r77XJvCqmSDQ/exec",
+        submit_url="https://script.google.com/macros/s/AKfycbyPc0XZXUu9ok3-5rkXJNlAYbj5WsmzVq9vyuquKJmtjPKhgSfqXPDQMM63lC2OreIVIQ/exec",
+        report_url="https://script.google.com/macros/s/AKfycbyPc0XZXUu9ok3-5rkXJNlAYbj5WsmzVq9vyuquKJmtjPKhgSfqXPDQMM63lC2OreIVIQ/exec",
         booking_url=f"{pre}kontakt/",
         privacy_url=f"{pre}datenschutz/",
     )
@@ -4662,6 +4665,58 @@ def gen_blindspot_check() -> None:
         active_nav="tools/blindspot-check",
         main=main,
         json_ld=page_schema(faq_page_schema(BLINDSPOT_FAQ), webapp_ld, breadcrumb_ld),
+        extra_css=extra_css,
+        extra_scripts=extra_scripts,
+    ))
+
+
+# Nach Apps-Script-Deploy: URL hier eintragen (gleiche Web-App-URL wie EN).
+RA_PREP_SUBMIT_URL = ""
+
+
+def gen_ra_prep() -> None:
+    pre = "../../"
+    canonical = "/tools/ra-vorbereitung/"
+    config_json = ra_prep_config_json(
+        locale="de",
+        submit_url=RA_PREP_SUBMIT_URL,
+        privacy_url=f"{pre}datenschutz/",
+        terms_url=f"{pre}agb/",
+    )
+    main = (
+        hero(
+            pre,
+            "RISIKOANALYSE",
+            "Vorbereitung für Ihre Risikoanalyse",
+            "Mit diesem Fragebogen bereiten Sie den Workshop bei Beraterium optimal vor. Ihre Angaben helfen uns, den Termin zielgerichtet zu planen — Dauer etwa 15–20 Minuten.",
+            compact=True,
+            actions='<a class="brt-btn brt-btn--on-dark brt-btn--lg" href="#brt-ra-prep">Fragebogen starten</a>',
+        )
+        + f"""
+    <section id="fragebogen" class="brt-section brt-section--alt" aria-labelledby="rap-title">
+      <div class="brt-container">
+        <header class="brt-section__header brt-fade-up">
+          <p class="brt-tag">VORBEREITUNG</p>
+          <h2 id="rap-title" class="brt-h2">Fragebogen zur Risikoanalyse</h2>
+          <p class="brt-body brt-section__lede">Bitte füllen Sie alle für Sie relevanten Felder aus. Pflicht sind Ihre Kontaktdaten sowie die Bestätigung von Datenschutz und AGB.</p>
+        </header>
+        <div id="brt-ra-prep" class="rap-widget brt-fade-up" aria-live="polite"></div>
+      </div>
+    </section>"""
+    )
+    extra_css = f'\n  <link rel="stylesheet" href="{pre}css/brt-ra-prep.css?v={BRT_ASSET_VERSION}">'
+    extra_scripts = (
+        f'\n<script type="application/json" id="brt-ra-prep-config">{config_json}</script>'
+        f'\n<script src="{pre}js/brt-ra-prep.js?v={BRT_ASSET_VERSION}"></script>'
+    )
+    write("tools/ra-vorbereitung/index.html", shell(
+        depth=2,
+        title="RA-Vorbereitung – Fragebogen | Beraterium",
+        description="Vorbereitungsfragebogen für Ihre Risikoanalyse bei Beraterium: Unternehmensdaten, Ziele und Workshop-Vorbereitung in 15–20 Minuten.",
+        canonical=canonical,
+        active_nav=None,
+        main=main,
+        noindex=True,
         extra_css=extra_css,
         extra_scripts=extra_scripts,
     ))
@@ -5460,8 +5515,10 @@ if __name__ == "__main__":
         gen_standort(_st_cfg)
     gen_risikoradar()
     blindspot_selfcheck()
+    ra_prep_selfcheck()
     gen_tools_index()
     gen_blindspot_check()
+    gen_ra_prep()
     gen_blog()
     gen_blog_singles()
     gen_home_analyse()
@@ -5482,4 +5539,7 @@ if __name__ == "__main__":
     gen_danke()
     gen_404()
     write_sitemap()
+    from scripts.gen_legacy_redirects import main as gen_legacy_htaccess
+
+    gen_legacy_htaccess()
     print("Done.")

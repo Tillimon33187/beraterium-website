@@ -29,6 +29,8 @@ Wer als Unternehmer erfolgreich wachsen will, kommt um eine unbequeme Wahrheit n
 Die Zahlen sprechen eine klare Sprache. In Deutschland scheitern 80 von 100 Startups innerhalb der ersten drei Jahre. Nur 48 Prozent aller neugegründeten Unternehmen überleben diese kritische Phase. Gleichzeitig rechnen 80 Prozent der deutschen Mittelständler für 2025 mit beschleunigtem wirtschaftlichem Schrumpfen. Die Unsicherheit ist allgegenwärtig – und genau deshalb wird der intelligente Umgang mit Risiken zum entscheidenden Wettbewerbsfaktor.
 
 ## Das Risiko-Paradox: Wenn Sicherheit Innovation bremst
+Bewusste Entscheidungen brauchen Zahlen — unsere [Methode](/methode/) bewertet Restrisiko in Euro.
+
 
 Viele Unternehmer stehen vor einem Dilemma. Auf der einen Seite wird ihnen geraten, Risiken zu minimieren, Prozesse abzusichern und Gefahren frühzeitig zu identifizieren. Auf der anderen Seite erfordert Wachstum genau das Gegenteil: neue Märkte erschließen, innovative Produkte entwickeln, unbekanntes Terrain betreten. Wer nur im sicheren Fahrwasser schippert, wird keine neuen Ufer erreichen.
 

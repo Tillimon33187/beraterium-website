@@ -45,6 +45,8 @@ faq:
   * Fünf Alltagstipps aus der Folge: echte Lebensmittel, Schlafhygiene, Lachen, kurzer tiefer Austausch, Zeit in der Natur.
 
 ## Warum Gesundheit im Risikoregister von Gründern und KMU fehlt
+Schlüsselperson-Risiko trifft Gründerteams besonders — der [4-Wochen Risiko-Check für Startups](/angebote/startups/) adressiert Abhängigkeiten früh.
+
 
 Risikomanagement lebt von Schadensausmaß und Eintrittswahrscheinlichkeit – und genau dort gehört die physische und psychische Belastbarkeit von Gründern, Geschäftsführern und Schlüsselpersonal hin. In Folge 16 des Risiko Radar verdeutlichen Till und Peter mit ihrem Gast Alexander Schmidt, dass Gesundheit kein privates „Nice-to-have“ neben der Firma ist, sondern direkt mit Lieferfähigkeit, Termintreue und Entscheidungsqualität zusammenhängt. Viele Startups und kleine Mittelständler fahren in der Anfangsphase mit hoher intrinsischer Energie; genau diese Phase täuscht, weil sie den Blick auf langsame Ermüdung, Reizbarkeit und Konzentrationsverlust verzögert. Wer das Thema erst dann ernst nimmt, wenn jemand länger ausfällt, steuert zu spät und oft zu teuer.
 

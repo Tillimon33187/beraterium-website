@@ -47,7 +47,7 @@ faq:
 
 ## Warum Theorie und Praxis bei Risikostandards so oft auseinanderfallen
 
-Wer nach Risikomanagement sucht, landet schnell bei Normen, Checklisten und Zertifikaten — das ist der theoretische Rahmen. Im Betrieb entscheiden jedoch Menschen, Zeitdruck und Gewohnheiten, ob daraus Handlung wird. In Folge 18 des Risiko Radar gehen Till Manfred Blania und Peter Münstermann deshalb bewusst durch Alltagsannahmen: Wo Standards Orientierung geben, wo sie trügerische Sicherheit suggerieren — und wo die eigentliche Lücke zwischen Papier und Praxis entsteht. Nicht als Abrechnung mit Regeln, sondern als Einordnung für Geschäftsführer und Risikoverantwortliche in KMU, die spüren, dass „alles geregelt“ sein kann und trotzdem etwas klemmt.
+Wer nach Risikomanagement sucht, landet schnell bei Normen, Checklisten und Zertifikaten — das ist der theoretische Rahmen. Wer Risikomanagement vertiefen will, findet in den [Schulungen zur Ausbildung im Risikomanagement](/schulungen/) strukturierte Formate jenseits der Normen-Lektüre. Im Betrieb entscheiden jedoch Menschen, Zeitdruck und Gewohnheiten, ob daraus Handlung wird. In Folge 18 des Risiko Radar gehen Till Manfred Blania und Peter Münstermann deshalb bewusst durch Alltagsannahmen: Wo Standards Orientierung geben, wo sie trügerische Sicherheit suggerieren — und wo die eigentliche Lücke zwischen Papier und Praxis entsteht. Nicht als Abrechnung mit Regeln, sondern als Einordnung für Geschäftsführer und Risikoverantwortliche in KMU, die spüren, dass „alles geregelt“ sein kann und trotzdem etwas klemmt.
 
 ## Was bringt ein ISO-Zertifikat wirklich — und was nicht?
 

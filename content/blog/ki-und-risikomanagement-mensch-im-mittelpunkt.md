@@ -20,6 +20,8 @@ related_slugs: []
   * **Konkrete Schritte:** Analysiere, wie tief KI für dein Geschäftsmodell relevant ist. Schulung und klare Nutzungsregeln für KI. Sensible Daten nicht in externe KI-Systeme (z. B. US-gehostet). Prozesse priorisieren – nur was wirklich Wert schafft, lohnt Automatisierung.
 
 ## Warum jetzt über KI und Risiken sprechen?
+Technik ersetzt keine [strukturierte Risikobewertung](/methode/) — sie unterstützt Menschen bei Prioritäten.
+
 
 Im Alltag und im Business nutzen wir KI immer häufiger: für Texte, Bilder, Prozesse, Auswertungen. Gleichzeitig gilt noch oft die Haltung: „Internet war auch so ein Thema – vielleicht brauche ich es nicht.“ Bei KI ist das riskant. Sie wird nicht einfach verschwinden. Die Frage ist nicht mehr **ob** , sondern **wie** wir sie nutzen – und welche Risiken wir dabei eingehen.
 

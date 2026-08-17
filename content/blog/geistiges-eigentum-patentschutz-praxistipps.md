@@ -30,7 +30,7 @@ related_slugs: []
 
 ## Warum jetzt über geistiges Eigentum und Patentschutz?
 
-Ob Startup oder etablierter Mittelstand: Ideen, Marken, Verfahren und das Wissen der Mitarbeiter sind oft der Kern des Geschäfts. Gleichzeitig ist nicht alles rechtlich schützbar – und selbst wo es geht, gilt Schutz nur dort, wo man ihn anmeldet. Wer international denkt (Absatz, Produktion, Lieferanten), muss früh über Patente, Marken und den Umgang mit Know-how nachdenken. In dieser Episode geht es um die Basics: Was ist überhaupt patentierbar? Wo lauern Risiken bei geistigem Eigentum? Und was können Unternehmen tun – jenseits von Verträgen?
+Ob Startup oder etablierter Mittelstand: Ideen, Marken, Verfahren und das Wissen der Mitarbeiter sind oft der Kern des Geschäfts. Gleichzeitig ist nicht alles rechtlich schützbar – und selbst wo es geht, gilt Schutz nur dort, wo man ihn anmeldet. Wer international denkt (Absatz, Produktion, Lieferanten), muss früh über Patente, Marken und den Umgang mit Know-how nachdenken — und Risiken in der [Risikomanagement-Beratung](/angebote/) strukturiert bewerten. In dieser Episode geht es um die Basics: Was ist überhaupt patentierbar? Wo lauern Risiken bei geistigem Eigentum? Und was können Unternehmen tun – jenseits von Verträgen?
 
 ## Was ist patentierbar – und was nicht?
 

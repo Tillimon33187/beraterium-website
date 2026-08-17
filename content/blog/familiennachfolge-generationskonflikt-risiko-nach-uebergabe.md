@@ -51,6 +51,8 @@ faq:
   * **Worst Cases** reichen von wirtschaftlicher Lähmung und Rechtsstreit bis zu dauerhafter familiärer Entfremdung; je früher Struktur kommt, desto geringer typischerweise der Schaden in beiden Systemen.
 
 ## Warum der Konflikt oft „im Bauch“ sitzt, obwohl die Übergabe formal erledigt ist
+Nachfolge-Risiken lassen sich strukturiert erfassen — die [Lösungsseite Unternehmensnachfolge](/loesungen/nachfolge/) zeigt den Ansatz.
+
 
 Familienunternehmen prägen den deutschen Mittelstand; gleichzeitig scheitern viele Nachfolgeprozesse oder werden von harten Konflikten begleitet. Was in Medien und Beratungspraxis immer wieder auftaucht, lässt sich auf einen Satz bringen: Es geht nicht nur um Anteile, Verträge und Steuern, sondern um Identität, Macht und Nähe. Wer das unterschätzt, sucht die Ursache für Spannungen an der falschen Stelle – und reagiert mit Prozessoptimierung oder einem weiteren Workshop dort, wo eigentlich Rollen, Sorgen und Zuständigkeiten geklärt werden müssen. Für Geschäftsführerinnen und Nachfolger, für Gesellschafterfamilien und für Beraterinnen im Mittelstand lohnt sich deshalb ein Blick auf das Drumherum: Welche Systeme kollidieren, welche Signale gehen ins Team, und welche Eskalationspfade sind typisch? Dieser Artikel ordnet das ein – sachlich und ohne Partei für „Vater“ oder „Sohn“, aber mit klarer Risikoperspektive aus der Praxis von Beraterium.
 

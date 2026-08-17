@@ -24,6 +24,8 @@ related_slugs: []
   * **Die Community existiert seit einem Monat** und wird in Kürze für weitere Mitglieder geöffnet – über ein persönliches Kennenlerngespräch.
 
 ## Warum eine Community für Risikomanagement?
+Die [RisikoRadar-Community](/risikoradar/) verbindet Unternehmer mit geprüften Experten — Ergänzung zur [Risikomanagement-Beratung](/angebote/).
+
 
 Wer sich mit Risikomanagement beschäftigt, kennt den ersten Schritt: Risiken methodisch identifizieren und bewerten. Bei Beraterium haben wir uns genau das auf die Fahne geschrieben – in kleinen, mittleren und großen Unternehmen die größten Risiken finden, etwa die Top 5. Schön, das ist getan. Aber dann kommt die eigentliche Herausforderung: Was machen wir jetzt damit? Es braucht Maßnahmen. Und die Überzeugung, die hinter der Community Risikoradar steht, ist simpel: Ein einzelner Berater oder Experte kann vielleicht 80 % abdecken, aber es gibt immer Randbereiche, in denen er Zuarbeit braucht oder die Diskussion mit anderen. Ob IT-Problem, Arbeitsschutz, Mitarbeiterführung oder DSGVO – ein einzelner Coach wird das selten vollständig richten. Deshalb war der konsequente nächste Schritt: eine Plattform schaffen, in der alle Expertise gebündelt ist und in der Kunden und Interessenten eine echte Heimat finden.
 

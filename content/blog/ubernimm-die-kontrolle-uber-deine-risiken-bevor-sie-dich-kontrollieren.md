@@ -25,6 +25,8 @@ related_slugs: []
   * Strukturierte Risiko-Analysen schützen vor Panikentscheidungen und machen dich vom Getriebenen zum Gestalter deines Unternehmens.
 
 ## Risiko gehört zu deinem Unternehmer-Alltag – ob du willst oder nicht
+Der erste Schritt ist ein klares Lagebild — unsere [Angebote im Überblick](/angebote/) zeigen, welcher Check zu Ihrer Situation passt.
+
 
 Risiko ist in deinem Unternehmen kein Ausnahmezustand, sondern Alltag: Regulierung, Energiepreise, CO₂-Vorgaben, Fachkräftemangel, Cyberangriffe und menschliche Fehler sitzen bei dir mit am Tisch, jeden Tag. Der entscheidende Unterschied zwischen wachsendem und stagnierendem Unternehmen ist nicht, wer weniger Risiken hat, sondern wer sie früher sieht und bewusster steuert. 
 

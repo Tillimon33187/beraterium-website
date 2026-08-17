@@ -88,7 +88,7 @@ Klarheit bringt selten sofort mehr Umsatz. Sie reduziert Verluste, Prioritäten 
 
 ISO-Normen und Checklisten haben ihren Platz — wer den Podcast verfolgt, kennt die Grenzen. „Haben wir schon intern" heißt manchmal: Jemand optimiert Prozesse, während der Chef glaubt, es laufe Risikomanagement.
 
-Peter Münstermann warnt vor dem Abhaken: Papier ist geduldig. Eine Frage, ein Kreuz, erledigt — theoretisch korrekt, praktisch wirkungslos. Checklisten kennen weder den Generationswechsel im Familienbetrieb noch die Kaffeepause-Wahrheit im Fitnessstudio. Deshalb setzt Beraterium auf **Risikodialog**: Menschen erzählen, was ihnen schon untergekommen ist — und aus diffusen Befürchtungen werden gemeinsam getragene Einschätzungen.
+Peter Münstermann warnt vor dem Abhaken: Papier ist geduldig. Eine Frage, ein Kreuz, erledigt — theoretisch korrekt, praktisch wirkungslos. Checklisten kennen weder den Generationswechsel im Familienbetrieb noch die Kaffeepause-Wahrheit im Fitnessstudio. Deshalb setzt Beraterium auf **Risikodialog** und den [3-Ebenen-Gefahrenkatalog](/methode/): Menschen erzählen, was ihnen schon untergekommen ist — und aus diffusen Befürchtungen werden gemeinsam getragene Einschätzungen.
 
 ## Wie ein Gefahrenkatalog als Basis funktioniert
 

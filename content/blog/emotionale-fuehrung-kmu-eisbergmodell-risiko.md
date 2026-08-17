@@ -58,6 +58,8 @@ faq:
   * Fünf Impulse zum Ausprobieren: Emotionen zulassen, bewusste Ruhephasen (z. B. kurze Stille-Sitzung), Selbstbeobachtung im Hamsterrad, die Frage nach Zufriedenheit im Hier und Jetzt, neue Methoden mehrfach testen statt nach einem Mal zu urteilen.
 
 ## Warum Risiko Radar Folge 17 überhaupt über „unter der Oberfläche“ spricht
+Führungs- und Kulturrisiken gehören ins KMU-Lagebild — siehe [Risikomanagement-Beratung für KMU](/angebote/kmu/).
+
 
 Risikomanagement lebt von dem, was messbar und dokumentierbar ist – und genau dort entsteht eine typische Lücke: Zwischenmenschliche Dynamik, ungeschriebene Erwartungen und emotionale Muster steuern Entscheidungen, Prioritäten und Auslastung oft stärker als jede Risikomatrix vermuten lässt. In Folge 17 des Risiko Radar sprechen Till und Peter mit dem Gast Andreas über Persönlichkeitsentwicklung, systemische und emotionale Aspekte von Führung und darüber, wie sich das auf konkrete Unternehmensabläufe übersetzt. Der Artikel fasst die Diskussion sachlich zusammen und ordnet sie für Gründer, Geschäftsführer und Risikoverantwortliche in KMU und wachsenden Teams ein – ohne Esoterik zu verwechseln mit Ersatz für saubere Steuerung und ohne Emotionen zu romantisieren als alleinige Lösung.
 

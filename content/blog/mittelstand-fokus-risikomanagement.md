@@ -31,7 +31,7 @@ Der Mittelstand gilt als Rückgrat der Wirtschaft – doch viele Unternehmen ger
 
 Viele mittelständische Unternehmen gelten als das Rückgrat der deutschen Wirtschaft – verlässlich, bodenständig, leistungsstark. Doch hinter dieser Stabilität steckt häufig ein Paradox: Während Aufträge wachsen und Verantwortung zunimmt, bleibt die Zeit für Strategie, Struktur und Zukunftsplanung auf der Strecke. Der Alltag wird zur Dauerfeuerwehrübung – und was lange funktioniert hat, stößt an seine Grenzen.
 
-Dieser Beitrag zeigt, welche Denk- und Handlungsmuster den Mittelstand bremsen – und wie gezielte Priorisierung, offene Kommunikation und pragmatisches Risikomanagement helfen, die Handlungsfähigkeit zurückzugewinnen.
+Dieser Beitrag zeigt, welche Denk- und Handlungsmuster den Mittelstand bremsen – und wie gezielte Priorisierung, offene Kommunikation und pragmatisches Risikomanagement helfen, die Handlungsfähigkeit zurückzugewinnen. Wer strukturiert starten will, findet den [Klarheits-Fahrplan für KMU](/angebote/kmu/) als Einstieg in die Risikomanagement-Beratung.
 
 ## Reaktion statt Strategie - wenn der Alltag das Denken bestimmt
 

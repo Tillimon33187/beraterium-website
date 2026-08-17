@@ -27,7 +27,7 @@ Der deutsche Mittelstand steht unter Druck – aber nicht nur von innen. Währen
 
 Das Problem: Diese externen Risikofaktoren sind oft jenseits direkter Kontrolle, lassen sich aber weder ignorieren noch hinauszögern. Energiepreise steigen unabhängig von deinen Entscheidungen. Regulierungen ändern sich über Nacht. Talente wandern ab, weil die Rahmenbedingungen für Zuwanderung zu komplex sind.
 
-Die Frage ist nicht, ob diese Risiken dein Unternehmen treffen – die Frage ist, wann und wie stark. Hier sind die acht kritischsten externen Einflussfaktoren für KMUs in Deutschland und wie du damit umgehen kannst.
+Die Frage ist nicht, ob diese Risiken dein Unternehmen treffen – die Frage ist, wann und wie stark. Eine [strukturierte Risikobewertung für KMU](/angebote/kmu/) hilft, die acht kritischsten externen Einflussfaktoren in Euro zu priorisieren — statt nur zu reagieren.
 
 ## 1\. Die Inflation-Lohn-Spirale: Wenn Lebenshaltungskosten deine Lohnkosten sprengen
 

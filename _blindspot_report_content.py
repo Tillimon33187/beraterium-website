@@ -158,11 +158,31 @@ REPORT_BY_ID: dict[str, dict] = {
             "Geschäft. Je kritischer die Rolle, desto teurer der Verlust, besonders "
             "wenn kein Übergabeprotokoll und keine Nachfolgeplanung existieren."
         ),
+        "why_gruender": (
+            "Geht ein Mitgründer, nehmen oft undokumentierte Kontakte, Verhandlungen "
+            "und Entscheidungen mit — während das Team weiterlaufen soll. Ohne "
+            "Übergabeprotokoll entsteht sofort Reibung bei Investoren und Kunden."
+        ),
+        "why_solo": (
+            "Hängt alles an Ihnen allein, gibt es keinen internen Puffer: Jeder "
+            "Ausfall stoppt Umsatz und Kundenkommunikation — besonders wenn "
+            "Passwörter und Abläufe nur in persönlichen Accounts liegen."
+        ),
         "step": (
             "Identifizieren Sie die drei wichtigsten Schlüsselrollen und dokumentieren "
             "je Rolle Kernaufgaben, Kontakte, Systeme und Entscheidungsgrenzen. "
             "Führen Sie Pairing oder monatliche Wissensaustausch-Runden ein und "
             "sichern Sie alle Zugänge zentral."
+        ),
+        "step_gruender": (
+            "Dokumentieren Sie je Mitgründer Verantwortlichkeiten, Kunden, Verträge "
+            "und Systemzugänge. Vereinbaren Sie eine schriftliche Übergabefrist und "
+            "sichern Sie alle Zugänge in einem gemeinsamen Passwort-Tresor."
+        ),
+        "step_solo": (
+            "Schreiben Sie Ihre wichtigsten Abläufe und Zugänge in eine Checkliste. "
+            "Benennen Sie eine Vertrauensperson mit Notfallzugriff und testen Sie "
+            "den Zugriff einmal."
         ),
         "tips": [
             "Vereinbaren Sie bei jeder Einstellung in Schlüsselrollen eine schriftliche Übergabefrist.",
@@ -187,10 +207,20 @@ REPORT_BY_ID: dict[str, dict] = {
             "auf Führungsebene. Wachstum verstärkt das Problem: Je mehr Leute, "
             "desto teurer wird fehlende Ausrichtung."
         ),
+        "why_gruender": (
+            "Gründerteams ohne gemeinsame Prioritäten verlieren Tempo: Jeder optimiert "
+            "seinen Bereich, während Produkt, Vertrieb und Finanzen auseinanderlaufen. "
+            "Investoren und erste Kunden merken fehlende Ausrichtung schnell."
+        ),
         "step": (
             "Formulieren Sie drei Unternehmensziele für die nächsten 12 Monate schriftlich "
             "und leiten Sie je Rolle eine klare Verantwortung ab. Führen Sie ein "
             "monatliches 30-Minuten-Alignment (Ziele, Prioritäten, Blockaden) ein."
+        ),
+        "step_gruender": (
+            "Formulieren Sie drei gemeinsame Gründerteam-Ziele für 12 Monate schriftlich "
+            "und klären Sie je Person eine klare Verantwortung. Führen Sie ein "
+            "wöchentliches 30-Minuten-Alignment (Ziele, Blockaden, Entscheidungen) ein."
         ),
         "tips": [
             "Hängen Sie jede größere Aufgabe an ein Ziel, Aufgaben ohne Zielbezug streichen oder delegieren.",
@@ -219,10 +249,27 @@ REPORT_BY_ID: dict[str, dict] = {
             "Leistungsträger kündigen oder Projekte stillstehen. In kleinen Teams "
             "verstärkt sich das schnell, weil jede Verzögerung direkt am Umsatz hängt."
         ),
+        "why_gruender": (
+            "Spannungen zwischen Mitgründern wirken wie Bremsklötze: Entscheidungen "
+            "verzögern sich, Informationen werden zurückgehalten, und externe "
+            "Partner merken die Unruhe. In der Wachstumsphase verstärkt sich das "
+            "schnell, weil jeder Tag zählt."
+        ),
+        "why_solo": (
+            "Eskalierende Kunden, ausfallende Freelancer oder schieflaufende "
+            "Projekte kosten als Solo sofort Umsatz und Nerven — ohne Team, "
+            "das abfedert. Ungelöste Konflikte wirken oft länger nach als der "
+            "eigentliche Auslöser."
+        ),
         "step": (
             "Etablieren Sie ein festes Feedback-Format (z. B. monatlich, moderiert). "
             "Klären Sie Entscheidungswege schriftlich: Wer entscheidet was bis wann? "
             "Bei erkennbarer Spannung früh moderieren, ohne Schuldzuweisung."
+        ),
+        "step_gruender": (
+            "Vereinbaren Sie ein festes Gründerteam-Format für schwierige Themen "
+            "(wöchentlich 30 Minuten). Klären Sie Entscheidungswege schriftlich "
+            "und holen Sie bei Blockade früh eine externe Moderation."
         ),
         "tips": [
             "Trennen Sie Sach- und Beziehungsebene in Konfliktgesprächen explizit.",
@@ -230,14 +277,15 @@ REPORT_BY_ID: dict[str, dict] = {
             "Dokumentieren Sie getroffene Entscheidungen kurz, das reduziert Nachinterpretationen.",
         ],
         "tips_solo": [
-            "Sprechen Sie Spannungen mit Kunden oder Partnern früh an, nicht erst bei Eskalation.",
-            "Nutzen Sie bei schwierigen Entscheidungen einen externen Sparringspartner (Mentor, Berater).",
-            "Dokumentieren Sie getroffene Entscheidungen kurz, das reduziert späteres Grübeln.",
+            "Sprechen Sie Spannungen mit Kunden oder Freelancern früh an, nicht erst bei Eskalation.",
+            "Halten Sie pro Hauptprojekt einen Ersatz-Freelancer oder Partner in Reserve.",
+            "Dokumentieren Sie Vereinbarungen schriftlich, das reduziert Missverständnisse.",
         ],
         "step_solo": (
-            "Planen Sie ein festes Feedback-Gespräch mit einer Vertrauensperson "
-            "(Mentor, Steuerberater, Branchenkollegin). Klären Sie Entscheidungswege "
-            "schriftlich: Was entscheiden Sie allein, wofür holen Sie Rat ein?"
+            "Legen Sie für kritische Kunden und Freelancer klare Eskalationswege "
+            "fest (wer antwortet wann, welche Vertragsregeln gelten). Sprechen Sie "
+            "Spannungen früh an — und haben Sie für jedes Hauptprojekt einen "
+            "Ersatz-Freelancer im Blick."
         ),
         "yellow_note": (
             "Langsame Entscheidungen sind oft das erste Warnsignal, bevor Kündigungen folgen."
@@ -245,31 +293,33 @@ REPORT_BY_ID: dict[str, dict] = {
     },
     "t1": {
         "why": (
-            "Ein Cyberangriff trifft doppelt: Erst fallen Systeme und Daten aus, "
-            "dann leidet das Vertrauen von Kunden und Partnern. Meldepflichten (z. B. "
-            "DSGVO binnen 72 Stunden), Schadenersatz und Reputationsschäden können "
-            "ohne Backups, Meldewege und Kommunikationsplan zur Existenzfrage werden, "
-            "besonders wenn Zahlungsverkehr oder Kundendaten betroffen sind."
+            "Vertrauensverlust wirkt oft langsamer als ein technischer Ausfall, "
+            "trifft aber genauso hart: Aufträge werden verschoben, Empfehlungen "
+            "bleiben aus, Verhandlungen werden härter. Ohne klare Kommunikation "
+            "und Wiedergutmachung wird aus einem Vorfall ein dauerhaftes Image-Problem."
+        ),
+        "why_solo": (
+            "Als Solo hängt Ihr Ruf direkt an jedem Projekt. Negative Bewertungen, "
+            "mundpropagandistische Kritik oder schlecht kommunizierte Fehler können "
+            "schneller Folgeaufträge kosten als der Fehler selbst."
         ),
         "step": (
-            "Richten Sie automatische, getestete Backups ein (Restore einmal pro Quartal "
-            "probeentladen). Erzwingen Sie Zwei-Faktor-Authentifizierung für E-Mail, "
-            "Cloud und Banking. Erstellen Sie einen einseitigen Notfallplan: Wer meldet "
-            "was, an wen, in welcher Reihenfolge."
+            "Legen Sie fest, wer bei einem Reputationsthema nach außen spricht, "
+            "welche Fakten zuerst an Kunden gehen und wie Sie Transparenz ohne "
+            "Panik vermitteln. Halten Sie Stellungnahmen und FAQ-Vorlagen bereit."
         ),
         "tips": [
-            "Schulen Sie alle Mitarbeitenden jährlich zu Phishing, ein Klick reicht.",
-            "Prüfen Sie Cyber-Versicherung und ob Ihr IT-Dienstleister Incident-Response festgelegt hat.",
-            "Halten Sie Offline-Kontaktdaten von Anwalt, IT und Versicherung griffbereit.",
+            "Reagieren Sie bei Kritik schnell, sachlich und ohne Schuldzuweisungen nach außen.",
+            "Dokumentieren Sie positive Kundenreferenzen, bevor Sie sie brauchen.",
+            "Üben Sie einmal den Ablauf: Wer informiert wen bei einem Reputationsthema?",
         ],
         "tips_solo": [
-            "Schulen Sie sich selbst jährlich zu Phishing und sicheren Passwörtern, ein Klick reicht.",
-            "Prüfen Sie Cyber-Versicherung und ob Ihr IT-Dienstleister Incident-Response festgelegt hat.",
-            "Halten Sie Offline-Kontaktdaten von Anwalt, IT und Versicherung griffbereit.",
+            "Reagieren Sie auf negative Bewertungen schnell, sachlich und lösungsorientiert.",
+            "Sammeln Sie Testimonials, bevor Sie sie für Akquise brauchen.",
+            "Halten Sie eine kurze FAQ für typische Kundenbedenken bereit.",
         ],
         "yellow_note": (
-            "Fehlt ein getestetes Backup, wird aus jedem Angriff schnell ein Datenverlust "
-            "mit langer Ausfallzeit, auch bei vermeintlich kleinen Vorfällen."
+            "Reputationsschäden wirken oft verzögert — der Umsatzeinbruch kommt Wochen später."
         ),
     },
     "t2": {
@@ -297,24 +347,24 @@ REPORT_BY_ID: dict[str, dict] = {
     },
     "t3": {
         "why": (
-            "Preiserhöhungen, Funktionsänderungen oder Kontosperrung eines einzelnen "
-            "Anbieters können Betrieb, Daten und Kundenzugang gleichzeitig treffen. "
-            "Ohne Ausweichweg hängen Sie von der Kulanz und den AGB eines Dritten ab, "
-            "bei Cloud, Payment, Shop oder Kommunikation oft über Nacht spürbar."
+            "Preiserhöhungen, Kündigungen, Lieferstopps oder geänderte Konditionen "
+            "eines einzigen Software-Anbieters, Zulieferers oder Partners können "
+            "Produktion, Lieferung und Umsatz gleichzeitig treffen. Ohne Ausweichweg "
+            "hängen Sie von der Kulanz und den Vertragsbedingungen eines Dritten ab."
         ),
         "step": (
-            "Listen Sie alle kritischen SaaS-/Cloud-Dienste mit monatlichen Kosten, "
-            "Dateninhaber und Exportmöglichkeit. Sichern Sie wöchentlich exportierbare "
-            "Daten und definieren Sie je Top-3-Dienst mindestens eine Alternative."
+            "Listen Sie kritische Abhängigkeiten (Cloud, Payment, Schlüssel-Zulieferer, "
+            "strategische Partner) mit Kosten, Laufzeit und Ersatzoption. Definieren Sie "
+            "je Top-3-Abhängigkeit mindestens eine Alternative oder Übergangslösung."
         ),
         "tips": [
             "Vermeiden Sie, dass ein Anbieter gleichzeitig E-Mail, Dateien und Auth kontrolliert.",
-            "Lesen Sie AGB-Änderungen, Kündigungsfristen und Datenportabilität mitdenken.",
-            "Testen Sie den Datenexport jedes Quartals, nicht erst bei Kündigung.",
+            "Halten Sie für kritische Materialien mindestens einen zweiten Zulieferer bereit.",
+            "Prüfen Sie Verträge auf Kündigungsfristen, Preisanpassungsklauseln und Exit-Regeln.",
         ],
         "yellow_note": (
-            "Ein einziger Anbieter-Lock-in wird kritisch, sobald Preise steigen oder "
-            "der Account ohne Vorwarnung gesperrt wird."
+            "Klumpenrisiken werden kritisch, sobald Preise steigen, Lieferungen ausbleiben "
+            "oder der Partner ohne Vorwarnung kündigt."
         ),
     },
     "o1": {
@@ -341,6 +391,23 @@ REPORT_BY_ID: dict[str, dict] = {
         ),
     },
     "o2": {
+        "why_kmu": (
+            "Falsche Steuer-, Rechts- oder Unternehmensberatung kostet nicht nur "
+            "Honorare, sondern oft Nachzahlungen, verpasste Fristen und teure "
+            "Korrekturen. Besonders bei Struktur-, Finanzierungs- oder "
+            "Compliance-Entscheidungen wirkt schlechte Beratung jahrelang nach."
+        ),
+        "step_kmu": (
+            "Prüfen Sie bei wichtigen Entscheidungen mindestens zwei unabhängige "
+            "Meinungen. Klären Sie schriftlich Leistungsumfang, Haftung und "
+            "Erfahrung in Ihrer Branche — und dokumentieren Sie die "
+            "Entscheidungsgrundlage."
+        ),
+        "tips_kmu": [
+            "Holen Sie bei Steuer- und Rechtsfragen eine Zweitmeinung ein, bevor Sie bindend entscheiden.",
+            "Fragen Sie Referenzen aus vergleichbaren Unternehmen, nicht nur allgemeine Empfehlungen.",
+            "Dokumentieren Sie Beratungsergebnisse und offene Risiken schriftlich im Team.",
+        ],
         "why": (
             "Prozesse, die nur mit ständiger Kontrolle der Inhaber funktionieren, "
             "skalieren nicht. Jeder Urlaub oder Ausfall wird zum Risiko; Fehler fallen "
@@ -374,10 +441,10 @@ REPORT_BY_ID: dict[str, dict] = {
     },
     "o3": {
         "why": (
-            "Einzeln beherrschbare Störungen, kranker Mitarbeiter, verspätete Lieferung, "
-            "IT-Ausfall, verstärken sich zu einer Kette, wenn Puffer und Plan B fehlen. "
-            "Gerade in schlanken Organisationen kollabiert die Kette schnell, weil "
-            "keine Redundanz vorhanden ist."
+            "Einzeln beherrschbare Störungen verstärken sich, wenn mehrere "
+            "gleichzeitig eintreffen und Puffer fehlen. Gerade in schlanken "
+            "Organisationen reichen drei parallele Probleme, um Lieferung, "
+            "Liquidität oder Qualität gleichzeitig zu treffen."
         ),
         "step": (
             "Definieren Sie für die drei kritischsten Abläufe je Plan B: Wer übernimmt, "
@@ -405,25 +472,24 @@ REPORT_BY_ID: dict[str, dict] = {
     },
     "s1": {
         "why": (
-            "Wachstum ohne mitwachsende Strukturen erzeugt Reibung: unklare "
-            "Zuständigkeiten, Qualitätsprobleme, Führungskräfte die nur noch Feuer "
-            "löschen. Neue Mitarbeitende orientieren sich nicht, Kunden spüren "
-            "Inkonsistenz. Die Phase ist teuer, weil Umsatz steigt, aber Marge "
-            "und Tempo sinken."
+            "Wächst das Team schneller als klare Rollen, entstehen Doppelarbeit, "
+            "Lücken und Frustration. Entscheidungen verzögern sich, Qualität "
+            "schwankt — und gute Leute gehen, weil niemand weiß, wer wofür "
+            "verantwortlich ist."
         ),
         "step": (
-            "Vor dem nächsten Wachstumsschritt Rollen, Verantwortlichkeiten und "
-            "Kernprozesse schriftlich klären. Standardisieren Sie Onboarding, "
-            "bevor die nächsten Einstellungen kommen, nicht danach."
+            "Definieren Sie vor dem nächsten Wachstumsschritt Rollen, "
+            "Entscheidungswege und Verantwortlichkeiten schriftlich. Standardisieren "
+            "Sie Onboarding, bevor neue Einstellungen kommen."
         ),
         "tips": [
-            "Einstellen Sie erst, wenn der Prozess für die Rolle dokumentiert ist.",
-            "Führen Sie wöchentliche 15-Minuten-Standups mit klaren Verantwortlichen ein.",
-            "Beauftragen Sie eine Person explizit mit „Operations/Prozesse“, auch in kleinen Teams.",
+            "Halten Sie je Rolle drei klare Verantwortlichkeiten schriftlich fest.",
+            "Führen Sie wöchentliche 15-Minuten-Standups mit festen Verantwortlichen ein.",
+            "Beauftragen Sie eine Person explizit mit Operations/Prozesse — auch in kleinen Teams.",
         ],
         "yellow_note": (
-            "Skalieren Sie Headcount schneller als Strukturen, explodieren Fehlerquote "
-            "und Fluktuation, oft unsichtbar bis zur nächsten Finanzrunde."
+            "Unklare Verantwortlichkeiten werden kritisch, sobald mehr als eine "
+            "Person dieselbe Entscheidung trifft — oder niemand."
         ),
     },
     "s2": {
@@ -449,45 +515,44 @@ REPORT_BY_ID: dict[str, dict] = {
     },
     "s3": {
         "why": (
-            "Verändern sich Kundenverhalten, Wettbewerb oder Technologie schneller "
-            "als die Roadmap, wird aus Vorsprung schleichend Rückstand. Das merken "
-            "Sie oft erst, wenn Pipeline austrocknet oder Churn steigt, dann ist "
-            "Aufholen teurer als frühzeitiges Umlenken."
+            "Fehlender Marken- oder Patentschutz im Ausland ermöglicht Kopien, "
+            "Domain-Grabs oder Billig-Angebote unter ähnlichem Namen. Der Schaden "
+            "zeigt sich oft erst bei Expansion, Partnerschaften oder "
+            "Investorengesprächen — dann ist Abwehr teuer."
         ),
         "step": (
-            "Führen Sie ein quartalsweises Markt-Review ein: Wettbewerber, "
-            "Kundenfeedback, Technologietrends. Gleichen Sie die Produkt-Roadmap "
-            "gegen echte Kundensignale ab, nicht nur interne Annahmen."
+            "Prüfen Sie früh, wo Sie verkaufen wollen und welcher Schutz nötig ist "
+            "(Marke, Patent, Design). Priorisieren Sie die wichtigsten Märkte und "
+            "halten Sie Anmeldungen und Fristen in einem Kalender fest."
         ),
         "tips": [
-            "Sprechen Sie monatlich mit 3–5 Kunden, die fast abgesprungen wären.",
-            "Tracken Sie eine Frühkennzahl (z. B. Trial-to-Paid, Repeat Rate) schriftlich.",
-            "Reservieren Sie 20 % Entwicklungskapazität für Reaktion auf Marktänderungen.",
+            "Recherchieren Sie Marken- und Domain-Konflikte, bevor Sie international skalieren.",
+            "Dokumentieren Sie Entwicklungsstände und Erfindungsdaten für spätere Schutzrechte.",
+            "Lassen Sie Verträge mit Partnern klären, wer IP besitzt und wo sie genutzt werden darf.",
         ],
         "yellow_note": (
-            "Ohne Markt-Rhythmus veralten Produktentscheidungen leise, bis Umsatz es zeigt."
+            "IP-Lücken werden kritisch, sobald Wettbewerber oder Partner im Ausland aktiv werden."
         ),
     },
     "s4": {
         "why": (
-            "Geschäftsmodelle ruhen auf wenigen ungeprüften Kernannahmen, über "
-            "Zahlungsbereitschaft, Regulierung, Partner oder Kanäle. Kippt eine "
-            "Annahme, kippt das Modell. Plattform- und Marktplatzmodelle sind "
-            "besonders anfällig, weil viele Abhängigkeiten gleichzeitig greifen."
+            "Falsche Steuer-, Rechts- oder Investorenberatung kostet nicht nur "
+            "Honorare, sondern oft Richtung, Bewertung und Zeitfenster. Besonders "
+            "in Wachstumsphasen verstärken sich Fehlentscheidungen schnell."
         ),
         "step": (
-            "Benennen Sie die drei kritischsten Kernannahmen schriftlich. Definieren "
-            "Sie je Annahme ein Frühwarnsignal und führen Sie ein Pre-Mortem durch: "
-            "„Angenommen, wir scheitern in 2 Jahren, woran lag es?“"
+            "Prüfen Sie bei wichtigen Entscheidungen mindestens zwei unabhängige "
+            "Meinungen. Klären Sie schriftlich Erfahrung, Leistungsumfang und "
+            "Haftung — und dokumentieren Sie die Entscheidungsgrundlage."
         ),
         "tips": [
-            "Testen Sie Annahmen mit kleinen Experimenten, bevor Sie skalieren.",
-            "Diversifizieren Sie Einnahmequellen, solange die Kernannahme noch trägt.",
-            "Reviewen Sie Annahmen quartalsweise im Team, nicht nur bei Board-Meetings.",
+            "Holen Sie bei Finanzierung und Steuerstruktur eine Zweitmeinung ein.",
+            "Fragen Sie Referenzen aus vergleichbaren Startups, nicht nur allgemeine Empfehlungen.",
+            "Dokumentieren Sie Beratungsergebnisse und offene Risiken vor dem nächsten Schritt.",
         ],
         "yellow_note": (
-            "Ungeprüfte Annahmen werden kritisch, sobald sich Markt oder Regulierung "
-            "minimal verschiebt, ohne dass Sie es sofort merken."
+            "Schlechte Beratung fällt oft erst auf, wenn Nachzahlungen oder "
+            "verpasste Fristen drohen."
         ),
     },
     "s5": {
@@ -537,91 +602,280 @@ REPORT_BY_ID: dict[str, dict] = {
     },
     "k2": {
         "why": (
-            "Kundenbeziehungen, Spezialwissen und Entscheidungsgewalt an einzelnen "
-            "Personen sind ein doppeltes Risiko: im Alltag (Krankheit, Kündigung) "
-            "und bei Nachfolge oder Verkauf. Käufer und Banken bewerten "
-            "Personenabhängigkeit hart, sie senkt Unternehmenswert und Handlungsfähigkeit."
+            "Kündigt eine Schlüsselperson in Vertrieb, Produktion oder "
+            "Technologie, gehen oft Kundenbeziehungen, Know-how und Tempo "
+            "gleichzeitig verloren. Ersatz und Übergabe dauern Monate — "
+            "Umsatz und Qualität leiden sofort."
         ),
         "step": (
-            "Benennen Sie kritische Personenabhängigkeiten schriftlich. Organisieren "
-            "Sie Vertretungen und Wissenstransfer. Bei Inhaberabhängigkeit: früh "
-            "Nachfolge- oder Verkaufsvorbereitung starten."
+            "Benennen Sie die kritischsten Rollen und halten Sie je Rolle "
+            "Vertretung, Wissenstransfer und Kundenübergabe schriftlich fest. "
+            "Beginnen Sie früh mit Nachfolgeplanung für unverzichtbare Positionen."
         ),
         "tips": [
-            "Führen Sie bei Schlüsselkunden mindestens zwei Kontaktpersonen im Unternehmen.",
-            "Dokumentieren Sie Entscheidungsprotokolle für wiederkehrende Kundenfälle.",
-            "Prüfen Sie Key-Person- und Betriebsunterbrechungsversicherung.",
+            "Dokumentieren Sie Kunden- und Lieferantenbeziehungen je Schlüsselrolle.",
+            "Führen Sie regelmäßige Wissensübergaben ein — nicht erst bei Kündigung.",
+            "Halten Sie für kritische Rollen eine Ersatz-Pipeline im Recruiting bereit.",
         ],
         "yellow_note": (
-            "Personenabhängigkeit wird kritisch bei erstem Ausfall oder wenn "
-            "ein Verkauf/Nachfolge ansteht."
+            "Schlüsselpersonen-Risiken werden kritisch, sobald eine Kündigung "
+            "ohne Übergabeplan kommt."
         ),
     },
     "k3": {
         "why": (
-            "Historisch gewachsene Abläufe verstecken Doppelarbeit, "
-            "Einzelabhängigkeiten und Compliance-Lücken. Jede Änderung, neue Software, "
-            "neue Mitarbeitende, Zertifizierung, wird teuer und riskant, wenn "
-            "niemand den Gesamtprozess kennt."
+            "Digitalisierte Altprozesse können Medienbrüche, Doppelarbeit und "
+            "Ausnahmen verstecken. Dann wirkt alles modern — läuft aber "
+            "schleppend, fehleranfällig und teuer in der Anpassung."
         ),
         "step": (
-            "Nehmen Sie die Kernprozesse einmal end-to-end auf: Wer macht was, womit, "
-            "warum. Streichen Sie offensichtliche Altlasten und benennen Sie je Prozess "
-            "einen Verantwortlichen."
+            "Prüfen Sie die wichtigsten End-to-End-Prozesse: Wo gibt es "
+            "Medienbrüche, Ausnahmen und Doppelarbeit? Vereinfachen Sie vor "
+            "weiterer Digitalisierung — ein Prozess, ein Verantwortlicher."
         ),
         "tips": [
-            "Starten Sie mit dem Prozess, der am meisten Kundenbeschwerden erzeugt.",
-            "Visualisieren Sie Abläufe auf einer Seite, Komplexität wird so sichtbar.",
-            "Prüfen Sie nach der Aufnahme: Wo hängt alles an einer Person oder einem Excel?",
+            "Messen Sie Durchlaufzeit und Fehlerquote je Kernprozess — nicht nur IT-Status.",
+            "Entfernen Sie Ausnahmen, bevor Sie sie automatisieren.",
+            "Benennen Sie je Prozess einen Owner mit Entscheidungsrecht.",
         ],
         "yellow_note": (
-            "Ohne Prozessüberblick wird jede größere Änderung zum Glücksspiel, "
-            "Fehler häufen sich schleichend."
+            "Prozessrisiken werden kritisch, wenn Digitalisierung nur Formulare "
+            "digital macht — nicht den Ablauf vereinfacht."
         ),
     },
     "k4": {
         "why": (
-            "Steigen Energie, Löhne, Einkauf oder Zinsen schneller als Ihre Preise, "
-            "schmilzt die Marge unbemerkt. Ohne Liquiditätsreserve wird aus dem "
-            "Margenproblem ein Zahlungsproblem, oft erst sichtbar, wenn Lieferanten "
-            "vorfacturieren oder die Bank nachfragt."
+            "Steigen Einkauf, Energie, Löhne oder Material schneller als Ihre "
+            "Preise, schmilzt die Marge. Ohne regelmäßige Kalkulation und "
+            "Reserve wird aus dem Margenproblem ein Liquiditätsproblem."
         ),
         "step": (
-            "Verfolgen Sie Kosten- und Margenentwicklung monatlich je Leistung oder "
-            "Produkt. Prüfen Sie die Preiskalkulation jährlich und bauen Sie eine "
-            "Liquiditätsreserve als feste Größe auf."
+            "Verfolgen Sie Kosten und Marge monatlich je Leistung oder Produkt. "
+            "Prüfen Sie Preise jährlich und bauen Sie eine Liquiditätsreserve "
+            "als feste Größe auf."
         ),
         "tips": [
-            "Rechnen Sie je Produkt/Projekt monatlich den Deckungsbeitrag, nicht nur Jahresabschluss.",
-            "Verhandeln Sie Einkaufspreise aktiv, sobald Materialkosten >5 % steigen.",
-            "Planen Sie 2–3 Monatsfixkosten als Reserve auf separatem Konto.",
+            "Rechnen Sie Szenario „+10 % Einkaufskosten“ einmal durch.",
+            "Verhandeln Sie Lieferantenverträge rechtzeitig — nicht erst bei Engpass.",
+            "Planen Sie Preisanpassungen transparent und früh mit Kunden.",
         ],
         "yellow_note": (
-            "Schleichende Marge wird kritisch, sobald Zahlungsziele der Kunden "
-            "länger werden als Ihre eigene Liquidität reicht."
+            "Kostenrisiken werden kritisch, wenn Sie Preise länger als ein "
+            "Quartal nicht gegenrechnen."
         ),
     },
     "k5": {
         "why": (
-            "Neue Gesetze, Lieferkettenbrüche, Naturereignisse oder geopolitische "
-            "Schocks treffen unvorbereitete Unternehmen mit voller Wucht. "
-            "Vorbereitete verlieren Tage, unvorbereitete Monate. Regulatorik "
-            "(NIS2, Lieferkettengesetz, Branchenvorschriften) trifft KMU zunehmend "
-            "ohne Vorlauf."
+            "Abhängigkeit von Lieferketten, Regulierung oder wenigen Großkunden "
+            "macht Sie verwundbar, wenn sich Rahmenbedingungen ändern. Ohne "
+            "Szenarien und Verantwortliche verlieren Sie Tage bis Wochen "
+            "nur mit Orientierung."
         ),
         "step": (
-            "Benennen Sie die drei relevantesten externen Szenarien für Ihre Branche. "
-            "Erstellen Sie je Szenario eine Seite Notfallplan: erste Schritte, "
-            "Verantwortliche, Kommunikation innen und außen."
+            "Benennen Sie die drei wichtigsten externen Abhängigkeiten. Erstellen "
+            "Sie je Szenario eine Seite Notfallplan: erste Schritte, "
+            "Verantwortliche, Kommunikation."
         ),
         "tips": [
-            "Abonnieren Sie Branchenverbands-Updates zu Regulierung, Filter auf Ihr Thema.",
-            "Halten Sie Lieferanten-Alternativen für kritische Materialien in einer Liste.",
-            "Üben Sie einmal jährlich einen Notfall (Tischübung reicht, 60 Minuten).",
+            "Halten Sie alternative Lieferanten oder Partner für kritische Inputs bereit.",
+            "Abonnieren Sie branchenspezifische Regulierungs-Updates — gefiltert.",
+            "Üben Sie einmal jährlich einen Störfall (60-Minuten-Tischübung).",
         ],
         "yellow_note": (
-            "Externe Schocks werden kritisch ohne Notfallplan, besonders wenn "
-            "mehrere Bereiche gleichzeitig betroffen sind."
+            "Externe Risiken werden kritisch, wenn mehrere Abhängigkeiten "
+            "gleichzeitig kippen — ohne Plan."
+        ),
+    },
+    "k6": {
+        "why": (
+            "Unbesetzte Schlüsselrollen verzögern Projekte, überlasten das bestehende "
+            "Team und treiben Lohnkosten. Wer erst reagiert, wenn die Stelle monatelang "
+            "offen ist, verliert internes Know-how und manchmal auch Kundenvertrauen."
+        ),
+        "step": (
+            "Priorisieren Sie die kritischsten offenen Rollen, definieren Sie "
+            "realistische Anforderungen und einen schlanken Einstellungsprozess. "
+            "Prüfen Sie Upskilling, Freelancer oder Partnerschaften als Überbrückung."
+        ),
+        "tips": [
+            "Schreiben Sie Stellenprofile so, dass sie realistisch besetzbar sind.",
+            "Nutzen Sie Empfehlungsnetzwerke und Branchenverbände gezielt.",
+            "Planen Sie Übergabezeit ein, wenn jemand neu startet — nicht nur Einstellung.",
+        ],
+        "yellow_note": (
+            "Offene Schlüsselstellen wirken oft monatelang „machbar“ — bis Qualität und Umsatz leiden."
+        ),
+    },
+    "l1": {
+        "why": (
+            "Schleichende Marktveränderungen sind im Solo-Alltag unsichtbar, bis "
+            "Anfragen sinken oder Preise nicht mehr durchsetzbar sind. Wer nur "
+            "im Tagesgeschäft arbeitet, merkt den Wandel oft zu spät."
+        ),
+        "step": (
+            "Einmal pro Jahr ehrlich prüfen: Wer gewinnt gerade Ihre Zielkunden? "
+            "Frühindikatoren wie Anfragen und Abschlussquoten monatlich notieren."
+        ),
+        "tips": [
+            "Sprechen Sie vierteljährlich mit zwei Kunden, die fast nicht gebucht hätten.",
+            "Beobachten Sie zwei Wettbewerber — was ändern sie an Angebot und Preis?",
+            "Notieren Sie eine Frühkennzahl (Anfragen/Woche) in einer einfachen Tabelle.",
+        ],
+        "yellow_note": (
+            "Ohne Markt-Rhythmus veralten Angebot und Preis leise, bis der Umsatz es zeigt."
+        ),
+    },
+    "l2": {
+        "why": (
+            "Als Solo hängen Steuer-, Rechts- und Fachberatung direkt an Ihren "
+            "Entscheidungen. Falsche Empfehlungen kosten Honorar, Nachzahlungen "
+            "und oft Monate Korrektur — ohne Team, das mitdenkt."
+        ),
+        "step": (
+            "Prüfen Sie bei wichtigen Entscheidungen mindestens zwei unabhängige "
+            "Meinungen. Klären Sie schriftlich Leistungsumfang und Erfahrung in "
+            "Ihrer Branche."
+        ),
+        "tips": [
+            "Holen Sie bei Steuer- und Vertragsfragen eine Zweitmeinung ein.",
+            "Fragen Sie andere Selbstständige nach konkreten Erfahrungen mit Beratern.",
+            "Dokumentieren Sie Beratungsergebnisse und offene Risiken schriftlich.",
+        ],
+        "yellow_note": (
+            "Schlechte Beratung fällt oft erst auf, wenn Nachzahlungen oder "
+            "verpasste Fristen drohen."
+        ),
+    },
+    "l3": {
+        "why": (
+            "Gewachsene Routinen verstecken Doppelarbeit, Medienbrüche und "
+            "Ausnahmen. Wenn Sie den Überblick verlieren, wird jede Änderung "
+            "teurer — und Fehler fallen erst spät auf."
+        ),
+        "step": (
+            "Schreiben Sie Ihre drei wichtigsten Abläufe end-to-end auf. "
+            "Streichen Sie unnötige Schritte und legen Sie je Ablauf eine "
+            "kurze Checkliste an."
+        ),
+        "tips": [
+            "Markieren Sie Schritte, die nur aus Gewohnheit existieren — nicht aus Pflicht.",
+            "Nutzen Sie eine einfache Wochenübersicht: Was wiederholt sich unnötig?",
+            "Testen Sie einmal im Monat: Könnte ein Ablauf in halber Zeit laufen?",
+        ],
+        "yellow_note": (
+            "Ablauf-Risiken werden kritisch, wenn Sie neue Tools einführen — "
+            "ohne den Prozess zu vereinfachen."
+        ),
+    },
+    "l4": {
+        "why": (
+            "Steigen Einkauf, Software, Energie oder Material schneller als "
+            "Ihre Preise, schmilzt die Marge. Als Solo ohne Puffer wird aus "
+            "einem Kostenanstieg schnell ein Liquiditätsproblem."
+        ),
+        "step": (
+            "Verfolgen Sie Kosten und Marge monatlich je Leistung. Prüfen Sie "
+            "Preise jährlich und bauen Sie eine Liquiditätsreserve als feste "
+            "Größe auf."
+        ),
+        "tips": [
+            "Rechnen Sie Szenario „+10 % Einkaufskosten“ einmal durch.",
+            "Prüfen Sie Abos und Fixkosten vierteljährlich auf Kündigungsoptionen.",
+            "Planen Sie Preisanpassungen früh und transparent mit Stammkunden.",
+        ],
+        "yellow_note": (
+            "Kostenrisiken werden kritisch, wenn Sie Preise länger als ein "
+            "Quartal nicht gegenrechnen."
+        ),
+    },
+    "l5": {
+        "why": (
+            "Als Solo hängen Umsatz und Lieferung oft an wenigen Kunden, "
+            "Freelancern oder Plattformen. Ändern sich Rahmenbedingungen, "
+            "brauchen Sie schnelle Alternativen — sonst stoppt alles."
+        ),
+        "step": (
+            "Benennen Sie Ihre drei wichtigsten externen Abhängigkeiten. "
+            "Erstellen Sie je Szenario eine Seite Notfallplan: erste Schritte, "
+            "Kontakte, Kommunikation."
+        ),
+        "tips": [
+            "Halten Sie Ersatz-Freelancer oder Lieferanten für kritische Projekte bereit.",
+            "Notieren Sie Notfallkontakte (IT, Anwalt, Steuerberater) offline griffbereit.",
+            "Üben Sie einmal jährlich: Was tun Sie, wenn zwei Dinge gleichzeitig ausfallen?",
+        ],
+        "yellow_note": (
+            "Externe Risiken werden kritisch, wenn mehrere Abhängigkeiten "
+            "gleichzeitig kippen — ohne Plan."
+        ),
+    },
+    "tt1": {
+        "why": (
+            "Phishing, Ransomware und KI-basierte Angriffe treffen heute Einzelpersonen "
+            "und Teams gleichermaßen. Fehlen Schulung, Meldewege und Regeln für "
+            "KI-Workflows, reicht ein Klick oder manipuliertes Prompt für Datenverlust, "
+            "Kontosperrung oder Schadensersatz."
+        ),
+        "step": (
+            "Jährliche Phishing-Sensibilisierung, Zwei-Faktor-Authentifizierung für "
+            "E-Mail und Cloud, klare KI-Regeln (keine echten Kundendaten in öffentliche "
+            "Tools) und einen einseitigen Notfallplan erstellen."
+        ),
+        "tips": [
+            "Schulen Sie alle, die E-Mail und Cloud nutzen — auch externe Freelancer.",
+            "Testen Sie Backups durch Restore, nicht nur durch Anzeige „Backup OK“.",
+            "Definieren Sie für KI-Agenten: welche Daten nie ins Prompt dürfen.",
+        ],
+        "tips_solo": [
+            "Schulen Sie sich jährlich zu Phishing — ein Klick reicht.",
+            "Testen Sie Backups durch Restore, nicht nur durch Anzeige „Backup OK“.",
+            "Nutzen Sie für KI keine echten Kundendaten — Dummy-Daten reichen zum Testen.",
+        ],
+        "yellow_note": (
+            "Ohne Gegenstrategie wird aus jedem Phishing-Vorfall schnell ein Daten- "
+            "oder Kontoverlust mit Meldepflicht."
+        ),
+    },
+    "tt2": {
+        "why": (
+            "Ohne private und geschäftliche Reserve wird jede unerwartete Rechnung, "
+            "Ausfallzeit oder Investitionspflicht zum Existenzrisiko — besonders wenn "
+            "Umsatz schwankt oder Zahlungen verzögert werden."
+        ),
+        "step": (
+            "Monatliche Liquiditätsübersicht führen, Zielreserve definieren "
+            "(z. B. 3 Monate Fixkosten) und Trennung privat/geschäftlich schriftlich "
+            "festhalten."
+        ),
+        "tips": [
+            "Planen Sie 2–3 Monatsfixkosten als Reserve auf separatem Konto.",
+            "Rechnen Sie Szenario „30 Tage ohne Umsatz“ einmal durch.",
+            "Klärren Sie mit Steuerberater, welche privaten Rücklagen im Ernstfall greifen.",
+        ],
+        "yellow_note": (
+            "Fehlt eine Reserve, wird aus jeder Verzögerung schnell ein existenzielles "
+            "Liquiditätsproblem."
+        ),
+    },
+    "tt3": {
+        "why": (
+            "Datenschutzverstöße und ungeklärte KI-Nutzung können Bußgelder, "
+            "Vertragsstrafen und Reputationsschäden auslösen. Was im Alltag "
+            "„funktioniert“, hält oft keine Prüfung durch Kunden oder Behörden stand."
+        ),
+        "step": (
+            "Datenschutz-Grundlagen prüfen (Verarbeitungsverzeichnis, AV-Verträge), "
+            "KI-Nutzung dokumentieren und bei Unsicherheit externe Beratung für "
+            "die größten Risiken einholen."
+        ),
+        "tips": [
+            "Prüfen Sie, ob Ihre Website-Tracking-Einwilligung aktuell ist.",
+            "Dokumentieren Sie, welche KI-Tools welche Daten sehen dürfen.",
+            "Holen Sie bei ersten Großkunden rechtzeitig AV-Verträge und AGB-Check ein.",
+        ],
+        "yellow_note": (
+            "Rechtliche Themen werden kritisch, sobald Kunden oder Behörden konkret "
+            "nachfragen — nicht erst dann anfangen."
         ),
     },
 }

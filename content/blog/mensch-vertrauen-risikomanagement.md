@@ -34,7 +34,7 @@ Viele Unternehmen investieren in Technologie, Prozesse und Automatisierung – u
 Denn egal ob Startup oder Mittelstand – Erfolg und Risiko entstehen fast immer dort, wo Menschen Entscheidungen treffen.
 
 Mitarbeitende sind Ideengeber, Problemlöser, Krisenmanager – aber auch die Ursache vieler Fehler, Konflikte und Unsicherheiten.  
-Wer das versteht, begreift Risikomanagement nicht als Kontrollinstrument, sondern als Kulturarbeit: Es geht darum, Verantwortung zu teilen, Kommunikation zu stärken und Vertrauen als strategische Ressource zu nutzen.
+Wer das versteht, begreift [Risikomanagement](/methode/) nicht als Kontrollinstrument, sondern als Kulturarbeit: Es geht darum, Verantwortung zu teilen, Kommunikation zu stärken und Vertrauen als strategische Ressource zu nutzen.
 
 ## Der Mensch im Mittelpunkt – Risiko oder Ressource?
 

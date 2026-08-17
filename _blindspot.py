@@ -93,7 +93,14 @@ CATEGORIES: dict[str, str] = {
     "operativ": "Operativ",
     "wachstum": "Wachstum & Strategie",
     "markt": "Markt & Stabilität",
+    "top_themen": "Top-Themen",
 }
+
+# Quartalsweise rotierbare Aktualitätsthemen (aus Risikoanalysen).
+# Kommen zu den 10 Kernfragen + 5 Erweiterungsfragen oben drauf (17 Fragen/Segment).
+ACTIVE_TOP_THEMEN: list[str] = ["tt1", "tt2", "tt3"]  # Q3 2026: Cyber, Liquidität, Compliance/KI
+
+_BASE_IDS = ["m1", "m2", "m3", "m4", "t1", "t2", "t3", "o1", "o2", "o3"]
 
 # ---------------------------------------------------------------------------
 # Fragenkatalog 2.0
@@ -108,9 +115,14 @@ QUESTIONS: list[dict] = [
         "id": "m1",
         "cat": "mensch",
         "short": "Ihr eigener Ausfall",
+        "short_solo": "Ausfall ohne Plan B",
         "text": (
-            "Was passiert, wenn du morgen ausfällst – und plötzlich niemand "
+            "Was passiert, wenn Sie morgen ausfallen – und plötzlich niemand "
             "Entscheidungen treffen kann?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Sie unerwartet ausfallen — und laufende "
+            "Kundenprojekte, Termine oder Lieferungen ohne Plan B liegen bleiben?"
         ),
         "layer": "Schlüsselpersonen — Gefahrenkatalog 7.2.1/7.2.2",
         "why": (
@@ -128,9 +140,19 @@ QUESTIONS: list[dict] = [
         "id": "m2",
         "cat": "mensch",
         "short": "Wissensverlust bei Weggang",
+        "short_gruender": "Wissensverlust Mitgründer",
+        "short_solo": "Vertretung & Wissen",
         "text": (
-            "Was passiert, wenn dein wichtigster Mitarbeiter geht… und keiner genau "
+            "Was passiert, wenn Ihr wichtigster Mitarbeiter geht… und niemand genau "
             "weiß, was er eigentlich alles gemacht hat?"
+        ),
+        "text_gruender": (
+            "Was passiert, wenn ein Mitgründer geht… und niemand genau weiß, welche "
+            "Kontakte, Verträge und Entscheidungen bei ihm hingen?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Sie mal eine Vertretung brauchen — und niemand weiß, "
+            "wie Ihre wichtigsten Abläufe, Passwörter und Kundenkontakte funktionieren?"
         ),
         "layer": "Wissenstransfer / Fluktuation — Gefahrenkatalog 2.4.2, 7.2.3",
         "why": (
@@ -148,9 +170,19 @@ QUESTIONS: list[dict] = [
         "id": "m3",
         "cat": "mensch",
         "short": "Team ohne gemeinsame Richtung",
+        "short_gruender": "Gründerteam ohne Richtung",
+        "short_solo": "Viel tun, wenig voran",
         "text": (
-            "Was passiert, wenn dein Team zwar arbeitet… aber eigentlich nicht in "
+            "Was passiert, wenn Ihr Team zwar arbeitet… aber eigentlich nicht in "
             "dieselbe Richtung?"
+        ),
+        "text_gruender": (
+            "Was passiert, wenn Sie als Gründerteam zwar arbeiten… aber eigentlich "
+            "nicht in dieselbe Richtung?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Sie viel arbeiten… aber eigentlich nicht an den "
+            "Dingen, die Ihr Geschäft wirklich voranbringen?"
         ),
         "layer": "Führung / Zielsetzung — Gefahrenkatalog 2.6.1/2.6.2",
         "why": (
@@ -168,9 +200,20 @@ QUESTIONS: list[dict] = [
         "id": "m4",
         "cat": "mensch",
         "short": "Unsichtbare Konflikte",
+        "short_gruender": "Spannungen im Gründerteam",
+        "short_solo": "Kunden, Freelancer & Konflikte",
         "text": (
             "Was passiert, wenn Konflikte im Team nicht sichtbar sind – aber "
             "Entscheidungen immer langsamer werden?"
+        ),
+        "text_gruender": (
+            "Was passiert, wenn Spannungen zwischen Mitgründern unsichtbar bleiben – "
+            "aber Entscheidungen immer langsamer werden?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Sie dauerhaft unter Druck stehen — etwa durch "
+            "eskalierende Kunden, ausfallende Freelancer oder verzögerte Zulieferer "
+            "— und das Ihre Lieferung und Qualität belastet?"
         ),
         "layer": "Verdeckte Konflikte — Gefahrenkatalog 2.5.4, 2.6.4",
         "why": (
@@ -187,31 +230,44 @@ QUESTIONS: list[dict] = [
     # ----- TECHNIK (Basis) -----
     {
         "id": "t1",
-        "cat": "technik",
-        "short": "Hackerangriff & Vertrauensverlust",
+        "cat": "operativ",
+        "short": "Vertrauens- & Reputationsverlust",
         "text": (
-            "Was passiert, wenn dein System gehackt wird – und du nicht nur Daten "
-            "verlierst, sondern Vertrauen?"
+            "Was passiert, wenn Kunden, Partner oder Investoren das Vertrauen in "
+            "Sie verlieren — etwa nach einem Vorfall, schlechter Kommunikation "
+            "oder negativen Berichten über Sie?"
         ),
-        "layer": "Cyberangriffe / Datensicherheit — Gefahrenkatalog 1.1.2, 1.2",
+        "text_solo": (
+            "Was passiert, wenn Kunden oder Partner das Vertrauen in Sie verlieren "
+            "— etwa nach einem Fehler, schlechter Kommunikation oder negativen "
+            "Bewertungen?"
+        ),
+        "layer": "Reputation / Vertrauen — Gefahrenkatalog 1.2, 4.4, 7.4",
         "why": (
-            "Ein Angriff trifft doppelt: Erst fallen Systeme und Daten aus, dann "
-            "leidet das Vertrauen von Kunden und Partnern. Ohne Backups, Meldewege "
-            "und Kommunikationsplan wird aus einem IT-Vorfall eine Existenzfrage."
+            "Vertrauensverlust wirkt oft langsamer als ein technischer Ausfall, "
+            "trifft aber genauso hart: Aufträge werden verschoben, Empfehlungen "
+            "bleiben aus, Verhandlungen werden härter. Ohne klare Kommunikation "
+            "und Wiedergutmachung wird aus einem Vorfall ein dauerhaftes Image-Problem."
         ),
         "step": (
-            "Regelmäßige, getestete Backups einrichten, Zwei-Faktor-Authentifizierung "
-            "erzwingen und einen einfachen Notfall- und Kommunikationsplan für den "
-            "Angriffsfall vorbereiten."
+            "Legen Sie fest, wer bei einem Reputationsthema nach außen spricht, "
+            "welche Fakten zuerst an Kunden gehen und wie Sie Transparenz ohne "
+            "Panik vermitteln. Halten Sie Stellungnahmen und FAQ-Vorlagen bereit."
         ),
     },
     {
         "id": "t2",
         "cat": "technik",
-        "short": "Tools passen nicht zum Wachstum",
+        "short": "Software passt nicht zum Wachstum",
         "text": (
-            "Was passiert, wenn deine Tools heute funktionieren… aber morgen nicht "
-            "mehr zu deinem Wachstum passen?"
+            "Was passiert, wenn Ihre Software-Landschaft (Buchhaltung, CRM, "
+            "Cloud-Speicher, Projekttools) heute funktioniert… aber morgen nicht "
+            "mehr mitwächst?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Ihre Software-Landschaft (Buchhaltung, CRM, "
+            "Cloud-Speicher, Projekttools) heute funktioniert… aber morgen nicht "
+            "mehr mitwächst?"
         ),
         "layer": "Veraltete Technologie / Digitalisierung — Gefahrenkatalog 5.4.1, 5.5.2",
         "why": (
@@ -227,22 +283,23 @@ QUESTIONS: list[dict] = [
     },
     {
         "id": "t3",
-        "cat": "technik",
-        "short": "Abhängigkeit von einem Anbieter",
+        "cat": "operativ",
+        "short": "Abhängigkeit von Anbieter, Zulieferer & Partner",
         "text": (
-            "Was passiert, wenn deine gesamte digitale Infrastruktur von einem "
-            "Anbieter abhängt – und der plötzlich die Spielregeln ändert?"
+            "Was passiert, wenn Ihr Geschäft stark von einem Software-Anbieter, "
+            "Zulieferer oder strategischen Partner abhängt — und dieser plötzlich "
+            "die Spielregeln ändert oder ausfällt?"
         ),
-        "layer": "Anbieter-Klumpenrisiko — Gefahrenkatalog 1.4.3, 7.4.1",
+        "layer": "Klumpenrisiko Anbieter/Partner — Gefahrenkatalog 1.4.3, 7.4.1",
         "why": (
-            "Preiserhöhungen, Funktionsänderungen oder eine Kontosperrung eines "
-            "einzelnen Anbieters können Betrieb, Daten und Kundenzugang gleichzeitig "
-            "treffen — ohne kurzfristige Ausweichmöglichkeit."
+            "Preiserhöhungen, Kündigungen, Lieferstopps oder geänderte Konditionen "
+            "eines einzigen Anbieters, Zulieferers oder Partners können Produktion, "
+            "Lieferung und Umsatz gleichzeitig treffen — ohne kurzfristige Alternative."
         ),
         "step": (
-            "Kritische Anbieter-Abhängigkeiten auflisten, Datenexport regelmäßig "
-            "sichern und für die wichtigsten Dienste mindestens einen Ausweichweg "
-            "(Alternative oder Übergangslösung) definieren."
+            "Kritische Abhängigkeiten auflisten (Software, Zulieferer, Partner), "
+            "Export- und Ersatzoptionen prüfen und für die wichtigsten je mindestens "
+            "einen Ausweichweg definieren."
         ),
     },
     # ----- OPERATIV (Basis) -----
@@ -251,8 +308,10 @@ QUESTIONS: list[dict] = [
         "cat": "operativ",
         "short": "Abhängigkeit vom größten Kunden",
         "text": (
-            "Was passiert, wenn dein größter Kunde abspringt – und du merkst, wie "
-            "abhängig du wirklich bist?"
+            "Was passiert, wenn Ihr größter Kunde abspringt?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Ihr größter Kunde abspringt?"
         ),
         "layer": "Klumpenrisiko Kunden — Gefahrenkatalog 7.4.1, 4.4",
         "why": (
@@ -270,9 +329,20 @@ QUESTIONS: list[dict] = [
         "id": "o2",
         "cat": "operativ",
         "short": "Prozesse hängen an Ihnen",
+        "short_kmu": "Falsche Beratung",
         "text": (
-            "Was passiert, wenn deine Prozesse nur so lange funktionieren, wie du "
-            "selbst überall mit drauf schaust?"
+            "Was passiert, wenn Ihre Prozesse nur so lange funktionieren, wie Sie "
+            "selbst überall mitentscheiden?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Ihre Prozesse nur so lange funktionieren, wie Sie "
+            "selbst überall mitentscheiden?"
+        ),
+        "text_kmu": (
+            "Was passiert, wenn Sie sich bei wichtigen Entscheidungen an die falschen "
+            "Berater wenden — etwa Steuerberater, Anwälte oder Unternehmensberater — "
+            "und dabei Zeit, Geld und manchmal noch mehr Geld durch falsche Beratung "
+            "verlieren?"
         ),
         "layer": "Prozessabhängigkeit — Gefahrenkatalog 5.5.3, 7.2.1",
         "why": (
@@ -289,10 +359,14 @@ QUESTIONS: list[dict] = [
     {
         "id": "o3",
         "cat": "operativ",
-        "short": "Kettenreaktion kleiner Probleme",
+        "short": "Mehrere Störungen gleichzeitig",
         "text": (
-            "Was passiert, wenn plötzlich mehrere kleine Probleme gleichzeitig "
-            "auftreten – und sich gegenseitig verstärken?"
+            "Was passiert, wenn gleichzeitig drei oder mehr kleinere Störungen "
+            "zusammentreffen — und Sie kaum Puffer haben, um alles abzufangen?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn gleichzeitig drei oder mehr kleinere Störungen "
+            "zusammentreffen — und Sie kaum Puffer haben, um alles abzufangen?"
         ),
         "layer": "Fehlende Notfallplanung / Redundanzen — Gefahrenkatalog 3.1, 1.4.3",
         "why": (
@@ -310,9 +384,10 @@ QUESTIONS: list[dict] = [
     {
         "id": "s1",
         "cat": "wachstum",
-        "short": "Strukturen wachsen nicht mit",
+        "short": "Unklare Verantwortlichkeiten",
         "text": (
-            "Was passiert, wenn ihr skaliert… aber eure Strukturen nicht mitwachsen?"
+            "Was passiert, wenn Ihr Team wächst — aber niemand genau weiß, "
+            "wer wofür verantwortlich ist und wer Entscheidungen trifft?"
         ),
         "layer": "Organisation / Prozesse — Gefahrenkatalog 5.5, 2.6.1",
         "why": (
@@ -331,8 +406,8 @@ QUESTIONS: list[dict] = [
         "cat": "wachstum",
         "short": "Unvorbereitete Investorenfragen",
         "text": (
-            "Was passiert, wenn Investoren Fragen stellen, die ihr bisher nie "
-            "gestellt habt?"
+            "Was passiert, wenn Investoren Fragen stellen, die Sie bisher nie "
+            "gestellt haben?"
         ),
         "layer": "Strategie / Erfolgskontrolle — Gefahrenkatalog 7.3, 3.5",
         "why": (
@@ -349,9 +424,10 @@ QUESTIONS: list[dict] = [
     {
         "id": "s3",
         "cat": "wachstum",
-        "short": "Markt schneller als Produkt",
+        "short": "Marke & Patent ungeschützt",
         "text": (
-            "Was passiert, wenn euer Markt sich schneller verändert als euer Produkt?"
+            "Was passiert, wenn ein Wettbewerber ausnutzt, dass Sie Ihre Marke oder "
+            "Ihr Patent nicht international geschützt haben?"
         ),
         "layer": "Markt / Innovation — Gefahrenkatalog 5.4.2, 7.4.2",
         "why": (
@@ -368,15 +444,16 @@ QUESTIONS: list[dict] = [
     {
         "id": "s4",
         "cat": "wachstum",
-        "short": "Falsche Grundannahmen",
+        "short": "Falsche Beratung",
         "text": (
-            "Was passiert, wenn eure gesamte Plattform auf Annahmen basiert, die "
-            "sich plötzlich als falsch herausstellen?"
+            "Was passiert, wenn Sie sich bei wichtigen Entscheidungen an die falschen "
+            "Berater wenden — Steuerberater, Anwälte oder Investoren — und dabei "
+            "Zeit, Geld und die richtige Richtung verlieren?"
         ),
         "layer": "Strategische Annahmen — Gefahrenkatalog 7.3.1, 5.4.2",
         "why": (
             "Geschäftsmodelle ruhen oft auf wenigen ungeprüften Kernannahmen — über "
-            "Zahlungsbereitschaft, Regulierung oder Plattform-Partner. Kippt eine "
+            "Zahlungsbereitschaft, Regulierung oder zentrale Partner. Kippt eine "
             "davon, kippt das Modell."
         ),
         "step": (
@@ -390,8 +467,8 @@ QUESTIONS: list[dict] = [
         "cat": "wachstum",
         "short": "Entscheidungen unter Wachstumsdruck",
         "text": (
-            "Was passiert, wenn Wachstum euch zwingt, Entscheidungen zu treffen, für "
-            "die ihr noch gar nicht bereit seid?"
+            "Was passiert, wenn Wachstum Sie zwingt, Entscheidungen zu treffen, für "
+            "die Sie noch gar nicht bereit sind?"
         ),
         "layer": "Führung / Entscheidungsstruktur — Gefahrenkatalog 7.2.2, 2.6",
         "why": (
@@ -411,8 +488,8 @@ QUESTIONS: list[dict] = [
         "cat": "markt",
         "short": "Markt dreht sich leise",
         "text": (
-            "Was passiert, wenn euer Geschäft seit Jahren stabil läuft… aber sich "
-            "der Markt leise gegen euch dreht?"
+            "Was passiert, wenn Ihr Geschäft seit Jahren stabil läuft… aber sich "
+            "der Markt leise gegen Sie dreht?"
         ),
         "layer": "Marktveränderung — Gefahrenkatalog 4.4.3/4.4.4, 7.4.2",
         "why": (
@@ -429,10 +506,10 @@ QUESTIONS: list[dict] = [
     {
         "id": "k2",
         "cat": "markt",
-        "short": "Stärke hängt an Personen",
+        "short": "Schlüsselperson kündigt",
         "text": (
-            "Was passiert, wenn euer Unternehmen stark ist – aber nur, solange "
-            "bestimmte Personen da sind?"
+            "Was passiert, wenn Ihr Vertriebsleiter, Werkleiter oder ein anderer "
+            "unverzichtbarer Mitarbeiter plötzlich kündigt?"
         ),
         "layer": "Schlüsselpersonen / Nachfolge — Gefahrenkatalog 7.2, 7.1",
         "why": (
@@ -449,10 +526,10 @@ QUESTIONS: list[dict] = [
     {
         "id": "k3",
         "cat": "markt",
-        "short": "Gewachsene Prozesse ohne Überblick",
+        "short": "Prozesse laufen schleppend",
         "text": (
-            "Was passiert, wenn eure Prozesse historisch gewachsen sind… und niemand "
-            "mehr wirklich den Überblick hat?"
+            "Was passiert, wenn alte Prozesse digitalisiert wurden — der Ablauf aber "
+            "trotzdem schleppend läuft und Fehler durchrutschen?"
         ),
         "layer": "Veraltete Geschäftsprozesse — Gefahrenkatalog 3.6.3, 5.5.3",
         "why": (
@@ -470,10 +547,10 @@ QUESTIONS: list[dict] = [
     {
         "id": "k4",
         "cat": "markt",
-        "short": "Schleichender Kostendruck",
+        "short": "Steigende Kosten",
         "text": (
-            "Was passiert, wenn steigende Kosten euch langsam die Luft abschnüren, "
-            "ohne dass es sofort auffällt?"
+            "Was passiert, wenn die Kosten für Rohstoffe, Einkauf oder Ihre Leistungen "
+            "weiter steigen — und Ihre Preise das nicht mehr ausgleichen?"
         ),
         "layer": "Finanzielle Planung — Gefahrenkatalog 3.5, 4.3.2, 5.5.1",
         "why": (
@@ -490,10 +567,11 @@ QUESTIONS: list[dict] = [
     {
         "id": "k5",
         "cat": "markt",
-        "short": "Unvorbereitet auf externe Schocks",
+        "short": "Externe Abhängigkeit",
         "text": (
-            "Was passiert, wenn eine externe Veränderung kommt – und ihr merkt, dass "
-            "ihr darauf nie vorbereitet wart?"
+            "Was passiert, wenn Sie von externen Faktoren abhängig sind — "
+            "Lieferketten, Gesetze, Großkunden — und im Ernstfall nicht schnell "
+            "genug reagieren können?"
         ),
         "layer": "Umfeld / Regulierung / Notfallplanung — Gefahrenkatalog 4.1, 6, 3.1",
         "why": (
@@ -507,34 +585,232 @@ QUESTIONS: list[dict] = [
             "Schritte, Verantwortliche, Kommunikation."
         ),
     },
+    {
+        "id": "k6",
+        "cat": "mensch",
+        "short": "Fachkräftemangel",
+        "text": (
+            "Was passiert, wenn Sie dringend Fachkräfte brauchen — und Stellen "
+            "monatelang unbesetzt bleiben oder nur noch Überstunden als Antwort "
+            "möglich sind?"
+        ),
+        "layer": "Fachkräfte / Recruiting — Gefahrenkatalog 2.4, 7.2.3",
+        "why": (
+            "Unbesetzte Schlüsselrollen verzögern Projekte, überlasten das "
+            "bestehende Team und treiben Lohnkosten. Wer erst reagiert, wenn "
+            "die Stelle schon monatelang offen ist, verliert oft auch internes "
+            "Know-how und Kundenvertrauen."
+        ),
+        "step": (
+            "Priorisieren Sie die kritischsten offenen Rollen, definieren Sie "
+            "realistische Anforderungen und einen schlanken Einstellungsprozess. "
+            "Prüfen Sie parallel Upskilling, Freelancer oder Partnerschaften als "
+            "Überbrückung."
+        ),
+    },
+    # ----- SOLO (Erweiterung) -----
+    {
+        "id": "l1",
+        "cat": "markt",
+        "short": "Markt dreht sich leise",
+        "text": (
+            "Was passiert, wenn Ihr Geschäft seit Jahren stabil läuft… aber sich "
+            "der Markt leise gegen Sie dreht?"
+        ),
+        "layer": "Marktveränderung — Gefahrenkatalog 4.4.3/4.4.4, 7.4.2",
+        "why": (
+            "Schleichende Veränderungen — neue Wettbewerber, verändertes "
+            "Kundenverhalten, Substitute — sind im Tagesgeschäft unsichtbar. "
+            "Wenn die Zahlen es zeigen, ist der Vorsprung der anderen schon da."
+        ),
+        "step": (
+            "Einmal pro Jahr ehrlich prüfen: Wer gewinnt gerade Ihre Zielkunden, "
+            "und warum? Frühindikatoren (Anfragen, Abschlussquoten) laufend beobachten."
+        ),
+    },
+    {
+        "id": "l2",
+        "cat": "markt",
+        "short": "Falsche Beratung",
+        "text": (
+            "Was passiert, wenn Sie sich bei wichtigen Entscheidungen an die falschen "
+            "Berater wenden — Steuerberater, Anwalt oder andere Berater — und dabei "
+            "Zeit, Geld und die richtige Richtung verlieren?"
+        ),
+        "layer": "Schlüsselpersonen — Gefahrenkatalog 7.2, 7.1",
+        "why": (
+            "Kundenbeziehungen, Spezialwissen und Entscheidungen, die nur an "
+            "einer Person hängen, werden zum Engpass bei Krankheit, Urlaub oder "
+            "Ausfall eines Freelancers."
+        ),
+        "step": (
+            "Kritische Abhängigkeiten benennen, Vertretungen und Wissen "
+            "dokumentieren und für wichtige Subunternehmer Ausweichpartner "
+            "identifizieren."
+        ),
+    },
+    {
+        "id": "l3",
+        "cat": "markt",
+        "short": "Abläufe ohne klaren Überblick",
+        "text": (
+            "Was passiert, wenn Ihre Abläufe über Jahre gewachsen sind — und Sie "
+            "nicht mehr sicher wissen, welche Schritte wirklich nötig sind?"
+        ),
+        "layer": "Veraltete Geschäftsprozesse — Gefahrenkatalog 3.6.3, 5.5.3",
+        "why": (
+            "Historisch gewachsene Routinen verstecken Doppelarbeit und "
+            "Einzelabhängigkeiten. Jede Änderung — neues Tool, neuer Kunde — "
+            "wird teurer, wenn niemand den roten Faden kennt."
+        ),
+        "step": (
+            "Die drei wichtigsten Abläufe end-to-end aufschreiben (wer macht was, "
+            "womit, warum), Altlasten streichen und je Ablauf eine Checkliste "
+            "anlegen."
+        ),
+    },
+    {
+        "id": "l4",
+        "cat": "markt",
+        "short": "Steigende Kosten",
+        "text": (
+            "Was passiert, wenn die Kosten für Rohstoffe, Einkauf oder Ihre Leistungen "
+            "weiter steigen — und Ihre Preise das nicht mehr ausgleichen?"
+        ),
+        "layer": "Finanzielle Planung — Gefahrenkatalog 3.5, 4.3.2, 5.5.1",
+        "why": (
+            "Energie, Software, Einkauf, Steuern: Steigen Kosten schneller als "
+            "Ihre Preise, schmilzt die Marge unbemerkt. Ohne Reserve wird aus "
+            "dem Margenproblem ein Zahlungsproblem."
+        ),
+        "step": (
+            "Kosten und Marge monatlich je Leistung verfolgen, Preise jährlich "
+            "prüfen und eine Liquiditätsreserve als feste Größe aufbauen."
+        ),
+    },
+    {
+        "id": "l5",
+        "cat": "markt",
+        "short": "Externe Abhängigkeit",
+        "text": (
+            "Was passiert, wenn Sie von externen Faktoren abhängig sind — "
+            "Lieferketten, Gesetze, Großkunden — und im Ernstfall nicht schnell "
+            "genug reagieren können?"
+        ),
+        "layer": "Umfeld / Regulierung / Notfallplanung — Gefahrenkatalog 4.1, 6, 3.1",
+        "why": (
+            "Neue Gesetze, Lieferkettenbrüche oder plötzliche Marktverwerfungen "
+            "treffen unvorbereitete Selbstständige mit voller Wucht — "
+            "vorbereitete verlieren Tage, unvorbereitete Monate."
+        ),
+        "step": (
+            "Die drei relevantesten externen Szenarien für Ihre Branche benennen "
+            "und je Szenario eine Seite Notfallplan erstellen: erste Schritte, "
+            "Kontakte, Kommunikation."
+        ),
+    },
+    # ----- TOP-THEMEN (rotierbar) -----
+    {
+        "id": "tt1",
+        "cat": "top_themen",
+        "short": "Phishing, Hacking & KI-Angriffe",
+        "text": (
+            "Was passiert, wenn jemand in Ihrem Team — oder über Ihre KI-Workflows — "
+            "durch Phishing, Hacking, Schadbilder oder Prompt Injection Zugang zu "
+            "Systemen oder Daten bekommt — und niemand weiß, was sofort zu tun ist?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Sie oder Ihre KI-Tools durch Phishing, Hacking, "
+            "Schadbilder oder Prompt Injection Zugang zu Systemen oder Daten "
+            "verlieren — und Sie nicht wissen, was sofort zu tun ist?"
+        ),
+        "layer": "Cyber / Social Engineering / KI — Gefahrenkatalog 1.1.2, Z1 RA",
+        "why": (
+            "Phishing, Ransomware und KI-basierte Angriffe treffen Einzelpersonen "
+            "und Teams gleichermaßen. Fehlen Schulung, Meldewege und Regeln für "
+            "KI-Workflows, reicht ein Klick oder manipuliertes Prompt für "
+            "Datenverlust oder Kontosperrung."
+        ),
+        "step": (
+            "Jährliche Phishing-Sensibilisierung, Zwei-Faktor-Authentifizierung "
+            "für E-Mail und Cloud, klare KI-Regeln (keine echten Kundendaten in "
+            "öffentliche Tools) und einen einseitigen Notfallplan erstellen."
+        ),
+    },
+    {
+        "id": "tt2",
+        "cat": "top_themen",
+        "short": "Liquiditätsreserve",
+        "text": (
+            "Was passiert, wenn Sie dringend Geld brauchen — und weder privat noch "
+            "im Unternehmen ausreichende Rücklagen da sind?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Sie dringend Geld brauchen — und weder privat noch "
+            "geschäftlich ausreichende Rücklagen da sind?"
+        ),
+        "layer": "Liquidität / Rücklagen — Gefahrenkatalog 3.5, 4.3.2",
+        "why": (
+            "Ohne private und geschäftliche Reserve wird jede unerwartete Rechnung, "
+            "Ausfallzeit oder Investitionspflicht zum Existenzrisiko — besonders "
+            "wenn Umsatz schwankt oder ein Großkunde zögert."
+        ),
+        "step": (
+            "Monatliche Liquiditätsübersicht führen, Zielreserve definieren "
+            "(z. B. 3 Monate Fixkosten) und Trennung privat/geschäftlich "
+            "schriftlich festhalten."
+        ),
+    },
+    {
+        "id": "tt3",
+        "cat": "top_themen",
+        "short": "Datenschutz & KI-Verordnung",
+        "text": (
+            "Was passiert, wenn Datenschutz, KI-Verordnung (AI Act) oder Vertragsfragen "
+            "Sie belasten — obwohl Sie das bisher aufgeschoben haben?"
+        ),
+        "text_solo": (
+            "Was passiert, wenn Datenschutz, KI-Verordnung (AI Act) oder Vertragsfragen "
+            "Sie belasten — obwohl Sie das bisher aufgeschoben haben?"
+        ),
+        "layer": "Recht / DSGVO / KI-Act — Gefahrenkatalog 6, Z4 RA",
+        "why": (
+            "Datenschutzverstöße und ungeklärte KI-Nutzung können Bußgelder, "
+            "Vertragsstrafen und Reputationsschäden auslösen. Was im Alltag "
+            "„funktioniert“, hält oft keine Prüfung durch Kunden oder Behörden stand."
+        ),
+        "step": (
+            "Datenschutz-Grundlagen prüfen (Verarbeitungsverzeichnis, AV-Verträge), "
+            "KI-Nutzung dokumentieren und bei Unsicherheit externe Beratung für "
+            "die größten Risiken einholen."
+        ),
+    },
 ]
 
 apply_report_content(QUESTIONS)
 
 # ---------------------------------------------------------------------------
-# Zielgruppen-Sets
+# Zielgruppen-Sets (je 17 Fragen: 10 Basis + ACTIVE_TOP_THEMEN + 5 Erweiterung)
 # ---------------------------------------------------------------------------
-
-_BASE_IDS = ["m1", "m2", "m3", "m4", "t1", "t2", "t3", "o1", "o2", "o3"]
 
 SEGMENTS: list[dict] = [
     {
         "id": "gruender",
         "label": "Gründer & Startups",
         "cta": "Blindspot Check für Gründer starten",
-        "question_ids": _BASE_IDS + ["s1", "s2", "s3", "s4", "s5"],
+        "question_ids": _BASE_IDS + ACTIVE_TOP_THEMEN + ["s1", "s2", "s3", "s4", "s5"],
     },
     {
         "id": "solo",
         "label": "Solo-Selbstständige",
         "cta": "Blindspot Check für Solo-Selbstständige starten",
-        "question_ids": list(_BASE_IDS),
+        "question_ids": _BASE_IDS + ACTIVE_TOP_THEMEN + ["l1", "l2", "l3", "l4", "l5"],
     },
     {
         "id": "kmu",
         "label": "Kleine & mittlere Unternehmen",
         "cta": "Blindspot Check für KMU starten",
-        "question_ids": _BASE_IDS + ["k1", "k2", "k3", "k4", "k5"],
+        "question_ids": _BASE_IDS + ACTIVE_TOP_THEMEN + ["k1", "k2", "k3", "k4", "k5", "k6"],
     },
 ]
 
@@ -677,9 +953,27 @@ UI_STRINGS: dict = {
 }
 
 
-# ---------------------------------------------------------------------------
-# Frontend-Konfiguration
-# ---------------------------------------------------------------------------
+# Felder, die ans Frontend (brt-blindspot.js) gehen — inkl. segment-spezifischer Texte.
+_FRONTEND_QUESTION_KEYS = (
+    "id",
+    "cat",
+    "short",
+    "text",
+    "why",
+    "step",
+    "short_gruender",
+    "short_solo",
+    "text_gruender",
+    "text_solo",
+    "text_kmu",
+    "short_kmu",
+    "why_gruender",
+    "why_solo",
+    "why_kmu",
+    "step_gruender",
+    "step_solo",
+    "step_kmu",
+)
 
 def blindspot_frontend_config(
     *,
@@ -705,7 +999,7 @@ def blindspot_frontend_config(
         "resultBands": RESULT_BANDS,
         "categories": CATEGORIES,
         "questions": [
-            {k: q[k] for k in ("id", "cat", "short", "text", "why", "step")}
+            {k: q[k] for k in _FRONTEND_QUESTION_KEYS if k in q}
             for q in QUESTIONS
         ],
         "segments": SEGMENTS,
@@ -722,10 +1016,18 @@ def blindspot_config_json(**kwargs) -> str:
 # Selfcheck (wird vom Build aufgerufen)
 # ---------------------------------------------------------------------------
 
+# ponytail: KMU 19 (k6 + tt3), Gründer/Solo je 18 (+ tt3 Compliance/KI)
+_SEGMENT_QUESTION_COUNTS: dict[str, int] = {
+    "gruender": 18,
+    "solo": 18,
+    "kmu": 19,
+}
+
 def selfcheck() -> None:
     ids = [q["id"] for q in QUESTIONS]
     assert len(ids) == len(set(ids)), "Blindspot: Fragen-IDs nicht eindeutig"
-    assert len(QUESTIONS) == 20, f"Blindspot: 20 Fragen erwartet, {len(QUESTIONS)} gefunden"
+    for qid in ACTIVE_TOP_THEMEN:
+        assert qid in ids, f"Blindspot: ACTIVE_TOP_THEMEN referenziert unbekannt {qid}"
     for q in QUESTIONS:
         for key in ("id", "cat", "short", "text", "layer", "why", "step", "yellow_note"):
             assert q.get(key), f"Blindspot: Frage {q.get('id', '?')} ohne '{key}'"
@@ -742,6 +1044,11 @@ def selfcheck() -> None:
         unknown = [qid for qid in seg["question_ids"] if qid not in ids]
         assert not unknown, f"Blindspot: Segment {seg['id']} referenziert {unknown}"
         assert len(seg["question_ids"]) == len(set(seg["question_ids"]))
+        assert len(seg["question_ids"]) == _SEGMENT_QUESTION_COUNTS[seg["id"]], (
+            f"Blindspot: Segment {seg['id']} braucht "
+            f"{_SEGMENT_QUESTION_COUNTS[seg['id']]} Fragen, "
+            f"hat {len(seg['question_ids'])}"
+        )
     assert RESULT_BANDS[-1]["max_pct"] == 100
 
 

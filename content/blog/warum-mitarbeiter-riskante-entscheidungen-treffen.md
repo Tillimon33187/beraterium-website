@@ -32,7 +32,7 @@ related_slugs: []
 **Warum treffen Mitarbeitende riskante Entscheidungen – selbst wenn sie die möglichen Folgen kennen?****  
 **In vielen kleinen und mittelständischen Unternehmen entstehen die größten Risiken nicht durch Technik oder fehlende Prozesse, sondern durch Menschen: durch Routine, Überlastung, unausgesprochene Erwartungen und soziale Dynamiken im Team.
 
-Wenn erfahrene Mitarbeitende Regeln aus Gewohnheit überspringen, wenn Zeitdruck schnelle Lösungen erzwingt oder Teams Risiken verschweigen, weil niemand „Probleme machen“ will, wachsen Risiken still im Hintergrund. Managementdruck – etwa durch zu knappe Ressourcen, verkürzte Einarbeitungen oder permanente Dringlichkeit – verstärkt dieses Verhalten zusätzlich.
+Wenn erfahrene Mitarbeitende Regeln aus Gewohnheit überspringen, wenn Zeitdruck schnelle Lösungen erzwingt oder Teams Risiken verschweigen, weil niemand „Probleme machen“ will, wachsen Risiken still im Hintergrund. Managementdruck – etwa durch zu knappe Ressourcen, verkürzte Einarbeitungen oder permanente Dringlichkeit – verstärkt dieses Verhalten zusätzlich. Eine [Risikomanagement-Methode](/methode/), die Menschen einbindet, adressiert genau diese blinden Flecken.
 
 Der wahre Ursprung vieler Ausfälle liegt selten in einem einzelnen Fehler, sondern in fehlender Kommunikation: nicht aussprechen, was man sieht; nicht fragen, was man nicht versteht; nicht melden, was sich falsch anfühlt.
 

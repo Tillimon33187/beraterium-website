@@ -22,6 +22,8 @@ related_slugs: []
   * **Risiko wartet nicht.** Auch bei niedriger Eintrittswahrscheinlichkeit kann der Schaden hoch sein – Führungskräfte sollten handeln, statt zu sagen „ist ja bisher nichts passiert“.
 
 ## Warum Mitarbeitersensibilisierung für Gründer und KMU wichtig ist
+Kultur und Methode greifen ineinander — der [3-Ebenen-Gefahrenkatalog](/methode/) macht Risiken im Team sichtbar.
+
 
 Risiken betreffen alle im Unternehmen – nicht nur die, die offiziell „mit Risiko beauftragt“ sind. Gleichzeitig bringt es wenig, wenn Zertifikate an der Wand hängen und die Begehung passt, aber im Alltag ein Mitarbeiter fahrlässig handelt und z. B. ein kleiner Fehler einen großen Schaden auslöst. Dann zahlt oft keine Versicherung, und der Streit mit dem Mitarbeiter um Schadensersatz führt selten weiter. Für Gründer und KMU heißt das: Es braucht eine Kultur, die verstanden und gelebt wird – eine Kultur der offenen Augen, offenen Ohren und der Kommunikation. Nur so können Mitarbeiter Gefahren und Risiken erkennen und die getroffenen Maßnahmen auch umsetzen. Dieser Artikel fasst zusammen, wo es in der Praxis hakt, welche Grundlage nötig ist und wie man zu einer systematischen, aber nicht überfordernden Mitarbeitersensibilisierung kommt.
 
