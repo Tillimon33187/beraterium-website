@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
+  <!-- End cookieyes banner -->
+  <!-- Google Consent Mode v2 + GA4 (CookieYes setzt analytics_storage) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-BM435GHE6W');
+    function brtGrantAnalyticsConsent() {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+    document.addEventListener('cookieyes_consent_update', function (event) {
+      var accepted = (event.detail && event.detail.accepted) || [];
+      if (accepted.indexOf('analytics') !== -1) brtGrantAnalyticsConsent();
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        try {
+          if (typeof getCkyConsent === 'function' && getCkyConsent().categories.analytics) {
+            brtGrantAnalyticsConsent();
+          }
+        } catch (e) {}
+      }, 800);
+    });
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notfallplan Unternehmen – Payment-Ausfall | Beraterium Blog</title>
+  <meta name="description" content="Wenn Payment oder Bestellsystem 48 Stunden ausfällt, zählt jede Entscheidung. So erstellen KMU einen belastbaren Notfallplan für Ausfall, Sperre und…">
+  <link rel="canonical" href="https://www.beraterium.de/blog/notfallplan-unternehmen-payment-ausfall/">
+  <link rel="alternate" hreflang="de" href="https://www.beraterium.de/blog/notfallplan-unternehmen-payment-ausfall/">
+  <link rel="alternate" hreflang="en" href="https://www.beraterium.com/blog/business-emergency-plan-payment-outage-smb/">
+  <link rel="alternate" hreflang="x-default" href="https://www.beraterium.de/blog/notfallplan-unternehmen-payment-ausfall/">
+
+  <meta property="og:title" content="Notfallplan Unternehmen – Payment-Ausfall | Beraterium Blog">
+  <meta property="og:description" content="Wenn Payment oder Bestellsystem 48 Stunden ausfällt, zählt jede Entscheidung. So erstellen KMU einen belastbaren Notfallplan für Ausfall, Sperre und…">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.beraterium.de/blog/notfallplan-unternehmen-payment-ausfall/">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://www.beraterium.de/img/blog/notfallplan-unternehmen-payment-ausfall-hero.webp">
+
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="../../icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <link rel="stylesheet" href="../../css/brt.css?v=20260810-ga4-events-v1" data-brt-css>
+  <link rel="stylesheet" href="../../css/brt-fallback.css?v=20260810-ga4-events-v1">
+  <link rel="stylesheet" href="../../css/brt-layout-fix.css?v=20260810-ga4-events-v1">
+  <link rel="stylesheet" href="../../css/brt-print.css?v=20260810-ga4-events-v1" media="print">
+  <script src="../../js/brt-init.js"></script>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Notfallplan für Unternehmen: Was tun, wenn Payment oder Bestellsystem 48 Stunden ausfällt?",
+    "description": "Wenn Payment oder Bestellsystem 48 Stunden ausfällt, zählt jede Entscheidung. So erstellen KMU einen belastbaren Notfallplan für Ausfall, Sperre und Kundenkommunikation.",
+    "datePublished": "2026-08-17",
+    "dateModified": "2026-08-17",
+    "author": {
+      "@type": "Person",
+      "name": "Till Manfred Blania",
+      "image": "https://www.beraterium.de/img/team/till-blania.webp"
+    },
+    "publisher": {
+      "@id": "https://www.beraterium.de/#organization"
+    },
+    "mainEntityOfPage": "https://www.beraterium.de/blog/notfallplan-unternehmen-payment-ausfall/",
+    "inLanguage": "de-DE",
+    "image": "https://www.beraterium.de/img/blog/notfallplan-unternehmen-payment-ausfall-hero.webp"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was muss ein Notfallplan für ein KMU enthalten?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ein belastbarer Notfallplan benennt: (1) kritische Prozesse, ohne die das Unternehmen nicht funktioniert, (2) Schlüsselpersonen je Prozess und ihre Vertretungen, (3) die Kommunikationskette im Krisenfall, (4) Sofortmaßnahmen für die wahrscheinlichsten Szenarien — etwa Payment-Ausfall, Account-Sperre oder ERP-Störung. Beraterium erarbeitet solche Pläne als Teil des Maßnahmen-Fahrplans — als aktiv nutzbares Instrument, nicht als Dokument zum Ablegen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist der Unterschied zwischen technischem Ausfall und Account-Sperre?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bei einem technischen Ausfall (Hosting, API, Netzwerk) ist der Dienst kurzfristig nicht erreichbar — oft Stunden, manchmal ein bis zwei Tage. Bei einer Account-Sperre (Stripe-Review, Bank-Compliance, Policy-Verstoß beim Zahlungsdienstleister) bleibt das Konto gesperrt, bis der Anbieter freigibt — das kann Tage bis Wochen dauern. Beide Fälle brauchen unterschiedliche Sofortmaßnahmen und Kommunikation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lange dauert ein Payment-Ausfall typischerweise?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kurze Störungen bei großen Plattformen (Shopify, Stripe, PayPal) dauern oft zwei bis vier Stunden — im Juli 2026 betraf eine Shopify-Stripe-Störung laut Status-Incident mehrere Shops über etwa zwei Stunden. Account-Sperren oder Compliance-Reviews haben keine feste Dauer. Deshalb plant Beraterium intern mit einem Worst-Case von 48 Stunden Umsatzstillstand plus separater Planung für längere Sperren."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Brauche ich einen Notfallplan, wenn ich nur ein kleines Team habe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gerade dann. In Teams unter zehn Personen fehlen oft klare Rollen: Wer entscheidet in der ersten Stunde? Wer spricht mit Kunden? Wer aktiviert den zweiten Zahlungsweg? Ein schriftlicher Plan mit drei bis fünf Entscheidungspunkten reicht — er muss nur vor dem Ernstfall existieren und außerhalb des betroffenen Systems erreichbar sein."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was kostet 48 Stunden ohne funktionierendes Payment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Formel ist einfach: durchschnittlicher Tagesumsatz × Anzahl der Tage plus indirekte Kosten (Rückerstattungen, Support-Aufwand, Vertrauensverlust bei Stammkunden). Bei einem Online-Shop mit 15.000 Euro Tagesumsatz sind 48 Stunden schnell 30.000 Euro entgangener Umsatz — unabhängig vom Bilanzgewinn. Genau deshalb bewertet Beraterium solche Szenarien in Euro, nicht mit Ampel-Farben."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie finde ich heraus, welche Blindspots mein Unternehmen noch hat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Der kostenlose Blindspot Check von Beraterium durchspielt typische Was-wäre-wenn-Szenarien — von IT-Ausfall über Payment-Sperre bis Schlüsselperson — und liefert einen priorisierten Kurzbericht. Er ersetzt keine vollständige Risikoanalyse, zeigt aber in wenigen Minuten, wo Ihr Notfallplan noch Lücken hat."
+        }
+      }
+    ]
+  }
+]
+  </script>
+</head>
+
+<body class="brt-page brt-page--inner">
+
+<a class="brt-skip-link" href="#main-content">Zum Inhalt springen</a>
+
+<header class="site-header site-header--solid" aria-label="Hauptnavigation">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
+    <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
+      <ul>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../angebote/" class="site-header__parent-link" aria-expanded="false">
+            Angebote
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Angebote">
+            <li><a href="../../angebote/startups/">Startups</a></li>
+            <li><a href="../../angebote/kmu/">KMU</a></li>
+            <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+            <li><a href="../../schulungen/">Schulungen</a></li>
+            <li><a href="../../preise/">Preise</a></li>
+          </ul>
+        </li>
+        <li><a href="../../methode/">Methode</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../ueber-uns/" class="site-header__parent-link" aria-expanded="false">
+            Über uns
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Über uns">
+            <li><a href="../../ueber-uns/">Über das Unternehmen</a></li>
+            <li><a href="../../team/">Unser Team</a></li>
+          </ul>
+        </li>
+        <li><a href="../../risikoradar/">RisikoRadar</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../tools/" class="site-header__parent-link" aria-expanded="false">
+            Tools
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Tools">
+            <li><a href="../../tools/blindspot-check/">Blindspot Check</a></li>
+          </ul>
+        </li>
+        <li><a href="../../blog/" aria-current="page">Blog</a></li>
+      </ul>
+<div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://www.beraterium.com/blog/business-emergency-plan-payment-outage-smb/" hreflang="en">EN</a></div>
+      <a class="brt-btn brt-btn--outline site-header__cta" href="../../kontakt/">Erstgespräch buchen</a>
+    </nav>
+  </div>
+</header>
+
+<div class="brt">
+  <main id="main-content">
+
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">KMU</span>
+          <p class="brt-article__sticky-title">Notfallplan für Unternehmen: Was tun, wenn Payment oder…</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Notfallplan für Unternehmen: Was tun, wenn Payment oder Bestellsystem 48 Stunden ausfällt?</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">KMU</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2026-08-17">17. August 2026</time> · ca. 6 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/notfallplan-unternehmen-payment-ausfall-hero.webp" alt="Geschäftsführerin und IT-Leitung prüfen am Laptop einen Notfallplan für Zahlungsausfall und Bestellsystem-Störung im Büro" class="brt-article__hero-img" width="1536" height="1024" srcset="../../img/blog/notfallplan-unternehmen-payment-ausfall-hero-480w.webp 480w, ../../img/blog/notfallplan-unternehmen-payment-ausfall-hero-960w.webp 960w, ../../img/blog/notfallplan-unternehmen-payment-ausfall-hero-1440w.webp 1440w, ../../img/blog/notfallplan-unternehmen-payment-ausfall-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"></figure>
+      </div>
+      <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
+        <div class="brt-article__main">
+          <div class="brt-article__body" id="article-body" tabindex="-1">
+<aside class="brt-article__keypoints" aria-label="Kernaussagen"><div class="brt-article__keypoints-head"><div class="brt-article__keypoints-head-copy"><p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p><p class="brt-article__keypoints-deck">Kernaussagen auf einen Blick</p></div></div><ul class="brt-article__list brt-article__keypoints-list">
+<li><a class="brt-article__keypoints-link" href="#technischer-ausfall-oder-account-sperre-zwei-verschiedene-plane">Wenn Payment oder Bestellsystem 48 Stunden ausfällt, zählt jede Entscheidung. So erstellen KMU einen belastbaren Notfallplan für Ausfall, Sperre und Kundenkommunikation.</a></li>
+<li><a class="brt-article__keypoints-link" href="#technischer-ausfall-oder-account-sperre-zwei-verschiedene-plane">Technischer Ausfall und Account-Sperre sind zwei verschiedene Krisen — beide brauchen eigene Sofortmaßnahmen und Kommunikation.</a></li>
+<li><a class="brt-article__keypoints-link" href="#was-passiert-in-48-stunden-wirklich-jenseits-von-it-ist-down">In 48 Stunden geht es nicht nur um IT: Umsatz, Kundenvertrauen, offene Bestellungen und Liquidität laufen parallel.</a></li>
+<li><a class="brt-article__keypoints-link" href="#die-funf-dinge-die-vorher-feststehen-mussen">Vor dem Ernstfall müssen fünf Dinge feststehen: zweiter Zahlungsweg, Entscheider, Kundenkommunikation, Order-Handling, Liquiditätspuffer.</a></li>
+<li><a class="brt-article__keypoints-link" href="#blindspot-check-wo-ihr-plan-noch-lucken-hat">Ein Notfallplan auf Papier oder im privaten Handy ist wertlos, wenn er nur im betroffenen System liegt.</a></li>
+<li><a class="brt-article__keypoints-link" href="#wie-sie-den-schaden-in-euro-einschatzen">Wer Szenarien in Euro bewertet, sieht schneller, ob Prävention oder ein Backup-Zahlungsweg sich lohnt.</a></li>
+</ul></aside><h2 class="brt-article__h2" id="was-passiert-in-48-stunden-wirklich-jenseits-von-it-ist-down">Was passiert in 48 Stunden wirklich — jenseits von „IT ist down“?</h2>
+<p class="brt-body">Wenn Payment oder das Bestellsystem ausfällt, denken viele zuerst an Technik. Tatsächlich laufen in den ersten 48 Stunden mehrere Schäden parallel:</p>
+<ul class="brt-article__list">
+<li><strong>Entgangener Umsatz:</strong> Kein Checkout, keine Karten-Zahlung, keine automatische Rechnungsstellung — der Tagesumsatz fällt praktisch auf null, während Fixkosten weiterlaufen.</li>
+<li><strong>Offene Bestellungen:</strong> Kunden haben bezahlt oder bestellt, Lieferungen hängen in der Warteschlange — ohne klares Handling drohen Doppelbuchungen oder vergessene Aufträge.</li>
+<li><strong>Vertrauensverlust:</strong> Eine stille Webseite oder ein abgebrochener Checkout wirkt auf Neukunden wie Insolvenz — auch wenn intern alles unter Kontrolle ist.</li>
+<li><strong>Support-Überlast:</strong> Das Team beantwortet dieselbe Frage hundertmal, statt strukturiert zu eskalieren.</li>
+<li><strong>Liquiditätsdruck:</strong> Bei hohem Online-Anteil fehlen die Einzahlungen sofort — ein Thema, das auch die <a href="/blog/cashflow-analyse-risikomanagement-kmu/">Cashflow-Analyse im Risikomanagement</a> sichtbar macht.</li>
+</ul>
+<p class="brt-body">Ein Notfallplan, der nur „Status-Page prüfen und warten“ vorsieht, deckt diese Folgeschäden nicht ab.</p>
+<h2 class="brt-article__h2" id="technischer-ausfall-oder-account-sperre-zwei-verschiedene-plane">Technischer Ausfall oder Account-Sperre — zwei verschiedene Pläne</h2>
+<p class="brt-body">Viele Unternehmen verwechseln beides. In der Praxis sind es unterschiedliche Krisen:</p>
+<div class="brt-table-wrap brt-article__table" tabindex="0"><table class="brt-table">
+<thead>
+<tr>
+<th>Merkmal</th>
+<th>Technischer Ausfall</th>
+<th>Account-Sperre / Compliance-Review</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Typische Ursache</strong></td>
+<td>Hosting, API-Störung, Netzwerk, DDoS</td>
+<td>Stripe-Review, Bank-Compliance, Policy-Verstoß, Verdacht auf Betrug</td>
+</tr>
+<tr>
+<td><strong>Typische Dauer</strong></td>
+<td>Stunden bis selten 1–2 Tage</td>
+<td>Tage bis Wochen — ohne garantierte Frist</td>
+</tr>
+<tr>
+<td><strong>Was funktioniert noch?</strong></td>
+<td>Oft Backoffice, E-Mail, manuelle Abwicklung</td>
+<td>Oft gar kein Zugang zum Merchant-Dashboard</td>
+</tr>
+<tr>
+<td><strong>Erste Maßnahme</strong></td>
+<td>Backup-Zahlungsweg aktivieren, Kunden informieren</td>
+<td>Dokumente sammeln, Support-Ticket, <strong>parallelen</strong> Zahlungsweg einschalten</td>
+</tr>
+<tr>
+<td><strong>Kommunikation</strong></td>
+<td>„Technische Störung, wir arbeiten daran“</td>
+<td>„Zahlungsweg vorübergehend eingeschränkt — alternative Optionen aktiv“</td>
+</tr>
+</tbody>
+</table></div>
+<p class="brt-body"><strong>Beispiel aus der Praxis:</strong> Am 22. Juli 2026 meldete Shopify eine Störung bei Checkouts mit Stripe-Zahlungsgateway — betroffene Shops sahen entweder kein Kreditkartenformular oder Verarbeitungsfehler. Die Störung dauerte laut Status-Incident etwa zwei Stunden. Das ist ein klassischer <strong>technischer Ausfall</strong> — schnell, aber teuer in der Spitzenzeit.</p>
+<p class="brt-body">Eine <strong>Account-Sperre</strong> sieht anders aus: Das Dashboard ist gesperrt, Auszahlungen stoppen, der Support verlangt Nachweise — und der Umsatz bleibt trotzdem stehen, weil Kunden nicht mehr bezahlen können. Dafür brauchen Sie einen Plan B, der nicht vom gesperrten Anbieter abhängt.</p>
+<h2 class="brt-article__h2" id="die-funf-dinge-die-vorher-feststehen-mussen">Die fünf Dinge, die vorher feststehen müssen</h2>
+<p class="brt-body">Bevor etwas passiert, sollten diese fünf Punkte schriftlich geklärt sein — nicht im Kopf des Geschäftsführers allein:</p>
+<ol class="brt-article__list brt-article__list--ordered">
+<li><strong>Zweiter Zahlungsweg:</strong> Welche Alternative aktivieren Sie sofort (PayPal, Banküberweisung mit manueller Bestätigung, zweiter Payment-Provider, Rechnungskauf für Bestandskunden)? Wer hat die Zugangsdaten — und liegen sie außerhalb des primären Systems?</li>
+<li><strong>Entscheider in Stunde eins:</strong> Wer darf den Shop auf Wartungsmodus stellen, Refunds anstoßen oder den Backup-Weg freischalten? Bei fehlender Rolle entscheiden drei Personen parallel — langsam und widersprüchlich.</li>
+<li><strong>Kundenkommunikation:</strong> Fertige Textbausteine für Website-Banner, E-Mail-Antwort und Social Media — sachlich, ohne Panik, mit konkretem nächsten Schritt für den Kunden.</li>
+<li><strong>Order-Handling:</strong> Was passiert mit bezahlten, aber nicht versendeten Bestellungen? Wer pflegt eine Offline-Liste, wenn das ERP nicht erreichbar ist?</li>
+<li><strong>Liquiditätspuffer:</strong> Wie viele Tage Fixkosten decken Ihre Rücklagen, wenn keine Einzahlungen kommen? Bei 48 Stunden Worst-Case: Tagesumsatz × 2 als Orientierung für die Euro-Bewertung.</li>
+</ol>
+<p class="brt-body">Diese Liste ist kein ISO-Dokument — sie ist der Kern eines <a href="/methode/">Notfallplans für Unternehmen</a>, der im Ernstfall gelesen werden kann.</p>
+<h2 class="brt-article__h2" id="mini-rollenkarte-wer-entscheidet-in-der-ersten-stunde">Mini-Rollenkarte: Wer entscheidet in der ersten Stunde?</h2>
+<div class="brt-table-wrap brt-article__table" tabindex="0"><table class="brt-table">
+<thead>
+<tr>
+<th>Rolle</th>
+<th>Aufgabe in Stunde 1</th>
+<th>Vertretung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Krisenleitung (GF oder Beauftragter)</strong></td>
+<td>Entscheidung: Wartungsmodus ja/nein, Backup-Zahlungsweg freischalten</td>
+<td>Stellvertretung benennen</td>
+</tr>
+<tr>
+<td><strong>Technik / IT</strong></td>
+<td>Status prüfen, Provider kontaktieren, Isolation bei Verdacht auf Angriff</td>
+<td>Externer IT-Dienstleister-Nummer auf Papier</td>
+</tr>
+<tr>
+<td><strong>Kundenkommunikation</strong></td>
+<td>Banner, E-Mail-Vorlage, Social-Post — ein Kanal, eine Stimme</td>
+<td>Marketing oder GF-Assistenz</td>
+</tr>
+<tr>
+<td><strong>Finanzen</strong></td>
+<td>Liquiditäts-Check, Versicherung informieren falls Betriebsunterbrechung relevant</td>
+<td>Steuerberater / Buchhaltung</td>
+</tr>
+<tr>
+<td><strong>Operatives Order-Team</strong></td>
+<td>Offene Bestellungen listen, manuelle Abwicklung starten</td>
+<td>Zweite Person mit ERP-Zugang</td>
+</tr>
+</tbody>
+</table></div>
+<p class="brt-body">Die Vertretung ist entscheidend — <a href="/blog/schluesselpersonrisiko-erkennen-absichern/">Schlüsselpersonen-Risiken</a> treffen auch Notfallpläne, wenn nur eine Person alle Passwörter kennt.</p>
+<h2 class="brt-article__h2" id="was-sie-im-ernstfall-nicht-tun-sollten">Was Sie im Ernstfall nicht tun sollten</h2>
+<p class="brt-body">Diese Fehler vergrößern den Schaden typischerweise:</p>
+<ul class="brt-article__list">
+<li><strong>Nur auf die Status-Page starren</strong> — parallel Backup-Weg aktivieren und Kunden informieren.</li>
+<li><strong>Panik-Posts in Social Media</strong> — unklare Formulierungen („Wir wurden gehackt!“) ohne Fakten erzeugen mehr Schaden als der Ausfall selbst.</li>
+<li><strong>Refunds ohne Liste</strong> — chaotische Rückzahlungen ohne Order-Übersicht erzeugen Doppelzahlungen.</li>
+<li><strong>Alles selbst lösen</strong> — bei Verdacht auf Cyber-Angriff gilt: isolieren, Experten rufen (siehe <a href="/blog/cyberangriff-was-tun-kmu/">Cyberangriff — was tun?</a>).</li>
+<li><strong>Plan zum ersten Mal lesen</strong> — wenn der Notfallplan nur digital im SharePoint liegt und das SharePoint down ist, haben Sie keinen Plan.</li>
+</ul>
+<h2 class="brt-article__h2" id="wie-sie-den-schaden-in-euro-einschatzen">Wie Sie den Schaden in Euro einschätzen</h2>
+<p class="brt-body">Risikomanagement ohne Zahl ist Bauchgefühl. Für Payment-Ausfall reicht oft eine einfache Rechnung:</p>
+<p class="brt-body"><strong>Schaden ≈ (Tagesumsatz × Ausfalltage) + (Support-Stunden × Stundensatz) + (geschätzter Vertrauensverlust bei Stammkunden)</strong></p>
+<p class="brt-body">Beispiel: 12.000 Euro Tagesumsatz, 2 Tage Ausfall, 20 Support-Stunden à 45 Euro → <strong>24.900 Euro</strong> direkter und naher indirekter Schaden — unabhängig davon, ob das Unternehmen „profitabel“ ist.</p>
+<p class="brt-body">So lässt sich vergleichen: Kostet ein zweiter Payment-Provider 200 Euro im Monat — oder riskieren Sie 25.000 Euro in einem Wochenende? Die <a href="/methode/">Beraterium-Methode</a> bewertet genau solche Szenarien im Gefahrenkatalog und priorisiert Maßnahmen nach Euro, nicht nach Bauchgefühl.</p>
+<h2 class="brt-article__h2" id="funf-fragen-checkliste-vor-dem-nachsten-black-friday">Fünf-Fragen-Checkliste vor dem nächsten Black Friday</h2>
+<p class="brt-body">Beantworten Sie ehrlich — wenn mehr als zwei Fragen mit „Nein“ oder „Weiß nicht“ enden, fehlt Ihr Notfallplan:</p>
+<ol class="brt-article__list brt-article__list--ordered">
+<li>Haben wir einen <strong>zweiten Zahlungsweg</strong>, den wir in unter 30 Minuten aktivieren können?</li>
+<li>Liegen <strong>Zugangsdaten und Kontaktnummern</strong> (Provider, IT, Versicherung) außerhalb des primären Systems?</li>
+<li>Gibt es <strong>Textbausteine</strong> für Kunden, die wir ohne Abstimmung posten können?</li>
+<li>Weiß das Team, <strong>wer in Stunde eins entscheidet</strong> — und wer vertretend handelt?</li>
+<li>Haben wir <strong>Liquidität</strong> für mindestens 14 Tage ohne den erwarteten Zahlungseingang?</li>
+</ol>
+<h2 class="brt-article__h2" id="blindspot-check-wo-ihr-plan-noch-lucken-hat">Blindspot Check: Wo Ihr Plan noch Lücken hat</h2>
+<p class="brt-body">Die Checkliste oben ist ein Start. Der <a href="/tools/blindspot-check/">Blindspot Check</a> geht weiter: Er durchspielt typische Was-wäre-wenn-Szenarien — Payment-Sperre, Webseite down, Schlüsselperson fällt aus — und liefert einen priorisierten Kurzbericht per E-Mail.</p>
+<p class="brt-body">Er ersetzt keine vollständige <a href="/angebote/kmu/">Risikoanalyse für KMU</a> — zeigt aber in wenigen Minuten, welche Blindspots Sie noch nicht adressiert haben. Gerade bei digitalen Abhängigkeiten (Shopify, Stripe, Bank, ERP) lohnt sich der Selbsttest, bevor der nächste Incident in den Nachrichten steht.</p>
+<h2 class="brt-article__h2" id="fazit-der-erste-schritt-diese-woche">Fazit: Der erste Schritt diese Woche</h2>
+<p class="brt-body">Ein Notfallplan muss nicht 40 Seiten lang sein. Er muss <strong>vor dem Ernstfall existieren</strong>, außerhalb des betroffenen Systems erreichbar sein und fünf Entscheidungen vorwegnehmen: Backup-Zahlung, Entscheider, Kommunikation, Orders, Liquidität.</p>
+<p class="brt-body"><strong>Konkreter erster Schritt:</strong> Nehmen Sie 45 Minuten, rechnen Sie Ihren 48-Stunden-Umsatzverlust in Euro durch und klären Sie mit einer Person im Team, wer bei Payment-Ausfall in Stunde eins das Telefon in die Hand nimmt. Danach den <a href="/tools/blindspot-check/">Blindspot Check</a> durchspielen — und schauen, welche Frage Sie noch nicht beantworten konnten.</p>
+<p class="brt-body">Wenn Sie wissen möchten, wie Payment-, IT- und Liquiditätsrisiken in einem Gesamtportfolio zusammenpassen: Im <a href="/kontakt/">kostenlosen Erstgespräch</a> klären wir in 30 Minuten, welche drei Risiken bei Ihnen oben auf der Liste stehen sollten.</p>
+<p class="brt-body"><em>Hinweis: Dieser Artikel ist keine Rechts-, Steuer- oder Versicherungsberatung. Beraterium ist kein Zahlungsdienstleister und keine IT-Firma — wir strukturieren Risiken und Maßnahmen für Unternehmen.</em></p>
+<p class="brt-article__ai-disclosure brt-meta">Dieser Text wurde mit Unterstützung von KI erstellt und redaktionell geprüft.</p>
+          </div>
+        </div>
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
+
+        <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">9 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
+            <li><a href="#was-passiert-in-48-stunden-wirklich-jenseits-von-it-ist-down">Was passiert in 48 Stunden wirklich — jenseits von „IT ist down“?</a></li>
+            <li><a href="#technischer-ausfall-oder-account-sperre-zwei-verschiedene-plane">Technischer Ausfall oder Account-Sperre — zwei verschiedene Pläne</a></li>
+            <li><a href="#die-funf-dinge-die-vorher-feststehen-mussen">Die fünf Dinge, die vorher feststehen müssen</a></li>
+            <li><a href="#mini-rollenkarte-wer-entscheidet-in-der-ersten-stunde">Mini-Rollenkarte: Wer entscheidet in der ersten Stunde?</a></li>
+            <li><a href="#was-sie-im-ernstfall-nicht-tun-sollten">Was Sie im Ernstfall nicht tun sollten</a></li>
+            <li><a href="#wie-sie-den-schaden-in-euro-einschatzen">Wie Sie den Schaden in Euro einschätzen</a></li>
+            <li><a href="#funf-fragen-checkliste-vor-dem-nachsten-black-friday">Fünf-Fragen-Checkliste vor dem nächsten Black Friday</a></li>
+            <li><a href="#blindspot-check-wo-ihr-plan-noch-lucken-hat">Blindspot Check: Wo Ihr Plan noch Lücken hat</a></li>
+            <li><a href="#fazit-der-erste-schritt-diese-woche">Fazit: Der erste Schritt diese Woche</a></li>
+            </ol>
+          </details>
+        </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/kmu/">Klarheits-Fahrplan für KMU</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+
+    </article>
+
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
+      <div class="brt-container brt-article__faq">
+        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
+        <div class="brt-faq brt-fade-up">
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was muss ein Notfallplan für ein KMU enthalten?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Ein belastbarer Notfallplan benennt: (1) kritische Prozesse, ohne die das Unternehmen nicht funktioniert, (2) Schlüsselpersonen je Prozess und ihre Vertretungen, (3) die Kommunikationskette im Krisenfall, (4) Sofortmaßnahmen für die wahrscheinlichsten Szenarien — etwa Payment-Ausfall, Account-Sperre oder ERP-Störung. Beraterium erarbeitet solche Pläne als Teil des Maßnahmen-Fahrplans — als aktiv nutzbares Instrument, nicht als Dokument zum Ablegen.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist der Unterschied zwischen technischem Ausfall und Account-Sperre?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Bei einem technischen Ausfall (Hosting, API, Netzwerk) ist der Dienst kurzfristig nicht erreichbar — oft Stunden, manchmal ein bis zwei Tage. Bei einer Account-Sperre (Stripe-Review, Bank-Compliance, Policy-Verstoß beim Zahlungsdienstleister) bleibt das Konto gesperrt, bis der Anbieter freigibt — das kann Tage bis Wochen dauern. Beide Fälle brauchen unterschiedliche Sofortmaßnahmen und Kommunikation.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie lange dauert ein Payment-Ausfall typischerweise?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Kurze Störungen bei großen Plattformen (Shopify, Stripe, PayPal) dauern oft zwei bis vier Stunden — im Juli 2026 betraf eine Shopify-Stripe-Störung laut Status-Incident mehrere Shops über etwa zwei Stunden. Account-Sperren oder Compliance-Reviews haben keine feste Dauer. Deshalb plant Beraterium intern mit einem Worst-Case von 48 Stunden Umsatzstillstand plus separater Planung für längere Sperren.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Brauche ich einen Notfallplan, wenn ich nur ein kleines Team habe?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Gerade dann. In Teams unter zehn Personen fehlen oft klare Rollen: Wer entscheidet in der ersten Stunde? Wer spricht mit Kunden? Wer aktiviert den zweiten Zahlungsweg? Ein schriftlicher Plan mit drei bis fünf Entscheidungspunkten reicht — er muss nur vor dem Ernstfall existieren und außerhalb des betroffenen Systems erreichbar sein.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was kostet 48 Stunden ohne funktionierendes Payment?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Die Formel ist einfach: durchschnittlicher Tagesumsatz × Anzahl der Tage plus indirekte Kosten (Rückerstattungen, Support-Aufwand, Vertrauensverlust bei Stammkunden). Bei einem Online-Shop mit 15.000 Euro Tagesumsatz sind 48 Stunden schnell 30.000 Euro entgangener Umsatz — unabhängig vom Bilanzgewinn. Genau deshalb bewertet Beraterium solche Szenarien in Euro, nicht mit Ampel-Farben.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie finde ich heraus, welche Blindspots mein Unternehmen noch hat?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Der kostenlose Blindspot Check von Beraterium durchspielt typische Was-wäre-wenn-Szenarien — von IT-Ausfall über Payment-Sperre bis Schlüsselperson — und liefert einen priorisierten Kurzbericht. Er ersetzt keine vollständige Risikoanalyse, zeigt aber in wenigen Minuten, wo Ihr Notfallplan noch Lücken hat.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="author-box">
+      <div class="brt-container brt-article__author brt-fade-up">
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+        <div>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
+          <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
+          <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
+        </div>
+      </div>
+    </section>
+    <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="article-cta">
+      <div class="brt-container brt-cta-band__inner brt-fade-up">
+        <h2 id="article-cta" class="brt-h2 brt-h2--on-dark">Risiken im eigenen Unternehmen klären?</h2>
+        <p class="brt-body brt-body--on-dark">Buchen Sie ein kostenloses Erstgespräch – 30 Minuten, unverbindlich.</p>
+        <a class="brt-btn brt-btn--on-dark" href="../../kontakt/">Erstgespräch buchen</a>
+      </div>
+    </section>
+
+    <section class="brt-section" aria-labelledby="related-posts">
+      <div class="brt-container">
+        <h2 id="related-posts" class="brt-h2">Weitere Artikel</h2>
+        <ul class="brt-blog-grid brt-stagger">
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../../blog/cyberangriff-was-tun-kmu/">
+<div class="brt-card__thumb"><img src="../../img/blog/cyberangriff-was-tun-kmu-hero.webp" alt="IT-Verantwortlicher in einem KMU arbeitet konzentriert eine Notfall-Checkliste nach einem Cyberangriff ab" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/cyberangriff-was-tun-kmu-hero-480w.webp 480w, ../../img/blog/cyberangriff-was-tun-kmu-hero-960w.webp 960w, ../../img/blog/cyberangriff-was-tun-kmu-hero-1440w.webp 1440w, ../../img/blog/cyberangriff-was-tun-kmu-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Cyberangriff auf mein Unternehmen – was tun? Soforthilfe für KMU</h3>
+              <p class="brt-meta">12. Juli 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Nach einem Cyberangriff zählen die ersten 2 Stunden. Die Sofortmaßnahmen-Checkliste für KMU, Meldepflichten und Fristen – plus Prävention ohne…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../../blog/cashflow-analyse-risikomanagement-kmu/">
+<div class="brt-card__thumb"><img src="../../img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp" alt="Unternehmer prüft Liquiditätsentwicklung und Cashflow-Kennzahlen auf einem Dashboard im Büro" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-480w.webp 480w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-960w.webp 960w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-1440w.webp 1440w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Was ist eine Cashflow-Analyse – und wie hängt sie mit Risikomanagement für KMU zusammen?</h3>
+              <p class="brt-meta">8. Juli 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Eine Cashflow-Analyse zeigt, ob Ihr Unternehmen laufende Zahlungen decken kann – unabhängig vom Gewinn. Sie macht Liquiditätsrisiken im KMU früh…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="risikomanagement">
+          <a class="brt-card__link" href="../../blog/schluesselpersonrisiko-erkennen-absichern/">
+<div class="brt-card__thumb"><img src="../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero.webp" alt="Organigramm auf einem Tisch mit einer hervorgehobenen Schlüsselperson, um die sich alle Verbindungen bündeln" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-480w.webp 480w, ../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-960w.webp 960w, ../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-1440w.webp 1440w, ../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Risikomanagement</span>
+              <h3 class="brt-h3">Schlüsselpersonrisiko: erkennen, bewerten und absichern – für KMU, Startups und Solo-Selbstständige</h3>
+              <p class="brt-meta">1. August 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Das Schlüsselpersonrisiko trifft KMU, Startups und Solo-Selbstständige unterschiedlich hart. So erkennst du unverzichtbare Personen – und sicherst…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer" aria-label="Footer">
+  <div class="site-footer__inner">
+    <section>
+      <h2>Beraterium</h2>
+      <p>Konzern-Risikomanagement, übersetzt für den Mittelstand.</p>
+      <a href="https://www.linkedin.com/company/beraterium">LinkedIn</a>
+      <a href="https://www.youtube.com/@Beraterium">YouTube</a>
+    </section>
+    <section>
+      <h2>Angebote</h2>
+      <ul>
+        <li><a href="../../angebote/startups/">Startups</a></li>
+        <li><a href="../../angebote/kmu/">KMU</a></li>
+        <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+        <li><a href="../../angebote/">Übersicht</a></li>
+        <li><a href="../../preise/">Preise &amp; Leistungen</a></li>
+        <li><a href="../../schulungen/">Schulungen</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Lösungen</h2>
+      <ul>
+        <li><a href="../../loesungen/nis2/">NIS2-Betroffenheit</a></li>
+        <li><a href="../../loesungen/nachfolge/">Unternehmensnachfolge</a></li>
+        <li><a href="../../loesungen/cyberangriff/">Cyberangriff</a></li>
+        <li><a href="../../loesungen/selbststaendig-absichern/">Selbstständig absichern</a></li>
+        <li><a href="../../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko</a></li>
+        <li><a href="../../loesungen/investor-due-diligence/">Investor Due Diligence</a></li>
+        <li><a href="../../loesungen/risikoanalyse-startup/">Risikoanalyse Startup</a></li>
+        <li><a href="../../loesungen/risikoanalyse-kmu/">Risikoanalyse KMU</a></li>
+        <li><a href="../../loesungen/risikoanalyse-solo/">Risikoanalyse Selbstständige</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beraterium vor Ort</h2>
+      <ul>
+        <li><a href="../../standort/muenchen/">München</a></li>
+        <li><a href="../../standort/sachsen/">Sachsen</a></li>
+        <li><a href="../../standort/nrw/">NRW</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Unternehmen</h2>
+      <ul>
+        <li><a href="../../ueber-uns/">Über uns</a></li>
+        <li><a href="../../team/">Team</a></li>
+        <li><a href="../../mission-vision/">Mission &amp; Vision</a></li>
+        <li><a href="../../methode/">Methode</a></li>
+        <li><a href="../../nutzen-garantie/">Nutzen-Garantie</a></li>
+        <li><a href="../../relevanz-garantie/">Relevanz-Garantie</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
+        <li><a href="../../barrierefreiheit/">Barrierefreiheit</a></li>
+        <li><a href="../../impressum/">Impressum</a></li>
+        <li><a href="../../datenschutz/">Datenschutz</a></li>
+        <li><a href="../../agb/">AGB</a></li>
+      </ul>
+    </section>
+  </div>
+  <p class="site-footer__legal">© Beraterium 2026</p>
+</footer>
+
+<script src="../../js/brt-analytics.js?v=20260810-ga4-events-v1"></script>
+<script src="../../js/brt-site.js?v=20260810-ga4-events-v1"></script>
+
+</body>
+</html>
