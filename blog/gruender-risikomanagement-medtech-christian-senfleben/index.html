@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
+  <!-- End cookieyes banner -->
+  <!-- Google Consent Mode v2 + GA4 (CookieYes setzt analytics_storage) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-BM435GHE6W');
+    function brtGrantAnalyticsConsent() {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+    document.addEventListener('cookieyes_consent_update', function (event) {
+      var accepted = (event.detail && event.detail.accepted) || [];
+      if (accepted.indexOf('analytics') !== -1) brtGrantAnalyticsConsent();
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        try {
+          if (typeof getCkyConsent === 'function' && getCkyConsent().categories.analytics) {
+            brtGrantAnalyticsConsent();
+          }
+        } catch (e) {}
+      }, 800);
+    });
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gründer-Risikomanagement MedTech | Beraterium Blog</title>
+  <meta name="description" content="Vom eigenen Rückenschmerz zum bootstrap-finanzierten MedTech-Startup: Gründerstory, Claims-Compliance, MDR und Risiken — ohne Heilversprechen.">
+  <link rel="canonical" href="https://www.beraterium.de/blog/gruender-risikomanagement-medtech-christian-senfleben/">
+  <link rel="alternate" hreflang="de" href="https://www.beraterium.de/blog/gruender-risikomanagement-medtech-christian-senfleben/">
+  <link rel="alternate" hreflang="en" href="https://www.beraterium.com/blog/founder-risk-management-medtech-christian-senfleben/">
+  <link rel="alternate" hreflang="x-default" href="https://www.beraterium.de/blog/gruender-risikomanagement-medtech-christian-senfleben/">
+
+  <meta property="og:title" content="Gründer-Risikomanagement MedTech | Beraterium Blog">
+  <meta property="og:description" content="Vom eigenen Rückenschmerz zum bootstrap-finanzierten MedTech-Startup: Gründerstory, Claims-Compliance, MDR und Risiken — ohne Heilversprechen.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.beraterium.de/blog/gruender-risikomanagement-medtech-christian-senfleben/">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://www.beraterium.de/img/blog/gruender-risikomanagement-medtech-christian-senfleben-hero.webp">
+
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="../../icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <link rel="stylesheet" href="../../css/brt.css?v=20260810-ga4-events-v1" data-brt-css>
+  <link rel="stylesheet" href="../../css/brt-fallback.css?v=20260810-ga4-events-v1">
+  <link rel="stylesheet" href="../../css/brt-layout-fix.css?v=20260810-ga4-events-v1">
+  <link rel="stylesheet" href="../../css/brt-print.css?v=20260810-ga4-events-v1" media="print">
+  <script src="../../js/brt-init.js"></script>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gründer-Risikomanagement in MedTech: Christian Senfleben und Wellenpuls",
+    "description": "Vom eigenen Rückenschmerz zum bootstrap-finanzierten MedTech-Startup: Gründerstory, Claims-Compliance, MDR und Risiken — ohne Heilversprechen.",
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "author": {
+      "@type": "Person",
+      "name": "Till Manfred Blania",
+      "image": "https://www.beraterium.de/img/team/till-blania.webp"
+    },
+    "publisher": {
+      "@id": "https://www.beraterium.de/#organization"
+    },
+    "mainEntityOfPage": "https://www.beraterium.de/blog/gruender-risikomanagement-medtech-christian-senfleben/",
+    "inLanguage": "de-DE",
+    "image": "https://www.beraterium.de/img/blog/gruender-risikomanagement-medtech-christian-senfleben-hero.webp"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was ist Wellenpuls — und ist es ein Therapiegerät?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wellenpuls ist ein neuromuskulärer Elektrostimulationsgurt zum Training der Tiefenmuskulatur. Es ist kein Therapie- oder Heilprodukt; Marketing und Claims müssen das Trainingsgerät als solches kommunizieren — ohne Versprechen, Rückenschmerzen zu heilen oder zu behandeln."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Gründerrisiken sind in MedTech besonders relevant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Regulatorik und Zweckbestimmung (MDR, Claims), Lieferkette und Komponenten, Reputation bei angezweifelter Wirkung, kopierbare Innovation im E-Commerce sowie Fehlannahmen über B2B-Kanäle wie betriebliches Gesundheitsmanagement — oft bevor Pilotdaten vorliegen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Warum ist MDR-Zertifizierung für junge Gründer ein Risikofaktor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Der Weg ist lang (oft 1,5+ Jahre), teuer (häufig sechsstellig) und löst nicht automatisch Erstattung oder schnellen Absatz. Falsche Produktklassifizierung oder Heilversprechen können zusätzlich zu Abmahnungen, Bußgeldern oder strafrechtlicher Relevanz führen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was lernt man aus einem anonymen Gerichtsschreiben als Gründer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Erstens: nicht panisch reagieren, aber ernst nehmen. Zweitens: Unterlagen und Zweckbestimmung sauber dokumentieren. Drittens: Fachanwalt für Medizinproduktrecht einschalten. Viertens: Wettbewerber können mit minimalem Aufwand Nerven und Zeit kosten — das gehört ins Risikobewusstsein."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Sollte man als Gründer früh mit Kunden sprechen — auch mit unfertigem Produkt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Wer jahrelang im Labor perfektioniert, riskiert Product-Market-Fit-Fehler. Frühes Feedback zu Problem, Zahlungsbereitschaft und Alternativen spart Zeit und Geld — auch wenn es wehtut."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was bedeuten Entscheidungen erster und zweiter Art (Jeff Bezos) für Gründer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Etwa 99 % der Alltagsentscheidungen sind reversibel — schnell treffen, testen, korrigieren. Bei den wenigen irreversiblen Entscheidungen (Rechtsform, Kern-Compliance, strategische Festlegungen) lohnt sich bewusste Risikoanalyse vor dem Commit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist Gründen in Deutschland wirklich so riskant wie viele annehmen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Das persönliche Scheitern-Risiko wird oft überschätzt — soziales Auffangnetz, Lernkurve und Netzwerk zählen mit. Unternehmerisches Risiko bleibt real (Cashflow, Regulatorik, Reputation), sollte aber nicht aus Angst vor dem Lebenslauf blockieren."
+        }
+      }
+    ]
+  }
+]
+  </script>
+</head>
+
+<body class="brt-page brt-page--inner">
+
+<a class="brt-skip-link" href="#main-content">Zum Inhalt springen</a>
+
+<header class="site-header site-header--solid" aria-label="Hauptnavigation">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
+    <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
+      <ul>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../angebote/" class="site-header__parent-link" aria-expanded="false">
+            Angebote
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Angebote">
+            <li><a href="../../angebote/startups/">Startups</a></li>
+            <li><a href="../../angebote/kmu/">KMU</a></li>
+            <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+            <li><a href="../../schulungen/">Schulungen</a></li>
+            <li><a href="../../preise/">Preise</a></li>
+          </ul>
+        </li>
+        <li><a href="../../methode/">Methode</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../ueber-uns/" class="site-header__parent-link" aria-expanded="false">
+            Über uns
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Über uns">
+            <li><a href="../../ueber-uns/">Über das Unternehmen</a></li>
+            <li><a href="../../team/">Unser Team</a></li>
+          </ul>
+        </li>
+        <li><a href="../../risikoradar/">RisikoRadar</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../tools/" class="site-header__parent-link" aria-expanded="false">
+            Tools
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Tools">
+            <li><a href="../../tools/blindspot-check/">Blindspot Check</a></li>
+          </ul>
+        </li>
+        <li><a href="../../blog/" aria-current="page">Blog</a></li>
+      </ul>
+<div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://www.beraterium.com/blog/founder-risk-management-medtech-christian-senfleben/" hreflang="en">EN</a></div>
+      <a class="brt-btn brt-btn--outline site-header__cta" href="../../kontakt/">Erstgespräch buchen</a>
+    </nav>
+  </div>
+</header>
+
+<div class="brt">
+  <main id="main-content">
+
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">Risikomanagement</span>
+          <p class="brt-article__sticky-title">Gründer-Risikomanagement in MedTech: Christian Senfleben und Wellenpuls</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Gründer-Risikomanagement in MedTech: Christian Senfleben und Wellenpuls</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">Risikomanagement</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2026-09-02">2. September 2026</time> · ca. 7 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/gruender-risikomanagement-medtech-christian-senfleben-hero.webp" alt="Gründer-Schreibtisch mit Risikomatrix und Compliance-Unterlagen symbolisiert Gründer-Risikomanagement in MedTech" class="brt-article__hero-img" width="1536" height="1024" srcset="../../img/blog/gruender-risikomanagement-medtech-christian-senfleben-hero-480w.webp 480w, ../../img/blog/gruender-risikomanagement-medtech-christian-senfleben-hero-960w.webp 960w, ../../img/blog/gruender-risikomanagement-medtech-christian-senfleben-hero-1440w.webp 1440w, ../../img/blog/gruender-risikomanagement-medtech-christian-senfleben-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"><span class="brt-ki-image-label">KI-generiertes Bild</span></figure>
+      </div>
+      <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
+        <div class="brt-article__main">
+          <div class="brt-article__body" id="article-body" tabindex="-1">
+<aside class="brt-article__keypoints" aria-label="Kernaussagen"><div class="brt-article__keypoints-head"><div class="brt-article__keypoints-head-copy"><p class="brt-article__keypoints-label">Das Wichtigste in Kürze</p><p class="brt-article__keypoints-deck">Kernaussagen auf einen Blick</p></div></div><ul class="brt-article__list brt-article__keypoints-list">
+<li><a class="brt-article__keypoints-link" href="#mdr-medizinproduktrecht-und-claims-wenn-sprache-teuer-wird">Vom eigenen Rückenschmerz zum bootstrap-finanzierten MedTech-Startup: Gründerstory, Claims-Compliance, MDR und Risiken — ohne Heilversprechen.</a></li>
+<li><a class="brt-article__keypoints-link" href="#im-gesprach-christian-senfleben-und-wellenpuls">Christian Senfleben gründete 2024 Wellenpuls aus eigener Erfahrung und Masterarbeit — ein NMES-Gurt für Tiefenmuskulatur, kein Therapieversprechen.</a></li>
+<li><a class="brt-article__keypoints-link" href="#therapietreue-pravention-und-das-biopsychosoziale-modell">Das zentrale Alltagsproblem ist Therapietreue: Übungen abbrechen, der Körper passt sich zurück an — Training muss in den Alltag passen, Sport ersetzt es nicht.</a></li>
+<li><a class="brt-article__keypoints-link" href="#grundung-in-deutschland-burokratie-timing-und-mentoring">MedTech-Gründung in Deutschland: Bürokratie, MDR-Kosten, Claims-Grenzen — und ein Gerichtsschreiben per Wegwerf-Mail, das Nerven kostet, aber mit sauberer Dokumentation lösbar sein kann.</a></li>
+<li><a class="brt-article__keypoints-link" href="#bootstrap-b2c-b2b-und-getrennte-risikologik">Bootstrap, B2C-E-Commerce und BGM mit Krankenkassenpartnerschaften (z. B. Barmer) erfordern getrennte Risikologik — Product-Market-Fit vor Skalierungsfantasie.</a></li>
+<li><a class="brt-article__keypoints-link" href="#funf-tipps-fur-angehende-grunder">Gründer-Tipps: früh anfangen, Kunden früh hören, Type-1-vs-Type-2-Entscheidungen unterscheiden, Beginner-Rolle akzeptieren — 80 % umsetzen schlägt perfektionieren.</a></li>
+</ul></aside><h2 class="brt-article__h2" id="wenn-aus-eigener-erfahrung-ein-unternehmen-wird">Wenn aus eigener Erfahrung ein Unternehmen wird</h2>
+<p class="brt-body">Christian Senfleben war schon als Teenager mit Rückenschmerzen vertraut — zuerst am Vater mitgemacht, später selbst betroffen. Physio, Krankengymnastik, viel Sport: nichts hielt langfristig. An der Deutschen Sporthochschule Köln vertiefte er Biomechanik und Orthopädie, schrieb seine Masterarbeit über ein Gerät, das gezielt die Tiefenmuskulatur stärkt — und gründete im Juli 2024 die Wellenpuls GmbH.</p>
+<p class="brt-body">Die Motivation klingt vertraut: nicht der nächste Gadget-Hype, sondern etwas mit Impact, hinter dem man steht. „Am Ende des Studiums hat man wenig zu verlieren“, sagt er — und ist bootstrap-finanziert in den Markt gegangen. Für <a href="/blog/what-is-risk-management/">Risikomanagement</a> Gründer ist diese Kombination typisch: hohe intrinsische Motivation, begrenzte Ressourcen, dafür schnelle Lernkurve.</p>
+<h2 class="brt-article__h2" id="was-wellenpuls-ist-und-was-es-ausdrucklich-nicht-ist">Was Wellenpuls ist — und was es ausdrücklich nicht ist</h2>
+<p class="brt-body">Das Produkt ist ein neuromuskulärer Elektrostimulationsgurt — optisch vergleichbar mit einem Lendengurt, innen mit Oberflächenelektroden. Er sendet Impulse an Muskeln, die bei vielen Menschen mit Rückenbeschwerden geschwächt sind — nicht nur am Rücken, sondern auch am tiefen seitlichen Bauch (Transversus abdominis). Das Gehirn ersetzt man durch ein externes Signal: Der Muskel zieht zusammen, ohne dass man willkürlich „den richtigen“ Muskel finden muss.</p>
+<p class="brt-body"><strong>Wichtig für Leser und für Compliance:</strong> Wellenpuls ist ein <strong>Trainingsgerät für die Tiefenmuskulatur</strong>. Christian Senfleben therapiert oder heilt niemanden. Man darf nicht behaupten, der Gürtel lindere, heile oder behandle LWS-Rückenschmerzen — auch wenn Studienergebnisse existieren. Marketing und Claims müssen bei der Zweckbestimmung bleiben: Muskeltraining, nicht Medizinversprechen. Das ist kein Formalismus, sondern ein zentrales unternehmerisches Risiko.</p>
+<p class="brt-body">In der internen Studie lag der Rahmen bei zwei Anwendungen à 20 Minuten pro Woche über vier Wochen — ein Alltagsformat, das Therapietreue erleichtern soll. Das ersetzt weder Sport noch ärztliche Abklärung bei Vorerkrankungen.</p>
+<h2 class="brt-article__h2" id="therapietreue-pravention-und-das-biopsychosoziale-modell">Therapietreue, Prävention und das biopsychosoziale Modell</h2>
+<p class="brt-body">Das Gespräch dreht sich oft um ein Muster, das jeder kennt: Man macht Übungen — und hört wieder auf. Der Körper folgt „use it or lose it“. Rückentraining scheitert selten am fehlenden Wissen, sondern an <strong>Adherenz</strong>.</p>
+<p class="brt-body">Christian beschreibt Rückenschmerzen zudem als biopsychosozial: neben biomechanischen Faktoren spielen Katastrophisierung, Bewegungsangst und soziale Dynamiken mit. Mehr Bewegung korreliert oft mit weniger subjektivem Leid — exakte Prozentanteile zwischen „mechanisch“ und „psychosozial“ lassen sich methodisch schwer trennen. Für Gründer im Gesundheitsumfeld heiß das: Produkt allein reicht selten; Edukation und Begleitung (etwa über ein BGM-Kursportal) können Teil des Angebots sein — wieder ohne Heilversprechen.</p>
+<p class="brt-body">Präventiv trainieren idealerweise mehr Menschen, als es tun. Faktisch steigt die Handlungsschwelle oft erst mit spürbarem Schmerz — ein Markt- und Kommunikationsrisiko, das jede Health-Tech-Marke kennt.</p>
+<h2 class="brt-article__h2" id="elektrostimulation-sicherheit-und-grenzen">Elektrostimulation: Sicherheit und Grenzen</h2>
+<p class="brt-body">Aus Risikosicht fragen viele: Was machen elektrische Signale mit dem Körper? Elektrostimulation ist keine Erfindung der letzten Jahre — seit Jahrzehnten erforscht, auch in der Raumfahrt zur Muskelerhaltung. Für gesunde Menschen ohne relevante Vorerkrankungen gilt sie in der Literatur als unproblematisch, <strong>wenn</strong> man Ausschlüsse beachtet: Epilepsie, Herzschrittmacher, Schwangerschaft, offene Wunden im Elektrodenbereich. Bei Vorerkrankungen: ärztliche Rücksprache.</p>
+<p class="brt-body">Das ist kein Ersatz für MedTech-Compliance — aber die ehrliche Antwort an Endkunden und für BGM-Angebote: Nutzen und Grenzen transparent benennen reduziert Reputations- und Haftungsrisiken.</p>
+<h2 class="brt-article__h2" id="grundung-in-deutschland-burokratie-timing-und-mentoring">Gründung in Deutschland: Bürokratie, Timing und Mentoring</h2>
+<p class="brt-body">Christians erster Risikoblock ist administrativ: Rechtsform, ggf. Holding, Handelsregistereintragung — „mal zwei Monate“ — und ein Go-to-Market-Plan, der diese Verzögerung einkalkuliert. Nervig, selten der eigentliche Showstopper. Entscheidend ist, sich vorher zu informieren und mit Mentoren zu sprechen, die den Weg schon gegangen sind.</p>
+<p class="brt-body">Für Gründer allgemein gilt: Wer den Marktstart zu eng an externe Meilensteine bindet, ohne Puffer für Behörden und Partner, unterschätzt ein <strong>planbares Risiko</strong>. Mehr zu typischen <a href="/blog/startup-fehler-vermeiden-risikomanagement/">Startup-Fehlern</a> und frühem Validieren weiter unten.</p>
+<h2 class="brt-article__h2" id="mdr-medizinproduktrecht-und-claims-wenn-sprache-teuer-wird">MDR, Medizinproduktrecht und Claims — wenn Sprache teuer wird</h2>
+<p class="brt-body">Der steinige Pfad: Medizinproduktzertifizierung nach MDR. Christian recherchierte früh — Experten nannten ~1,5 Jahre und über 200.000 €, ohne Garantie für Krankenkassenübernahme oder schnellen Absatz. Die Grenzfrage „Medizinprodukt ja/nein“ und „Was darf ich sagen?“ gehört zu den <strong>Entscheidungen zweiter Art</strong>: irreversibel in Kosten, Zeit und Positionierung.</p>
+<p class="brt-body">Konkret: Eine prä-Gründungsstudie mit Rückenschmerz-Bezug darf nicht so kommuniziert werden, als heile oder behandle das Gerät Schmerzen. Wer das missachtet, riskiert Abmahnungen — und in Extremfällen ernsthafte juristische Konsequenzen bei unzulässigem Medizinproduktvertrieb. Regulatorik ist hier kein Nebenthema, sondern Stufe-1-Risiko im MedTech-Fragenkatalog: neue Anforderungen, angezweifelte gesundheitliche Wirkung, Lieferkette.</p>
+<h2 class="brt-article__h2" id="gerichtsschreiben-wettbewerb-und-nerven-als-ressource">Gerichtsschreiben, Wettbewerb und Nerven als Ressource</h2>
+<p class="brt-body">Mitte 2024 landete ein Schreiben vom Amtsgericht Düsseldorf im Postfach: anonyme Anfrage, ob Wellenpuls LWS als Medizinprodukt zertifiziert sei — Zweckbestimmung und Konformitätserklärung angefordert. Christian war „ziemlich nervös“. Gesetzestexte lesen sich bedrohlich; Medizinproduktrecht ohne Anwalt ist kein DIY-Thema.</p>
+<p class="brt-body">Mit einer Anwältin für Medizinproduktrecht: Stellungnahme, Unterlagen, Fall erledigt. Wer angefragt hatte? Wegwerf-E-Mail — Wettbewerber vermutet. Zwei Minuten Aufwand für den Absender, Tage Nerven und Rechtskosten für den Gründer. Peter Münstermann ordnet es ein: Wenn sich jemand mit dir beschäftigt, machst du oft etwas richtig — <strong>trotzdem</strong> bleibt es ein Risiko, wenn doch eine Compliance-Lücke existiert.</p>
+<p class="brt-body">Till Blania erinnert an einen parallel bekannten Fall: Verkaufsverbot über Monate trotz späterer Rechtslage — Umsatzbruch in der Wachstumsphase. Gründer sollten deshalb nicht lax werden, aber auch nicht jeden Brief als Weltuntergang lesen. Seriosität, Dokumentation, Fachpartner — und im Vorfeld Claims sauber halten.</p>
+<h2 class="brt-article__h2" id="bootstrap-b2c-b2b-und-getrennte-risikologik">Bootstrap, B2C, B2B und getrennte Risikologik</h2>
+<p class="brt-body">Zwei Jahre nach Gründung trägt sich Wellenpuls per Umsatz — noch keine Multi-Million-Company, aber überlebensfähig ohne Investoren. Das bedeutet: langsamer, budgetbewusster, viel Testen. Parallel laufen B2C-E-Commerce und B2B im betrieblichen Gesundheitsmanagement; Partnerschaften etwa mit der Barmer zeigen, dass der BGM-Kanal strategisch „Burggraben“ sein kann — Beziehungen, Finanzierungslogik, Gesamtmaßnahme — während E-Commerce kopierbare Innovation und Wettbewerb eher <strong>gelegentlich</strong> sichtbar macht.</p>
+<p class="brt-body">Für Risikoanalysen heißt das: <strong>Kanal getrennt bewerten</strong>. Pilotphase BGM vs. etablierter Shop — unterschiedliche Eintrittswahrscheinlichkeiten, unterschiedliche Schadenshöhen. Wer das vermischt, optimiert Maßnahmen am falschen Hebel.</p>
+<div class="brt-table-wrap brt-article__table" tabindex="0"><table class="brt-table">
+<thead>
+<tr>
+<th><strong>Dimension</strong></th>
+<th><strong>B2C E-Commerce</strong></th>
+<th><strong>BGM / Krankenkassen</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Typisches Risiko</td>
+<td>Kopierbarer Vorteil, Preisdruck</td>
+<td>Fehlannahme über Kundenbedarf, lange Zyklen</td>
+</tr>
+<tr>
+<td>Hebel</td>
+<td>Conversion, Claims, Support</td>
+<td>Beziehungen, Evidenz, Vertrauen</td>
+</tr>
+<tr>
+<td>Lernphase</td>
+<td>Schnelle Iteration</td>
+<td>Pilotdaten vor Skalierung</td>
+</tr>
+</tbody>
+</table></div>
+<h2 class="brt-article__h2" id="entscheidungen-erster-art-und-wann-grundlichkeit-pflicht-ist">Entscheidungen erster Art — und wann Gründlichkeit Pflicht ist</h2>
+<p class="brt-body">Christian zitiert Jeff Bezos: ~99 % der Entscheidungen sind Alltagsentscheidungen — schnell treffen, testen, ggf. rückgängig machen. ~1 % kann das Unternehmen gefährden — dort Zeit investieren. Till ergänzt aus der Beraterium-Praxis: <strong>80 % reicht</strong> zum Start; Perfektionismus frisst Monate, die teurer sind als eine falsche Marketingfarbe.</p>
+<p class="brt-body">Das Gegenstück ist der produktfixierte Gründer — drei Jahre entwickeln, erstes Kundengespräch, Problem existiert nicht oder Zahlungsbereitschaft fehlt. „Möglichst viel mit Kundinnen und Kunden sprechen — von Anfang an“ ist Christians dringlichster Rat. Unfertig rausgeben, Feedback einholen, Features streichen oder ergänzen — kontinuierlich.</p>
+<h2 class="brt-article__h2" id="funf-tipps-fur-angehende-grunder">Fünf Tipps für angehende Gründer</h2>
+<ol class="brt-article__list brt-article__list--ordered">
+<li><strong>Anfangen statt endlos lesen.</strong> Bücher und Kreisdenken ersetzen keine Erfahrung; Praktikum im Startup oder erste Mini-Gründung während des Studiums zählen.</li>
+<li><strong>Persönliches Risiko realistisch sehen.</strong> In Deutschland wird Scheitern im Lebenslauf oft überschätzt — soziales Netz, Lernkurve und Selbstständigkeitserfahrung wiegen schwer.</li>
+<li><strong>Netzwerk und Mentoring.</strong> Steuern, Recht, Versicherung, Produktion, Marketing — in jedem Bereich kurz Anfänger sein, Wissen aufsaugen, <strong>umsetzen</strong>.</li>
+<li><strong>Type-1 vs. Type-2 unterscheiden.</strong> Compliance und Kernpositionierung: gründlich. Landingpage, Preis, Kanaltest: schnell.</li>
+<li><strong>Beginner-Rolle annehmen.</strong> Gründung zwingt zur Komfortzone — wer das als Lernmodus statt Schamfrage sieht, spart Nerven.</li>
+</ol>
+<h2 class="brt-article__h2" id="fazit-grunderstory-und-risikomanagement-gehoren-zusammen">Fazit: Gründerstory und Risikomanagement gehören zusammen</h2>
+<p class="brt-body">Christians Weg zeigt, wie persönliche Geschichte, Wissenschaft und Unternehmertum zusammenfallen — und wo MedTech-Gründung hart wird: nicht bei der Idee, sondern bei Regulatorik, Sprache, Lieferkette und Marktannahmen. Wer Heilversprechen vermeidet, Claims ernst nimmt, Kunden früh hört und irreversible Entscheidungen separiert, reduziert Schaden in Euro und Reputation — ohne Mut zu verlieren.</p>
+<p class="brt-body"><strong>Nächster Schritt:</strong> Einen Gründungs- oder Produktkanal wählen, drei Risiken benennen (Regulatorik, Markt, Operation), Schaden und Wahrscheinlichkeit grob schätzen — dann eine Maßnahme diese Woche testen, nicht nächstes Quartal perfektionieren.</p>
+<p class="brt-body">Vertiefung zu Methode und Priorisierung: <a href="/blog/risikoanalyse-startup-solo-selbststaendige-methode/">Risikoanalyse für Startups und Solo</a> und <a href="/blog/geistiges-eigentum-patentschutz-praxistipps/">Geistiges Eigentum</a>.</p>
+<h2 class="brt-article__h2" id="im-gesprach-christian-senfleben-und-wellenpuls">Im Gespräch: Christian Senfleben und Wellenpuls</h2>
+<p class="brt-body">Ausführlicher Austausch zu Produkt, Gründungsalltag und Risiken — inklusive Gerichtsschreiben, MDR und Gründer-Tipps — im <strong>Risiko Radar</strong> (Folge 22). Der Artikel steht für sich; die Episode ist Ergänzung.</p>
+<p class="brt-body"><strong><a href="https://www.linkedin.com/in/christian-senfleben/">Christian Senfleben</a></strong> — Gründer, Wellenpuls GmbH:</p>
+<ul class="brt-article__list">
+<li><strong>Unternehmen &amp; Produkt:</strong> <a href="https://wellenpuls.de/">wellenpuls.de</a></li>
+<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/christian-senfleben/">linkedin.com/in/christian-senfleben</a></li>
+<li><strong>Facebook:</strong> <a href="https://www.facebook.com/wellenpuls/">facebook.com/wellenpuls</a></li>
+<li><strong>Instagram:</strong> <a href="https://www.instagram.com/wellenpuls_gmbh/">instagram.com/wellenpuls_gmbh</a></li>
+</ul>
+
+<p class="brt-body"><em>Hinweis: Wellenpuls ist ein Trainingsgerät für die Tiefenmuskulatur. Keine Heil- oder Therapieversprechen.</em></p>
+<p class="brt-article__ai-disclosure brt-meta">Dieser Text wurde mit Unterstützung von KI erstellt und redaktionell geprüft.</p>
+          </div>
+        </div>
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
+
+        <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">12 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
+            <li><a href="#wenn-aus-eigener-erfahrung-ein-unternehmen-wird">Wenn aus eigener Erfahrung ein Unternehmen wird</a></li>
+            <li><a href="#was-wellenpuls-ist-und-was-es-ausdrucklich-nicht-ist">Was Wellenpuls ist — und was es ausdrücklich nicht ist</a></li>
+            <li><a href="#therapietreue-pravention-und-das-biopsychosoziale-modell">Therapietreue, Prävention und das biopsychosoziale Modell</a></li>
+            <li><a href="#elektrostimulation-sicherheit-und-grenzen">Elektrostimulation: Sicherheit und Grenzen</a></li>
+            <li><a href="#grundung-in-deutschland-burokratie-timing-und-mentoring">Gründung in Deutschland: Bürokratie, Timing und Mentoring</a></li>
+            <li><a href="#mdr-medizinproduktrecht-und-claims-wenn-sprache-teuer-wird">MDR, Medizinproduktrecht und Claims — wenn Sprache teuer wird</a></li>
+            <li><a href="#gerichtsschreiben-wettbewerb-und-nerven-als-ressource">Gerichtsschreiben, Wettbewerb und Nerven als Ressource</a></li>
+            <li><a href="#bootstrap-b2c-b2b-und-getrennte-risikologik">Bootstrap, B2C, B2B und getrennte Risikologik</a></li>
+            <li><a href="#entscheidungen-erster-art-und-wann-grundlichkeit-pflicht-ist">Entscheidungen erster Art — und wann Gründlichkeit Pflicht ist</a></li>
+            <li><a href="#funf-tipps-fur-angehende-grunder">Fünf Tipps für angehende Gründer</a></li>
+            <li><a href="#fazit-grunderstory-und-risikomanagement-gehoren-zusammen">Fazit: Gründerstory und Risikomanagement gehören zusammen</a></li>
+            <li><a href="#im-gesprach-christian-senfleben-und-wellenpuls">Im Gespräch: Christian Senfleben und Wellenpuls</a></li>
+            </ol>
+          </details>
+        </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/startups/">Risiko-Check für Startups</a></li>
+            <li><a href="../../angebote/kmu/">Klarheits-Fahrplan für KMU</a></li>
+            <li><a href="../../angebote/solo/">Risiko-Kompass für Solo</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+
+    <section class="brt-article__video" aria-labelledby="article-podcast-video">
+      <div class="brt-container">
+        <div class="brt-article__video-head">
+          <p class="brt-article__video-label" id="article-podcast-video">Risiko Radar Podcast</p>
+          <p class="brt-article__video-deck">🎧 Zur ganzen Podcast Folge geht es hier:</p>
+        </div>
+        <div
+          class="brt-article__video-wrap"
+          data-youtube-embed
+          data-youtube-id="0RXd7EcXY00"
+          data-youtube-page="https://www.beraterium.de/blog/gruender-risikomanagement-medtech-christian-senfleben/"
+          data-youtube-title="Risiko Radar Podcast: Gründer-Risikomanagement in MedTech: Christian Senfleben und Wellenpuls"
+        >
+          <button type="button" class="brt-article__video-poster" aria-label="Podcast abspielen: Risiko Radar Podcast: Gründer-Risikomanagement in MedTech: Christian Senfleben und Wellenpuls">
+            <img
+              src="https://i.ytimg.com/vi/0RXd7EcXY00/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/0RXd7EcXY00/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/0RXd7EcXY00/sddefault.jpg 640w"
+              sizes="(min-width: 1024px) min(1200px, 100vw), 100vw"
+              alt="Risiko Radar Podcast: Gründer-Risikomanagement in MedTech: Christian Senfleben und Wellenpuls"
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              data-youtube-thumb-base="https://i.ytimg.com/vi/0RXd7EcXY00/"
+              onerror="if(this.src.includes('maxresdefault')){this.src='https://i.ytimg.com/vi/0RXd7EcXY00/sddefault.jpg';}else if(this.src.includes('sddefault')){this.src='https://i.ytimg.com/vi/0RXd7EcXY00/hqdefault.jpg';}"
+            >
+            <span class="brt-article__video-play" aria-hidden="true"></span>
+          </button>
+          <a
+            class="brt-article__video-yt-badge"
+            href="https://www.youtube.com/watch?v=0RXd7EcXY00"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch on YouTube"
+          >
+            <span class="brt-article__video-yt-prefix">Watch on</span>
+            <span class="brt-article__video-yt-brand" aria-hidden="true">
+              <svg class="brt-article__video-yt-icon" width="20" height="14" viewBox="0 0 20 14" focusable="false">
+                <path fill="#f03" d="M19.6 2.2A2.5 2.5 0 0 0 17.6.4C16.1 0 10 0 10 0S3.9 0 2.4.4A2.5 2.5 0 0 0 .4 2.2C0 3.7 0 7 0 7s0 3.3.4 4.8A2.5 2.5 0 0 0 2.4 13.6C3.9 14 10 14 10 14s6.1 0 7.6-.4a2.5 2.5 0 0 0 2-2.2C20 10.3 20 7 20 7s0-3.3-.4-4.8z"/>
+                <path fill="#fff" d="M8 4.5v5l5-2.5z"/>
+              </svg>
+              <span class="brt-article__video-yt-name">YouTube</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+    </article>
+
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
+      <div class="brt-container brt-article__faq">
+        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
+        <div class="brt-faq brt-fade-up">
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist Wellenpuls — und ist es ein Therapiegerät?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Wellenpuls ist ein neuromuskulärer Elektrostimulationsgurt zum Training der Tiefenmuskulatur. Es ist kein Therapie- oder Heilprodukt; Marketing und Claims müssen das Trainingsgerät als solches kommunizieren — ohne Versprechen, Rückenschmerzen zu heilen oder zu behandeln.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Welche Gründerrisiken sind in MedTech besonders relevant?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Regulatorik und Zweckbestimmung (MDR, Claims), Lieferkette und Komponenten, Reputation bei angezweifelter Wirkung, kopierbare Innovation im E-Commerce sowie Fehlannahmen über B2B-Kanäle wie betriebliches Gesundheitsmanagement — oft bevor Pilotdaten vorliegen.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Warum ist MDR-Zertifizierung für junge Gründer ein Risikofaktor?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Der Weg ist lang (oft 1,5+ Jahre), teuer (häufig sechsstellig) und löst nicht automatisch Erstattung oder schnellen Absatz. Falsche Produktklassifizierung oder Heilversprechen können zusätzlich zu Abmahnungen, Bußgeldern oder strafrechtlicher Relevanz führen.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was lernt man aus einem anonymen Gerichtsschreiben als Gründer?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Erstens: nicht panisch reagieren, aber ernst nehmen. Zweitens: Unterlagen und Zweckbestimmung sauber dokumentieren. Drittens: Fachanwalt für Medizinproduktrecht einschalten. Viertens: Wettbewerber können mit minimalem Aufwand Nerven und Zeit kosten — das gehört ins Risikobewusstsein.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Sollte man als Gründer früh mit Kunden sprechen — auch mit unfertigem Produkt?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Ja. Wer jahrelang im Labor perfektioniert, riskiert Product-Market-Fit-Fehler. Frühes Feedback zu Problem, Zahlungsbereitschaft und Alternativen spart Zeit und Geld — auch wenn es wehtut.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was bedeuten Entscheidungen erster und zweiter Art (Jeff Bezos) für Gründer?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Etwa 99 % der Alltagsentscheidungen sind reversibel — schnell treffen, testen, korrigieren. Bei den wenigen irreversiblen Entscheidungen (Rechtsform, Kern-Compliance, strategische Festlegungen) lohnt sich bewusste Risikoanalyse vor dem Commit.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Ist Gründen in Deutschland wirklich so riskant wie viele annehmen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Das persönliche Scheitern-Risiko wird oft überschätzt — soziales Auffangnetz, Lernkurve und Netzwerk zählen mit. Unternehmerisches Risiko bleibt real (Cashflow, Regulatorik, Reputation), sollte aber nicht aus Angst vor dem Lebenslauf blockieren.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="author-box">
+      <div class="brt-container brt-article__author brt-fade-up">
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+        <div>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
+          <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
+          <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
+        </div>
+      </div>
+    </section>
+    <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="article-cta">
+      <div class="brt-container brt-cta-band__inner brt-fade-up">
+        <h2 id="article-cta" class="brt-h2 brt-h2--on-dark">Risiken im eigenen Unternehmen klären?</h2>
+        <p class="brt-body brt-body--on-dark">Buchen Sie ein kostenloses Erstgespräch – 30 Minuten, unverbindlich.</p>
+        <a class="brt-btn brt-btn--on-dark" href="../../kontakt/">Erstgespräch buchen</a>
+      </div>
+    </section>
+
+    <section class="brt-section" aria-labelledby="related-posts">
+      <div class="brt-container">
+        <h2 id="related-posts" class="brt-h2">Weitere Artikel</h2>
+        <ul class="brt-blog-grid brt-stagger">
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../../blog/what-is-risk-management/">
+<div class="brt-card__thumb"><img src="../../img/blog/what-is-risk-management-hero.webp" alt="Beitragsbild: Was ist eigentlich Risikomanagement?" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/what-is-risk-management-hero-480w.webp 480w, ../../img/blog/what-is-risk-management-hero-960w.webp 960w, ../../img/blog/what-is-risk-management-hero-1440w.webp 1440w, ../../img/blog/what-is-risk-management-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"><span class="brt-ki-image-label">KI-generiertes Bild</span></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Was ist eigentlich Risikomanagement?</h3>
+              <p class="brt-meta">21. Oktober 2025 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Risikomanagement ist mehr als Verluste vermeiden — es identifiziert Unsicherheit, bewertet sie und macht sie steuerbar. Was ist eine Gefahr, wann…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
+          <a class="brt-card__link" href="../../blog/startup-fehler-vermeiden-risikomanagement/">
+<div class="brt-card__thumb"><img src="../../img/blog/startup-fehler-vermeiden-risikomanagement-hero.webp" alt="Beitragsbild: Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-480w.webp 480w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-960w.webp 960w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-1440w.webp 1440w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"><span class="brt-ki-image-label">KI-generiertes Bild</span></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Startup</span>
+              <h3 class="brt-h3">Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist</h3>
+              <p class="brt-meta">28. Oktober 2025 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">Die meisten Startups scheitern nicht an der Idee, sondern an fehlender Struktur. Wie Gründer mit klaren Prozessen und Risikomanagement Stabilität…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="hr-kultur">
+          <a class="brt-card__link" href="../../blog/geistiges-eigentum-patentschutz-praxistipps/">
+<div class="brt-card__thumb"><img src="../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero.webp" alt="Geistiges Eigentum und Patentschutz: Was du schützen kannst – und was du nicht kannst" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero-480w.webp 480w, ../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero-960w.webp 960w, ../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero-1440w.webp 1440w, ../../img/blog/geistiges-eigentum-patentschutz-praxistipps-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"><span class="brt-ki-image-label">KI-generiertes Bild</span></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">HR &amp; Kultur</span>
+              <h3 class="brt-h3">Geistiges Eigentum und Patentschutz: Was du schützen kannst – und was du nicht kannst</h3>
+              <p class="brt-meta">24. Februar 2026 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">Patente und Marken gelten nur dort, wo du sie anmeldest. Wer nur in Deutschland oder der EU schützt, kann in China oder den USA von anderen…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer" aria-label="Footer">
+  <div class="site-footer__inner">
+    <section>
+      <h2>Beraterium</h2>
+      <p>Konzern-Risikomanagement, übersetzt für den Mittelstand.</p>
+      <a href="https://www.linkedin.com/company/beraterium">LinkedIn</a>
+      <a href="https://www.youtube.com/@Beraterium">YouTube</a>
+    </section>
+    <section>
+      <h2>Angebote</h2>
+      <ul>
+        <li><a href="../../angebote/startups/">Startups</a></li>
+        <li><a href="../../angebote/kmu/">KMU</a></li>
+        <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+        <li><a href="../../angebote/">Übersicht</a></li>
+        <li><a href="../../preise/">Preise &amp; Leistungen</a></li>
+        <li><a href="../../schulungen/">Schulungen</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Lösungen</h2>
+      <ul>
+        <li><a href="../../loesungen/nis2/">NIS2-Betroffenheit</a></li>
+        <li><a href="../../loesungen/nachfolge/">Unternehmensnachfolge</a></li>
+        <li><a href="../../loesungen/cyberangriff/">Cyberangriff</a></li>
+        <li><a href="../../loesungen/selbststaendig-absichern/">Selbstständig absichern</a></li>
+        <li><a href="../../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko</a></li>
+        <li><a href="../../loesungen/investor-due-diligence/">Investor Due Diligence</a></li>
+        <li><a href="../../loesungen/risikoanalyse-startup/">Risikoanalyse Startup</a></li>
+        <li><a href="../../loesungen/risikoanalyse-kmu/">Risikoanalyse KMU</a></li>
+        <li><a href="../../loesungen/risikoanalyse-solo/">Risikoanalyse Selbstständige</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beraterium vor Ort</h2>
+      <ul>
+        <li><a href="../../standort/muenchen/">München</a></li>
+        <li><a href="../../standort/sachsen/">Sachsen</a></li>
+        <li><a href="../../standort/nrw/">NRW</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Unternehmen</h2>
+      <ul>
+        <li><a href="../../ueber-uns/">Über uns</a></li>
+        <li><a href="../../team/">Team</a></li>
+        <li><a href="../../mission-vision/">Mission &amp; Vision</a></li>
+        <li><a href="../../methode/">Methode</a></li>
+        <li><a href="../../nutzen-garantie/">Nutzen-Garantie</a></li>
+        <li><a href="../../relevanz-garantie/">Relevanz-Garantie</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
+        <li><a href="../../barrierefreiheit/">Barrierefreiheit</a></li>
+        <li><a href="../../impressum/">Impressum</a></li>
+        <li><a href="../../datenschutz/">Datenschutz</a></li>
+        <li><a href="../../agb/">AGB</a></li>
+      </ul>
+    </section>
+  </div>
+  <p class="site-footer__legal">© Beraterium 2026</p>
+</footer>
+
+<script src="../../js/brt-analytics.js?v=20260810-ga4-events-v1"></script>
+<script src="../../js/brt-site.js?v=20260810-ga4-events-v1"></script>
+
+</body>
+</html>
