@@ -69,7 +69,7 @@ Für die meisten mittelständischen Betriebe ohne Zertifizierungszwang ist diese
 
 Ein spezialisierter Mittelstandsberater passt, wenn Sie 20 bis 250 Mitarbeitende haben, keinen Zertifizierungszwang, aber ein echtes Interesse an Handlungsfähigkeit statt an einem Ordner im Regal. Die [Beraterium-Methode](/methode/) nimmt die Logik des Konzern-Risikomanagements und übersetzt sie bezahlbar und verständlich für den Mittelstand.
 
-Konkret bedeutet das: Der 3-Ebenen-Gefahrenkatalog sammelt Gefahren systematisch, jedes Risiko wird in Euro bewertet – also mit Schadenshöhe und Eintrittswahrscheinlichkeit statt mit Ampelfarben –, und daraus entsteht eine Priorisierung auf die wenigen wirksamsten Maßnahmen. Für den Mittelstand gibt es dafür ein eigenes Angebot: die [Risikoanalyse für KMU](/angebote/kmu/). Ein verwandter Baustein ist die [Cashflow-Analyse als Teil des Risikomanagements](/blog/cashflow-analyse-risikomanagement-kmu/), weil Liquiditätsrisiken oft die unterschätzte Lücke sind.
+Konkret bedeutet das: Der 3-Ebenen-Gefahrenkatalog sammelt Gefahren systematisch, jedes Risiko wird in Euro bewertet – also mit Schadenshöhe und Eintrittswahrscheinlichkeit statt mit Ampelfarben –, und daraus entsteht eine Priorisierung auf die wenigen wirksamsten Maßnahmen. Für den Mittelstand gibt es dafür ein eigenes Angebot: [Risikomanagement Beratung für den Mittelstand](/angebote/kmu/). Ein verwandter Baustein ist die [Cashflow-Analyse als Teil des Risikomanagements](/blog/cashflow-analyse-risikomanagement-kmu/), weil Liquiditätsrisiken oft die unterschätzte Lücke sind.
 
 ## Wann reicht ein Versicherungsmakler?
 
@@ -94,3 +94,7 @@ Ein viertes Signal ist Ehrlichkeit über die eigene Rolle: Ein guter Berater sag
 Eine belastbare Zahl gibt es nur nach Umfang, aber die Größenordnung lässt sich einordnen: Große Zertifizierungsprojekte bewegen sich schnell im hohen vier- bis fünfstelligen Bereich, spezialisierte Mittelstandsberatung deutlich darunter, und eine erste Gefahrensammlung in Eigenregie kostet nur Zeit. Der wirtschaftlich sinnvollste Einstieg ist fast immer eine fokussierte Risikoanalyse: Sie zeigt, welche Maßnahmen sich lohnen, bevor Sie in Software, Policen oder Zertifikate investieren.
 
 Beraterium sichert das zusätzlich über eine doppelte Garantie ab – finden wir kein relevantes Risiko oder bringt die Analyse keinen Nutzen, zahlen Sie nichts. Welche Option zu Ihrem Unternehmen passt, klären wir am besten direkt: im [kostenlosen Erstgespräch](/kontakt/), 30 Minuten, unverbindlich.
+
+## Nächster Schritt: Risikomanagement für Ihr KMU
+
+Wenn Sie wissen möchten, wie eine strukturierte Risikoanalyse für den Mittelstand bei Ihnen aussieht: [Risikomanagement Beratung für den Mittelstand](/angebote/kmu/) — kostenloses Erstgespräch, Festpreise ab 3.475 €.

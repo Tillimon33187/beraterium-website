@@ -106,6 +106,7 @@ class TeamMember:
     email: str = ""
     phone: str = ""
     linkedin: str = ""
+    languages: list[str] = field(default_factory=list)
     active: bool = True
     show_on_home: bool = False
     show_on_ueber_uns: bool = False
@@ -175,6 +176,7 @@ def load_team_members() -> list[TeamMember]:
                 email=data.get("email", ""),
                 phone=data.get("phone", ""),
                 linkedin=data.get("linkedin", ""),
+                languages=list(data.get("languages") or []),
                 active=bool(data.get("active", True)),
                 show_on_home=bool(data.get("show_on_home", False)),
                 show_on_ueber_uns=bool(data.get("show_on_ueber_uns", False)),
@@ -1774,6 +1776,16 @@ def gen_sitemap_urls() -> list[str]:
         "/angebote/kmu/",
         "/angebote/solo/",
         "/preise/",
+        "/internationale-angebote/",
+        "/internationale-angebote/gruendung-deutschland/",
+        "/internationale-angebote/leben-arbeiten-deutschland/",
+        "/internationale-angebote/business-turnaround/",
+        "/internationale-angebote/expansion-tochtergesellschaft/",
+        "/ru/internationale-angebote/",
+        "/ru/internationale-angebote/osnovanie-biznesa-germaniya/",
+        "/ru/internationale-angebote/zhizn-i-rabota-germaniya/",
+        "/ru/internationale-angebote/biznes-zdorovye-proverka/",
+        "/ru/internationale-angebote/ekspansiya-dochernaya-kompaniya/",
         "/schulungen/",
         "/schulungen/risikoexperte/",
         "/schulungen/risk-awareness-kultur/",

@@ -503,6 +503,94 @@ PRICE_CATEGORIES: list[dict[str, Any]] = [
             },
         ],
     },
+    {
+        "id": "international",
+        "title": "Internationale Angebote",
+        "tag": "RUSSISCHSPRACHIGE GRÜNDER & EXPANSION",
+        "lede": "Beratung und Begleitung für Unternehmer aus dem postsowjetischen Raum — auf Deutsch, Englisch und Russisch. Keine Rechts- oder Steuerberatung; Koordination mit unserem Netzwerk aus Anwälten und Steuerberatern.",
+        "offers": [
+            {
+                "nr": "INT-00",
+                "name": "Erstberatung Internationale Angebote",
+                "desc": "30 Minuten: Ihre Situation, Zielmarkt und nächster sinnvoller Schritt — unverbindlich, auf Deutsch, Englisch oder Russisch.",
+                "price": 50,
+                "duration": "30 Minuten",
+                "slug": "internationale-angebote",
+                "details_html": (
+                    "<p>Einstieg für alle internationalen Angebote: Wir klären, wo Sie stehen, was Sie anstreben und welches Paket passt — ohne Verkaufsdruck.</p>"
+                    "<ul><li>Persönliches Gespräch mit Veronika Berdnikova oder Till Blania</li>"
+                    "<li>Sprachen: Deutsch, Englisch, Russisch</li>"
+                    "<li>Ergebnis: klare Empfehlung für den nächsten Schritt</li></ul>"
+                ),
+            },
+            {
+                "nr": "INT-01",
+                "name": "Gründung in Deutschland",
+                "desc": "Begleitung durch die Gründungsphase: Businessplan-Struktur, Behördenkoordination, Netzwerk, Risikoanalyse von Anfang an.",
+                "price_from": 1900,
+                "price_detail": "Einstieg ab 1.900 € · Komplettpaket Gründungsbegleitung 4.900 €",
+                "duration": "4–12 Wochen",
+                "slug": "gruendung-deutschland",
+                "details_html": (
+                    "<p>Beratung und Koordination — keine Rechts- oder Steuerberatung. Wir strukturieren Ihren Gründungsweg und binden Spezialisten ein.</p>"
+                    "<ul><li>Rechtsform-Optionen verständlich einordnen (Einzelunternehmen, GbR, UG, GmbH)</li>"
+                    "<li>Businessplan-Struktur und Finanzplan begleiten</li>"
+                    "<li>Koordination Gewerbeanmeldung, ELSTER, IHK/HWK</li>"
+                    "<li>Vermittlung Notar, Anwalt, Steuerberater</li>"
+                    "<li>Fördermittel-Recherche und Risikoanalyse inklusive</li></ul>"
+                ),
+            },
+            {
+                "nr": "INT-02",
+                "name": "Leben & Arbeiten in Deutschland",
+                "desc": "1-zu-1-Betreuung: deutsche Geschäfts- und Alltagskultur, Behörden, ELSTER, typische Fettnäpfchen — modular buchbar.",
+                "price_from": 180,
+                "unit": "pro Stunde",
+                "price_detail": "Einzelstunde ab 180 € · Themenmodul ab 490 € · Paket 6 Monate 2.900 € · Objektsuche ab 1.900 €",
+                "duration": "Nach Bedarf",
+                "slug": "leben-arbeiten-deutschland",
+                "details_html": (
+                    "<p>Individuelles Coaching für Gründer mit Migrationshintergrund — Soft Skills und praktische Behörden-Navigation.</p>"
+                    "<ul><li>Kommunikation und Kultur im deutschen Geschäftsalltag</li>"
+                    "<li>Finanzamt, Gewerbeamt, Ausländerbehörde — Vorbereitung und Ablauf</li>"
+                    "<li>ELSTER, Termine, schriftliche Bestätigungen</li>"
+                    "<li>Optional: Wohnungs- oder Gewerbeobjektsuche</li></ul>"
+                ),
+            },
+            {
+                "nr": "INT-03",
+                "name": "Business Health Check / Turnaround",
+                "desc": "Risikoanalyse für laufende Unternehmen: Engpässe identifizieren, Lösungen priorisieren, Kosten eliminieren.",
+                "price_from": 3500,
+                "price_detail": "Health Check ab 3.500 € (BAFA-förderfähig) · Turnaround-Paket 12.500 €",
+                "duration": "2–8 Wochen",
+                "slug": "business-turnaround",
+                "details_html": (
+                    "<p>Für Unternehmen, die bereits gegründet sind, aber an Grenzen stoßen — Finanzamt, Regulatorik, Kunden oder Prozesse.</p>"
+                    "<ul><li>Strukturierte Risikoanalyse nach Beraterium-Methode</li>"
+                    "<li>Engpass-Diagnose: Finanzen, Vertrieb, Personal, IT, Compliance</li>"
+                    "<li>Priorisierte Maßnahmen mit Umsetzungsfahrplan</li>"
+                    "<li>BAFA-Förderung möglich (bis 80 % bei Health Check)</li></ul>"
+                ),
+            },
+            {
+                "nr": "INT-04",
+                "name": "Expansion / Tochtergesellschaft DE",
+                "desc": "Markteintritt Deutschland/EU: Tochtergesellschaft aufbauen, Compliance, Vor-Ort-Vertrieb — Fulfillment kann im Ursprungsland bleiben.",
+                "price_from": 9500,
+                "price_detail": "Setup ab 9.500 € · KYC/Sanktions-Modul ab 1.500 € · Retainer ab 4.500 €/Monat (min. 6 Monate)",
+                "duration": "Setup 8–16 Wochen + Retainer",
+                "slug": "expansion-tochtergesellschaft",
+                "details_html": (
+                    "<p>Für etablierte Unternehmen im Ausland, die den EU-Markt erschließen wollen — ohne sofort umzuziehen.</p>"
+                    "<ul><li>Markteintritts- und Risikoanalyse</li>"
+                    "<li>Aufbau Tochtergesellschaft — Koordination mit Notar/Anwalt</li>"
+                    "<li>Compliance, Sanktions-Check, KYC/AML</li>"
+                    "<li>Vor-Ort-Management: Vertrieb, Kundenkontakt, lokale Präsenz</li></ul>"
+                ),
+            },
+        ],
+    },
 ]
 
 
@@ -540,7 +628,7 @@ def _selfcheck() -> None:
                 for key in ("price_add", "price_team", "team_from", "slug", "details_html"):
                     assert o.get(key), f"{o['nr']}: price_base needs {key}"
                 assert o["price_team"] > o["price_base"], o["nr"]
-    assert len(nrs) == 32, f"expected 32 offers, got {len(nrs)}"
+    assert len(nrs) == 37, f"expected 37 offers, got {len(nrs)}"
     assert format_eur(3475) == "3.475 €" and format_eur(0) == "kostenlos"
     assert offer_price_text({"price_base": 745, "price_add": 125}) == "ab 745 €"
     print(f"pricing selfcheck OK ({len(nrs)} offers)")
