@@ -23,7 +23,9 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W"></script>
   <script>
     gtag('js', new Date());
-    gtag('config', 'G-BM435GHE6W');
+    gtag('config', 'G-BM435GHE6W', {
+      linker: { domains: ['beraterium.de', 'beraterium.com'] }
+    });
     function brtGrantAnalyticsConsent() {
       gtag('consent', 'update', { analytics_storage: 'granted' });
     }
@@ -951,17 +953,17 @@
                 }
               },
               "availability": "https://schema.org/InStock",
-              "price": "50",
+              "price": "0",
               "priceSpecification": {
                 "@type": "PriceSpecification",
-                "price": "50",
+                "price": "0",
                 "priceCurrency": "EUR"
               }
             },
             {
               "@type": "Offer",
-              "name": "Gründung in Deutschland (INT-01)",
-              "description": "Begleitung durch die Gründungsphase: Businessplan-Struktur, Behördenkoordination, Netzwerk, Risikoanalyse von Anfang an. Dauer: 4–12 Wochen. Preis: Einstieg ab 1.900 € · Komplettpaket Gründungsbegleitung 4.900 €.",
+              "name": "Gründung in Deutschland (Übersicht) (INT-01)",
+              "description": "Vom kostenlosen Erstgespräch bis Gründung 360° — Begleitung bei 0 oder direkt Launch. Dauer: 4–12 Wochen. Preis: Orientierung 150 € · Begleitung bei 0 2.390 € · Launch-Paket 4.490 € · Gründung 360° 7.490 € · + Förder-Check 7.990 €.",
               "url": "https://www.beraterium.de/preise/#int-01",
               "priceCurrency": "EUR",
               "seller": {
@@ -969,8 +971,83 @@
               },
               "itemOffered": {
                 "@type": "Service",
-                "name": "Gründung in Deutschland",
-                "description": "Begleitung durch die Gründungsphase: Businessplan-Struktur, Behördenkoordination, Netzwerk, Risikoanalyse von Anfang an.",
+                "name": "Gründung in Deutschland (Übersicht)",
+                "description": "Vom kostenlosen Erstgespräch bis Gründung 360° — Begleitung bei 0 oder direkt Launch.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "150",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "150",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Deutschland-Orientierung (INT-01-E)",
+              "description": "1:1-Vortrag 45 Min. + 45 Min. Fragen: Markt, Rahmenbedingungen, typische Stolpersteine in DE. Dauer: 1,5 h.",
+              "url": "https://www.beraterium.de/preise/#int-01-e",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Deutschland-Orientierung",
+                "description": "1:1-Vortrag 45 Min. + 45 Min. Fragen: Markt, Rahmenbedingungen, typische Stolpersteine in DE.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "150",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "150",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Business Check (INT-01-A)",
+              "description": "Standortbestimmung: Idee(n), Rechtsform, Budget, Top-5-Risiken — Kurzprotokoll. Dauer: 2–3 h + Protokoll.",
+              "url": "https://www.beraterium.de/preise/#int-01-a",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Business Check",
+                "description": "Standortbestimmung: Idee(n), Rechtsform, Budget, Top-5-Risiken — Kurzprotokoll.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "790",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "790",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Gründungsplanung (INT-01-B)",
+              "description": "Gemeinsam Business planen: Markt, Modell, SWOT, PESTEL — Sie arbeiten, wir leiten an. Dauer: Mehrere Sessions.",
+              "url": "https://www.beraterium.de/preise/#int-01-b",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Gründungsplanung",
+                "description": "Gemeinsam Business planen: Markt, Modell, SWOT, PESTEL — Sie arbeiten, wir leiten an.",
                 "provider": {
                   "@id": "https://www.beraterium.de/#organization"
                 }
@@ -978,15 +1055,165 @@
               "availability": "https://schema.org/InStock",
               "price": "1900",
               "priceSpecification": {
-                "@type": "UnitPriceSpecification",
+                "@type": "PriceSpecification",
                 "price": "1900",
                 "priceCurrency": "EUR"
               }
             },
             {
               "@type": "Offer",
+              "name": "↳ Launch Roadmap (INT-01-F)",
+              "description": "Persönlicher Umsetzungsplan Woche 1 → Monat 3 — wenn Idee und Planung stehen. Dauer: Dokument + Review-Call.",
+              "url": "https://www.beraterium.de/preise/#int-01-f",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Launch Roadmap",
+                "description": "Persönlicher Umsetzungsplan Woche 1 → Monat 3 — wenn Idee und Planung stehen.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "1900",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "1900",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Launch Begleitung (INT-01-C)",
+              "description": "Hands-on: Timelines, Spezialisten, Behörden vorbereiten — 4–12 Wochen. Dauer: 4–12 Wochen.",
+              "url": "https://www.beraterium.de/preise/#int-01-c",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Launch Begleitung",
+                "description": "Hands-on: Timelines, Spezialisten, Behörden vorbereiten — 4–12 Wochen.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "2900",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "2900",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Gründungs-Risiko-Check (INT-01-D)",
+              "description": "Blind Spots vor Go-Live: Banking, Verträge, Aufenthalt — Top-5 priorisiert. Dauer: Workshop + Report.",
+              "url": "https://www.beraterium.de/preise/#int-01-d",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Gründungs-Risiko-Check",
+                "description": "Blind Spots vor Go-Live: Banking, Verträge, Aufenthalt — Top-5 priorisiert.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "1250",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "1250",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Paket Begleitung bei 0 (INT-01-P0)",
+              "description": "Business Check + Gründungsplanung — Markt, Modell, SWOT, PESTEL gemeinsam erarbeiten. Dauer: Paket. Preis: Einzeln 2.690 € · Ersparnis 300 €.",
+              "url": "https://www.beraterium.de/preise/#int-01-p0",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Paket Begleitung bei 0",
+                "description": "Business Check + Gründungsplanung — Markt, Modell, SWOT, PESTEL gemeinsam erarbeiten.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "2390",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "2390",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Paket Launch (INT-01-P1)",
+              "description": "Launch Roadmap + Launch Begleitung — wenn Idee und Planung stehen. Dauer: Paket. Preis: Einzeln 4.800 € · Ersparnis 310 €.",
+              "url": "https://www.beraterium.de/preise/#int-01-p1",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Paket Launch",
+                "description": "Launch Roadmap + Launch Begleitung — wenn Idee und Planung stehen.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "4490",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "4490",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Paket Gründung 360° (INT-01-P2)",
+              "description": "A + B + F + C + D — kompletter Weg von null bis abgesicherter Launch. Dauer: Paket. Preis: Einzeln 8.740 € · Ersparnis 1.250 €.",
+              "url": "https://www.beraterium.de/preise/#int-01-p2",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Paket Gründung 360°",
+                "description": "A + B + F + C + D — kompletter Weg von null bis abgesicherter Launch.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "7490",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "7490",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
               "name": "Leben & Arbeiten in Deutschland (INT-02)",
-              "description": "1-zu-1-Betreuung: deutsche Geschäfts- und Alltagskultur, Behörden, ELSTER, typische Fettnäpfchen — modular buchbar. Dauer: Nach Bedarf. Preis: Einzelstunde ab 180 € · Themenmodul ab 490 € · Paket 6 Monate 2.900 € · Objektsuche ab 1.900 €.",
+              "description": "1-zu-1: Kultur, Behörden, ELSTER — Stunde, Modul oder 6-Monats-Begleitung. Dauer: Nach Bedarf. Preis: Stunde 180 € · Modul 490 € · 6 Monate 2.900 € · Integrations-Paket 1.490 €.",
               "url": "https://www.beraterium.de/preise/#int-02",
               "priceCurrency": "EUR",
               "seller": {
@@ -995,7 +1222,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Leben & Arbeiten in Deutschland",
-                "description": "1-zu-1-Betreuung: deutsche Geschäfts- und Alltagskultur, Behörden, ELSTER, typische Fettnäpfchen — modular buchbar.",
+                "description": "1-zu-1: Kultur, Behörden, ELSTER — Stunde, Modul oder 6-Monats-Begleitung.",
                 "provider": {
                   "@id": "https://www.beraterium.de/#organization"
                 }
@@ -1012,7 +1239,7 @@
             {
               "@type": "Offer",
               "name": "Business Health Check / Turnaround (INT-03)",
-              "description": "Risikoanalyse für laufende Unternehmen: Engpässe identifizieren, Lösungen priorisieren, Kosten eliminieren. Dauer: 2–8 Wochen. Preis: Health Check ab 3.500 € (BAFA-förderfähig) · Turnaround-Paket 12.500 €.",
+              "description": "Quick Check bis Turnaround — strukturierte Engpass-Diagnose für laufende Unternehmen. Dauer: 1 Session – 8 Wochen. Preis: Quick Check 790 € · Health Check 3.500 € (BAFA) · Turnaround 12.500 €.",
               "url": "https://www.beraterium.de/preise/#int-03",
               "priceCurrency": "EUR",
               "seller": {
@@ -1021,7 +1248,57 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Business Health Check / Turnaround",
-                "description": "Risikoanalyse für laufende Unternehmen: Engpässe identifizieren, Lösungen priorisieren, Kosten eliminieren.",
+                "description": "Quick Check bis Turnaround — strukturierte Engpass-Diagnose für laufende Unternehmen.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "790",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "790",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Quick Business Check (INT-03-A)",
+              "description": "90–120 Min.: Top-5-Issues — schnelle Klarheit ohne 3.500 € Investment. Dauer: 1 Session.",
+              "url": "https://www.beraterium.de/preise/#int-03-a",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Quick Business Check",
+                "description": "90–120 Min.: Top-5-Issues — schnelle Klarheit ohne 3.500 € Investment.",
+                "provider": {
+                  "@id": "https://www.beraterium.de/#organization"
+                }
+              },
+              "availability": "https://schema.org/InStock",
+              "price": "790",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "790",
+                "priceCurrency": "EUR"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "↳ Business Health Check (voll) (INT-03-B)",
+              "description": "Beraterium-Methode, Workshops, Risikomatrix — BAFA-förderfähig. Dauer: 2–4 Wochen.",
+              "url": "https://www.beraterium.de/preise/#int-03-b",
+              "priceCurrency": "EUR",
+              "seller": {
+                "@id": "https://www.beraterium.de/#organization"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "↳ Business Health Check (voll)",
+                "description": "Beraterium-Methode, Workshops, Risikomatrix — BAFA-förderfähig.",
                 "provider": {
                   "@id": "https://www.beraterium.de/#organization"
                 }
@@ -1029,7 +1306,7 @@
               "availability": "https://schema.org/InStock",
               "price": "3500",
               "priceSpecification": {
-                "@type": "UnitPriceSpecification",
+                "@type": "PriceSpecification",
                 "price": "3500",
                 "priceCurrency": "EUR"
               }
@@ -1037,7 +1314,7 @@
             {
               "@type": "Offer",
               "name": "Expansion / Tochtergesellschaft DE (INT-04)",
-              "description": "Markteintritt Deutschland/EU: Tochtergesellschaft aufbauen, Compliance, Vor-Ort-Vertrieb — Fulfillment kann im Ursprungsland bleiben. Dauer: Setup 8–16 Wochen + Retainer. Preis: Setup ab 9.500 € · KYC/Sanktions-Modul ab 1.500 € · Retainer ab 4.500 €/Monat (min. 6 Monate).",
+              "description": "Individuelles Expansionsprojekt — Umfang, Team und Budget gemeinsam im Strategiegespräch. Dauer: Individuell — meist mehrere Monate. Preis: Typisches Projektvolumen 30.000–100.000 € netto — je nach Scope, Dauer und Experten. Festes Angebot nach Strategiegespräch. Anwalt/Steuerberater koordiniert..",
               "url": "https://www.beraterium.de/preise/#int-04",
               "priceCurrency": "EUR",
               "seller": {
@@ -1046,16 +1323,16 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Expansion / Tochtergesellschaft DE",
-                "description": "Markteintritt Deutschland/EU: Tochtergesellschaft aufbauen, Compliance, Vor-Ort-Vertrieb — Fulfillment kann im Ursprungsland bleiben.",
+                "description": "Individuelles Expansionsprojekt — Umfang, Team und Budget gemeinsam im Strategiegespräch.",
                 "provider": {
                   "@id": "https://www.beraterium.de/#organization"
                 }
               },
               "availability": "https://schema.org/InStock",
-              "price": "9500",
+              "price": "30000",
               "priceSpecification": {
                 "@type": "UnitPriceSpecification",
-                "price": "9500",
+                "price": "30000",
                 "priceCurrency": "EUR"
               }
             }
@@ -1069,7 +1346,7 @@
       "priceCurrency": "EUR",
       "lowPrice": "0",
       "highPrice": "9675",
-      "offerCount": 37,
+      "offerCount": 48,
       "url": "https://www.beraterium.de/preise/"
     }
   },
@@ -1447,11 +1724,22 @@
               <tr><th scope="col">Angebot</th><th scope="col">Preis (netto)</th><th scope="col">Dauer &amp; Umfang</th></tr>
             </thead>
             <tbody>
-              <tr id="int-00"><th scope="row">Erstberatung Internationale Angebote<br><span class="brt-compare__muted">30 Minuten: Ihre Situation, Zielmarkt und nächster sinnvoller Schritt — unverbindlich, auf Deutsch, Englisch oder Russisch.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Einstieg für alle internationalen Angebote: Wir klären, wo Sie stehen, was Sie anstreben und welches Paket passt — ohne Verkaufsdruck.</p><ul><li>Persönliches Gespräch mit Veronika Berdnikova oder Till Blania</li><li>Sprachen: Deutsch, Englisch, Russisch</li><li>Ergebnis: klare Empfehlung für den nächsten Schritt</li></ul><p class="brt-meta"><a href="../internationale-angebote/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>50 €</strong></td><td>30 Minuten</td></tr>
-              <tr id="int-01"><th scope="row">Gründung in Deutschland<br><span class="brt-compare__muted">Begleitung durch die Gründungsphase: Businessplan-Struktur, Behördenkoordination, Netzwerk, Risikoanalyse von Anfang an.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Beratung und Koordination — keine Rechts- oder Steuerberatung. Wir strukturieren Ihren Gründungsweg und binden Spezialisten ein.</p><ul><li>Rechtsform-Optionen verständlich einordnen (Einzelunternehmen, GbR, UG, GmbH)</li><li>Businessplan-Struktur und Finanzplan begleiten</li><li>Koordination Gewerbeanmeldung, ELSTER, IHK/HWK</li><li>Vermittlung Notar, Anwalt, Steuerberater</li><li>Fördermittel-Recherche und Risikoanalyse inklusive</li></ul><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>ab 1.900 €</strong><br><span class="brt-compare__muted">Einstieg ab 1.900 € · Komplettpaket Gründungsbegleitung 4.900 €</span></td><td>4–12 Wochen</td></tr>
-              <tr id="int-02"><th scope="row">Leben & Arbeiten in Deutschland<br><span class="brt-compare__muted">1-zu-1-Betreuung: deutsche Geschäfts- und Alltagskultur, Behörden, ELSTER, typische Fettnäpfchen — modular buchbar.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Individuelles Coaching für Gründer mit Migrationshintergrund — Soft Skills und praktische Behörden-Navigation.</p><ul><li>Kommunikation und Kultur im deutschen Geschäftsalltag</li><li>Finanzamt, Gewerbeamt, Ausländerbehörde — Vorbereitung und Ablauf</li><li>ELSTER, Termine, schriftliche Bestätigungen</li><li>Optional: Wohnungs- oder Gewerbeobjektsuche</li></ul><p class="brt-meta"><a href="../internationale-angebote/leben-arbeiten-deutschland/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>ab 180 € pro Stunde</strong><br><span class="brt-compare__muted">Einzelstunde ab 180 € · Themenmodul ab 490 € · Paket 6 Monate 2.900 € · Objektsuche ab 1.900 €</span></td><td>Nach Bedarf</td></tr>
-              <tr id="int-03"><th scope="row">Business Health Check / Turnaround<br><span class="brt-compare__muted">Risikoanalyse für laufende Unternehmen: Engpässe identifizieren, Lösungen priorisieren, Kosten eliminieren.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Für Unternehmen, die bereits gegründet sind, aber an Grenzen stoßen — Finanzamt, Regulatorik, Kunden oder Prozesse.</p><ul><li>Strukturierte Risikoanalyse nach Beraterium-Methode</li><li>Engpass-Diagnose: Finanzen, Vertrieb, Personal, IT, Compliance</li><li>Priorisierte Maßnahmen mit Umsetzungsfahrplan</li><li>BAFA-Förderung möglich (bis 80 % bei Health Check)</li></ul><p class="brt-meta"><a href="../internationale-angebote/business-turnaround/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>ab 3.500 €</strong><br><span class="brt-compare__muted">Health Check ab 3.500 € (BAFA-förderfähig) · Turnaround-Paket 12.500 €</span></td><td>2–8 Wochen</td></tr>
-              <tr id="int-04"><th scope="row">Expansion / Tochtergesellschaft DE<br><span class="brt-compare__muted">Markteintritt Deutschland/EU: Tochtergesellschaft aufbauen, Compliance, Vor-Ort-Vertrieb — Fulfillment kann im Ursprungsland bleiben.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Für etablierte Unternehmen im Ausland, die den EU-Markt erschließen wollen — ohne sofort umzuziehen.</p><ul><li>Markteintritts- und Risikoanalyse</li><li>Aufbau Tochtergesellschaft — Koordination mit Notar/Anwalt</li><li>Compliance, Sanktions-Check, KYC/AML</li><li>Vor-Ort-Management: Vertrieb, Kundenkontakt, lokale Präsenz</li></ul><p class="brt-meta"><a href="../internationale-angebote/expansion-tochtergesellschaft/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>ab 9.500 €</strong><br><span class="brt-compare__muted">Setup ab 9.500 € · KYC/Sanktions-Modul ab 1.500 € · Retainer ab 4.500 €/Monat (min. 6 Monate)</span></td><td>Setup 8–16 Wochen + Retainer</td></tr>
+              <tr id="int-00"><th scope="row">Erstberatung Internationale Angebote<br><span class="brt-compare__muted">30 Minuten: Ihre Situation, Zielmarkt und nächster sinnvoller Schritt — unverbindlich, auf Deutsch, Englisch oder Russisch.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Kostenloser Einstieg für alle internationalen Angebote: Wir klären, wo Sie stehen, was Sie anstreben und welcher Weg passt — ohne Verkaufsdruck.</p><ul><li>Persönliches Gespräch mit Veronika Berdnikova oder Till Blania</li><li>Sprachen: Deutsch, Englisch, Russisch</li><li>Ergebnis: klare Empfehlung für den nächsten Schritt</li></ul><p class="brt-meta"><a href="../internationale-angebote/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>kostenlos</strong></td><td>30 Minuten</td></tr>
+              <tr id="int-01"><th scope="row">Gründung in Deutschland (Übersicht)<br><span class="brt-compare__muted">Vom kostenlosen Erstgespräch bis Gründung 360° — Begleitung bei 0 oder direkt Launch.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Beratung und Koordination — keine Rechts- oder Steuerberatung. Zwei Wege: <strong>Begleitung bei 0</strong> (Planung) oder <strong>Launch</strong> (Umsetzung).</p><ul><li><strong>INT-01-E</strong> Deutschland-Orientierung 150 €</li><li><strong>INT-01-A</strong> Business Check 790 €</li><li><strong>INT-01-B</strong> Gründungsplanung 1.900 €</li><li><strong>INT-01-F</strong> Launch Roadmap 1.900 €</li><li><strong>INT-01-C</strong> Launch Begleitung 2.900 €</li><li><strong>INT-01-D</strong> Gründungs-Risiko-Check 1.250 €</li><li>Paket <strong>Begleitung bei 0</strong> 2.390 € · <strong>Gründung 360°</strong> 7.490 €</li></ul><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>ab 150 €</strong><br><span class="brt-compare__muted">Orientierung 150 € · Begleitung bei 0 2.390 € · Launch-Paket 4.490 € · Gründung 360° 7.490 € · + Förder-Check 7.990 €</span></td><td>4–12 Wochen</td></tr>
+              <tr id="int-01-e" class="brt-table__subrow"><th scope="row">↳ Deutschland-Orientierung<br><span class="brt-compare__muted">1:1-Vortrag 45 Min. + 45 Min. Fragen: Markt, Rahmenbedingungen, typische Stolpersteine in DE.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Informieren, bevor Sie gründen — für alle, die erst verstehen wollen, was in Deutschland möglich ist.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-e">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>150 €</strong></td><td>1,5 h</td></tr>
+              <tr id="int-01-a" class="brt-table__subrow"><th scope="row">↳ Business Check<br><span class="brt-compare__muted">Standortbestimmung: Idee(n), Rechtsform, Budget, Top-5-Risiken — Kurzprotokoll.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Bevor Notar und Steuerberater: ehrliche Einordnung — auch wenn die Idee noch vage ist.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-a">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>790 €</strong></td><td>2–3 h + Protokoll</td></tr>
+              <tr id="int-01-b" class="brt-table__subrow"><th scope="row">↳ Gründungsplanung<br><span class="brt-compare__muted">Gemeinsam Business planen: Markt, Modell, SWOT, PESTEL — Sie arbeiten, wir leiten an.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Kein investor-ready BP durch uns — strukturierte Anleitung zum Selber-Planen.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-b">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>1.900 €</strong></td><td>Mehrere Sessions</td></tr>
+              <tr id="int-01-f" class="brt-table__subrow"><th scope="row">↳ Launch Roadmap<br><span class="brt-compare__muted">Persönlicher Umsetzungsplan Woche 1 → Monat 3 — wenn Idee und Planung stehen.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Pre-Launch, Launch, erste Kunden, erste 90 Tage — Ihr Umsetzungsfahrplan.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-f">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>1.900 €</strong></td><td>Dokument + Review-Call</td></tr>
+              <tr id="int-01-c" class="brt-table__subrow"><th scope="row">↳ Launch Begleitung<br><span class="brt-compare__muted">Hands-on: Timelines, Spezialisten, Behörden vorbereiten — 4–12 Wochen.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Wöchentliche Calls DE/EN/RU — nichts geht in E-Mail-Ordnern verloren.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-c">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>2.900 €</strong></td><td>4–12 Wochen</td></tr>
+              <tr id="int-01-d" class="brt-table__subrow"><th scope="row">↳ Gründungs-Risiko-Check<br><span class="brt-compare__muted">Blind Spots vor Go-Live: Banking, Verträge, Aufenthalt — Top-5 priorisiert.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Beraterium-Bewertungslogik — kein Ersatz für RA-01, Brücke zu RA-02 möglich.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-d">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>1.250 €</strong></td><td>Workshop + Report</td></tr>
+              <tr id="int-01-p0" class="brt-table__subrow"><th scope="row">↳ Paket Begleitung bei 0<br><span class="brt-compare__muted">Business Check + Gründungsplanung — Markt, Modell, SWOT, PESTEL gemeinsam erarbeiten.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Für Gründer ohne konkrete Idee — Planung von null an, Sie arbeiten, wir leiten an.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-p0">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>2.390 €</strong><br><span class="brt-compare__muted">Einzeln 2.690 € · Ersparnis 300 €</span></td><td>Paket</td></tr>
+              <tr id="int-01-p1" class="brt-table__subrow"><th scope="row">↳ Paket Launch<br><span class="brt-compare__muted">Launch Roadmap + Launch Begleitung — wenn Idee und Planung stehen.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Umsetzungsfahrplan plus hands-on Begleitung bei Behörden, Bank und Spezialisten.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-p1">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>4.490 €</strong><br><span class="brt-compare__muted">Einzeln 4.800 € · Ersparnis 310 €</span></td><td>Paket</td></tr>
+              <tr id="int-01-p2" class="brt-table__subrow"><th scope="row">↳ Paket Gründung 360°<br><span class="brt-compare__muted">A + B + F + C + D — kompletter Weg von null bis abgesicherter Launch.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Unser meistgebuchtes Gründungspaket — Planung, Umsetzung und Risiko-Check.</p><p class="brt-meta"><a href="../internationale-angebote/gruendung-deutschland/#int-01-p2">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>7.490 €</strong><br><span class="brt-compare__muted">Einzeln 8.740 € · Ersparnis 1.250 €</span></td><td>Paket</td></tr>
+              <tr id="int-02"><th scope="row">Leben & Arbeiten in Deutschland<br><span class="brt-compare__muted">1-zu-1: Kultur, Behörden, ELSTER — Stunde, Modul oder 6-Monats-Begleitung.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Modular buchbar — parallel zur Gründung oder danach.</p><ul><li>Einzelstunde, Themenmodul (3× Session), 6-Monats-Begleitung</li><li>Behörden, ELSTER, Kommunikation & Kultur</li><li>Optional: Objektsuche ab 1.900 €</li></ul><p class="brt-meta"><a href="../internationale-angebote/leben-arbeiten-deutschland/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>ab 180 € pro Stunde</strong><br><span class="brt-compare__muted">Stunde 180 € · Modul 490 € · 6 Monate 2.900 € · Integrations-Paket 1.490 €</span></td><td>Nach Bedarf</td></tr>
+              <tr id="int-03"><th scope="row">Business Health Check / Turnaround<br><span class="brt-compare__muted">Quick Check bis Turnaround — strukturierte Engpass-Diagnose für laufende Unternehmen.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Einzelstufen einzeln buchbar — Pakete günstiger als die Summe.</p><ul><li>INT-03-A Quick Check 790 €</li><li>INT-03-B Health Check 3.500 € (BAFA-förderfähig)</li><li>INT-03-F Turnaround Begleitung 12.500 €</li><li>Paket Health Check + Turnaround 14.900 €</li></ul><p class="brt-meta"><a href="../internationale-angebote/business-turnaround/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>ab 790 €</strong><br><span class="brt-compare__muted">Quick Check 790 € · Health Check 3.500 € (BAFA) · Turnaround 12.500 €</span></td><td>1 Session – 8 Wochen</td></tr>
+              <tr id="int-03-a" class="brt-table__subrow"><th scope="row">↳ Quick Business Check<br><span class="brt-compare__muted">90–120 Min.: Top-5-Issues — schnelle Klarheit ohne 3.500 € Investment.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Diagnose — kein Ersatz für RA-01 oder RA-02.</p><p class="brt-meta"><a href="../internationale-angebote/business-turnaround/#int-03-a">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>790 €</strong></td><td>1 Session</td></tr>
+              <tr id="int-03-b" class="brt-table__subrow"><th scope="row">↳ Business Health Check (voll)<br><span class="brt-compare__muted">Beraterium-Methode, Workshops, Risikomatrix — BAFA-förderfähig.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Top-5-Maßnahmen mit Verantwortlichkeiten — handlungsfähiger Fahrplan.</p><p class="brt-meta"><a href="../internationale-angebote/business-turnaround/#int-03-b">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>3.500 €</strong></td><td>2–4 Wochen</td></tr>
+              <tr id="int-04"><th scope="row">Expansion / Tochtergesellschaft DE<br><span class="brt-compare__muted">Individuelles Expansionsprojekt — Umfang, Team und Budget gemeinsam im Strategiegespräch.</span><details class="brt-faq__item brt-price-details"><summary class="brt-faq__summary"><span class="brt-faq__toggle" aria-hidden="true"></span><span class="brt-faq__question">Mehr zu diesem Angebot anzeigen</span><span class="brt-faq__chevron" aria-hidden="true"></span></summary><div class="brt-faq__answer"><p>Für etablierte Unternehmen im Ausland — Fulfillment kann im Heimatland bleiben.</p><ul><li>Projektmanagement: Markt, Setup, Compliance, Go-to-Market, Management</li><li>Koordination Anwalt, Notar, Steuerberater und weiterer Experten je Projekt</li><li>Keine festen Paketpreise — individuelles Angebot</li></ul><p class="brt-meta"><a href="../internationale-angebote/expansion-tochtergesellschaft/">Zur Angebotsseite mit allen Details →</a></p></div></details></th><td><strong>ab 30.000 €</strong><br><span class="brt-compare__muted">Typisches Projektvolumen 30.000–100.000 € netto — je nach Scope, Dauer und Experten. Festes Angebot nach Strategiegespräch. Anwalt/Steuerberater koordiniert.</span></td><td>Individuell — meist mehrere Monate</td></tr>
             </tbody>
           </table>
         </div>

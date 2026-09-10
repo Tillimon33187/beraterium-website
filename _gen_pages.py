@@ -21,18 +21,39 @@ from _schulungen import SCHULUNG_CONFIGS
 
 from _international_pages import (
     INT_INDEX_RU,
+    cards_slider_block,
+    international_audience_section,
     international_excluded_section,
     international_journey_section,
+    international_stage_scope_section,
     international_legal_section,
+    international_next_stages_section,
+    international_outcome_section,
     international_packages_section,
     international_price_section,
+    international_process_section,
+    international_project_price_banner,
+    international_project_section,
+    international_single_stage_price_banner,
+    international_stage_scope_section,
     international_stages_price_banner,
     international_stages_section,
+    int_is_project_offer,
+    int_faq_title,
+    int_team_member_intros,
     international_team_section,
     locale_paths,
     ru_offer_configs,
 )
 from _internationale_stufen import INT_STAGES
+from _internationale_stufen_detail import (
+    iter_stage_pages,
+    merged_stage,
+    parent_slug,
+    stage_rel_path,
+    stage_slug,
+)
+from _internationale_stufen_detail_ru import apply_stage_locale
 from _internationale_angebote import INT_INDEX_DE, INT_INDEX_EN, INT_OFFER_CONFIGS_DE, LEGAL_NOTICE_DE, LEGAL_NOTICE_RU, LEGAL_NOTICE_EN, en_offer_configs
 
 from _blindspot import blindspot_config_json
@@ -1986,71 +2007,196 @@ def _international_offer_main(cfg: dict, *, locale: str, pre: str) -> str:
     cta_btn = {"de": "Erstgespräch buchen", "ru": "Записаться", "en": "Book intro call"}[locale]
     legal = {"de": LEGAL_NOTICE_DE, "ru": LEGAL_NOTICE_RU, "en": LEGAL_NOTICE_EN}[locale]
     contact_href = f"{pre}{'kontakt' if locale != 'en' else 'contact'}/"
-    fuer_wen = "".join(f"<li>{x}</li>" for x in cfg["fuer_wen"])
-    ergebnis = "".join(f"<li>{x}</li>" for x in cfg["ergebnis"])
     nr = cfg["nr"]
-    has_stages = nr in INT_STAGES
-
-    if has_stages:
-        ablauf_h2 = {"de": "Typischer Ablauf", "en": "Typical process", "ru": "Типичный процесс"}[locale]
-        steps = "".join(
-            f'<li class="brt-card brt-hover-lift"><h3 class="brt-h3">{t}</h3><p class="brt-body">{b}</p></li>'
-            for t, b in cfg["steps"]
+    is_project = int_is_project_offer(nr)
+    has_stages = nr in INT_STAGES and not is_project
+    if is_project:
+        middle = international_project_section(
+            parent_nr=nr, locale=locale, contact_href=contact_href
+        ) + international_process_section(cfg["steps"], locale=locale)
+        price_block = international_project_price_banner(
+            parent_nr=nr, locale=locale, pre=pre, contact_href=contact_href
         )
+    elif has_stages:
         middle = (
             international_stages_section(parent_nr=nr, locale=locale, contact_href=contact_href)
-            + international_packages_section(parent_nr=nr, locale=locale, contact_href=contact_href)
+            + international_packages_section(parent_nr=nr, locale=locale, contact_href=contact_href, pre=pre)
             + international_excluded_section(parent_nr=nr, locale=locale)
-            + f"""
-    <section class="brt-section" id="ablauf"><div class="brt-container">
-      <h2 class="brt-h2">{ablauf_h2}</h2>
-      <ul class="brt-cards-3col brt-stagger">{steps}</ul>
-    </div></section>"""
+            + international_process_section(cfg["steps"], locale=locale)
         )
         price_block = international_stages_price_banner(
             offer=offer, parent_nr=nr, locale=locale, pre=pre
         )
     else:
         leistungen = "".join(f"<li>{x}</li>" for x in cfg["leistungen"])
-        steps = "".join(
-            f'<li class="brt-card brt-hover-lift"><h3 class="brt-h3">{t}</h3><p class="brt-body">{b}</p></li>'
-            for t, b in cfg["steps"]
-        )
         middle = f"""
     <section class="brt-section brt-section--alt" id="leistungen"><div class="brt-container">
       <ul class="brt-list-check brt-fade-up">{leistungen}</ul>
-    </div></section>
-    <section class="brt-section" id="ablauf"><div class="brt-container">
-      <ul class="brt-cards-3col brt-stagger">{steps}</ul>
     </div></section>"""
+        middle += international_process_section(cfg["steps"], locale=locale)
         price_block = international_price_section(offer, pre=pre, locale=locale)
 
-    scroll_anchor = "stufen" if has_stages else "preis"
     return (
         hero(
             pre, cfg["tag"], cfg["h1"], cfg["lead"],
-            actions=(
-                f'<a class="brt-btn" href="{contact_href}">{cta_btn}</a>'
-                f'<a class="brt-btn brt-btn--outline" href="#{scroll_anchor}">→</a>'
-            ),
+            actions=f'<a class="brt-btn" href="{contact_href}">{cta_btn}</a>',
         )
-        + f"""
-    <section class="brt-section" id="fuer-wen"><div class="brt-container brt-highlight-box brt-fade-up">
-      <h2 class="brt-h2">{cfg["fuer_wen_intro"]}</h2>
-      <ul class="brt-list-check">{fuer_wen}</ul>
-    </div></section>"""
+        + international_audience_section(
+            intro=cfg["fuer_wen_intro"],
+            items=cfg["fuer_wen"],
+            locale=locale,
+            depth=len(pre) // 3 if pre else 0,
+            offer_nr=nr,
+            lead=cfg.get("fuer_wen_lead", ""),
+        )
         + middle
-        + f"""
-    <section class="brt-section brt-section--alt" id="ergebnis"><div class="brt-container brt-highlight-box">
-      <h2 class="brt-h2">{"Ergebnis" if locale == "de" else "Outcome" if locale == "en" else "Результат"}</h2>
-      <ul class="brt-list-check">{ergebnis}</ul>
-    </div></section>"""
-        + international_team_section(pre=pre, team_slugs=cfg["team_slugs"], title=team_title, locale=locale)
+        + international_outcome_section(items=cfg["ergebnis"], locale=locale)
+        + international_team_section(
+            pre=pre,
+            team_slugs=cfg["team_slugs"],
+            title=team_title,
+            locale=locale,
+            member_intros=int_team_member_intros(locale),
+        )
         + price_block
         + international_legal_section(legal)
-        + faq_section(cfg["faq"])
+        + faq_section(cfg["faq"], title=int_faq_title(locale))
         + cta_band(pre, cfg["cta_h2"], cfg["cta_body"], cta_btn)
     )
+
+
+def _international_stage_main(
+    stage: dict,
+    *,
+    parent_cfg: dict | None,
+    locale: str,
+    pre: str,
+) -> str:
+    def _t(m, loc: str) -> str:
+        if isinstance(m, str):
+            return m
+        return m.get(loc, m.get("de", ""))
+
+    contact_href = f"{pre}{'kontakt' if locale != 'en' else 'contact'}/"
+    cta_btn = {"de": "Erstgespräch buchen", "ru": "Записаться", "en": "Book intro call"}[locale]
+    legal = {"de": LEGAL_NOTICE_DE, "ru": LEGAL_NOTICE_RU, "en": LEGAL_NOTICE_EN}[locale]
+    team_title = {"de": "Ihr deutsch-russisches Beratungsteam", "ru": "Ваша команда", "en": "Your German-Russian advisory team"}[locale]
+    index_href = {
+        "de": f"{pre}internationale-angebote/",
+        "en": f"{pre}international-services/",
+        "ru": f"{pre}ru/internationale-angebote/",
+    }[locale]
+    if parent_cfg:
+        tag = parent_cfg.get("tag", "")
+        team_slugs = parent_cfg["team_slugs"]
+        cta_h2 = parent_cfg.get("cta_h2", "")
+        cta_body = parent_cfg.get("cta_body", "")
+        pslug = parent_slug(stage["nr"], locale)
+        base = {"de": "internationale-angebote", "en": "international-services", "ru": "ru/internationale-angebote"}[locale]
+        parent_href = f"{pre}{base}/{pslug}/"
+        back_l = {"de": "Zur Rubrik", "en": "Back to offer", "ru": "К разделу"}[locale]
+        breadcrumb = f'<p class="brt-meta brt-fade-up"><a href="{parent_href}">{back_l}</a></p>'
+        offer_nr = parent_cfg["nr"]
+    else:
+        tag = _t(stage.get("tag", ""), locale)
+        team_slugs = stage.get("team_slugs", ["veronika-berdnikova", "aleksandra-polosukhina", "till-blania"])
+        cta_h2 = {"de": "Passende Stufe finden?", "en": "Find the right stage?", "ru": "Найти подходящий этап?"}[locale]
+        cta_body = {"de": "Erstberatung buchen — 50 €, 30 Min.", "en": "Book intro call — €50, 30 min.", "ru": "Консультация 50 €, 30 мин."}[locale]
+        index_l = {"de": "Internationale Angebote", "en": "International services", "ru": "Международные услуги"}[locale]
+        breadcrumb = f'<p class="brt-meta brt-fade-up"><a href="{index_href}">{index_l}</a></p>'
+        offer_nr = "INT-00"
+    return (
+        breadcrumb
+        + hero(
+            pre,
+            tag,
+            _t(stage["name"], locale),
+            _t(stage.get("teaser", ""), locale),
+            actions=f'<a class="brt-btn" href="{contact_href}">{cta_btn}</a>',
+        )
+        + international_audience_section(
+            intro=stage["fuer_wen_intro"],
+            items=stage["fuer_wen"],
+            locale=locale,
+            depth=len(pre) // 3 if pre else 0,
+            offer_nr=offer_nr,
+            lead=stage.get("fuer_wen_lead", ""),
+        )
+        + international_stage_scope_section(
+            leistungen=stage["leistungen"],
+            excluded=stage.get("excluded", []),
+            locale=locale,
+        )
+        + international_process_section(stage["steps"], locale=locale)
+        + international_outcome_section(items=stage["ergebnis"], locale=locale)
+        + international_next_stages_section(stage=stage, locale=locale, pre=pre)
+        + international_team_section(
+            pre=pre,
+            team_slugs=team_slugs,
+            title=team_title,
+            locale=locale,
+            section_alt=True,
+            member_intros=int_team_member_intros(locale),
+        )
+        + international_single_stage_price_banner(
+            stage=stage, locale=locale, pre=pre, contact_href=contact_href
+        )
+        + international_legal_section(legal)
+        + faq_section(stage["faq"], title=int_faq_title(locale))
+        + cta_band(pre, cta_h2, cta_body, cta_btn)
+    )
+
+
+def gen_international_stage(stage: dict, *, parent_cfg: dict | None, locale: str = "de") -> None:
+    stage_nr = stage["nr"]
+    pslug = parent_slug(stage_nr, locale) if parent_cfg else stage_slug(stage_nr, locale)
+    sslug = stage_slug(stage_nr, locale)
+    canonical, depth, pre = locale_paths(
+        locale,
+        pslug if parent_cfg else sslug,
+        stage_slug_key=sslug if parent_cfg else None,
+    )
+    stage = apply_stage_locale(stage, locale)
+    main = _international_stage_main(stage, parent_cfg=parent_cfg, locale=locale, pre=pre)
+    name = stage["name"]["de"] if isinstance(stage["name"], dict) else stage["name"]
+    teaser = stage.get("teaser", {})
+    desc = teaser.get(locale, teaser.get("de", "")) if isinstance(teaser, dict) else str(teaser)
+    title = f"{name} | Beraterium"
+    audience = parent_cfg["audience"] if parent_cfg else "Internationale Gründer und Unternehmer"
+    ld = page_schema(
+        service_schema(name=name, description=desc, url=canonical, audience=audience),
+        faq_page_schema(stage["faq"]),
+        speakable_webpage_schema(canonical),
+    )
+    rel = stage_rel_path(stage_nr, locale)
+    active_nav = "international-services" if locale == "en" else "internationale-angebote"
+    write(
+        rel,
+        shell(
+            depth=depth,
+            title=title,
+            description=desc,
+            canonical=canonical,
+            active_nav=active_nav,
+            main=main,
+            json_ld=ld,
+            html_lang={"de": "de", "ru": "ru", "en": "en"}[locale],
+            current_locale=locale,
+        ),
+    )
+
+
+def gen_all_international_stages(*, locale: str) -> None:
+    parent_by_nr = {c["nr"]: c for c in INT_OFFER_CONFIGS_DE}
+    if locale == "en":
+        parent_by_nr = {c["nr"]: c for c in en_offer_configs()}
+    elif locale == "ru":
+        parent_by_nr = {c["nr"]: c for c in ru_offer_configs()}
+    for parent_nr, stage in iter_stage_pages():
+        if parent_nr and int_is_project_offer(parent_nr):
+            continue
+        parent_cfg = parent_by_nr.get(parent_nr) if parent_nr else None
+        gen_international_stage(stage, parent_cfg=parent_cfg, locale=locale)
 
 
 def gen_international_offer(cfg: dict, *, locale: str = "de") -> None:
@@ -2101,20 +2247,53 @@ def gen_international_index(*, locale: str = "de") -> None:
     )
     cta_btn = {"de": "Erstgespräch buchen", "ru": "Записаться", "en": "Book intro call"}[locale]
     contact_href = f"{pre}{'kontakt' if locale != 'en' else 'contact'}/"
+    slider_i18n = {
+        "de": ("Internationale Angebote", "Vorheriges Angebot", "Nächstes Angebot"),
+        "en": ("International services", "Previous offer", "Next offer"),
+        "ru": ("Международные услуги", "Предыдущее предложение", "Следующее предложение"),
+    }[locale]
+    offers_slider = cards_slider_block(
+        "".join(cards),
+        aria_label=slider_i18n[0],
+        prev_label=slider_i18n[1],
+        next_label=slider_i18n[2],
+    )
+    why_slider_i18n = {
+        "de": ("Warum Beraterium", "Vorheriger Punkt", "Nächster Punkt"),
+        "en": ("Why Beraterium", "Previous point", "Next point"),
+        "ru": ("Почему Beraterium", "Предыдущий пункт", "Следующий пункт"),
+    }[locale]
+    why_slider = cards_slider_block(
+        why,
+        aria_label=why_slider_i18n[0],
+        prev_label=why_slider_i18n[1],
+        next_label=why_slider_i18n[2],
+        autoplay_ms=0,
+    )
+    team_block = international_team_section(
+        pre=pre,
+        team_slugs=index_cfg.get("team_slugs", ["veronika-berdnikova", "aleksandra-polosukhina", "till-blania"]),
+        title=index_cfg.get("team_h2", "Ihr deutsch-russisches Beratungsteam"),
+        locale=locale,
+        intro=index_cfg.get("team_intro", ""),
+        tag=index_cfg.get("team_tag", ""),
+        member_intros=index_cfg.get("team_member_intros"),
+    )
     main = (
         hero(pre, index_cfg["tag"], index_cfg["h1"], index_cfg["lead"], compact=True,
              actions=f'<a class="brt-btn" href="{contact_href}">{cta_btn}</a>')
         + international_journey_section(locale=locale, pre=pre, contact_href=contact_href)
         + f"""
     <section class="brt-section" id="angebote"><div class="brt-container">
-      <ul class="brt-cards-3col brt-stagger">{"".join(cards)}</ul>
+      {offers_slider}
     </div></section>
     <section class="brt-section brt-section--alt" id="warum"><div class="brt-container">
       <h2 class="brt-h2">{index_cfg["why_h2"]}</h2>
       <p class="brt-body">{index_cfg["why_intro"]}</p>
-      <ul class="brt-cards-3col brt-stagger">{why}</ul>
+      {why_slider}
     </div></section>"""
-        + faq_section(index_cfg["faq"])
+        + team_block
+        + faq_section(index_cfg["faq"], title=int_faq_title(locale))
         + cta_band(pre, index_cfg["cta_h2"], index_cfg["cta_body"], cta_btn)
     )
     ld = page_schema(faq_page_schema(index_cfg["faq"]), speakable_webpage_schema(canonical))
@@ -5758,9 +5937,11 @@ if __name__ == "__main__":
     gen_international_index(locale="de")
     for _int_cfg in INT_OFFER_CONFIGS_DE:
         gen_international_offer(_int_cfg, locale="de")
+    gen_all_international_stages(locale="de")
     gen_international_index(locale="ru")
     for _int_cfg in ru_offer_configs():
         gen_international_offer(_int_cfg, locale="ru")
+    gen_all_international_stages(locale="ru")
     gen_schulungen_index()
     for _sch_cfg in SCHULUNG_CONFIGS:
         gen_schulung(_sch_cfg)
