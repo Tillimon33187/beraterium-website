@@ -645,6 +645,17 @@ PRICE_CATEGORIES: list[dict[str, Any]] = [
                 "details_html": "<p>Unser meistgebuchtes Gründungspaket — Planung, Umsetzung und Risiko-Check.</p>",
             },
             {
+                "nr": "INT-01-P3",
+                "name": "↳ Paket Gründung 360° + Förder-Check",
+                "desc": "Gründung 360° plus Fördermittel-Recherche und Bewerbungsvorbereitung.",
+                "price": 7990,
+                "duration": "Paket",
+                "slug": "gruendung-deutschland",
+                "parent_slug": "gruendung-deutschland",
+                "sub": True,
+                "details_html": "<p>Premium-Paket: kompletter Gründungsweg plus strukturierte Fördermittel-Recherche für Ihr Vorhaben.</p>",
+            },
+            {
                 "nr": "INT-02",
                 "name": "Leben & Arbeiten in Deutschland",
                 "desc": "1-zu-1: Kultur, Behörden, ELSTER — Stunde, Modul oder 6-Monats-Begleitung.",
