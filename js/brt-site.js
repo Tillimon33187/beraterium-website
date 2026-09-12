@@ -692,6 +692,28 @@
     });
   }
 
+
+  function initHashlessJumpLinks() {
+    document.querySelectorAll("a[data-brt-jump]").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        var href = link.getAttribute("href");
+        if (!href || href.charAt(0) !== "#" || href.length < 2) return;
+        var target = document.getElementById(decodeURIComponent(href.slice(1)));
+        if (!target) return;
+        e.preventDefault();
+        var header = document.querySelector(".site-header");
+        var headerH = header ? header.getBoundingClientRect().height : 84;
+        var gap = 32;
+        var y = target.getBoundingClientRect().top + window.pageYOffset - headerH - gap;
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: Math.max(0, y), behavior: reduced ? "auto" : "smooth" });
+        if (history.replaceState) {
+          history.replaceState(null, "", location.pathname + location.search);
+        }
+      });
+    });
+  }
+
   function initBerateriumSite() {
     initTeamExpandToggle();
     initTeamBioToggle();
@@ -701,6 +723,7 @@
     initStepsFlowScroll();
     initCompareColumnHover();
     initPrintButton();
+    initHashlessJumpLinks();
 
     if (location.hash) {
       if ("scrollRestoration" in history) history.scrollRestoration = "manual";

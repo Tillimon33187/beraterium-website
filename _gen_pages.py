@@ -482,14 +482,15 @@ def hero(
     </section>"""
 
 
-def cta_band(pre: str, h2: str, body: str, btn: str = "Erstgespräch buchen", *, note: str = "") -> str:
+def cta_band(pre: str, h2: str, body: str, btn: str = "Erstgespräch buchen", *, note: str = "", contact_href: str = "kontakt/") -> str:
     note_html = f'\n        <p class="brt-meta brt-body--on-dark">{note}</p>' if note else ""
+    contact_print = f"{DE_SITE_URL}/{contact_href.lstrip('/')}"
     return f"""
     <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="final-cta">
       <div class="brt-container brt-cta-band__inner brt-fade-up">
         <h2 id="final-cta" class="brt-h2 brt-h2--on-dark">{h2}</h2>
         <p class="brt-body brt-body--on-dark">{body}</p>
-        <a class="brt-btn brt-btn--on-dark brt-btn--lg" href="{pre}kontakt/" data-print-url="{DE_SITE_URL}/kontakt/">{btn}</a>{note_html}
+        <a class="brt-btn brt-btn--on-dark brt-btn--lg" href="{pre}{contact_href}" data-print-url="{contact_print}">{btn}</a>{note_html}
       </div>
     </section>"""
 
@@ -2880,6 +2881,44 @@ def lp_facts_table_html(table: dict | None) -> str:
     </section>"""
 
 
+
+def lp_split_sections_html(cfg: dict, depth: int = 2) -> str:
+    """Screenshot-Walk: Text + Bild im brt-split (Produkt-One-Pager)."""
+    sections = cfg.get("split_sections") or []
+    if not sections:
+        return ""
+    pre = pfx(depth)
+    out = []
+    for i, sec in enumerate(sections, start=1):
+        reversed_cls = " brt-split--reverse" if sec.get("reversed") else ""
+        paragraphs = "".join(f'<p class="brt-body">{p}</p>' for p in sec.get("paragraphs", []))
+        caption = sec.get("caption", "")
+        caption_html = (
+            f'<p class="brt-meta brt-split__caption">{caption}</p>' if caption else ""
+        )
+        media = split_media_html(
+            sec["image"],
+            sec.get("image_alt", ""),
+            depth,
+            contain=True,
+            hover_zoom=sec.get("hover_zoom", True),
+        )
+        out.append(f"""
+    <section class="brt-section{" brt-section--alt" if i % 2 == 0 else ""}" id="screen-{i}" aria-labelledby="screen-{i}-title">
+      <div class="brt-container brt-split{reversed_cls}">
+        <div class="brt-split__text brt-fade-up">
+          <p class="brt-tag">{sec["tag"]}</p>
+          <h2 id="screen-{i}-title" class="brt-h2">{sec["h2"]}</h2>
+          <p class="brt-body">{sec["intro"]}</p>
+          {paragraphs}
+          {caption_html}
+        </div>
+        {media}
+      </div>
+    </section>""")
+    return "".join(out)
+
+
 def lp_related_blog_section(slugs: list[str]) -> str:
     """Kuratierte Blog-Karten am Ende einer Landingpage (Crosslinking LP -> Blog)."""
     if not slugs:
@@ -2934,22 +2973,30 @@ def gen_landingpage(cfg: dict) -> None:
     )
 
     hero_cta2 = cfg.get("hero_cta2")
-    hero_cta2_html = (
-        f'<a class="brt-btn brt-btn--outline" href="{pre}{hero_cta2["href"]}" '
-        f'data-print-url="{DE_SITE_URL}/{hero_cta2["href"]}">{hero_cta2["label"]}</a>'
-        if hero_cta2
-        else '<a class="brt-btn brt-btn--outline" href="#faq">Häufige Fragen \u2192</a>'
-    )
+    if hero_cta2:
+        h2_href = hero_cta2["href"]
+        h2_link = h2_href if h2_href.startswith("#") else f"{pre}{h2_href}"
+        h2_print = h2_href if h2_href.startswith("#") else f"{DE_SITE_URL}/{h2_href.lstrip('/')}"
+        jump_attr = " data-brt-jump" if h2_href.startswith("#") else ""
+        hero_cta2_html = (
+            f'<a class="brt-btn brt-btn--outline" href="{h2_link}"{jump_attr} '
+            f'data-print-url="{h2_print}">{hero_cta2["label"]}</a>'
+        )
+    else:
+        hero_cta2_html = '<a class="brt-btn brt-btn--outline" href="#faq">Häufige Fragen \u2192</a>'
+
     pdf_button_html = (
         '<button type="button" class="brt-btn brt-btn--ghost" data-brt-print>Als PDF speichern</button>'
         if cfg.get("pdf_button")
         else ""
     )
+    contact_href = cfg.get("contact_href", "kontakt/")
+    contact_print = f"{DE_SITE_URL}/{contact_href.lstrip('/')}"
     main = (
         hero(
             pre, cfg["tag"], cfg["h1"], cfg["lead"],
             actions=(
-                f'<a class="brt-btn" href="{pre}kontakt/" data-print-url="{DE_SITE_URL}/kontakt/">{cfg["hero_cta"]}</a>'
+                f'<a class="brt-btn" href="{pre}{contact_href}" data-print-url="{contact_print}">{cfg["hero_cta"]}</a>'
                 f'{hero_cta2_html}{pdf_button_html}'
             ),
         )
@@ -2964,6 +3011,9 @@ def gen_landingpage(cfg: dict) -> None:
     </section>"""
         + guarantee_stat_row(cfg["stats"], aria=cfg["stats_aria"])
         + lp_deep_sections_html(cfg.get("deep_sections", []), end=1)
+        + lp_split_sections_html(cfg, depth=2)
+        + lp_steps_section_html(cfg)
+        + lp_facts_table_html(cfg.get("facts_table"))
         + f"""
     <section class="brt-section brt-section--alt" aria-labelledby="pain-title">
       <div class="brt-container">
@@ -2975,8 +3025,6 @@ def gen_landingpage(cfg: dict) -> None:
         <ul class="brt-cards-3col brt-stagger">{pain_cards}</ul>
       </div>
     </section>"""
-        + lp_steps_section_html(cfg)
-        + lp_facts_table_html(cfg.get("facts_table"))
         + lp_deep_sections_html(cfg.get("deep_sections", []), start=1)
         + (guarantee(pre, du=cfg.get("du", False)) if cfg.get("guarantee_section") else "")
         + f"""
@@ -2992,7 +3040,7 @@ def gen_landingpage(cfg: dict) -> None:
     </section>"""
         + lp_related_blog_section(cfg.get("blog_slugs", []))
         + faq_section(cfg["faq"], alt=True)
-        + cta_band(pre, cfg["cta_h2"], cfg["cta_body"], cfg["hero_cta"], note=cfg.get("cta_note", ""))
+        + cta_band(pre, cfg["cta_h2"], cfg["cta_body"], cfg["hero_cta"], note=cfg.get("cta_note", ""), contact_href=contact_href)
     )
 
     breadcrumb_ld = json.dumps(
@@ -4083,6 +4131,239 @@ LP_CONFIGS: list[dict] = [
         "service_name": "Risiko-Beratung für Solo-Selbstständige",
         "breadcrumb_name": "Risikoanalyse Selbstständige",
     },
+    {
+    # Keyword: Bewerbermanagement öffentlicher Dienst / Bewerbermanagement Kommune (2026-09-12)
+    "slug": "bewerbermanagement-oeffentlicher-dienst",
+    "du": False,
+    "audience": "Kommunen und Landesbehörden",
+    "tag": "BEWERBERMANAGEMENT",
+    "h1": "Bewerbermanagement für Kommunen und Landesbehörden",
+    "lead": (
+        "Laufbahnkontor (Arbeitstitel) bildet den Personalauswahlprozess digital ab — von der Vakanz "
+        "über Ausschreibung und Bewerbung bis zur Beteiligung von Ämtern und Gremien und zur "
+        "dokumentierten Bestenauslese. Ihr führendes HR-System (z. B. LOGA) bleibt unverändert; "
+        "Personalstellen kommen per täglichem Import. Ein Docker-Bündel lässt sich als SaaS in der "
+        "EU oder on-premise betreiben. Die gezeigten Oberflächen sind Klickprototypen — kein Produktivstand."
+    ),
+    "hero_cta": "Kontaktieren Sie uns",
+    "contact_href": "kontaktformular/",
+    "hero_cta2": {"label": "So funktioniert es", "href": "#schritte"},
+    "criteria_tag": "VERGABE-CHECK",
+    "criteria_h2": "Passt Laufbahnkontor zu Ihrer Ausschreibung?",
+    "criteria_intro": "Die Software ist für kommunale und staatliche Arbeitgeber konzipiert, deren Leistungsverzeichnis typischerweise Folgendes fordert — ohne dass ein Produktivbetrieb bereits vorliegt:",
+    "criteria": [
+        "Bestenauslese und Auswahlvermerk revisionssicher dokumentiert (Art. 33 GG)",
+        "17 Rollen mit zustandsabhängiger Sichtbarkeit — Gremien sehen erst ab der Vorauswahl",
+        "Täglicher Import aus dem führenden HR-System ohne Rückschnittstelle",
+        "Barrierefreies Bewerberportal und interne Oberfläche (BITV 2.0 / WCAG 2.1 als Zielmaßstab)",
+        "Betrieb EU/EWR — SaaS oder on-premise aus demselben Softwarestand",
+    ],
+    "stats_aria": "Laufbahnkontor in Kennzahlen",
+    "stats": [
+        ("17 Rollen", "zustandsabhängige Sichtbarkeit nach Anlage 8.1"),
+        ("26 Schritte", "Prozessschritte von Vakanz bis Archivierung"),
+        ("HR-Import", "Täglich Personalstellen und Vorgesetzte — keine Rückschreibung"),
+        ("Kein Scoring", "jede Auswahlentscheidung trifft ein Mensch"),
+    ],
+    "deep_sections": [
+        {
+            "tag": "VERGABE-ZIELE",
+            "h2": "Was eine Vergabe an Bewerbermanagement stellt",
+            "intro": "Typische Leistungsverzeichnisse für den öffentlichen Dienst verlangen ein durchgängiges System — Laufbahnkontor ist dafür konzipiert:",
+            "items": [
+                "Zentraler Zugriff auf Bewerbungen, Lebensläufe und Unterlagen für alle Verantwortlichen",
+                "Digitale Abbildung aller Phasen: Ausschreibung, Eingang, Vorauswahl, Interview, Auswahl",
+                "Vorselektion mit menschlicher Entscheidung — kein automatisches Ranking oder Scoring",
+                "Kommunikation mit Bewerbenden: Status, Einladungen, begründete Absagen, Terminvereinbarung",
+                "Reporting und Durchlaufzeiten — Standardreports für Steuerung und Nachweis",
+                "Nutzung in Ämtern, Eigenbetrieben und Beteiligungsgremien im selben System",
+                "Rechtskonformität nach AGG, Datenschutz und dem jeweiligen Landesrecht",
+            ],
+        },
+        {
+            "tag": "MITBESTIMMUNG",
+            "h2": "Für Personalrat, SBV und Gleichstellung",
+            "intro": "Gremien müssen vertrauen können, dass das System Mitbestimmung unterstützt — nicht untergräbt:",
+            "items": [
+                "Sichtbarkeit erst, wenn die Personalgewinnung eine Bewerbung als vorqualifiziert weiterleitet",
+                "Gesetzliche Beteiligungsreihenfolge und Fristen im Workflow — Einstellung gesperrt bis Abschluss",
+                "Keine Auswertung, die Leistung oder Verhalten einzelner Sachbearbeitender zeigt",
+                "Pseudonymisierte Sachbearbeitung in Gremiensichten; zusammengefasste Berichte zweckgebunden",
+                "Allgemein verständliche Systembeschreibung für die Dienstvereinbarung — auf Anfrage im Erstgespräch",
+            ],
+        },
+        {
+            "tag": "IT & DATENSCHUTZ",
+            "h2": "Für IT-Dienstleister und Datenschutzbeauftragte",
+            "intro": "Technische Anforderungen öffentlicher Vergaben sind im Produktkonzept berücksichtigt:",
+            "items": [
+                "Webanwendung ohne Client-Installation; SAML/SSO gegen den Identitätsanbieter des Auftraggebers",
+                "Named-User-Lizenzmodell ohne Concurrent-User-Zählung",
+                "Konfiguration ohne Quellcodeeingriff — Kataloge, Vorlagen und Regeln in der Administration",
+                "Rechenzentrum EU/EWR; kein Betrieb bei Hyperscalern; SaaS oder on-premise aus einem Bündel",
+                "Konfigurierbares Löschregelwerk, Audit-Trail, Art.-15-Export für Bewerbende",
+                "SBOM und Schwachstellenprozess als Produktziel — ohne Zertifikatsversprechen",
+            ],
+        },
+    ],
+    "split_sections": [
+        {
+            "tag": "BEWERBERPORTAL",
+            "h2": "Öffentliche Stellenbörse — login-frei und barrierefrei",
+            "intro": "Bewerbende finden offene Stellen ohne Anmeldung, filtern nach Bereich, Einstiegslevel und Entgeltgruppe und gelangen direkt zum Online-Bewerbungsformular.",
+            "paragraphs": [
+                "Zentrale Stellenbörse mit Filter je Amt und Bereich — ohne Login nutzbar.",
+                "Vollständig ohne JavaScript erreichbar (serverseitig gerendertes Portal).",
+                "Barrierefreiheit nach BITV 2.0 / WCAG 2.1 als Zielmaßstab.",
+            ],
+            "image": "img/loesungen/bewerbermanagement/stellenboerse.webp",
+            "image_alt": "Oberflächenentwurf: öffentliche Stellenbörse mit Filter und Stellenkarten",
+            "caption": "Oberflächenentwurf, kein Produktivstand.",
+        },
+        {
+            "tag": "BEWERBUNG",
+            "h2": "Online-Bewerbung — auch mobil",
+            "intro": "Mehrstufiges Formular mit Zwischenspeicherung, Anlagen-Upload und Malware-Prüfung. Das Feld „bisheriges Gehalt“ ist bewusst nicht vorgesehen.",
+            "paragraphs": [
+                "Malware-Scan aller Anlagen vor Speicherung.",
+                "Volle Funktionsparität auf aktuellem iOS und Android.",
+                "Kein Feld für bisherige Entgeltentwicklung — AGG-konform.",
+            ],
+            "image": "img/loesungen/bewerbermanagement/bewerbungsformular.webp",
+            "image_alt": "Oberflächenentwurf: mobiles Bewerbungsformular in fünf Schritten",
+            "caption": "Oberflächenentwurf, kein Produktivstand.",
+            "reversed": True,
+        },
+        {
+            "tag": "BEWERBERKONTO",
+            "h2": "Bewerberkonto — Status, Nachrichten, Termine",
+            "intro": "Nach Registrierung sehen Bewerbende den Verlauf jeder Bewerbung, Nachrichten der Personalberatung und geplante Termine — ohne Anruf bei der Hotline.",
+            "paragraphs": [
+                "Mehrfachbewerbungen mit Statusübersicht pro Verfahren.",
+                "Nutzerinitiierte Kontolöschung und Art.-15-Auskunftsexport.",
+                "Nachrichtenkanal zur Personalberatung — Mensch zu Mensch, kein Chat-Bot.",
+            ],
+            "image": "img/loesungen/bewerbermanagement/bewerberkonto.webp",
+            "image_alt": "Oberflächenentwurf: Bewerberkonto mit Zeitstrahl und Reitern",
+            "caption": "Oberflächenentwurf, kein Produktivstand.",
+        },
+        {
+            "tag": "SACHBEARBEITUNG",
+            "h2": "Verfahrensübersicht für die Personalgewinnung",
+            "intro": "Named-User-Oberfläche mit Suche, Meldungen und KPI-Übersicht: laufende Ausschreibungen, Fristen und offene Aufgaben auf einen Blick.",
+            "paragraphs": [
+                "KPI-Übersicht Bewerbungseingang und offene Aufgaben.",
+                "Personalisierte Named-User-Anmeldung mit Rollentrennung.",
+                "Freigabeworkflow für Ausschreibungen mit 15 Pflichtfeldern.",
+            ],
+            "image": "img/loesungen/bewerbermanagement/verfahrensuebersicht.webp",
+            "image_alt": "Oberflächenentwurf: Dashboard Verfahrensübersicht mit KPI-Karten",
+            "caption": "Oberflächenentwurf, kein Produktivstand.",
+            "reversed": True,
+        },
+        {
+            "tag": "VORSELEKTION",
+            "h2": "Bewerbungsliste und Vorauswahl",
+            "intro": "Sachbearbeitende filtern eingehende Bewerbungen, führen Vorselektion durch und leiten qualifizierte Bewerbungen an Fachämter weiter — mit dokumentiertem Verfahrensstand.",
+            "paragraphs": [
+                "Filter und Vorselektion — Entscheidung immer durch Sachbearbeitung.",
+                "Weiterleitung an Fachamt und Gremien mit dokumentiertem Stand.",
+                "Nachfordern, Terminvereinbarung oder begründete Absage aus einer Oberfläche.",
+            ],
+            "image": "img/loesungen/bewerbermanagement/bewerbungsliste.webp",
+            "image_alt": "Oberflächenentwurf: Bewerbungsliste mit Mehrfachauswahl und Aktionen",
+            "caption": "Oberflächenentwurf, kein Produktivstand.",
+        },
+        {
+            "tag": "BETEILIGUNG",
+            "h2": "Beteiligung von Amt und Gremien",
+            "intro": "Personalrat, Schwerbehindertenvertretung und Gleichstellungsbeauftragte sehen Unterlagen erst ab der Vorqualifizierung, geben Stellungnahmen ab und halten gesetzliche Fristen ein — ohne Papierumlauf.",
+            "paragraphs": [
+                "Sichtbarkeit ab Prozessschritt Vorqualifizierung — nichts davor.",
+                "Reihenfolge Gleichstellung vor Personalrat und SBV im Workflow.",
+                "Einstellung gesperrt, bis alle Beteiligungen abgeschlossen sind.",
+            ],
+            "image": "img/loesungen/bewerbermanagement/beteiligungsboard.webp",
+            "image_alt": "Oberflächenentwurf: Beteiligungsboard mit Gremien-Stellungnahmen",
+            "caption": "Oberflächenentwurf, kein Produktivstand.",
+            "reversed": True,
+        },
+    ],
+    "steps_section": {
+        "tag": "PROZESS",
+        "h2": "Wie läuft ein Auswahlverfahren im Laufbahnkontor ab?",
+        "intro": "Der durchgängige Ablauf von der Vakanz bis zur Einstellung oder Absage — revisionssicher dokumentiert.",
+        "steps": [
+            ("Personalstelle und Vakanz", "Stellen aus dem HR-Import oder manuell anlegen; Ausschreibung mit Pflichtfeldern und Freigabeworkflow vorbereiten."),
+            ("Veröffentlichung", "Stellenbörse und optionale Kanäle; Fristen und Statusautomatik überwachen."),
+            ("Bewerbungseingang", "Online-Bewerbungen zuordnen, Eingang bestätigen, Bewerberkonto bereitstellen."),
+            ("Vorauswahl", "Personalberatung prüft, fordert nach oder leitet an Fachamt weiter."),
+            ("Beteiligung", "Gremien in gesetzlicher Reihenfolge und mit Fristen — Einstellung gesperrt, bis Mitbestimmung abgeschlossen ist."),
+            ("Auswahl und Abschluss", "Interviews dokumentieren, Auswahlvermerk erstellen, Zusage oder begründete Absage."),
+            ("Archivierung", "Verfahren abschließen, Aufbewahrungs- und Löschregeln anwenden."),
+        ],
+    },
+    "facts_table": {
+        "tag": "ABGRENZUNG",
+        "h2": "Was Laufbahnkontor leistet — und was bewusst nicht",
+        "intro": "Klare Produktabgrenzung für Vergabestellen und Fachämter:",
+        "caption": "Leistungsumfang und Abgrenzung Laufbahnkontor",
+        "headers": ["Thema", "Laufbahnkontor", "Abgrenzung"],
+        "rows": [
+            ("HR-Kernsystem", "Täglicher Import von Personalstellen und Vorgesetzten", "Ersetzt kein LOGA o. Ä.; keine Rückschnittstelle"),
+            ("Automatische Bewertung", "Nein — Bestenauslese durch Menschen", "Kein Scoring, keine Ranglisten, keine KI-Entscheidung"),
+            ("Reporting", "Zehn Standardreports, Durchlaufzeiten und Besetzungsverlauf", "Keine Leistungsüberwachung Einzelner"),
+            ("Veröffentlichung", "Zentrale Stellenbörse; Kanäle wie BA und Interamt vorgesehen", "Social-Media-Kanäle gestuft, nicht alle zum Start"),
+            ("Zustellung", "Postzustellungsurkunde dokumentiert im Aktivitäten-Management", "Kein separater Postversand — Protokollierung und Scan-Upload"),
+            ("Talent-Pool", "Einwilligungsbasiert, jederzeit widerrufbar", "Keine Speicherung ohne dokumentierte Einwilligung"),
+            ("Barrierefreiheit", "BITV 2.0 / WCAG 2.1 als Zielmaßstab für Portal und Backend", "Nachweis im Produktivbetrieb, nicht im Prototyp"),
+            ("CV-Parsing", "Optional nur als Formularvorbefüllung durch die bewerbende Person", "Bei Auslieferung deaktiviert; niemals Filter oder Auswahl"),
+            ("Messenger (WhatsApp & Co.)", "Nicht in Version 1", "Kommunikation über Aktivitäten-Management und E-Mail"),
+            ("Betrieb", "SaaS im RZ des Anbieters oder on-premise", "Rechenzentrum in der EU; kein Hyperscaler-Zwang"),
+        ],
+    },
+    "pain_tag": "TYPISCHE REIBUNG",
+    "pain_h2": "Wo bei kommunalen Arbeitgebern oft Reibung entsteht",
+    "pain_intro": "Diese Muster entsprechen typischen Anforderungen in Vergaben — unabhängig vom jeweiligen Altsystem:",
+    "pain_cards": [
+        ("Gremien per Papierumlauf", "Stellungnahmen von Personalrat und SBV per E-Mail und Ausdruck sind schwer nachweisbar und verzögern Fristen — das System hält Reihenfolge und Fristen fest."),
+        ("Doppelerfassung von Stellen", "Stellenplan im HR-System, Ausschreibungstext woanders: der tägliche HR-Import entlastet, ohne das HR-System zu verändern."),
+        ("Intransparente Absagen", "Bewerbende wissen nicht, wo ihre Bewerbung steht — das Bewerberkonto zeigt Status, Nachrichten und Termine ohne Hotline."),
+        ("Fachämter außerhalb des Systems", "27 Ämter und Eigenbetriebe sollen mitarbeiten — Beteiligung ab definierter Prozessstufe statt paralleler E-Mail-Ketten."),
+        ("Keine Steuerungskennzahlen", "Durchlaufzeiten und Besetzungsverläufe fehlen — Standardreports machen Fortschritt und Engpässe sichtbar."),
+    ],
+    "overview_tag": "BERATERIUM",
+    "overview_h2": "Wer steckt hinter Laufbahnkontor?",
+    "overview_intro": "Im Erstgespräch gehen wir Ihre Anforderungsliste durch und zeigen den Klickprototyp — angelehnt an typische Vergaben im öffentlichen Dienst. Laufbahnkontor wird von der Beraterium GbR entwickelt:",
+    "overview_cards": [
+        ("Kontakt", "Unverbindliche Anfrage: Anforderungen klären, Prototyp zeigen, nächste Schritte besprechen.", "kontaktformular/", "Zum Kontaktformular"),
+        ("Prototyp-Demo", "Klickprototyp der Oberflächen — Stellenbörse, Bewerbung, Gremienboard. Kein Produktivstand, aber greifbar im Gespräch.", "kontaktformular/", "Demo anfragen"),
+        ("Team", "Till Manfred Blania und Aleksandra Polosukhina — Gründer und Gesellschafter der Beraterium GbR.", "team/", "Zum Team"),
+    ],
+    "faq": [
+        ("Was ist Laufbahnkontor?", "Laufbahnkontor (Arbeitstitel) ist eine Bewerbermanagement-Software der Beraterium GbR für kommunale und staatliche Arbeitgeber — von der Ausschreibung bis zur dokumentierten Einstellung oder Absage."),
+        ("Ist die Software schon im Einsatz?", "Nein. Die gezeigten Oberflächen sind Klickprototypen. Das Produkt wird am Maßstab öffentlicher Ausschreibungen gebaut; ein Referenzbetrieb liegt noch nicht vor."),
+        ("Wie läuft die Anbindung an unser HR-System?", "Laufbahnkontor importiert täglich Personalstellen, Organisationsdaten und Vorgesetzten aus dem führenden HR-System (z. B. LOGA) — per verschlüsseltem Datentransfer. Es gibt keine Rückschnittstelle; eingestellte Personen werden als Dokument exportiert, nicht zurückgeschrieben."),
+        ("Wie ist Personalrat und SBV eingebunden?", "Gremien sehen Bewerbungen erst nach Vorqualifizierung durch die Personalgewinnung. Beteiligung folgt der gesetzlichen Reihenfolge mit Fristen; die Einstellung bleibt gesperrt, bis alle Stellungnahmen vorliegen."),
+        ("Ist das System barrierefrei?", "Barrierefreiheit nach BITV 2.0 / WCAG 2.1 ist Zielmaßstab für Bewerberportal und interne Oberfläche. Der gezeigte Klickprototyp ist noch kein Barrierefreiheitsnachweis — der erfolgt im Produktivbetrieb."),
+        ("Ersetzt Laufbahnkontor unser HR-System?", "Nein. Das HR-System bleibt führend für Personalakte und Stellenplan. Laufbahnkontor bezieht Personalstellen per Import und schreibt nicht zurück."),
+        ("Wie werden Bewerbende bewertet?", "Gar nicht automatisch. Das System unterstützt Sachbearbeitung und Gremien — jede Auswahlentscheidung trifft ein Mensch mit Begründung."),
+        ("Was ist mit Künstlicher Intelligenz?", "Optional assistierende Funktionen (z. B. Formularvorbefüllung aus Lebenslauf) sind systemweit abschaltbar und entscheiden nie über Bewerbungen."),
+        ("Named User oder Concurrent?", "Named-User-Lizenzmodell — jede berechtigte Person erhält ein persönliches Konto ohne gleichzeitige Sitzungszählung."),
+        ("Migration aus Bewerber3 oder anderem Altsystem?", "Ein Migrationskonzept wird projektspezifisch erarbeitet — im Erstgespräch klären wir Umfang und Datenbestand. Ein abgeschlossenes Referenzprojekt liegt noch nicht vor."),
+        ("SaaS oder on-premise?", "Beides aus demselben Docker-Bündel — Betrieb im Rechenzentrum des Anbieters (EU/EWR) oder beim Auftraggeber."),
+        ("Wie starte ich ein Gespräch?", "Über das Kontaktformular auf beraterium.de — wir melden uns für ein unverbindliches Erstgespräch."),
+    ],
+    "cta_h2": "Ihre Anforderungen — unser Prototyp",
+    "cta_body": "Schreiben Sie uns — wir gehen Ihre Vergabe-Anforderungen durch, zeigen den Klickprototyp und besprechen SaaS oder on-premise.",
+    "cta_note": "",
+    "title": "Bewerbermanagement öffentlicher Dienst | Laufbahnkontor | Beraterium",
+    "description": "Laufbahnkontor: Bewerbermanagement für Kommunen — Bestenauslese, Personalvertretung, HR-Import ohne Rückschnittstelle, Gremien im System. Beraterium GbR. Kontaktformular.",
+    "service_name": "Laufbahnkontor — Bewerbermanagement für den öffentlichen Dienst",
+    "breadcrumb_name": "Bewerbermanagement öffentlicher Dienst",
+},
+
+
 ]
 
 

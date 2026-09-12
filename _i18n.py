@@ -6,6 +6,11 @@ from _internationale_stufen_detail import build_i18n_stage_routes
 DE_SITE_URL = "https://www.beraterium.de"
 EN_SITE_URL = "https://www.beraterium.com"
 
+# DE-only pages: no EN hreflang / language switcher until EN page exists.
+DE_ONLY_ROUTES: frozenset[str] = frozenset({
+    "loesungen/bewerbermanagement-oeffentlicher-dienst",
+})
+
 _STATIC_STAGE_ROUTES, _RU_STAGE_ROUTES, _ = build_i18n_stage_routes()
 
 STATIC_ROUTE_MAP: dict[str, str] = {
@@ -148,6 +153,8 @@ def alternate_url(canonical: str, *, from_locale: str, to_locale: str) -> str:
         base = DE_SITE_URL
         path = de_route if de_route else route
     elif to_locale == "en":
+        if de_route and de_route in DE_ONLY_ROUTES:
+            return ""
         base = EN_SITE_URL
         if de_route:
             if de_route.startswith("blog/"):
@@ -177,10 +184,9 @@ def hreflang_links(canonical: str, *, current_locale: str) -> str:
     de_url = alternate_url(canonical, from_locale=current_locale, to_locale="de")
     en_url = alternate_url(canonical, from_locale=current_locale, to_locale="en")
     ru_url = alternate_url(canonical, from_locale=current_locale, to_locale="ru")
-    lines = [
-        f'\n  <link rel="alternate" hreflang="de" href="{de_url}">',
-        f'\n  <link rel="alternate" hreflang="en" href="{en_url}">',
-    ]
+    lines = [f'\n  <link rel="alternate" hreflang="de" href="{de_url}">']
+    if en_url:
+        lines.append(f'\n  <link rel="alternate" hreflang="en" href="{en_url}">')
     if ru_url:
         lines.append(f'\n  <link rel="alternate" hreflang="ru" href="{ru_url}">')
     lines.append(f'\n  <link rel="alternate" hreflang="x-default" href="{de_url}">')

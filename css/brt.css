@@ -1354,7 +1354,7 @@
 
 @media (min-width: 768px) {
   .brt-stat-row__list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
   }
 }
@@ -1362,6 +1362,7 @@
 .brt-stat {
   padding: var(--space-4) 0;
   text-align: left;
+  min-width: 0;
 }
 
 @media (min-width: 768px) {
@@ -1382,12 +1383,14 @@
 
 .brt-stat__number {
   display: block;
-  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+  font-size: clamp(1.35rem, 2.2vw, 2.25rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
   color: var(--color-on-dark);
   margin-bottom: var(--space-3);
 }
@@ -1397,7 +1400,7 @@
   font-size: 0.8125rem;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.62);
-  max-width: 16ch;
+  max-width: none;
 }
 
 /* Cards */
@@ -2469,15 +2472,18 @@
     .brt .brt-stat {
       text-align: left;
       padding: 1rem 0;
+      min-width: 0;
     }
     .brt .brt-stat__number {
       display: block;
-      font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+      font-size: clamp(1.35rem, 2.2vw, 2.25rem);
       font-weight: 700;
-      line-height: 1.05;
+      line-height: 1.15;
       letter-spacing: -0.03em;
       font-variant-numeric: tabular-nums;
-      white-space: nowrap;
+      white-space: normal;
+      overflow-wrap: break-word;
+      hyphens: auto;
       color: var(--color-on-dark);
       margin-bottom: 0.75rem;
     }
@@ -2485,7 +2491,7 @@
       font-size: 0.8125rem;
       line-height: 1.45;
       color: rgba(255, 255, 255, 0.62);
-      max-width: 16ch;
+      max-width: none;
     }
     @media (min-width: 768px) {
       .brt .brt-stat-row__list {

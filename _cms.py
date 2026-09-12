@@ -1811,6 +1811,7 @@ def gen_sitemap_urls() -> list[str]:
         "/loesungen/risikoanalyse-startup/",
         "/loesungen/risikoanalyse-kmu/",
         "/loesungen/risikoanalyse-solo/",
+        "/loesungen/bewerbermanagement-oeffentlicher-dienst/",
         "/standort/muenchen/",
         "/standort/sachsen/",
         "/standort/nrw/",
