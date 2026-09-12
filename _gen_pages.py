@@ -19,6 +19,8 @@ from _pricing_geo import (
 
 from _schulungen import SCHULUNG_CONFIGS
 
+from _presentation_kdz_mainz import PRESENTATION_CONFIGS
+
 from _international_pages import (
     INT_INDEX_RU,
     cards_slider_block,
@@ -3078,6 +3080,237 @@ def gen_landingpage(cfg: dict) -> None:
             json_ld=ld,
         ),
     )
+
+
+
+def presentation_recipient_block(rec: dict) -> str:
+    to_lines = "".join(f"<p class=\"brt-pres-recipient__line\">{line}</p>" for line in rec["to_lines"])
+    from_lines = "".join(f"<p class=\"brt-pres-recipient__line\">{line}</p>" for line in rec["from_lines"])
+    return f"""
+    <div class=\"brt-pres-recipient brt-fade-up\" role=\"group\" aria-label=\"Adressaten\">
+      <div class=\"brt-pres-recipient__col\">
+        <p class=\"brt-pres-recipient__label\">{rec["to_label"]}</p>
+        {to_lines}
+        <p class=\"brt-pres-recipient__meta\"><strong>Vergabestelle:</strong> {rec["vergabestelle"]}</p>
+        <p class=\"brt-pres-recipient__meta\"><strong>Vergabenummer:</strong> {rec["vergabenummer"]}</p>
+        <p class=\"brt-pres-recipient__meta\"><strong>Verfahren:</strong> {rec["verfahren"]}</p>
+        <p class=\"brt-pres-recipient__meta\"><strong>Plattform:</strong> <a href=\"{rec["plattform"]}\">{rec["plattform"]}</a></p>
+      </div>
+      <div class=\"brt-pres-recipient__col\">
+        <p class=\"brt-pres-recipient__label\">{rec["from_label"]}</p>
+        {from_lines}
+        <p class=\"brt-pres-recipient__meta\"><strong>{rec["date_label"]}:</strong> {rec["date_value"]}</p>
+      </div>
+    </div>"""
+
+
+def presentation_toc_html(toc: list[tuple[str, str]]) -> str:
+    items = "".join(
+        f'<li><a class=\"brt-pres-toc__link\" href=\"#{anchor}\">{label}</a></li>'
+        for anchor, label in toc
+    )
+    return f"""
+    <nav class=\"brt-pres-toc\" aria-label=\"Inhaltsverzeichnis\">
+      <p class=\"brt-pres-toc__title\">Inhalt</p>
+      <ol class=\"brt-pres-toc__list\">{items}</ol>
+    </nav>"""
+
+
+def presentation_table_section(table: dict, *, section_id: str) -> str:
+    head = "".join(f'<th scope=\"col\">{h}</th>' for h in table["headers"])
+    rows = "".join(
+        "<tr>" + "".join(f"<td>{c}</td>" for c in row) + "</tr>"
+        for row in table["rows"]
+    )
+    return f"""
+    <section class=\"brt-section brt-section--alt\" id=\"{section_id}\" aria-labelledby=\"{section_id}-title\">
+      <div class=\"brt-container\">
+        <header class=\"brt-section__header brt-fade-up\">
+          <p class=\"brt-tag\">{table["tag"]}</p>
+          <h2 id=\"{section_id}-title\" class=\"brt-h2\">{table["h2"]}</h2>
+          <p class=\"brt-body\">{table["intro"]}</p>
+        </header>
+        <div class=\"brt-table-wrap brt-fade-up brt-pres-matrix\">
+          <table class=\"brt-table\">
+            <caption class=\"brt-sr-only\">{table["caption"]}</caption>
+            <thead><tr>{head}</tr></thead>
+            <tbody>{rows}</tbody>
+          </table>
+        </div>
+      </div>
+    </section>"""
+
+
+def presentation_demo_tasks_html(tasks: list[dict]) -> str:
+    blocks = []
+    for task in tasks:
+        steps = "".join(f"<li>{s}</li>" for s in task["steps"])
+        blocks.append(f"""
+        <article class=\"brt-pres-task brt-fade-up\" id=\"demo-{task["nr"]}\">
+          <header class=\"brt-pres-task__head\">
+            <span class=\"brt-pres-lv-ref\">{task["lv_ref"]}</span>
+            <span class=\"brt-pres-gp\">{task["gp"]} Gp</span>
+            <h3 class=\"brt-h3\">{task["nr"]}. {task["title"]}</h3>
+          </header>
+          <blockquote class=\"brt-pres-quote\"><p>{task["lv_quote"]}</p></blockquote>
+          <p class=\"brt-body\"><strong>Bildschirm:</strong> {task["screen"]}</p>
+          <p class=\"brt-body\"><strong>Demo-Ablauf:</strong></p>
+          <ol class=\"brt-list-check brt-pres-steps\">{steps}</ol>
+        </article>""")
+    return f"""
+    <section class=\"brt-section\" id=\"demo\" aria-labelledby=\"demo-title\">
+      <div class=\"brt-container\">
+        <header class=\"brt-section__header brt-fade-up\">
+          <p class=\"brt-tag\">LV 5.1</p>
+          <h2 id=\"demo-title\" class=\"brt-h2\">Live-Demo-Leitfaden (100 Gewichtungspunkte)</h2>
+          <p class=\"brt-body\">Neun typische Arbeitssituationen aus dem Bietergespräch — mit zugeordneten Prototyp-Bildschirmen.</p>
+        </header>
+        <div class=\"brt-pres-task-list\">{"".join(blocks)}</div>
+      </div>
+    </section>"""
+
+
+def presentation_concepts_html(concepts: list[dict]) -> str:
+    blocks = []
+    for c in concepts:
+        checklist = "".join(f"<li>{item}</li>" for item in c["checklist"])
+        blocks.append(f"""
+        <article class=\"brt-pres-concept brt-fade-up\" id=\"konzept-{c["nr"]}\">
+          <header class=\"brt-pres-task__head\">
+            <span class=\"brt-pres-lv-ref\">{c["lv_ref"]}</span>
+            <span class=\"brt-pres-gp\">{c["gp"]} Gp</span>
+            <h3 class=\"brt-h3\">{c["nr"]}. {c["title"]}</h3>
+          </header>
+          <p class=\"brt-body\">{c["intro"]}</p>
+          <ul class=\"brt-list-check\">{checklist}</ul>
+        </article>""")
+    return f"""
+    <section class=\"brt-section brt-section--alt\" id=\"konzepte\" aria-labelledby=\"konzepte-title\">
+      <div class=\"brt-container\">
+        <header class=\"brt-section__header brt-fade-up\">
+          <p class=\"brt-tag\">LV 5.2 / 7.2</p>
+          <h2 id=\"konzepte-title\" class=\"brt-h2\">Konzeptvortrag (100 Gewichtungspunkte)</h2>
+          <p class=\"brt-body\">Sieben Fragen aus dem Bietergespräch — deckungsgleich mit den vier schriftlichen Konzepten im Angebot.</p>
+        </header>
+        <div class=\"brt-pres-concept-list\">{"".join(blocks)}</div>
+      </div>
+    </section>"""
+
+
+def _lp_cfg_by_slug(slug: str) -> dict:
+    for cfg in LP_CONFIGS:
+        if cfg["slug"] == slug:
+            return cfg
+    raise KeyError(f"LP_CONFIGS slug not found: {slug}")
+
+
+def gen_presentation(cfg: dict) -> None:
+    """Unlisted Präsentationsseite unter /praesentation/<slug>/ (noindex)."""
+    slug = cfg["slug"]
+    pre = "../../"
+    canonical = f"/praesentation/{slug}/"
+    contact_href = cfg.get("contact_href", "kontaktformular/")
+    contact_print = f"{DE_SITE_URL}/{contact_href.lstrip('/')}"
+
+    ref_slug = cfg.get("split_sections_ref")
+    screen_cfg = {"split_sections": _lp_cfg_by_slug(ref_slug)["split_sections"]} if ref_slug else cfg
+
+    ctx = cfg["context"]
+    facts_rows = "".join(
+        f"<tr><th scope=\"row\">{label}</th><td>{value}</td></tr>"
+        for label, value in ctx["facts"]
+    )
+    legal = cfg["legal"]
+    legal_items = "".join(f"<li>{item}</li>" for item in legal["items"])
+    closing = cfg["closing"]
+    closing_steps = "".join(f"<li>{s}</li>" for s in closing["steps"])
+
+    pdf_btn = '<button type=\"button\" class=\"brt-btn brt-btn--ghost\" data-brt-print>Als PDF speichern</button>'
+
+    main = (
+        hero(
+            pre,
+            cfg["tag"],
+            cfg["h1"],
+            cfg["lead"],
+            actions=(
+                f'<a class=\"brt-btn\" href=\"{pre}{contact_href}\" data-print-url=\"{contact_print}\">{cfg["hero_cta"]}</a>'
+                f"{pdf_btn}"
+            ),
+        )
+        + f"""
+    <section class=\"brt-section brt-section--alt\" aria-label=\"Empfänger\">
+      <div class=\"brt-container\">{presentation_recipient_block(cfg["recipient"])}</div>
+    </section>
+    <div class=\"brt-pres\">
+      <div class=\"brt-pres__layout\">
+        {presentation_toc_html(cfg["toc"])}
+        <div class=\"brt-pres__main\">
+    <section class=\"brt-section\" id=\"aufgabe\" aria-labelledby=\"aufgabe-title\">
+      <div class=\"brt-container\">
+        <header class=\"brt-section__header brt-fade-up\">
+          <p class=\"brt-tag\">{ctx["tag"]}</p>
+          <h2 id=\"aufgabe-title\" class=\"brt-h2\">{ctx["h2"]}</h2>
+          <p class=\"brt-body\">{ctx["intro"]}</p>
+        </header>
+        <div class=\"brt-table-wrap brt-fade-up\">
+          <table class=\"brt-table brt-pres-facts\">
+            <caption class=\"brt-sr-only\">Eckdaten Vergabe KDZ Mainz</caption>
+            <tbody>{facts_rows}</tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    {presentation_demo_tasks_html(cfg["demo_tasks"])}
+    <section class=\"brt-section brt-section--alt\" id=\"screens\" aria-labelledby=\"screens-title\">
+      <div class=\"brt-container\">
+        <header class=\"brt-section__header brt-fade-up\">
+          <p class=\"brt-tag\">PROTOTYP</p>
+          <h2 id=\"screens-title\" class=\"brt-h2\">Produkt im Bild — sechs Oberflächenentwürfe</h2>
+          <p class=\"brt-body\">Klickprototypen — kein Produktivstand. Jede Abbildung mit Funktionsbeschreibung.</p>
+        </header>
+      </div>
+    </section>
+    {lp_split_sections_html(screen_cfg, depth=2)}
+    {presentation_concepts_html(cfg["concepts"])}
+    {presentation_table_section(cfg["muss_table"], section_id="muss")}
+    {presentation_table_section(cfg["soll_table"], section_id="soll")}
+    <section class=\"brt-section\" id=\"recht\" aria-labelledby=\"recht-title\">
+      <div class=\"brt-container brt-highlight-box brt-fade-up\">
+        <p class=\"brt-tag\">{legal["tag"]}</p>
+        <h2 id=\"recht-title\" class=\"brt-h2\">{legal["h2"]}</h2>
+        <p class=\"brt-body\">{legal["intro"]}</p>
+        <ul class=\"brt-list-check\">{legal_items}</ul>
+      </div>
+    </section>
+    <section class=\"brt-section brt-section--alt\" id=\"abschluss\" aria-labelledby=\"abschluss-title\">
+      <div class=\"brt-container brt-fade-up\">
+        <p class=\"brt-tag\">ABSCHLUSS</p>
+        <h2 id=\"abschluss-title\" class=\"brt-h2\">{closing["h2"]}</h2>
+        <p class=\"brt-body\">{closing["body"]}</p>
+        <ol class=\"brt-list-check\">{closing_steps}</ol>
+      </div>
+    </section>
+        </div>
+      </div>
+    </div>
+    """
+        + cta_band(pre, cfg["cta_h2"], cfg["cta_body"], cfg["hero_cta"], contact_href=contact_href)
+    )
+
+    write(
+        f"praesentation/{slug}/index.html",
+        shell(
+            depth=2,
+            title=cfg["title"],
+            description=cfg["description"],
+            canonical=canonical,
+            active_nav=None,
+            main=main,
+            noindex=True,
+        ),
+    )
+
 
 
 LP_CONFIGS: list[dict] = [
@@ -6231,6 +6464,8 @@ if __name__ == "__main__":
     gen_lp_solo()
     for _lp_cfg in LP_CONFIGS:
         gen_landingpage(_lp_cfg)
+    for _pres_cfg in PRESENTATION_CONFIGS:
+        gen_presentation(_pres_cfg)
     for _st_cfg in STANDORT_CONFIGS:
         gen_standort(_st_cfg)
     gen_risikoradar()
