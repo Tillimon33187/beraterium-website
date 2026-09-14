@@ -147,4 +147,4 @@ Dieser Text ist kein medizinischer oder therapeutischer Rat. Bei Depression, Sui
 
 ### Im Gespräch: Marin Maric
 
-Marin Maric ist Sparringspartner für Unternehmer und Führungskräfte zu Dating, Beziehung und Trennung; systemischer Coach (TÜV). Website: [selbstbestimmtmann.de](https://www.selbstbestimmtmann.de). Social: [marinmachtmann](https://www.instagram.com/marinmachtmann/). Monatliche digitale Männerrunde (DACH) und Präsenz am letzten Donnerstag im Monat, Klosterraum Stuttgart.
+Marin Maric ist Sparringspartner für Unternehmer und Führungskräfte zu Dating, Beziehung und Trennung; systemischer Coach (TÜV). Website: [selbstbestimmtmann.de](https://www.selbstbestimmtmann.de). Social: [marin.macht.mann](https://www.instagram.com/marin.macht.mann/). Monatliche digitale Männerrunde (DACH) und Präsenz am letzten Donnerstag im Monat, Klosterraum Stuttgart.
