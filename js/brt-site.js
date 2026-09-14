@@ -829,6 +829,68 @@
         var threshold = state.checkpointLengths[idx] || 0;
         item.classList.toggle("is-active", idx === activeIdx && progress > 0.02);
         item.classList.toggle("is-done", drawnLength > threshold + 24);
+        item.removeAttribute("aria-current");
+      });
+      if (progress > 0.02 && state.items[activeIdx]) {
+        state.items[activeIdx].setAttribute("aria-current", "step");
+      }
+    }
+
+    function setLaufbahnMobileStep(state, activeIdx) {
+      var total = state.items.length;
+      if (!total) return;
+      var idx = Math.min(Math.max(activeIdx, 0), total - 1);
+      state.items.forEach(function (item, i) {
+        item.classList.toggle("is-active", i === idx);
+        item.classList.toggle("is-done", i < idx);
+        if (i === idx) {
+          item.setAttribute("aria-current", "step");
+        } else {
+          item.removeAttribute("aria-current");
+        }
+      });
+      var diagram = state.diagram;
+      var currentEl = diagram.querySelector(".brt-laufbahn-flow__mobile-current");
+      var fillEl = diagram.querySelector(".brt-laufbahn-flow__mobile-progress-fill");
+      var listEl = diagram.querySelector(".brt-laufbahn-flow__list");
+      var stepNum = String(idx + 1).padStart(2, "0");
+      if (currentEl) currentEl.textContent = stepNum;
+      var barPct = ((idx + 1) / total) * 100;
+      if (fillEl) fillEl.style.setProperty("--laufbahn-mobile-bar", barPct + "%");
+      if (listEl) listEl.style.setProperty("--laufbahn-mobile-progress", barPct + "%");
+    }
+
+    function initLaufbahnFlowMobile(states) {
+      if (!("IntersectionObserver" in window)) return;
+      var mobileStates = states.filter(function (state) {
+        return state.items.length && state.diagram.querySelector(".brt-laufbahn-flow__mobile-progress");
+      });
+      if (!mobileStates.length) return;
+
+      mobileStates.forEach(function (state) {
+        var ratios = new Array(state.items.length).fill(0);
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var idx = Array.prototype.indexOf.call(state.items, entry.target);
+            if (idx < 0) return;
+            ratios[idx] = entry.isIntersecting ? entry.intersectionRatio : 0;
+          });
+          var bestIdx = 0;
+          var bestRatio = -1;
+          ratios.forEach(function (ratio, i) {
+            if (ratio > bestRatio) {
+              bestRatio = ratio;
+              bestIdx = i;
+            }
+          });
+          if (bestRatio <= 0) return;
+          setLaufbahnMobileStep(state, bestIdx);
+        }, { rootMargin: "-20% 0px -55% 0px", threshold: [0, 0.25, 0.4, 0.6, 1] });
+
+        state.items.forEach(function (item) {
+          observer.observe(item);
+        });
+        setLaufbahnMobileStep(state, 0);
       });
     }
 
@@ -848,16 +910,15 @@
 
     function update() {
       var isWide = window.matchMedia("(min-width: 768px)").matches;
+      if (!isWide) return;
       states.forEach(function (state) {
         var progress = laufbahnFlowScrollProgress(state);
         if (prefersReduced) {
           progress = progress >= 0.4 ? 1 : 0;
         }
         state.progress = progress;
-        if (isWide) {
-          state.progressPath.style.strokeDashoffset = String(state.mainLength * (1 - progress));
-          updateRunner(state, progress, isWide);
-        }
+        state.progressPath.style.strokeDashoffset = String(state.mainLength * (1 - progress));
+        updateRunner(state, progress, isWide);
         updateActiveStates(state, progress);
       });
     }
@@ -884,6 +945,7 @@
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize, { passive: true });
+    initLaufbahnFlowMobile(states);
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
         onResize();

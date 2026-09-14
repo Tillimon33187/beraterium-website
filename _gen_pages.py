@@ -104,7 +104,7 @@ from _cms import (
 )
 
 SITE = Path(__file__).parent
-BRT_ASSET_VERSION = "20260914-laufbahn-flow-v5"
+BRT_ASSET_VERSION = "20260914-laufbahn-mobile-v1"
 
 ALT_TILL = "Till Manfred Blania, Geschäftsführer Beraterium"
 ALT_PETER = "Peter Münstermann, Beraterium"
@@ -2835,6 +2835,7 @@ def lp_deep_sections_html(sections: list[dict], start: int = 0, end: int | None 
 
 def lp_laufbahn_flow_section_html(sec: dict) -> str:
     """Scroll-animierte Laufbahn-Prozessvisualisierung (Serpentine, N Schritte)."""
+    step_total = f"{len(sec['steps']):02d}"
     items = []
     for i, (title, body) in enumerate(sec["steps"], start=1):
         items.append(
@@ -2858,6 +2859,14 @@ def lp_laufbahn_flow_section_html(sec: dict) -> str:
           <p class="brt-body">{sec["intro"]}</p>
         </header>
         <div class="brt-laufbahn-flow__diagram brt-fade-up">
+          <div class="brt-laufbahn-flow__mobile-progress" aria-live="polite">
+            <p class="brt-laufbahn-flow__mobile-progress-label">
+              Schritt <span class="brt-laufbahn-flow__mobile-current">01</span> von {step_total}
+            </p>
+            <div class="brt-laufbahn-flow__mobile-progress-track">
+              <div class="brt-laufbahn-flow__mobile-progress-fill"></div>
+            </div>
+          </div>
           <svg class="brt-laufbahn-flow__path" viewBox="0 0 640 900" aria-hidden="true" focusable="false">
             <path class="brt-laufbahn-flow__track-bed" d=""></path>
             <path class="brt-laufbahn-flow__track-base" d=""></path>

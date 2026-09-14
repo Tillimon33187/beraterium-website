@@ -336,8 +336,14 @@
     padding: 0 !important;
   }
 
+  .brt-laufbahn-flow__mobile-progress,
   .brt-laufbahn-flow__path,
   .brt-laufbahn-flow__checkpoint {
+    display: none !important;
+  }
+
+  .brt-laufbahn-flow__list::before,
+  .brt-laufbahn-flow__list::after {
     display: none !important;
   }
 
