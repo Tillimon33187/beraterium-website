@@ -328,4 +328,134 @@
   .brt-steps-flow__copy .brt-body {
     font-size: 9pt !important;
   }
+
+
+  /* Laufbahn-Flow: animiertes SVG nur am Bildschirm; Druck = Schrittliste. */
+  .brt-laufbahn-flow__diagram {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+
+  .brt-laufbahn-flow__path,
+  .brt-laufbahn-flow__checkpoint {
+    display: none !important;
+  }
+
+  .brt-laufbahn-flow__list {
+    position: static !important;
+    min-height: auto !important;
+    padding-left: 0 !important;
+    border-left: none !important;
+  }
+
+  .brt-laufbahn-flow__item {
+    position: static !important;
+    max-width: none !important;
+    display: block !important;
+    margin: 0 0 0.2cm !important;
+    padding-left: 0 !important;
+  }
+
+  .brt-laufbahn-flow__item::before {
+    display: none !important;
+  }
+
+  .brt-laufbahn-flow__item + .brt-laufbahn-flow__item {
+    margin-top: 0 !important;
+  }
+
+  .brt-laufbahn-flow__copy {
+    padding: 0 !important;
+    background: none !important;
+  }
+
+  .brt-laufbahn-flow__label {
+    display: inline !important;
+    margin-right: 0.25cm !important;
+  }
+
+  .brt-laufbahn-flow__copy .brt-h3 {
+    font-size: 10.5pt !important;
+    display: inline !important;
+  }
+
+  .brt-laufbahn-flow__copy .brt-body {
+    font-size: 9pt !important;
+  }
+
+  /* KDZ Präsentation: Screenshots muessen im PDF sichtbar sein (lazy-load + hover-zoom). */
+  .brt-page--presentation .brt-split {
+    display: block !important;
+  }
+
+  .brt-page--presentation .brt-split__media,
+  .brt-page--presentation .brt-pres-screen__figure {
+    position: static !important;
+    aspect-ratio: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .brt-page--presentation .brt-split__media::before {
+    display: none !important;
+  }
+
+  .brt-page--presentation .brt-split__media img {
+    display: block !important;
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 14cm !important;
+    object-fit: contain !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .brt-page--presentation .brt-pres-cover {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .brt-page--presentation .brt-pres-cover__actions,
+  .brt-page--presentation .brt-pres-toc {
+    display: none !important;
+  }
+
+  .brt-page--presentation .brt-pres-screen {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .brt-page--presentation #demo {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .brt-page--presentation .brt-pres-task-list .brt-pres-task {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+
+  /* KDZ presentation deck — A4 landscape (see also brt-presentation-deck.css) */
+  .brt-page--presentation-deck .brt-pres-slide {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .brt-page--presentation-deck .brt-pres-slide__img {
+    display: block !important;
+    opacity: 1 !important;
+    max-height: 11.5cm !important;
+  }
+
 }

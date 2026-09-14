@@ -104,7 +104,7 @@ from _cms import (
 )
 
 SITE = Path(__file__).parent
-BRT_ASSET_VERSION = "20260911-price-table-columns-v3"
+BRT_ASSET_VERSION = "20260914-laufbahn-flow-v5"
 
 ALT_TILL = "Till Manfred Blania, Geschäftsführer Beraterium"
 ALT_PETER = "Peter Münstermann, Beraterium"
@@ -132,10 +132,11 @@ def split_media_html(
     *,
     contain: bool = False,
     hover_zoom: bool = False,
+    eager: bool = False,
 ) -> str:
     css_class = "brt-split__media-img--contain" if contain else ""
     aspect = "3/2" if contain else "4/3"
-    media = img_html(src, alt, depth, css_class=css_class, aspect=aspect, high_detail=hover_zoom)
+    media = img_html(src, alt, depth, css_class=css_class, aspect=aspect, high_detail=hover_zoom, hero=eager)
     slot_style = "--fade-delay: 120ms"
     if hover_zoom:
         slot_style += f"; --hover-zoom-aspect: {aspect.replace('/', ' / ')}"
@@ -361,6 +362,7 @@ def shell(
     extra_scripts: str = "",
     html_lang: str = "de",
     current_locale: str = "de",
+    body_class: str = "",
 ) -> str:
     pre = pfx(depth)
     home = pre or "./"
@@ -401,7 +403,7 @@ def shell(
   <script src="{pre}js/brt-init.js"></script>{ld}
 </head>
 
-<body class="brt-page brt-page--inner">
+<body class="brt-page brt-page--inner{(" " + body_class) if body_class else ""}">
 
 <a class="brt-skip-link" href="#main-content">Zum Inhalt springen</a>
 
@@ -2831,11 +2833,53 @@ def lp_deep_sections_html(sections: list[dict], start: int = 0, end: int | None 
     return "".join(out)
 
 
+def lp_laufbahn_flow_section_html(sec: dict) -> str:
+    """Scroll-animierte Laufbahn-Prozessvisualisierung (Serpentine, N Schritte)."""
+    items = []
+    for i, (title, body) in enumerate(sec["steps"], start=1):
+        items.append(
+            f"""              <li class="brt-laufbahn-flow__item brt-laufbahn-flow__item--{i}">
+                <div class="brt-laufbahn-flow__checkpoint" aria-hidden="true">
+                  <span class="brt-laufbahn-flow__num">{i:02d}</span>
+                </div>
+                <div class="brt-laufbahn-flow__copy">
+                  <span class="brt-laufbahn-flow__label">Schritt {i:02d}</span>
+                  <h3 class="brt-h3">{title}</h3>
+                  <p class="brt-body">{body}</p>
+                </div>
+              </li>"""
+        )
+    return f"""
+    <section class="brt-section brt-section--laufbahn-flow" id="schritte" aria-labelledby="schritte-title">
+      <div class="brt-container">
+        <header class="brt-section__header brt-fade-up">
+          <p class="brt-tag">{sec["tag"]}</p>
+          <h2 id="schritte-title" class="brt-h2">{sec["h2"]}</h2>
+          <p class="brt-body">{sec["intro"]}</p>
+        </header>
+        <div class="brt-laufbahn-flow__diagram brt-fade-up">
+          <svg class="brt-laufbahn-flow__path" viewBox="0 0 640 900" aria-hidden="true" focusable="false">
+            <path class="brt-laufbahn-flow__track-bed" d=""></path>
+            <path class="brt-laufbahn-flow__track-base" d=""></path>
+            <path class="brt-laufbahn-flow__track-lanes" d=""></path>
+            <path class="brt-laufbahn-flow__track-progress" d=""></path>
+            <circle class="brt-laufbahn-flow__runner" cx="0" cy="0" r="0"></circle>
+          </svg>
+          <ol class="brt-laufbahn-flow__list brt-stagger">
+{chr(10).join(items)}
+          </ol>
+        </div>
+      </div>
+    </section>"""
+
+
 def lp_steps_section_html(cfg: dict) -> str:
     """Nummerierte Schritt-Karten (z. B. Sofortmassnahmen, Uebergabe-Checkliste)."""
     sec = cfg.get("steps_section")
     if not sec:
         return ""
+    if cfg.get("steps_layout") == "laufbahn-flow":
+        return lp_laufbahn_flow_section_html(sec)
     step_cards = "".join(
         f'<li class="brt-card brt-hover-lift">'
         f'<span class="brt-method-step__num" aria-hidden="true">{i:02d}</span>'
@@ -2884,7 +2928,7 @@ def lp_facts_table_html(table: dict | None) -> str:
 
 
 
-def lp_split_sections_html(cfg: dict, depth: int = 2) -> str:
+def lp_split_sections_html(cfg: dict, depth: int = 2, *, presentation: bool = False) -> str:
     """Screenshot-Walk: Text + Bild im brt-split (Produkt-One-Pager)."""
     sections = cfg.get("split_sections") or []
     if not sections:
@@ -2892,21 +2936,31 @@ def lp_split_sections_html(cfg: dict, depth: int = 2) -> str:
     pre = pfx(depth)
     out = []
     for i, sec in enumerate(sections, start=1):
-        reversed_cls = " brt-split--reverse" if sec.get("reversed") else ""
+        reversed_cls = " brt-split--reverse" if sec.get("reversed") and not presentation else ""
         paragraphs = "".join(f'<p class="brt-body">{p}</p>' for p in sec.get("paragraphs", []))
         caption = sec.get("caption", "")
         caption_html = (
             f'<p class="brt-meta brt-split__caption">{caption}</p>' if caption else ""
         )
+        pres_cls = " brt-pres-screen" if presentation else ""
+        alt_bg = "" if presentation else (" brt-section--alt" if i % 2 == 0 else "")
+        hover = False if presentation else sec.get("hover_zoom", True)
         media = split_media_html(
             sec["image"],
             sec.get("image_alt", ""),
             depth,
             contain=True,
-            hover_zoom=sec.get("hover_zoom", True),
+            hover_zoom=hover,
+            eager=presentation,
         )
+        if presentation:
+            media = media.replace(
+                'class="brt-split__media',
+                'class="brt-split__media brt-pres-screen__figure',
+                1,
+            )
         out.append(f"""
-    <section class="brt-section{" brt-section--alt" if i % 2 == 0 else ""}" id="screen-{i}" aria-labelledby="screen-{i}-title">
+    <section class="brt-section{alt_bg}{pres_cls}" id="screen-{i}" aria-labelledby="screen-{i}-title">
       <div class="brt-container brt-split{reversed_cls}">
         <div class="brt-split__text brt-fade-up">
           <p class="brt-tag">{sec["tag"]}</p>
@@ -3057,17 +3111,19 @@ def gen_landingpage(cfg: dict) -> None:
         ensure_ascii=False,
         indent=2,
     )
-    ld = page_schema(
+    ld_blocks = [
         service_schema(
             name=cfg["service_name"],
             description=cfg["description"],
             url=canonical,
             audience=cfg["audience"],
         ),
-        faq_page_schema(cfg["faq"]),
         speakable_webpage_schema(canonical),
         breadcrumb_ld,
-    )
+    ]
+    if cfg.get("faq"):
+        ld_blocks.insert(1, faq_page_schema(cfg["faq"]))
+    ld = page_schema(*ld_blocks)
     write(
         f"loesungen/{slug}/index.html",
         shell(
@@ -3082,6 +3138,364 @@ def gen_landingpage(cfg: dict) -> None:
     )
 
 
+
+
+
+
+
+def _presentation_png_src(src: str) -> str:
+    """WebP → PNG for reliable PDF embedding."""
+    return src[:-5] + ".png" if src.endswith(".webp") else src
+
+
+def presentation_png_img_html(src: str, alt: str, pre: str) -> str:
+    png = _presentation_png_src(src)
+    return (
+        f'<img class="brt-pres-slide__img" src="{pre}{png}" alt="{escape(alt)}" '
+        f'loading="eager" fetchpriority="high" decoding="sync">'
+    )
+
+
+def presentation_deck_slide_open(slide_id: str, variant: str, *, chapter: str = "") -> str:
+    chap = f'<span class="brt-pres-slide__chapter" aria-hidden="true">{chapter}</span>' if chapter else ""
+    return f"""
+    <section class="brt-pres-slide brt-pres-slide--{variant}" id="{slide_id}" aria-labelledby="{slide_id}-title">
+      <div class="brt-pres-slide__inner">
+        {chap}"""
+
+
+def presentation_deck_slide_close() -> str:
+    return """
+      </div>
+    </section>"""
+
+
+def presentation_deck_cover_slide(pre: str, cfg: dict, *, actions: str = "") -> str:
+    rec = cfg["recipient"]
+    to_lines = "".join(f'<p class="brt-pres-recipient__line">{line}</p>' for line in rec["to_lines"])
+    from_lines = "".join(f'<p class="brt-pres-recipient__line">{line}</p>' for line in rec["from_lines"])
+    act = f'<div class="brt-pres-slide__footer">{actions}</div>' if actions else ""
+    return f"""
+    <section class="brt-pres-slide brt-pres-slide--cover" id="cover" aria-labelledby="cover-title">
+      <div class="brt-pres-slide__inner">
+        <header class="brt-pres-cover__head">
+          <img class="brt-pres-cover__logo" src="{pre}img/logo/logo-black.png" width="602" height="185" alt="Beraterium">
+          <div class="brt-pres-cover__firm">
+            <p class="brt-pres-cover__firm-name">Beraterium GbR</p>
+            <p class="brt-pres-cover__firm-line">Dr. Maria Grollmuß-Straße 14 · 02625 Bautzen</p>
+          </div>
+        </header>
+        <hr class="brt-pres-cover__rule">
+        <div class="brt-pres-cover__meta">
+          <div class="brt-pres-cover__meta-col">
+            <p class="brt-pres-recipient__label">{rec["to_label"]}</p>
+            {to_lines}
+            <p class="brt-pres-recipient__meta"><strong>Vergabestelle:</strong> {rec["vergabestelle"]}</p>
+            <p class="brt-pres-recipient__meta"><strong>Vergabenummer:</strong> {rec["vergabenummer"]}</p>
+          </div>
+          <div class="brt-pres-cover__meta-col brt-pres-cover__meta-col--right">
+            <p class="brt-pres-recipient__label">{rec["from_label"]}</p>
+            {from_lines}
+            <p class="brt-pres-recipient__meta"><strong>{rec["date_label"]}:</strong> {rec["date_value"]}</p>
+          </div>
+        </div>
+        <p class="brt-pres-slide__tag">{cfg["tag"]}</p>
+        <h1 id="cover-title" class="brt-pres-cover__h1">{cfg["h1"]}</h1>
+        <p class="brt-pres-cover__lead">{cfg["lead"]}</p>
+        {act}
+      </div>
+    </section>"""
+
+
+def presentation_deck_agenda_slide(toc: list[tuple[str, str]]) -> str:
+    items = "".join(f"<li>{label}</li>" for _anchor, label in toc)
+    return (
+        presentation_deck_slide_open("agenda", "content", chapter="00")
+        + """
+        <p class="brt-pres-slide__tag">AGENDA</p>
+        <h2 id="agenda-title" class="brt-pres-slide__title">Inhalt der Präsentation</h2>
+        <div class="brt-pres-slide__body">
+          <ol class="brt-pres-slide__list">"""
+        + items
+        + """
+          </ol>
+        </div>"""
+        + presentation_deck_slide_close()
+    )
+
+
+def presentation_deck_content_slide(
+    slide_id: str,
+    *,
+    chapter: str,
+    tag: str,
+    title: str,
+    lead: str = "",
+    bullets: list[str] | None = None,
+    body_html: str = "",
+) -> str:
+    lead_html = f'<p class="brt-pres-slide__lead">{lead}</p>' if lead else ""
+    if bullets:
+        lis = "".join(f"<li>{b}</li>" for b in bullets)
+        body = f'<ul class="brt-pres-slide__list">{lis}</ul>'
+    else:
+        body = body_html
+    return (
+        presentation_deck_slide_open(slide_id, "content", chapter=chapter)
+        + f"""
+        <p class="brt-pres-slide__tag">{tag}</p>
+        <h2 id="{slide_id}-title" class="brt-pres-slide__title">{title}</h2>
+        {lead_html}
+        <div class="brt-pres-slide__body">{body}</div>"""
+        + presentation_deck_slide_close()
+    )
+
+
+def presentation_deck_divider_slide(slide_id: str, chapter: str, title: str, subtitle: str = "") -> str:
+    sub = f'<p class="brt-pres-slide__lead">{subtitle}</p>' if subtitle else ""
+    return (
+        presentation_deck_slide_open(slide_id, "divider", chapter=chapter)
+        + f"""
+        <h2 id="{slide_id}-title" class="brt-pres-slide__title">{title}</h2>
+        {sub}"""
+        + presentation_deck_slide_close()
+    )
+
+
+def presentation_deck_demo_overview_slide(tasks: list[dict]) -> str:
+    items = "".join(
+        f'<li><strong>{t["nr"]}.</strong> {t["title"]} <span class="brt-pres-slide__badge">{t["gp"]} Gp</span></li>'
+        for t in tasks
+    )
+    return (
+        presentation_deck_slide_open("demo-overview", "content", chapter="02")
+        + """
+        <p class="brt-pres-slide__tag">LV 5.1</p>
+        <h2 id="demo-overview-title" class="brt-pres-slide__title">Live-Demo — neun Arbeitssituationen</h2>
+        <p class="brt-pres-slide__lead">100 Gewichtungspunkte · zugeordnete Prototyp-Bildschirme</p>
+        <div class="brt-pres-slide__body">
+          <ol class="brt-pres-slide__list brt-pres-slide__list--compact">"""
+        + items
+        + """
+          </ol>
+        </div>"""
+        + presentation_deck_slide_close()
+    )
+
+
+def presentation_deck_demo_slide(task: dict) -> str:
+    steps = task["steps"][:3]
+    step_items = "".join(f"<li>{s}</li>" for s in steps)
+    sid = f"demo-{task['nr']}"
+    return (
+        presentation_deck_slide_open(sid, "content", chapter="02")
+        + f"""
+        <div class="brt-pres-slide__badges">
+          <span class="brt-pres-slide__badge">{task["lv_ref"]}</span>
+          <span class="brt-pres-slide__badge">{task["gp"]} Gp</span>
+        </div>
+        <h2 id="{sid}-title" class="brt-pres-slide__title">{task["nr"]}. {task["title"]}</h2>
+        <p class="brt-pres-slide__lead"><strong>Bildschirm:</strong> {task["screen"]}</p>
+        <div class="brt-pres-slide__body">
+          <ol class="brt-pres-slide__list">{step_items}</ol>
+        </div>"""
+        + presentation_deck_slide_close()
+    )
+
+
+def presentation_deck_screen_slide(pre: str, sec: dict, index: int) -> str:
+    bullets = [sec["intro"], *sec.get("paragraphs", [])][:4]
+    lis = "".join(f"<li>{b}</li>" for b in bullets)
+    caption = sec.get("caption", "Oberflächenentwurf, kein Produktivstand.")
+    sid = f"screen-{index}"
+    img = presentation_png_img_html(sec["image"], sec.get("image_alt", ""), pre)
+    return (
+        presentation_deck_slide_open(sid, "screen", chapter="03")
+        + f"""
+        <p class="brt-pres-slide__tag">{sec["tag"]}</p>
+        <h2 id="{sid}-title" class="brt-pres-slide__title">{sec["h2"]}</h2>
+        <div class="brt-pres-slide__figure">{img}</div>
+        <ul class="brt-pres-slide__list brt-pres-slide__list--compact">{lis}</ul>
+        <p class="brt-pres-slide__caption">{caption}</p>"""
+        + presentation_deck_slide_close()
+    )
+
+
+def presentation_deck_concept_slide(concept: dict) -> str:
+    sid = f"konzept-{concept['nr']}"
+    points = concept["checklist"][:4]
+    lis = "".join(f"<li>{p}</li>" for p in points)
+    return (
+        presentation_deck_slide_open(sid, "content", chapter="04")
+        + f"""
+        <div class="brt-pres-slide__badges">
+          <span class="brt-pres-slide__badge">{concept["lv_ref"]}</span>
+          <span class="brt-pres-slide__badge">{concept["gp"]} Gp</span>
+        </div>
+        <h2 id="{sid}-title" class="brt-pres-slide__title">{concept["nr"]}. {concept["title"]}</h2>
+        <p class="brt-pres-slide__lead">{concept["intro"]}</p>
+        <div class="brt-pres-slide__body">
+          <ul class="brt-pres-slide__list">{lis}</ul>
+        </div>"""
+        + presentation_deck_slide_close()
+    )
+
+
+def presentation_deck_table_slides(table: dict, section_id: str, *, rows_per_slide: int = 8) -> str:
+    headers = table["headers"]
+    rows = table["rows"]
+    head_html = "".join(f'<th scope="col">{h}</th>' for h in headers)
+    chunks = [rows[i : i + rows_per_slide] for i in range(0, len(rows), rows_per_slide)]
+    out = []
+    chapter = "05" if section_id == "muss" else "06"
+    for part, chunk in enumerate(chunks, start=1):
+        body_rows = "".join(
+            "<tr>" + "".join(f"<td>{c}</td>" for c in row) + "</tr>" for row in chunk
+        )
+        suffix = f" ({part}/{len(chunks)})" if len(chunks) > 1 else ""
+        sid = f"{section_id}-{part}" if len(chunks) > 1 else section_id
+        out.append(
+            presentation_deck_slide_open(sid, "table", chapter=chapter)
+            + f"""
+        <p class="brt-pres-slide__tag">{table["tag"]}</p>
+        <h2 id="{sid}-title" class="brt-pres-slide__title">{table["h2"]}{suffix}</h2>
+        <p class="brt-pres-slide__lead">{table["intro"] if part == 1 else "Fortsetzung"}</p>
+        <div class="brt-pres-slide__body">
+          <table class="brt-pres-deck-table">
+            <caption class="brt-sr-only">{table["caption"]}</caption>
+            <thead><tr>{head_html}</tr></thead>
+            <tbody>{body_rows}</tbody>
+          </table>
+        </div>"""
+            + presentation_deck_slide_close()
+        )
+    return "".join(out)
+
+
+def presentation_deck_closing_slide(pre: str, cfg: dict, *, contact_href: str, contact_print: str, actions: str) -> str:
+    closing = cfg["closing"]
+    steps = "".join(f"<li>{s}</li>" for s in closing["steps"])
+    return (
+        presentation_deck_slide_open("abschluss", "closing", chapter="08")
+        + f"""
+        <p class="brt-pres-slide__tag">ABSCHLUSS</p>
+        <h2 id="abschluss-title" class="brt-pres-slide__title">{closing["h2"]}</h2>
+        <p class="brt-pres-slide__lead">{closing["body"]}</p>
+        <div class="brt-pres-slide__body">
+          <ol class="brt-pres-slide__list">{steps}</ol>
+        </div>
+        <div class="brt-pres-slide__footer">{actions}</div>
+        <p class="brt-pres-slide__meta">Beraterium GbR · Laufbahnkontor · Vergabe {cfg["recipient"]["vergabenummer"]}</p>"""
+        + presentation_deck_slide_close()
+    )
+
+
+def presentation_deck_html(pre: str, cfg: dict, screen_sections: list[dict], *, actions: str, contact_href: str, contact_print: str) -> str:
+    ctx = cfg["context"]
+    facts = ctx["facts"]
+    bullets_a = [f"<strong>{label}:</strong> {value}" for label, value in facts[:4]]
+    bullets_b = [f"<strong>{label}:</strong> {value}" for label, value in facts[4:]]
+
+    slides = [
+        presentation_deck_cover_slide(pre, cfg, actions=actions),
+        presentation_deck_agenda_slide(cfg["toc"]),
+        presentation_deck_content_slide(
+            "aufgabe",
+            chapter="01",
+            tag=ctx["tag"],
+            title=ctx["h2"],
+            lead=ctx["intro"],
+            bullets=bullets_a,
+        ),
+        presentation_deck_content_slide(
+            "aufgabe-2",
+            chapter="01",
+            tag="ECKDATEN",
+            title="Projektkontext (Fortsetzung)",
+            bullets=bullets_b,
+        ),
+        presentation_deck_demo_overview_slide(cfg["demo_tasks"]),
+    ]
+    slides.extend(presentation_deck_demo_slide(t) for t in cfg["demo_tasks"])
+    slides.append(
+        presentation_deck_divider_slide(
+            "screens-intro",
+            "03",
+            "Produkt im Bild",
+            "Sechs Oberflächenentwürfe — Klickprototyp, kein Produktivstand.",
+        )
+    )
+    slides.extend(
+        presentation_deck_screen_slide(pre, sec, i)
+        for i, sec in enumerate(screen_sections, start=1)
+    )
+    slides.append(
+        presentation_deck_divider_slide(
+            "konzepte-intro",
+            "04",
+            "Konzeptvortrag",
+            "LV 5.2 / 7.2 — 100 Gewichtungspunkte",
+        )
+    )
+    slides.extend(presentation_deck_concept_slide(c) for c in cfg["concepts"])
+    slides.append(presentation_deck_table_slides(cfg["muss_table"], "muss"))
+    slides.append(presentation_deck_table_slides(cfg["soll_table"], "soll"))
+    slides.append(
+        presentation_deck_content_slide(
+            "recht",
+            chapter="07",
+            tag=cfg["legal"]["tag"],
+            title=cfg["legal"]["h2"],
+            lead=cfg["legal"]["intro"],
+            bullets=cfg["legal"]["items"],
+        )
+    )
+    slides.append(
+        presentation_deck_closing_slide(
+            pre, cfg, contact_href=contact_href, contact_print=contact_print, actions=actions
+        )
+    )
+    return f'<div class="brt-pres-deck">\n{"".join(slides)}\n</div>'
+
+def presentation_cover_html(pre: str, cfg: dict, *, actions: str = "") -> str:
+    """Dokument-Deckblatt: Logo, Titel, Empfänger — druckfreundlich."""
+    rec = cfg["recipient"]
+    to_lines = "".join(f"<p class=\"brt-pres-recipient__line\">{line}</p>" for line in rec["to_lines"])
+    from_lines = "".join(f"<p class=\"brt-pres-recipient__line\">{line}</p>" for line in rec["from_lines"])
+    act = f'<div class=\"brt-pres-cover__actions\">{actions}</div>' if actions else ""
+    return f"""
+    <section class=\"brt-pres-cover\" aria-labelledby=\"pres-cover-title\">
+      <div class=\"brt-container brt-pres-cover__inner brt-fade-up\">
+        <header class=\"brt-pres-cover__head\">
+          <img class=\"brt-pres-cover__logo\" src=\"{pre}img/logo/logo-black.png\" width=\"602\" height=\"185\" alt=\"Beraterium\">
+          <div class=\"brt-pres-cover__firm\">
+            <p class=\"brt-pres-cover__firm-name\">Beraterium GbR</p>
+            <p class=\"brt-pres-cover__firm-line\">Dr. Maria Grollmuß-Straße 14 · 02625 Bautzen</p>
+          </div>
+        </header>
+        <hr class=\"brt-pres-cover__rule\">
+        <div class=\"brt-pres-cover__meta\">
+          <div class=\"brt-pres-cover__meta-col\">
+            <p class=\"brt-pres-recipient__label\">{rec["to_label"]}</p>
+            {to_lines}
+            <p class=\"brt-pres-recipient__meta\"><strong>Vergabestelle:</strong> {rec["vergabestelle"]}</p>
+            <p class=\"brt-pres-recipient__meta\"><strong>Vergabenummer:</strong> {rec["vergabenummer"]}</p>
+            <p class=\"brt-pres-recipient__meta\"><strong>Verfahren:</strong> {rec["verfahren"]}</p>
+          </div>
+          <div class=\"brt-pres-cover__meta-col brt-pres-cover__meta-col--right\">
+            <p class=\"brt-pres-recipient__label\">{rec["from_label"]}</p>
+            {from_lines}
+            <p class=\"brt-pres-recipient__meta\"><strong>{rec["date_label"]}:</strong> {rec["date_value"]}</p>
+          </div>
+        </div>
+        <div class=\"brt-pres-cover__title-block\">
+          <p class=\"brt-tag\">{cfg["tag"]}</p>
+          <h1 id=\"pres-cover-title\" class=\"brt-h1 brt-pres-cover__h1\">{cfg["h1"]}</h1>
+          <p class=\"brt-lead brt-pres-cover__lead\">{cfg["lead"]}</p>
+          {act}
+        </div>
+      </div>
+    </section>"""
 
 def presentation_recipient_block(rec: dict) -> str:
     to_lines = "".join(f"<p class=\"brt-pres-recipient__line\">{line}</p>" for line in rec["to_lines"])
@@ -3205,7 +3619,7 @@ def _lp_cfg_by_slug(slug: str) -> dict:
 
 
 def gen_presentation(cfg: dict) -> None:
-    """Unlisted Präsentationsseite unter /praesentation/<slug>/ (noindex)."""
+    """Unlisted Präsentations-Deck unter /praesentation/<slug>/ (noindex, A4 landscape PDF)."""
     slug = cfg["slug"]
     pre = "../../"
     canonical = f"/praesentation/{slug}/"
@@ -3213,90 +3627,22 @@ def gen_presentation(cfg: dict) -> None:
     contact_print = f"{DE_SITE_URL}/{contact_href.lstrip('/')}"
 
     ref_slug = cfg.get("split_sections_ref")
-    screen_cfg = {"split_sections": _lp_cfg_by_slug(ref_slug)["split_sections"]} if ref_slug else cfg
+    screen_sections = _lp_cfg_by_slug(ref_slug)["split_sections"] if ref_slug else cfg.get("split_sections", [])
 
-    ctx = cfg["context"]
-    facts_rows = "".join(
-        f"<tr><th scope=\"row\">{label}</th><td>{value}</td></tr>"
-        for label, value in ctx["facts"]
+    pdf_btn = '<button type="button" class="brt-btn brt-btn--outline" data-brt-print>Als PDF speichern</button>'
+    actions = (
+        f'<a class="brt-btn" href="{pre}{contact_href}" data-print-url="{contact_print}">{cfg["hero_cta"]}</a>'
+        f"{pdf_btn}"
     )
-    legal = cfg["legal"]
-    legal_items = "".join(f"<li>{item}</li>" for item in legal["items"])
-    closing = cfg["closing"]
-    closing_steps = "".join(f"<li>{s}</li>" for s in closing["steps"])
 
-    pdf_btn = '<button type=\"button\" class=\"brt-btn brt-btn--ghost\" data-brt-print>Als PDF speichern</button>'
-
-    main = (
-        hero(
-            pre,
-            cfg["tag"],
-            cfg["h1"],
-            cfg["lead"],
-            actions=(
-                f'<a class=\"brt-btn\" href=\"{pre}{contact_href}\" data-print-url=\"{contact_print}\">{cfg["hero_cta"]}</a>'
-                f"{pdf_btn}"
-            ),
-        )
-        + f"""
-    <section class=\"brt-section brt-section--alt\" aria-label=\"Empfänger\">
-      <div class=\"brt-container\">{presentation_recipient_block(cfg["recipient"])}</div>
-    </section>
-    <div class=\"brt-pres\">
-      <div class=\"brt-pres__layout\">
-        {presentation_toc_html(cfg["toc"])}
-        <div class=\"brt-pres__main\">
-    <section class=\"brt-section\" id=\"aufgabe\" aria-labelledby=\"aufgabe-title\">
-      <div class=\"brt-container\">
-        <header class=\"brt-section__header brt-fade-up\">
-          <p class=\"brt-tag\">{ctx["tag"]}</p>
-          <h2 id=\"aufgabe-title\" class=\"brt-h2\">{ctx["h2"]}</h2>
-          <p class=\"brt-body\">{ctx["intro"]}</p>
-        </header>
-        <div class=\"brt-table-wrap brt-fade-up\">
-          <table class=\"brt-table brt-pres-facts\">
-            <caption class=\"brt-sr-only\">Eckdaten Vergabe KDZ Mainz</caption>
-            <tbody>{facts_rows}</tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-    {presentation_demo_tasks_html(cfg["demo_tasks"])}
-    <section class=\"brt-section brt-section--alt\" id=\"screens\" aria-labelledby=\"screens-title\">
-      <div class=\"brt-container\">
-        <header class=\"brt-section__header brt-fade-up\">
-          <p class=\"brt-tag\">PROTOTYP</p>
-          <h2 id=\"screens-title\" class=\"brt-h2\">Produkt im Bild — sechs Oberflächenentwürfe</h2>
-          <p class=\"brt-body\">Klickprototypen — kein Produktivstand. Jede Abbildung mit Funktionsbeschreibung.</p>
-        </header>
-      </div>
-    </section>
-    {lp_split_sections_html(screen_cfg, depth=2)}
-    {presentation_concepts_html(cfg["concepts"])}
-    {presentation_table_section(cfg["muss_table"], section_id="muss")}
-    {presentation_table_section(cfg["soll_table"], section_id="soll")}
-    <section class=\"brt-section\" id=\"recht\" aria-labelledby=\"recht-title\">
-      <div class=\"brt-container brt-highlight-box brt-fade-up\">
-        <p class=\"brt-tag\">{legal["tag"]}</p>
-        <h2 id=\"recht-title\" class=\"brt-h2\">{legal["h2"]}</h2>
-        <p class=\"brt-body\">{legal["intro"]}</p>
-        <ul class=\"brt-list-check\">{legal_items}</ul>
-      </div>
-    </section>
-    <section class=\"brt-section brt-section--alt\" id=\"abschluss\" aria-labelledby=\"abschluss-title\">
-      <div class=\"brt-container brt-fade-up\">
-        <p class=\"brt-tag\">ABSCHLUSS</p>
-        <h2 id=\"abschluss-title\" class=\"brt-h2\">{closing["h2"]}</h2>
-        <p class=\"brt-body\">{closing["body"]}</p>
-        <ol class=\"brt-list-check\">{closing_steps}</ol>
-      </div>
-    </section>
-        </div>
-      </div>
-    </div>
-    """
-        + cta_band(pre, cfg["cta_h2"], cfg["cta_body"], cfg["hero_cta"], contact_href=contact_href)
+    main = presentation_deck_html(
+        pre, cfg, screen_sections,
+        actions=actions,
+        contact_href=contact_href,
+        contact_print=contact_print,
     )
+
+    deck_css = f'\n  <link rel="stylesheet" href="{pre}css/brt-presentation-deck.css?v={BRT_ASSET_VERSION}">'
 
     write(
         f"praesentation/{slug}/index.html",
@@ -3308,6 +3654,8 @@ def gen_presentation(cfg: dict) -> None:
             active_nav=None,
             main=main,
             noindex=True,
+            body_class="brt-page--presentation brt-page--presentation-deck",
+            extra_css=deck_css,
         ),
     )
 
@@ -4386,14 +4734,14 @@ LP_CONFIGS: list[dict] = [
     "criteria_intro": "Die Software ist für kommunale und staatliche Arbeitgeber konzipiert, deren Leistungsverzeichnis typischerweise Folgendes fordert — ohne dass ein Produktivbetrieb bereits vorliegt:",
     "criteria": [
         "Bestenauslese und Auswahlvermerk revisionssicher dokumentiert (Art. 33 GG)",
-        "17 Rollen mit zustandsabhängiger Sichtbarkeit — Gremien sehen erst ab der Vorauswahl",
+        "Feingranulare Rechte — Gremien sehen Bewerbungen erst ab der Vorqualifizierung",
         "Täglicher Import aus dem führenden HR-System ohne Rückschnittstelle",
         "Barrierefreies Bewerberportal und interne Oberfläche (BITV 2.0 / WCAG 2.1 als Zielmaßstab)",
         "Betrieb EU/EWR — SaaS oder on-premise aus demselben Softwarestand",
     ],
     "stats_aria": "Laufbahnkontor in Kennzahlen",
     "stats": [
-        ("17 Rollen", "zustandsabhängige Sichtbarkeit nach Anlage 8.1"),
+        ("Feingranulare Rechte", "Sichtbarkeit je Rolle und Verfahrensstand"),
         ("26 Schritte", "Prozessschritte von Vakanz bis Archivierung"),
         ("HR-Import", "Täglich Personalstellen und Vorgesetzte — keine Rückschreibung"),
         ("Kein Scoring", "jede Auswahlentscheidung trifft ein Mensch"),
@@ -4419,7 +4767,7 @@ LP_CONFIGS: list[dict] = [
             "intro": "Gremien müssen vertrauen können, dass das System Mitbestimmung unterstützt — nicht untergräbt:",
             "items": [
                 "Sichtbarkeit erst, wenn die Personalgewinnung eine Bewerbung als vorqualifiziert weiterleitet",
-                "Gesetzliche Beteiligungsreihenfolge und Fristen im Workflow — Einstellung gesperrt bis Abschluss",
+                "Gesetzliche Beteiligungsreihenfolge und Fristen im Workflow",
                 "Keine Auswertung, die Leistung oder Verhalten einzelner Sachbearbeitender zeigt",
                 "Pseudonymisierte Sachbearbeitung in Gremiensichten; zusammengefasste Berichte zweckgebunden",
                 "Allgemein verständliche Systembeschreibung für die Dienstvereinbarung — auf Anfrage im Erstgespräch",
@@ -4431,9 +4779,7 @@ LP_CONFIGS: list[dict] = [
             "intro": "Technische Anforderungen öffentlicher Vergaben sind im Produktkonzept berücksichtigt:",
             "items": [
                 "Webanwendung ohne Client-Installation; SAML/SSO gegen den Identitätsanbieter des Auftraggebers",
-                "Named-User-Lizenzmodell ohne Concurrent-User-Zählung",
                 "Konfiguration ohne Quellcodeeingriff — Kataloge, Vorlagen und Regeln in der Administration",
-                "Rechenzentrum EU/EWR; kein Betrieb bei Hyperscalern; SaaS oder on-premise aus einem Bündel",
                 "Konfigurierbares Löschregelwerk, Audit-Trail, Art.-15-Export für Bewerbende",
                 "SBOM und Schwachstellenprozess als Produktziel — ohne Zertifikatsversprechen",
             ],
@@ -4446,7 +4792,6 @@ LP_CONFIGS: list[dict] = [
             "intro": "Bewerbende finden offene Stellen ohne Anmeldung, filtern nach Bereich, Einstiegslevel und Entgeltgruppe und gelangen direkt zum Online-Bewerbungsformular.",
             "paragraphs": [
                 "Zentrale Stellenbörse mit Filter je Amt und Bereich — ohne Login nutzbar.",
-                "Vollständig ohne JavaScript erreichbar (serverseitig gerendertes Portal).",
                 "Barrierefreiheit nach BITV 2.0 / WCAG 2.1 als Zielmaßstab.",
             ],
             "image": "img/loesungen/bewerbermanagement/stellenboerse.webp",
@@ -4456,7 +4801,7 @@ LP_CONFIGS: list[dict] = [
         {
             "tag": "BEWERBUNG",
             "h2": "Online-Bewerbung — auch mobil",
-            "intro": "Mehrstufiges Formular mit Zwischenspeicherung, Anlagen-Upload und Malware-Prüfung. Das Feld „bisheriges Gehalt“ ist bewusst nicht vorgesehen.",
+            "intro": "Mehrstufiges Formular mit Zwischenspeicherung, Anlagen-Upload und Malware-Prüfung.",
             "paragraphs": [
                 "Malware-Scan aller Anlagen vor Speicherung.",
                 "Volle Funktionsparität auf aktuellem iOS und Android.",
@@ -4514,7 +4859,6 @@ LP_CONFIGS: list[dict] = [
             "paragraphs": [
                 "Sichtbarkeit ab Prozessschritt Vorqualifizierung — nichts davor.",
                 "Reihenfolge Gleichstellung vor Personalrat und SBV im Workflow.",
-                "Einstellung gesperrt, bis alle Beteiligungen abgeschlossen sind.",
             ],
             "image": "img/loesungen/bewerbermanagement/beteiligungsboard.webp",
             "image_alt": "Oberflächenentwurf: Beteiligungsboard mit Gremien-Stellungnahmen",
@@ -4522,6 +4866,8 @@ LP_CONFIGS: list[dict] = [
             "reversed": True,
         },
     ],
+    "steps_layout": "laufbahn-flow",
+    "steps_layout": "laufbahn-flow",
     "steps_section": {
         "tag": "PROZESS",
         "h2": "Wie läuft ein Auswahlverfahren im Laufbahnkontor ab?",
@@ -4531,7 +4877,7 @@ LP_CONFIGS: list[dict] = [
             ("Veröffentlichung", "Stellenbörse und optionale Kanäle; Fristen und Statusautomatik überwachen."),
             ("Bewerbungseingang", "Online-Bewerbungen zuordnen, Eingang bestätigen, Bewerberkonto bereitstellen."),
             ("Vorauswahl", "Personalberatung prüft, fordert nach oder leitet an Fachamt weiter."),
-            ("Beteiligung", "Gremien in gesetzlicher Reihenfolge und mit Fristen — Einstellung gesperrt, bis Mitbestimmung abgeschlossen ist."),
+            ("Beteiligung", "Gremien in gesetzlicher Reihenfolge und mit Fristen."),
             ("Auswahl und Abschluss", "Interviews dokumentieren, Auswahlvermerk erstellen, Zusage oder begründete Absage."),
             ("Archivierung", "Verfahren abschließen, Aufbewahrungs- und Löschregeln anwenden."),
         ],
@@ -4546,13 +4892,10 @@ LP_CONFIGS: list[dict] = [
             ("HR-Kernsystem", "Täglicher Import von Personalstellen und Vorgesetzten", "Ersetzt kein LOGA o. Ä.; keine Rückschnittstelle"),
             ("Automatische Bewertung", "Nein — Bestenauslese durch Menschen", "Kein Scoring, keine Ranglisten, keine KI-Entscheidung"),
             ("Reporting", "Zehn Standardreports, Durchlaufzeiten und Besetzungsverlauf", "Keine Leistungsüberwachung Einzelner"),
-            ("Veröffentlichung", "Zentrale Stellenbörse; Kanäle wie BA und Interamt vorgesehen", "Social-Media-Kanäle gestuft, nicht alle zum Start"),
+            ("Veröffentlichung", "Zentrale Stellenbörse; Veröffentlichung u. a. über BA-Jobbörse und Interamt", "Interamt = öffentliche Verwaltungs-Stellenbörse; Social-Media-Kanäle gestuft"),
             ("Zustellung", "Postzustellungsurkunde dokumentiert im Aktivitäten-Management", "Kein separater Postversand — Protokollierung und Scan-Upload"),
             ("Talent-Pool", "Einwilligungsbasiert, jederzeit widerrufbar", "Keine Speicherung ohne dokumentierte Einwilligung"),
-            ("Barrierefreiheit", "BITV 2.0 / WCAG 2.1 als Zielmaßstab für Portal und Backend", "Nachweis im Produktivbetrieb, nicht im Prototyp"),
-            ("CV-Parsing", "Optional nur als Formularvorbefüllung durch die bewerbende Person", "Bei Auslieferung deaktiviert; niemals Filter oder Auswahl"),
-            ("Messenger (WhatsApp & Co.)", "Nicht in Version 1", "Kommunikation über Aktivitäten-Management und E-Mail"),
-            ("Betrieb", "SaaS im RZ des Anbieters oder on-premise", "Rechenzentrum in der EU; kein Hyperscaler-Zwang"),
+
         ],
     },
     "pain_tag": "TYPISCHE REIBUNG",
@@ -4562,8 +4905,9 @@ LP_CONFIGS: list[dict] = [
         ("Gremien per Papierumlauf", "Stellungnahmen von Personalrat und SBV per E-Mail und Ausdruck sind schwer nachweisbar und verzögern Fristen — das System hält Reihenfolge und Fristen fest."),
         ("Doppelerfassung von Stellen", "Stellenplan im HR-System, Ausschreibungstext woanders: der tägliche HR-Import entlastet, ohne das HR-System zu verändern."),
         ("Intransparente Absagen", "Bewerbende wissen nicht, wo ihre Bewerbung steht — das Bewerberkonto zeigt Status, Nachrichten und Termine ohne Hotline."),
-        ("Fachämter außerhalb des Systems", "27 Ämter und Eigenbetriebe sollen mitarbeiten — Beteiligung ab definierter Prozessstufe statt paralleler E-Mail-Ketten."),
+        ("Revisionssichere Nachweise", "Auswahlvermerk, Beteiligungen und Fristen müssen belegbar sein — Aktivitäten-Management und Audit-Trail statt verstreuter E-Mails und Ausdrucke."),
         ("Keine Steuerungskennzahlen", "Durchlaufzeiten und Besetzungsverläufe fehlen — Standardreports machen Fortschritt und Engpässe sichtbar."),
+        ("E-Mail-Flut im Verfahren", "Einladungen, Nachfragen und Absagen landen in Einzelpostfächern — Vorlagen, Aktivitäten-Management und Bewerberkonto bündeln die Kommunikation an einem Ort."),
     ],
     "overview_tag": "BERATERIUM",
     "overview_h2": "Wer steckt hinter Laufbahnkontor?",
@@ -4573,20 +4917,7 @@ LP_CONFIGS: list[dict] = [
         ("Prototyp-Demo", "Klickprototyp der Oberflächen — Stellenbörse, Bewerbung, Gremienboard. Kein Produktivstand, aber greifbar im Gespräch.", "kontaktformular/", "Demo anfragen"),
         ("Team", "Till Manfred Blania und Aleksandra Polosukhina — Gründer und Gesellschafter der Beraterium GbR.", "team/", "Zum Team"),
     ],
-    "faq": [
-        ("Was ist Laufbahnkontor?", "Laufbahnkontor (Arbeitstitel) ist eine Bewerbermanagement-Software der Beraterium GbR für kommunale und staatliche Arbeitgeber — von der Ausschreibung bis zur dokumentierten Einstellung oder Absage."),
-        ("Ist die Software schon im Einsatz?", "Nein. Die gezeigten Oberflächen sind Klickprototypen. Das Produkt wird am Maßstab öffentlicher Ausschreibungen gebaut; ein Referenzbetrieb liegt noch nicht vor."),
-        ("Wie läuft die Anbindung an unser HR-System?", "Laufbahnkontor importiert täglich Personalstellen, Organisationsdaten und Vorgesetzten aus dem führenden HR-System (z. B. LOGA) — per verschlüsseltem Datentransfer. Es gibt keine Rückschnittstelle; eingestellte Personen werden als Dokument exportiert, nicht zurückgeschrieben."),
-        ("Wie ist Personalrat und SBV eingebunden?", "Gremien sehen Bewerbungen erst nach Vorqualifizierung durch die Personalgewinnung. Beteiligung folgt der gesetzlichen Reihenfolge mit Fristen; die Einstellung bleibt gesperrt, bis alle Stellungnahmen vorliegen."),
-        ("Ist das System barrierefrei?", "Barrierefreiheit nach BITV 2.0 / WCAG 2.1 ist Zielmaßstab für Bewerberportal und interne Oberfläche. Der gezeigte Klickprototyp ist noch kein Barrierefreiheitsnachweis — der erfolgt im Produktivbetrieb."),
-        ("Ersetzt Laufbahnkontor unser HR-System?", "Nein. Das HR-System bleibt führend für Personalakte und Stellenplan. Laufbahnkontor bezieht Personalstellen per Import und schreibt nicht zurück."),
-        ("Wie werden Bewerbende bewertet?", "Gar nicht automatisch. Das System unterstützt Sachbearbeitung und Gremien — jede Auswahlentscheidung trifft ein Mensch mit Begründung."),
-        ("Was ist mit Künstlicher Intelligenz?", "Optional assistierende Funktionen (z. B. Formularvorbefüllung aus Lebenslauf) sind systemweit abschaltbar und entscheiden nie über Bewerbungen."),
-        ("Named User oder Concurrent?", "Named-User-Lizenzmodell — jede berechtigte Person erhält ein persönliches Konto ohne gleichzeitige Sitzungszählung."),
-        ("Migration aus Bewerber3 oder anderem Altsystem?", "Ein Migrationskonzept wird projektspezifisch erarbeitet — im Erstgespräch klären wir Umfang und Datenbestand. Ein abgeschlossenes Referenzprojekt liegt noch nicht vor."),
-        ("SaaS oder on-premise?", "Beides aus demselben Docker-Bündel — Betrieb im Rechenzentrum des Anbieters (EU/EWR) oder beim Auftraggeber."),
-        ("Wie starte ich ein Gespräch?", "Über das Kontaktformular auf beraterium.de — wir melden uns für ein unverbindliches Erstgespräch."),
-    ],
+    "faq": [],
     "cta_h2": "Ihre Anforderungen — unser Prototyp",
     "cta_body": "Schreiben Sie uns — wir gehen Ihre Vergabe-Anforderungen durch, zeigen den Klickprototyp und besprechen SaaS oder on-premise.",
     "cta_note": "",

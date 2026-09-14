@@ -656,6 +656,243 @@
     update();
   }
 
+
+  function laufbahnFlowSvgPoint(svg, el) {
+    var svgRect = svg.getBoundingClientRect();
+    if (!svgRect.width || !svgRect.height) return null;
+    var vb = svg.viewBox.baseVal;
+    var vbW = vb.width || 640;
+    var vbH = vb.height || 900;
+    var r = el.getBoundingClientRect();
+    var x = r.left + r.width / 2 - svgRect.left;
+    var y = r.top + r.height / 2 - svgRect.top;
+    return {
+      x: (x / svgRect.width) * vbW,
+      y: (y / svgRect.height) * vbH
+    };
+  }
+
+  function buildLaufbahnPathD(points, centerX) {
+    if (!points || points.length < 2) return "";
+    var cx = centerX != null ? centerX : 320;
+    var d = "M " + points[0].x + " " + points[0].y;
+    for (var i = 0; i < points.length - 1; i++) {
+      var p0 = points[i];
+      var p1 = points[i + 1];
+      d += " C " + cx + " " + p0.y + ", " + cx + " " + p1.y + ", " + p1.x + " " + p1.y;
+    }
+    return d;
+  }
+
+  function pathLengthAtPoint(pathEl, target, samples) {
+    var total = pathEl.getTotalLength();
+    var bestLen = 0;
+    var bestDist = Infinity;
+    for (var i = 0; i <= samples; i++) {
+      var len = (total * i) / samples;
+      var pt = pathEl.getPointAtLength(len);
+      var dx = pt.x - target.x;
+      var dy = pt.y - target.y;
+      var dist = dx * dx + dy * dy;
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestLen = len;
+      }
+    }
+    return bestLen;
+  }
+
+  function laufbahnPathHitsCopy(pathEl, copyRects, samples) {
+    var hits = 0;
+    var total = pathEl.getTotalLength();
+    for (var i = 0; i <= samples; i++) {
+      var pt = pathEl.getPointAtLength((total * i) / samples);
+      copyRects.forEach(function (rect) {
+        if (pt.x >= rect.left && pt.x <= rect.right && pt.y >= rect.top && pt.y <= rect.bottom) {
+          hits++;
+        }
+      });
+    }
+    return hits;
+  }
+
+  function layoutLaufbahnFlowDiagram(diagram, state) {
+    var svg = diagram.querySelector(".brt-laufbahn-flow__path");
+    var checkpoints = diagram.querySelectorAll(".brt-laufbahn-flow__checkpoint");
+    var bedPath = diagram.querySelector(".brt-laufbahn-flow__track-bed");
+    var basePath = diagram.querySelector(".brt-laufbahn-flow__track-base");
+    var lanesPath = diagram.querySelector(".brt-laufbahn-flow__track-lanes");
+    var progressPath = diagram.querySelector(".brt-laufbahn-flow__track-progress");
+    var runner = diagram.querySelector(".brt-laufbahn-flow__runner");
+    if (!svg || checkpoints.length < 2 || !bedPath || !basePath || !progressPath) return false;
+
+    var points = [];
+    for (var i = 0; i < checkpoints.length; i++) {
+      var pt = laufbahnFlowSvgPoint(svg, checkpoints[i]);
+      if (!pt) return false;
+      points.push(pt);
+    }
+
+    var vb = svg.viewBox.baseVal;
+    var centerX = (vb.width || 640) / 2;
+    var svgRect = svg.getBoundingClientRect();
+    var copyRects = [];
+    diagram.querySelectorAll(".brt-laufbahn-flow__copy").forEach(function (copy) {
+      var r = copy.getBoundingClientRect();
+      copyRects.push({
+        left: ((r.left - svgRect.left) / svgRect.width) * vb.width,
+        right: ((r.right - svgRect.left) / svgRect.width) * vb.width,
+        top: ((r.top - svgRect.top) / svgRect.height) * vb.height,
+        bottom: ((r.bottom - svgRect.top) / svgRect.height) * vb.height
+      });
+    });
+
+    var d = buildLaufbahnPathD(points, centerX);
+    var hitCount = 0;
+    var xShift = 0;
+    for (var attempt = 0; attempt < 6; attempt++) {
+      if (xShift) {
+        d = buildLaufbahnPathD(points, centerX + xShift);
+      }
+      bedPath.setAttribute("d", d);
+      basePath.setAttribute("d", d);
+      if (lanesPath) lanesPath.setAttribute("d", d);
+      progressPath.setAttribute("d", d);
+      state.mainLength = progressPath.getTotalLength();
+      hitCount = laufbahnPathHitsCopy(progressPath, copyRects, 56);
+      if (hitCount === 0) break;
+      xShift += points[0].x < centerX ? -10 : 10;
+    }
+
+    state.checkpointLengths = points.map(function (pt) {
+      return pathLengthAtPoint(progressPath, pt, 80);
+    });
+
+    progressPath.style.strokeDasharray = String(state.mainLength);
+    if (runner) {
+      runner.setAttribute("r", window.matchMedia("(min-width: 768px)").matches ? "7" : "0");
+    }
+    return true;
+  }
+
+  function initLaufbahnFlowScroll() {
+    var diagrams = document.querySelectorAll(".brt-laufbahn-flow__diagram");
+    if (!diagrams.length) return;
+
+    var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var states = [];
+
+    diagrams.forEach(function (diagram) {
+      var progressPath = diagram.querySelector(".brt-laufbahn-flow__track-progress");
+      if (!progressPath) return;
+
+      var state = {
+        diagram: diagram,
+        section: diagram.closest(".brt-section--laufbahn-flow") || diagram,
+        progressPath: progressPath,
+        items: diagram.querySelectorAll(".brt-laufbahn-flow__item"),
+        mainLength: 0,
+        progress: 0,
+        checkpointLengths: []
+      };
+
+      if (!layoutLaufbahnFlowDiagram(diagram, state)) return;
+      progressPath.style.strokeDashoffset = String(state.mainLength);
+      states.push(state);
+    });
+
+    if (!states.length) return;
+
+    function laufbahnFlowScrollProgress(state) {
+      var diagramRect = state.diagram.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var isWide = window.matchMedia("(min-width: 768px)").matches;
+      // ponytail: map 0→1 across full diagram scroll travel (tall section); old 140px clamp finished instantly
+      var startLine = isWide ? vh * 0.78 : vh * 0.85;
+      var endLine = isWide ? vh * 0.22 : vh * 0.28;
+      var startTop = startLine;
+      var endTop = endLine - diagramRect.height;
+      var range = startTop - endTop;
+      if (range <= 0) return diagramRect.top <= endTop ? 1 : 0;
+      var progress = (startTop - diagramRect.top) / range;
+      return Math.min(Math.max(progress, 0), 1);
+    }
+
+    function updateActiveStates(state, progress) {
+      if (!state.items.length) return;
+      var drawnLength = state.mainLength * progress;
+      var activeIdx = 0;
+      state.checkpointLengths.forEach(function (len, idx) {
+        if (drawnLength >= len - 8) activeIdx = idx;
+      });
+      state.items.forEach(function (item, idx) {
+        var threshold = state.checkpointLengths[idx] || 0;
+        item.classList.toggle("is-active", idx === activeIdx && progress > 0.02);
+        item.classList.toggle("is-done", drawnLength > threshold + 24);
+      });
+    }
+
+    function updateRunner(state, progress, isWide) {
+      var runner = state.diagram.querySelector(".brt-laufbahn-flow__runner");
+      if (!runner || !isWide) return;
+      if (progress <= 0.01) {
+        state.diagram.classList.remove("is-started");
+        return;
+      }
+      state.diagram.classList.add("is-started");
+      var len = Math.max(0, Math.min(state.mainLength, state.mainLength * progress));
+      var pt = state.progressPath.getPointAtLength(len);
+      runner.setAttribute("cx", String(pt.x));
+      runner.setAttribute("cy", String(pt.y));
+    }
+
+    function update() {
+      var isWide = window.matchMedia("(min-width: 768px)").matches;
+      states.forEach(function (state) {
+        var progress = laufbahnFlowScrollProgress(state);
+        if (prefersReduced) {
+          progress = progress >= 0.4 ? 1 : 0;
+        }
+        state.progress = progress;
+        if (isWide) {
+          state.progressPath.style.strokeDashoffset = String(state.mainLength * (1 - progress));
+          updateRunner(state, progress, isWide);
+        }
+        updateActiveStates(state, progress);
+      });
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        update();
+        ticking = false;
+      });
+    }
+
+    function onResize() {
+      states.forEach(function (state) {
+        layoutLaufbahnFlowDiagram(state.diagram, state);
+        var isWide = window.matchMedia("(min-width: 768px)").matches;
+        if (isWide) {
+          state.progressPath.style.strokeDashoffset = String(state.mainLength * (1 - state.progress));
+        }
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        onResize();
+        update();
+      });
+    });
+    update();
+  }
+
   function initCompareColumnHover() {
     var table = document.querySelector(".brt-compare__table");
     if (!table || !window.matchMedia("(hover: hover)").matches) return;
@@ -687,7 +924,47 @@
   function initPrintButton() {
     document.querySelectorAll("[data-brt-print]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        window.print();
+        var imgs = Array.prototype.slice.call(
+          document.querySelectorAll("img[loading='lazy'], img[loading=lazy]")
+        );
+        if (!imgs.length) {
+          window.print();
+          return;
+        }
+        var pending = imgs.length;
+        var done = false;
+        function finish() {
+          if (done) return;
+          done = true;
+          window.print();
+        }
+        var timer = window.setTimeout(finish, 4000);
+        imgs.forEach(function (img) {
+          if (img.complete && img.naturalWidth) {
+            pending -= 1;
+            if (pending <= 0) {
+              window.clearTimeout(timer);
+              finish();
+            }
+            return;
+          }
+          function onDone() {
+            pending -= 1;
+            if (pending <= 0) {
+              window.clearTimeout(timer);
+              finish();
+            }
+          }
+          img.addEventListener("load", onDone, { once: true });
+          img.addEventListener("error", onDone, { once: true });
+          img.loading = "eager";
+          var src = img.currentSrc || img.src;
+          if (src) img.src = src;
+        });
+        if (pending <= 0) {
+          window.clearTimeout(timer);
+          finish();
+        }
       });
     });
   }
@@ -721,6 +998,7 @@
     initTestimonialsCarousel();
     initCardsSlider();
     initStepsFlowScroll();
+    initLaufbahnFlowScroll();
     initCompareColumnHover();
     initPrintButton();
     initHashlessJumpLinks();
