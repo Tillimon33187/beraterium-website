@@ -309,44 +309,12 @@
   text-underline-offset: 0.14em;
 }
 
-/* ---------- Wendepunkt: Verlauf Nacht zu Morgen ---------- */
+/* ---------- Wendepunkt: harter Schnitt Nacht → Weiss ---------- */
 
 .fs-turn {
-  /* ponytail: --fs-dawn = gradient height + text-to-light gap; was 14–24rem, too airy on mobile */
-  --fs-dawn: clamp(5.5rem, 12vw, 8.5rem);
-  position: relative;
-  padding: clamp(3rem, 6vw, 5rem) 0 var(--fs-dawn);
+  padding-block: clamp(3rem, 6vw, 5rem);
   color: #fff;
   background: var(--fs-night-2);
-}
-
-.fs-turn + .fs-light.fs-chapter {
-  padding-top: clamp(2rem, 4.5vw, 3rem);
-}
-
-/* Morgendämmerung unter dem Text: startet exakt in der Hintergrundfarbe (keine Kante),
-   läuft über das Marken-Blau ins Helle und endet im Weiß der nächsten Sektion. */
-.fs-turn::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0 0;
-  height: var(--fs-dawn);
-  background: linear-gradient(
-    180deg,
-    var(--fs-night-2) 0%,
-    #06306e 18%,
-    #0a4bc4 40%,
-    #4d8bf5 60%,
-    var(--color-accent-light) 74%,
-    #cfe0ff 90%,
-    #fff 100%
-  );
-  pointer-events: none;
-}
-
-.fs-turn > .brt-container {
-  position: relative;
-  z-index: 1;
 }
 
 .fs-turn .fs-h2 {
