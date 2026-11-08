@@ -1,0 +1,648 @@
+/*
+ * Fallstudie Prüflabor: Dramaturgie "Nacht zu Morgen".
+ * Problem-Kapitel dunkel (Midnight), am Wendepunkt Verlauf ins Helle, Lösung hell.
+ * Nutzt ausschließlich Tokens aus brt.css (Blau-Akzent, Inter, Radien).
+ * Formensprache: Container --radius-lg, Chips Pille, kein weiterer Akzent.
+ */
+
+.fs {
+  --fs-night: #080d16;
+  --fs-night-2: var(--color-accent-midnight);
+  --fs-line-dark: rgba(255, 255, 255, 0.14);
+  --fs-soft-on-dark: rgba(255, 255, 255, 0.76);
+  --fs-measure: 62ch;
+}
+
+/* ---------- Nacht-Hülle (Hero + Problem-Kapitel) ---------- */
+
+.fs-night {
+  position: relative;
+  color: #fff;
+  background: linear-gradient(180deg, var(--fs-night) 0%, #0a1426 60%, var(--fs-night-2) 100%);
+}
+
+.fs-night .brt-body {
+  max-width: var(--fs-measure);
+  margin: 0 0 var(--space-5);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--fs-soft-on-dark);
+}
+
+.fs-night .brt-body strong {
+  color: #fff;
+}
+
+.fs-h2 {
+  margin: 0 0 var(--space-6);
+  max-width: 20ch;
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: inherit;
+  text-wrap: balance;
+}
+
+.fs-chapter {
+  padding-block: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.fs-split {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+@media (min-width: 1024px) {
+  .fs-split {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: start;
+  }
+}
+
+/* ---------- Hero ---------- */
+
+.fs-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(6.5rem, 11vw, 8rem) 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.fs-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 60% at 88% 30%, rgba(11, 95, 255, 0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.fs-hero > .brt-container {
+  position: relative;
+  z-index: 1;
+}
+
+.fs-hero__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  align-items: end;
+}
+
+@media (min-width: 1024px) {
+  .fs-hero__grid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  }
+}
+
+.fs-hero .brt-tag {
+  color: var(--color-accent-light);
+}
+
+.fs-hero .brt-h1 {
+  margin: 0 0 var(--space-6);
+  color: #fff;
+  font-size: clamp(2.25rem, 5.4vw, 4.25rem);
+  text-wrap: balance;
+}
+
+.fs-hero__lead {
+  max-width: 40ch;
+  margin: 0 0 var(--space-8);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.55;
+  color: var(--fs-soft-on-dark);
+}
+
+.fs-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.fs-pain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--fs-line-dark);
+}
+
+.fs-pain li {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--fs-line-dark);
+}
+
+.fs-pain strong {
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.fs-pain strong small {
+  margin-left: 0.18em;
+  font-size: 0.38em;
+  letter-spacing: 0;
+  color: var(--color-accent-light);
+}
+
+.fs-pain span {
+  max-width: 22ch;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--fs-soft-on-dark);
+}
+
+.fs-note {
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--fs-line-dark);
+}
+
+.fs-note p {
+  max-width: 80ch;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--fs-soft-on-dark);
+}
+
+.fs-note strong {
+  color: #fff;
+}
+
+/* ---------- Versprochen vs. passiert ---------- */
+
+.fs-promise {
+  display: grid;
+  gap: var(--space-10);
+  margin-top: var(--space-10);
+}
+
+@media (min-width: 768px) {
+  .fs-promise {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.fs-promise h3 {
+  margin: 0 0 var(--space-4);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.fs-promise ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fs-promise li {
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--fs-line-dark);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.fs-promise__said li {
+  color: rgba(255, 255, 255, 0.58);
+  text-decoration: line-through;
+  text-decoration-color: rgba(126, 176, 255, 0.8);
+  text-decoration-thickness: 2px;
+}
+
+.fs-promise__was li {
+  color: #fff;
+}
+
+/* ---------- Pflichten-Chips ---------- */
+
+.fs-pills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: var(--space-6) 0 var(--space-8);
+  padding: 0;
+}
+
+.fs-pills li {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.fs-pills li:last-child {
+  border-style: dashed;
+  color: var(--fs-soft-on-dark);
+}
+
+/* ---------- Vier Brandherde ---------- */
+
+.fs-fires {
+  list-style: none;
+  display: grid;
+  margin: var(--space-10) 0 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .fs-fires {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.fs-fires li {
+  padding: var(--space-6) 0 var(--space-8);
+  border-top: 1px solid rgba(126, 176, 255, 0.4);
+}
+
+.fs-fires h3 {
+  margin: 0 0 var(--space-3);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.fs-fires p {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--fs-soft-on-dark);
+}
+
+/* ---------- Aufgaben-Wand ---------- */
+
+.fs-wall {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fs-wall li {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--fs-line-dark);
+  font-size: clamp(1.5rem, 3.6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fs-wall li:last-child {
+  border-bottom: 0;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-light);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.14em;
+}
+
+/* ---------- Wendepunkt: Verlauf Nacht zu Morgen ---------- */
+
+.fs-turn {
+  --fs-dawn: clamp(14rem, 30vw, 24rem);
+  position: relative;
+  padding: clamp(4rem, 9vw, 7rem) 0 var(--fs-dawn);
+  color: #fff;
+  background: var(--fs-night-2);
+}
+
+/* Morgendämmerung unter dem Text: startet exakt in der Hintergrundfarbe (keine Kante),
+   läuft über das Marken-Blau ins Helle und endet im Weiß der nächsten Sektion. */
+.fs-turn::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: var(--fs-dawn);
+  background: linear-gradient(
+    180deg,
+    var(--fs-night-2) 0%,
+    #06306e 18%,
+    #0a4bc4 40%,
+    #4d8bf5 60%,
+    var(--color-accent-light) 74%,
+    #cfe0ff 90%,
+    #fff 100%
+  );
+  pointer-events: none;
+}
+
+.fs-turn > .brt-container {
+  position: relative;
+  z-index: 1;
+}
+
+.fs-turn .fs-h2 {
+  max-width: 22ch;
+}
+
+.fs-turn .brt-body {
+  max-width: var(--fs-measure);
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--fs-soft-on-dark);
+}
+
+/* ---------- Timeline (hell) ---------- */
+
+.fs-light {
+  background: #fff;
+  color: var(--color-ink);
+}
+
+.fs-light .fs-h2 {
+  color: var(--color-ink);
+}
+
+.fs-light .brt-body {
+  max-width: var(--fs-measure);
+  margin: 0 0 var(--space-5);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+.fs-light .brt-body strong {
+  color: var(--color-ink);
+}
+
+.fs-timeline {
+  list-style: none;
+  position: relative;
+  display: grid;
+  gap: clamp(3rem, 7vw, 5rem);
+  margin: 0;
+  padding: 0;
+}
+
+.fs-timeline::before,
+.fs-timeline::after {
+  content: "";
+  position: absolute;
+  left: calc(1.5rem - 1px);
+  top: 1.5rem;
+  bottom: 1.5rem;
+  width: 2px;
+}
+
+.fs-timeline::before {
+  background: var(--color-line);
+}
+
+.fs-timeline::after {
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-light));
+  transform-origin: top;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fs-timeline::after {
+      animation: fs-grow linear both;
+      animation-timeline: view();
+      animation-range: cover 12% cover 78%;
+    }
+  }
+}
+
+@keyframes fs-grow {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.fs-step {
+  position: relative;
+  padding-left: 4.5rem;
+}
+
+.fs-step__marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  background: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.fs-step__body {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.fs-step h3 {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(1.5rem, 2.8vw, 2.125rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  .fs-step {
+    padding-left: 6rem;
+  }
+
+  .fs-step__body {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+  }
+}
+
+.fs-checks {
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+
+.fs-checks li {
+  position: relative;
+  padding-left: 2rem;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+}
+
+.fs-checks li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.45em;
+  width: 0.7rem;
+  height: 0.4rem;
+  border-left: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  transform: rotate(-45deg);
+}
+
+.fs-results {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.fs-result {
+  padding: var(--space-6);
+  border: 1px solid rgba(11, 95, 255, 0.14);
+  border-radius: var(--radius-lg);
+  background: var(--color-accent-soft);
+}
+
+.fs-result__num {
+  display: block;
+  font-size: clamp(2.25rem, 4.6vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+.fs-result__old {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.fs-result__label {
+  display: block;
+  margin-top: var(--space-3);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+}
+
+/* ---------- Warum es funktioniert ---------- */
+
+.fs-network {
+  background: var(--color-bg-alt);
+  color: var(--color-ink);
+}
+
+.fs-pillars {
+  list-style: none;
+  display: grid;
+  margin: var(--space-10) 0 var(--space-8);
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .fs-pillars {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.fs-pillars li {
+  padding: var(--space-6) 0 var(--space-8);
+  border-top: 2px solid var(--color-ink);
+}
+
+.fs-pillars h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1.625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
+}
+
+.fs-pillars p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+/* ---------- Finale: Erleichterung ---------- */
+
+.fs-finale {
+  background: linear-gradient(180deg, #fff 0%, var(--color-accent-soft) 100%);
+  color: var(--color-ink);
+}
+
+.fs-finale .brt-tag {
+  color: var(--color-accent);
+}
+
+.fs-finale .fs-h2 {
+  max-width: 16ch;
+  font-size: clamp(2.25rem, 5.4vw, 4.25rem);
+  color: var(--color-ink);
+}
+
+.fs-finale__text {
+  max-width: 54ch;
+  margin: 0 0 var(--space-10);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.fs-relief {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8) var(--space-6);
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .fs-relief {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .fs-relief li + li {
+    padding-left: var(--space-6);
+    border-left: 1px solid rgba(11, 95, 255, 0.22);
+  }
+}
+
+.fs-relief strong {
+  display: block;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+.fs-relief span {
+  display: block;
+  margin-top: var(--space-3);
+  max-width: 20ch;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--color-ink-soft);
+}

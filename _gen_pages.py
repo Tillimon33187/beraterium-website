@@ -945,7 +945,7 @@ def case_studies_section(pre: str, *, en: bool = False) -> str:
         cfg = {
             "tag": "AUS DER PRAXIS",
             "title": "Case Studies aus der Praxis",
-            "lede": "Fünf anonymisierte Einblicke – wie Risikoanalyse Stufe&nbsp;1 in unterschiedlichen Phasen wirkt und wo Stufe&nbsp;2 aus Erkenntnis konkrete Bearbeitung macht.",
+            "lede": "Sechs anonymisierte Einblicke – wie Risikoanalyse Stufe&nbsp;1 in unterschiedlichen Phasen wirkt, wo Stufe&nbsp;2 aus Erkenntnis konkrete Bearbeitung macht – und wann ein Sonderweg nötig ist.",
             "tablist_label": "Case Studies",
             "prev_label": "Vorherige Case Study",
             "next_label": "Nächste Case Study",
@@ -1011,6 +1011,31 @@ def case_studies_section(pre: str, *, en: bool = False) -> str:
                 "quote": "&bdquo;Wir dachten, der Drucker ist das Risiko. Tatsächlich trägt das Gebäude: Haftung, Zirkularitätsversprechen und wer wofür zuständig ist.&ldquo;",
             },
         ]
+        studies.append(
+            {
+                "tab": "Geologisches Prüflabor",
+                "title": "GmbH-Falle, Report-Stau und ein Weg zurück",
+                "meta": [
+                    ("industry", "Geologisches Prüflabor"),
+                    ("phase", "Laufender Betrieb, hohe Auslastung"),
+                    ("team", "Kleines Team, alles hängt am Inhaber"),
+                ],
+                "text": "Aus dem gut laufenden Einzelunternehmen wurde eine GmbH. Versprochene Förderungen blieben aus, Bürokratie, verspätete Jahresabschlüsse und private Kredite trafen auf 12- bis 16-Stunden-Tage. Berichte stauten sich, Kunden drängelten.",
+                "approach_headline": "Sonderweg: erst Stabilisierung, dann Risikoanalyse",
+                "approach_body": (
+                    "Geschäftsführergehalt, steuerliche Neuordnung, KI für Laborberichte, Büro aus dem Team, "
+                    f'ohne dass der Inhaber alles selbst trägt. '
+                    f'<a href="{pre}fallstudien/prueflabor-gmbh-rettung/">Ganze Geschichte lesen →</a>'
+                ),
+                "stats": [
+                    ("2", "Monate bis spürbare Entlastung"),
+                    ("92&nbsp;%", "weniger Zeit pro Bericht"),
+                    ("48.269&nbsp;€", "Steuerersparnis dieses Jahr"),
+                    ("2", "Tage bis GF-Gehalt"),
+                ],
+                "quote": "Manchmal ist die Reihenfolge der eigentliche Hebel: erst Luft zum Atmen, dann die Analyse.",
+            }
+        )
 
     tabs = []
     for i, study in enumerate(studies):
@@ -6455,6 +6480,44 @@ def gen_wissen_berater_finden() -> None:
     )
 
 
+def gen_fallstudie_prueflabor() -> None:
+    """Ausführliche anonymisierte Fallstudie (Prüflabor / GmbH-Sonderfall).
+
+    Inhalt in `_fallstudie_prueflabor.py`, Styling in `css/brt-fallstudie.css`.
+    """
+    from _fallstudie_prueflabor import FAQ, story_html
+
+    pre = "../../"
+    canonical = "/fallstudien/prueflabor-gmbh-rettung/"
+    main = (
+        story_html()
+        + faq_section_html(FAQ, title="Häufige Fragen zu dieser Fallstudie")
+        + calendly_inline_section(pre, headline="Steckt Ihr Unternehmen in einer ähnlichen Lage?")
+        + cta_band(
+            pre,
+            "Erstgespräch ohne Verkaufsdruck",
+            "30 Minuten, kostenlos: Wir sortieren Dringliches von Wichtigem, ob mit oder ohne Risikoanalyse als Einstieg.",
+            contact_href="#termin-inline",
+        )
+    )
+    write(
+        "fallstudien/prueflabor-gmbh-rettung/index.html",
+        shell(
+            depth=2,
+            title="Fallstudie Prüflabor: GmbH-Stress gelöst | Beraterium",
+            description=(
+                "Geologisches Prüflabor: GmbH-Falle, Report-Stau, 16-Stunden-Tage. Wie Beraterium in 2 Monaten Steuer, Gehalt und KI-Berichte löste. Mit Terminbuchung."
+            ),
+            canonical=canonical,
+            active_nav="angebote",
+            main=main,
+            extra_css=f'\n  <link rel="stylesheet" href="{pre}css/brt-fallstudie.css?v={BRT_ASSET_VERSION}">',
+            extra_scripts=calendly_extra_scripts(),
+            json_ld=page_schema(faq_page_schema(FAQ), speakable_webpage_schema(canonical)),
+        ),
+    )
+
+
 def gen_home_analyse() -> None:
     path = SITE / "index.html"
     if not path.exists():
@@ -7060,6 +7123,7 @@ if __name__ == "__main__":
     gen_blog_singles()
     gen_wissen_beispiel_risikoanalyse()
     gen_wissen_berater_finden()
+    gen_fallstudie_prueflabor()
     gen_home_analyse()
     gen_home_team()
     gen_home_guarantee_avatars()

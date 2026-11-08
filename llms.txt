@@ -31,6 +31,7 @@
 - [Risikoanalyse KMU: Kosten & Ablauf](https://www.beraterium.de/loesungen/risikoanalyse-kmu/): Ablauf, Dauer und Festpreis der Risiko-Analyse 360° (3.475 €) für den Mittelstand – Top 5–10 Risiken in Euro bewertet.
 - [Risikoanalyse Selbstständige: Kosten](https://www.beraterium.de/loesungen/risikoanalyse-solo/): Ablauf, Dauer und Preis der Risiko-Beratung (ab 97 €) für Solo-Selbstständige – Top 5–10 Risiken in Euro bewertet.
 - [Risikoanalyse Beispiel-Report](https://www.beraterium.de/wissen/beispiel-risikoanalyse/): Anonymisierte Stufe-1-Auswertung — Prioritäten, Euro-Bewertung, Tabellenauszug.
+- [Fallstudie Geologisches Prüflabor](https://www.beraterium.de/fallstudien/prueflabor-gmbh-rettung/): GmbH-Falle, Report-Stau, Steuer- und KI-Lösung in 2 Monaten — anonymisiert, mit Terminbuchung.
 - [Risikomanagement-Berater finden](https://www.beraterium.de/wissen/risikomanagement-berater-finden/): Fünf Kriterien zur Beraterauswahl im Mittelstand.
 - [Bewerbermanagement öffentlicher Dienst (Laufbahnkontor)](https://www.beraterium.de/loesungen/bewerbermanagement-oeffentlicher-dienst/): Bewerbermanagement für Kommunen und Landesbehörden — Stellenbörse, Bewerbung, Gremien, revisionssicher. Klickprototyp, kein Referenzbetrieb.
 
