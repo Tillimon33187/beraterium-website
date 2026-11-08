@@ -210,6 +210,7 @@ GA4_ANALYTICS_HEAD = (
     });
   </script>"""
 )
+
 NAV = [
     ("angebote", "Angebote"),
     ("methode", "Methode"),
@@ -508,17 +509,58 @@ def hero(
 
 def cta_band(pre: str, h2: str, body: str, btn: str = "Erstgespräch buchen", *, note: str = "", contact_href: str = "kontakt/") -> str:
     note_html = f'\n        <p class="brt-meta brt-body--on-dark">{note}</p>' if note else ""
-    contact_print = f"{DE_SITE_URL}/{contact_href.lstrip('/')}"
+    if contact_href.startswith("#"):
+        href = contact_href
+        print_attr = ""
+    else:
+        href = f"{pre}{contact_href}"
+        contact_print = f"{DE_SITE_URL}/{contact_href.lstrip('/')}"
+        print_attr = f' data-print-url="{contact_print}"'
     return f"""
     <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="final-cta">
       <div class="brt-container brt-cta-band__inner brt-fade-up">
         <h2 id="final-cta" class="brt-h2 brt-h2--on-dark">{h2}</h2>
         <p class="brt-body brt-body--on-dark">{body}</p>
-        <a class="brt-btn brt-btn--on-dark brt-btn--lg" href="{pre}{contact_href}" data-print-url="{contact_print}">{btn}</a>{note_html}
+        <a class="brt-btn brt-btn--on-dark brt-btn--lg" href="{href}"{print_attr}>{btn}</a>{note_html}
       </div>
     </section>"""
 
 
+CALENDLY_EVENT_URL = "https://calendly.com/beraterium/30min"
+
+BLOG_CALENDLY_SLUGS = frozenset({
+    "risikomanagement-beratung-kmu-anbieter",
+    "cashflow-analyse-risikomanagement-kmu",
+    "risiken-selbststaendige-freelancer",
+    "schluesselpersonrisiko-erkennen-absichern",
+    "risikoanalyse-startup-solo-selbststaendige-methode",
+})
+
+
+def calendly_extra_scripts() -> str:
+    return '\n<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>'
+
+
+def calendly_inline_section(
+    pre: str,
+    *,
+    section_id: str = "termin-inline",
+    headline: str = "Termin direkt buchen",
+    intro: str = "30 Minuten, kostenlos, unverbindlich — wählen Sie einen Slot. Kein Verkaufsgespräch.",
+) -> str:
+    return f"""
+    <section class="brt-section brt-section--booking" id="{section_id}" aria-labelledby="{section_id}-title">
+      <div class="brt-container brt-fade-up">
+        <header class="brt-section__header">
+          <p class="brt-tag">30 Minuten · kostenlos · unverbindlich</p>
+          <h2 id="{section_id}-title" class="brt-h2">{headline}</h2>
+          <p class="brt-body">{intro}</p>
+        </header>
+        <div class="brt-calendly" data-calendly-embed>
+          <div class="calendly-inline-widget" data-url="{CALENDLY_EVENT_URL}"></div>
+        </div>
+      </div>
+    </section>"""
 
 
 ICON_GUARANTEE_SHIELD = (
@@ -1977,12 +2019,13 @@ def gen_preise() -> None:
     </section>"""
         + guarantee(pre)
         + faq_section_html(preise_faq, title="Häufige Fragen zu Preisen", section_id="faq", alt=True)
-        + cta_band(pre, "Unsicher, welches Paket passt?", "Im kostenlosen Erstgespräch klären wir Umfang, Förderung und den besten Einstieg für Ihre Situation.")
+        + calendly_inline_section(pre)
+        + cta_band(pre, "Unsicher, welches Paket passt?", "Im kostenlosen Erstgespräch klären wir Umfang, Förderung und den besten Einstieg für Ihre Situation.", contact_href="#termin-inline")
     )
     preise_title = "Preise – Risikomanagement-Beratung | Beraterium"
     preise_desc = "Preise transparent: Risiko-Analyse 360° 3.475 € (Festpreis), Workshops ab 57 €/Person, Schulungen ab 3.475 €. Marktvergleich: unter Konzernberatern, mit doppelter Garantie."
     write("preise/index.html", shell(depth=1, title=preise_title, description=preise_desc,
-          canonical="/preise/", active_nav="preise", main=main,
+          canonical="/preise/", active_nav="preise", main=main, extra_scripts=calendly_extra_scripts(),
           json_ld=page_schema(
               offer_catalog_schema(
                   name="Preise & Leistungen — Risikomanagement-Beratung",
@@ -2571,7 +2614,17 @@ def gen_schulungen_index() -> None:
           json_ld=page_schema(faq_page_schema(schulungen_faq), speakable_webpage_schema("/schulungen/", selectors=[".brt-highlight-box", ".brt-faq__answer", "#schulungen-vergleich .brt-body"]), breadcrumb_ld)))
 
 
-def lp_shell(depth: int, slug: str, title: str, desc: str, du: bool, main: str, *, json_ld: str = "") -> None:
+def lp_shell(
+    depth: int,
+    slug: str,
+    title: str,
+    desc: str,
+    du: bool,
+    main: str,
+    *,
+    json_ld: str = "",
+    embed_calendly: bool = False,
+) -> None:
     write(
         f"angebote/{slug}/index.html",
         shell(
@@ -2582,6 +2635,7 @@ def lp_shell(depth: int, slug: str, title: str, desc: str, du: bool, main: str, 
             active_nav=f"angebote/{slug}",
             main=main,
             json_ld=json_ld,
+            extra_scripts=calendly_extra_scripts() if embed_calendly else "",
         ),
     )
 
@@ -2654,9 +2708,10 @@ def gen_lp_startups() -> None:
         <p class="brt-body">Gründerwissen, Investorenvertrauen, Burnout-Gefahr: Warum Key-Person-Risk Startups besonders hart trifft, liest du im Ratgeber <a href="{pre}blog/schluesselpersonrisiko-erkennen-absichern/">Schlüsselpersonrisiko erkennen, bewerten und absichern &rarr;</a></p>
       </div>
     </section>"""
+        + calendly_inline_section(pre, headline="Startups: Termin direkt buchen")
         + cta_band(pre, "Bereit, deine größten Risiken zu kennen?",
                    "Erstgespräch buchen – gratis, kein Sales-Pitch. Du gehst mit einer DIY-Anleitung raus, egal wie du dich entscheidest.",
-                   "Kostenloses Erstgespräch buchen")
+                   "Kostenloses Erstgespräch buchen", contact_href="#termin-inline")
     )
     startups_title = "Risikomanagement für Startups – 4-Wochen-Check | Beraterium"
     startups_desc = "Risikomanagement für Startups: Key-Person, Cash, Legal, Tech — in 4 Wochen kennst du deine größten Risiken. Investor-ready, in Euro bewertet."
@@ -2664,7 +2719,7 @@ def gen_lp_startups() -> None:
         service_schema(name="4-Wochen Risiko-Check für Startups", description=startups_desc, url="/angebote/startups/", audience="Startups und Gründerteams"),
         faq_page_schema(startups_faq),
     )
-    lp_shell(2, "startups", startups_title, startups_desc, True, main, json_ld=startups_ld)
+    lp_shell(2, "startups", startups_title, startups_desc, True, main, json_ld=startups_ld, embed_calendly=True)
 
 
 def gen_lp_kmu() -> None:
@@ -2745,17 +2800,18 @@ def gen_lp_kmu() -> None:
         <p class="brt-body">Geschäftsführung, Meister, Vertrieb: Wie Sie Schlüsselpersonen im Mittelstand erkennen und absichern, lesen Sie im Ratgeber <a href="{pre}blog/schluesselpersonrisiko-erkennen-absichern/">Schlüsselpersonrisiko erkennen, bewerten und absichern &rarr;</a></p>
       </div>
     </section>"""
+        + calendly_inline_section(pre, headline="KMU: Termin direkt buchen")
         + cta_band(pre, "Verschaffen Sie sich Klarheit – bevor ein Risiko zuschlägt",
                    "Erstgespräch buchen – kostenlos, unverbindlich. Sie gehen mit einer DIY-Anleitung raus, egal wie Sie sich entscheiden.",
-                   "Kostenloses Erstgespräch buchen")
+                   "Kostenloses Erstgespräch buchen", contact_href="#termin-inline")
     )
-    kmu_title = "Risikomanagement Beratung KMU & Mittelstand | Beraterium"
-    kmu_desc = "Risikomanagement-Beratung für den Mittelstand: Risiko-Lagebild in Euro, ab 3.475 € Festpreis. Kostenloses Erstgespräch. Doppelte Garantie."
+    kmu_title = "Risikomanagement Beratung KMU: Anbieter & Festpreis | Beraterium"
+    kmu_desc = "Risikomanagement-Beratung Mittelstand: 6-Wochen-Lagebild, Risiken in Euro, ab 3.475 € Festpreis. Termin buchen — 30 Min. kostenlos. Doppelte Garantie."
     kmu_ld = page_schema(
         service_schema(name="6-Wochen Klarheits-Fahrplan für KMU", description=kmu_desc, url="/angebote/kmu/", audience="KMU und Mittelstand"),
         faq_page_schema(kmu_faq),
     )
-    lp_shell(2, "kmu", kmu_title, kmu_desc, False, main, json_ld=kmu_ld)
+    lp_shell(2, "kmu", kmu_title, kmu_desc, False, main, json_ld=kmu_ld, embed_calendly=True)
 
 
 def gen_lp_solo() -> None:
@@ -2819,9 +2875,10 @@ def gen_lp_solo() -> None:
         <p class="brt-body">Als Solo bist du selbst die Schlüsselperson. Was das konkret bedeutet und welche Sofortmaßnahmen helfen, liest du im Ratgeber <a href="{pre}blog/schluesselpersonrisiko-erkennen-absichern/">Schlüsselpersonrisiko erkennen, bewerten und absichern &rarr;</a></p>
       </div>
     </section>"""
+        + calendly_inline_section(pre, headline="Solo: Termin direkt buchen")
         + cta_band(pre, "Hol dir Klarheit über deine Risiken",
                    "Erstgespräch buchen – 30 Minuten, gratis, kein Druck. Du bekommst unsere DIY-Methode erklärt und entscheidest danach in Ruhe.",
-                   "Kostenloses Erstgespräch buchen")
+                   "Kostenloses Erstgespräch buchen", contact_href="#termin-inline")
     )
     solo_title = "Risikomanagement Selbstständige – 2 Wochen | Beraterium"
     solo_desc = "Risikomanagement für Selbstständige: In 2 Wochen weißt du, wo du verletzlich bist — Ausfall, Kundenabhängigkeit, Scheinselbstständigkeit. Mit Garantie."
@@ -2829,7 +2886,7 @@ def gen_lp_solo() -> None:
         service_schema(name="2-Wochen Risiko-Kompass für Solo-Selbstständige", description=solo_desc, url="/angebote/solo/", audience="Solo-Selbstständige und Freelancer"),
         faq_page_schema(solo_faq),
     )
-    lp_shell(2, "solo", solo_title, solo_desc, True, main, json_ld=solo_ld)
+    lp_shell(2, "solo", solo_title, solo_desc, True, main, json_ld=solo_ld, embed_calendly=True)
 
 
 def lp_deep_sections_html(sections: list[dict], start: int = 0, end: int | None = None) -> str:
@@ -3125,8 +3182,25 @@ def gen_landingpage(cfg: dict) -> None:
     </section>"""
         + lp_related_blog_section(cfg.get("blog_slugs", []))
         + faq_section(cfg["faq"], alt=True)
-        + cta_band(pre, cfg["cta_h2"], cfg["cta_body"], cfg["hero_cta"], note=cfg.get("cta_note", ""), contact_href=contact_href)
+        + (
+            calendly_inline_section(pre)
+            if cfg.get("embed_calendly", contact_href.replace("../", "").strip("/") == "kontakt")
+            else ""
+        )
+        + cta_band(
+            pre,
+            cfg["cta_h2"],
+            cfg["cta_body"],
+            cfg["hero_cta"],
+            note=cfg.get("cta_note", ""),
+            contact_href=(
+                "#termin-inline"
+                if cfg.get("embed_calendly", contact_href.replace("../", "").strip("/") == "kontakt")
+                else contact_href
+            ),
+        )
     )
+    embed_cal = cfg.get("embed_calendly", contact_href.replace("../", "").strip("/") == "kontakt")
 
     breadcrumb_ld = json.dumps(
         {
@@ -3163,6 +3237,7 @@ def gen_landingpage(cfg: dict) -> None:
             active_nav=None,
             main=main,
             json_ld=ld,
+            extra_scripts=calendly_extra_scripts() if embed_cal else "",
         ),
     )
 
@@ -5708,8 +5783,8 @@ def gen_risikoradar() -> None:
         ("Was ist RisikoRadar?", "RisikoRadar ist das geschützte Expertennetzwerk hinter Beraterium — geprüfte Fachleute, die Maßnahmen aus Ihrer Risikoanalyse umsetzen."),
         ("Wie komme ich in RisikoRadar?", "Als Beraterium-Kunde erhalten Sie Zugang. Experten kommen über Empfehlung oder Bewerbung — kein offenes Forum."),
     ]
-    write("risikoradar/index.html", shell(depth=1, title="RisikoRadar – Expertennetzwerk | Beraterium",
-          description="RisikoRadar ist ein geschütztes Netzwerk geprüfter Experten. So setzen Sie Maßnahmen um – mit einem Ansprechpartner statt Koordinationschaos.",
+    write("risikoradar/index.html", shell(depth=1, title="Risiko Radar Podcast & Expertennetzwerk | Beraterium",
+          description="Risiko Radar: Podcast und Expertennetzwerk von Beraterium. Praxiswissen zu Unternehmensrisiken — und geprüfte Experten für die Umsetzung Ihrer Maßnahmen.",
           canonical="/risikoradar/", active_nav="risikoradar", main=main,
           json_ld=page_schema(faq_page_schema(risikoradar_faq))))
 
@@ -5796,7 +5871,7 @@ def gen_blindspot_check() -> None:
         locale="de",
         submit_url="https://script.google.com/macros/s/AKfycbyPc0XZXUu9ok3-5rkXJNlAYbj5WsmzVq9vyuquKJmtjPKhgSfqXPDQMM63lC2OreIVIQ/exec",
         report_url="https://script.google.com/macros/s/AKfycbyPc0XZXUu9ok3-5rkXJNlAYbj5WsmzVq9vyuquKJmtjPKhgSfqXPDQMM63lC2OreIVIQ/exec",
-        booking_url=f"{pre}kontakt/",
+        booking_url=f"{pre}kontakt/#termin",
         privacy_url=f"{pre}datenschutz/",
     )
     main = (
@@ -6155,6 +6230,9 @@ def gen_blog_singles() -> None:
                     related_cards.append(blog_card_html(rel_post, 2))
                 if len(related_cards) >= 3:
                     break
+        embed_cal_post = post.slug in BLOG_CALENDLY_SLUGS
+        calendly_block = calendly_inline_section(pre) if embed_cal_post else ""
+        book_href = "#termin-inline" if embed_cal_post else f"{pre}kontakt/"
         related_block = ""
         if related_cards:
             related_block = f"""
@@ -6204,11 +6282,12 @@ def gen_blog_singles() -> None:
 {back_top_block}
 {faq_block}
 {author_box}
+{calendly_block}
     <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="article-cta">
       <div class="brt-container brt-cta-band__inner brt-fade-up">
         <h2 id="article-cta" class="brt-h2 brt-h2--on-dark">Risiken im eigenen Unternehmen klären?</h2>
         <p class="brt-body brt-body--on-dark">Buchen Sie ein kostenloses Erstgespräch – 30 Minuten, unverbindlich.</p>
-        <a class="brt-btn brt-btn--on-dark" href="{pre}kontakt/">Erstgespräch buchen</a>
+        <a class="brt-btn brt-btn--on-dark" href="{book_href}">Erstgespräch buchen</a>
       </div>
     </section>
 {related_block}"""
@@ -6229,8 +6308,151 @@ def gen_blog_singles() -> None:
                 json_ld=json_ld,
                 og_type="article",
                 og_image=og_image,
+                extra_scripts=calendly_extra_scripts() if embed_cal_post else "",
             ),
         )
+
+
+def gen_wissen_beispiel_risikoanalyse() -> None:
+    """Öffentliche, anonymisierte Beispiel-Auswertung (GEO-/Vertrauensseite)."""
+    pre = "../"
+    canonical = "/wissen/beispiel-risikoanalyse/"
+    faq = [
+        (
+            "Ist das ein reales Kundenprojekt?",
+            "Ja — Inhalt und Methodik entsprechen einer echten Stufe-1-Auswertung. Unternehmen, Personen und Produktdetails sind anonymisiert.",
+        ),
+        (
+            "Was bekomme ich in einer vollständigen Risikoanalyse?",
+            "Moderierter Workshop mit Ihrem Team, vollständiger 3-Ebenen-Gefahrenkatalog, Bewertung in Euro, priorisierte Top-Risiken und ein schriftlicher Report — ab 1.725 € bzw. 3.475 € als 360°-Paket.",
+        ),
+        (
+            "Kann ich vorher unverbindlich sprechen?",
+            "Ja. Im kostenlosen 30-Minuten-Erstgespräch erklären wir die Methode — ohne Verkaufsdruck.",
+        ),
+    ]
+    main = (
+        hero(
+            pre,
+            "BEISPIEL",
+            "So sieht eine Risikoanalyse aus",
+            "Anonymisierte Auswertung aus der Praxis: 16 Gefahrenfelder, Euro-Bewertung, drei Prioritätsstufen — damit Sie sehen, was Sie nach Stufe 1 in der Hand halten.",
+            compact=True,
+        )
+        + """
+    <section class="brt-section" aria-labelledby="kurzfassung-title">
+      <div class="brt-container brt-highlight-box brt-fade-up">
+        <p class="brt-tag">KURZFASSUNG</p>
+        <h2 id="kurzfassung-title" class="brt-h2">Was der Report zeigt</h2>
+        <p class="brt-body">16 Gefahrenfelder wurden im geführten Gespräch durchgesprochen und mit Schadensausmaß und Eintrittswahrscheinlichkeit bewertet. <strong>Stufe 1 (gleich priorisiert):</strong> Nr. 8 Produktwirkung angezweifelt, Nr. 10 neue Regulatorik, Nr. 11 Lieferketten-/Komponentenausfall, Nr. 14 kopierbarer Vorteil (Direktvertrieb). <strong>Stufe 2:</strong> Reputation, Produktionsengpässe, Partnerkanal-Annahmen, Kundenvertrauen. <strong>Nicht relevant:</strong> Nr. 7 Schlüsselperson (bewusst — Teamaufbau steht an).</p>
+        <p class="brt-body">Details und Tabellen im vollständigen PDF erhalten Kunden nach der Analyse. Diese Seite zeigt Struktur und Tiefe — ohne vertrauliche Daten.</p>
+      </div>
+    </section>
+    <section class="brt-section brt-section--alt" aria-labelledby="tabelle-title">
+      <div class="brt-container brt-fade-up">
+        <h2 id="tabelle-title" class="brt-h2">Auszug Risikoübersicht (Stufe 1)</h2>
+        <table class="brt-table">
+          <caption class="brt-sr-only">Priorisierte Risiken aus dem Beispiel-Report</caption>
+          <thead><tr><th>Nr.</th><th>Thema</th><th>Schaden</th><th>Eintritt</th></tr></thead>
+          <tbody>
+            <tr><td>8</td><td>Produktwirkung wird angezweifelt</td><td>sehr hoch</td><td>fernliegend</td></tr>
+            <tr><td>10</td><td>Neue regulatorische Anforderungen</td><td>hoch</td><td>gelegentlich</td></tr>
+            <tr><td>11</td><td>Ausfall wichtiger Komponenten</td><td>hoch</td><td>gelegentlich</td></tr>
+            <tr><td>14</td><td>Kopierbarer Vorteil (Direktkanal)</td><td>hoch</td><td>gelegentlich</td></tr>
+          </tbody>
+        </table>
+        <p class="brt-meta" style="margin-top: var(--space-6);">Mehr zur Methode: <a href="{pre}methode/">3-Ebenen-Gefahrenkatalog</a> · Preise: <a href="{pre}loesungen/risikoanalyse-kmu/">Risikoanalyse KMU</a></p>
+      </div>
+    </section>""".format(pre=pre)
+        + faq_section_html(faq, title="Häufige Fragen zum Beispiel-Report")
+        + calendly_inline_section(pre, headline="Fragen zur eigenen Analyse?")
+        + cta_band(pre, "Eigenes Lagebild erstellen", "Kostenloses Erstgespräch — 30 Minuten, unverbindlich.", contact_href="#termin-inline")
+    )
+    title = "Risikoanalyse Beispiel: So sieht ein Report aus | Beraterium"
+    desc = "Anonymisierte Beispiel-Auswertung: priorisierte Risiken in Euro, drei Stufen, 16 Gefahrenfelder — so arbeitet Beraterium in Stufe 1."
+    write(
+        "wissen/beispiel-risikoanalyse/index.html",
+        shell(
+            depth=2,
+            title=title,
+            description=desc,
+            canonical=canonical,
+            active_nav=None,
+            main=main,
+            extra_scripts=calendly_extra_scripts(),
+            json_ld=page_schema(faq_page_schema(faq), speakable_webpage_schema(canonical)),
+        ),
+    )
+
+
+def gen_wissen_berater_finden() -> None:
+    """Kaufabsicht: Kriterien für Risikomanagement-Berater."""
+    pre = "../"
+    canonical = "/wissen/risikomanagement-berater-finden/"
+    criteria = [
+        "Euro-Bewertung statt Ampel — Sie können Risiken vergleichen und budgetieren",
+        "Branchen- oder Zielgruppenerfahrung (KMU, Startup, Solo) statt Konzern-ISO-Template",
+        "Festpreis und klarer Umfang vor dem Start — keine offenen Stundensätze",
+        "Umsetzungsbegleitung oder Maßnahmenplan, nicht nur Folien",
+        "Nachvollziehbare Garantie oder Erfolgskriterien vorab vereinbart",
+    ]
+    faq = [
+        (
+            "Wann lohnt sich ein spezialisiertem Mittelstandsberater statt Big 4?",
+            "Wenn Sie Handlung in 4–8 Wochen brauchen, nicht ISO-Zertifikate. Spezialisierte Anbieter wie Beraterium liefern ein priorisiertes Lagebild in Euro — ohne Konzern-Bürokratie.",
+        ),
+        (
+            "Was kostet Risikomanagement-Beratung für ein KMU?",
+            "Transparente Festpreise: Risiko-Analyse 360° 3.475 €, reine Analyse ab 1.725 €. Anbietertypen im Blog-Artikel Risikomanagement-Beratung KMU (Anbietervergleich).",
+        ),
+        (
+            "Wer hilft bei der Auswahl?",
+            "Im kostenlosen Erstgespräch klären wir Scope, Teamgröße und passendes Paket — unverbindlich.",
+        ),
+    ]
+    crit_items = "".join(f"<li>{c}</li>" for c in criteria)
+    main = (
+        hero(
+            pre,
+            "AUSWAHLHILFE",
+            "Risikomanagement-Berater finden: 5 Kriterien",
+            "Bevor Sie einen Berater buchen: So erkennen Sie, ob jemand ein bankfähiges Lagebild liefert — oder nur Compliance-Papier.",
+            compact=True,
+        )
+        + f"""
+    <section class="brt-section" id="kriterien" aria-labelledby="kriterien-title">
+      <div class="brt-container brt-highlight-box brt-fade-up">
+        <p class="brt-tag">CHECKLISTE</p>
+        <h2 id="kriterien-title" class="brt-h2">Worauf Geschäftsführung achten sollte</h2>
+        <ul class="brt-list-check">{crit_items}</ul>
+      </div>
+    </section>
+    <section class="brt-section brt-section--alt" aria-labelledby="typen-title">
+      <div class="brt-container brt-fade-up">
+        <h2 id="typen-title" class="brt-h2">Vier Anbietertypen im Überblick</h2>
+        <p class="brt-body">Big 4 und ISO-Beratung, spezialisierte Mittelstandsberater, Versicherungsmakler und Eigenregie — jeder Typ löst andere Probleme. Der ausführliche Vergleich steht im Artikel <a href="{pre}blog/risikomanagement-beratung-kmu-anbieter/">Risikomanagement-Beratung KMU: Anbietervergleich</a>.</p>
+        <p class="brt-body">Beraterium positioniert sich als spezialisierter Mittelstandsberater: 3-Ebenen-Gefahrenkatalog, Risiko in Euro bewertet, doppelte Garantie, Festpreise ab 3.475 €.</p>
+      </div>
+    </section>"""
+        + faq_section_html(faq)
+        + calendly_inline_section(pre)
+        + cta_band(pre, "Berater passend zu Ihrer Situation?", "Erstgespräch buchen — kostenlos, 30 Minuten.", contact_href="#termin-inline")
+    )
+    title = "Risikomanagement-Berater finden: Kriterien | Beraterium"
+    desc = "5 Kriterien für die Auswahl eines Risikomanagement-Beraters im Mittelstand — Euro-Bewertung, Festpreis, Umsetzung. Kostenloses Erstgespräch."
+    write(
+        "wissen/risikomanagement-berater-finden/index.html",
+        shell(
+            depth=2,
+            title=title,
+            description=desc,
+            canonical=canonical,
+            active_nav=None,
+            main=main,
+            extra_scripts=calendly_extra_scripts(),
+            json_ld=page_schema(faq_page_schema(faq), speakable_webpage_schema(canonical)),
+        ),
+    )
 
 
 def gen_home_analyse() -> None:
@@ -6470,7 +6692,7 @@ def gen_kontakt() -> None:
              "30 Minuten, kostenlos, unverbindlich. Sie gehen mit echtem Wissen raus – egal, wie Sie sich danach entscheiden.",
              compact=True)
         + f"""
-    <section class="brt-section brt-section--booking" aria-labelledby="contact-title">
+    <section class="brt-section brt-section--booking" id="termin" aria-labelledby="contact-title">
       <div class="brt-container brt-contact-booking brt-fade-up">
         <div class="brt-contact-booking__head">
           <div class="brt-contact-booking__intro">
@@ -6836,6 +7058,8 @@ if __name__ == "__main__":
     gen_ra_prep()
     gen_blog()
     gen_blog_singles()
+    gen_wissen_beispiel_risikoanalyse()
+    gen_wissen_berater_finden()
     gen_home_analyse()
     gen_home_team()
     gen_home_guarantee_avatars()

@@ -1,6 +1,6 @@
 ---
 title: 'Risikomanagement-Beratung für KMU: Welcher Anbieter passt zu welchem Unternehmen?'
-seo_title: 'Risikomanagement-Beratung KMU: Anbieter'
+seo_title: 'Risikomanagement Beratung KMU: Anbieter & Preis'
 primary_keyword: risikomanagement beratung mittelstand
 secondary_keywords:
   - risikomanagement beratung

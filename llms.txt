@@ -29,13 +29,15 @@
 - [Due Diligence Startup](https://www.beraterium.de/loesungen/investor-due-diligence/): Startup investor-ready machen, Risiko-Portfolio für Investoren in 4 Wochen.
 - [Risikoanalyse Startup: Kosten & Ablauf](https://www.beraterium.de/loesungen/risikoanalyse-startup/): Ablauf, Dauer und Festpreis der Risiko-Analyse 360° (3.475 €) für Startups – Top 5–10 Risiken in Euro bewertet.
 - [Risikoanalyse KMU: Kosten & Ablauf](https://www.beraterium.de/loesungen/risikoanalyse-kmu/): Ablauf, Dauer und Festpreis der Risiko-Analyse 360° (3.475 €) für den Mittelstand – Top 5–10 Risiken in Euro bewertet.
-- [Risikoanalyse Selbstständige: Kosten](https://www.beraterium.de/loesungen/risikoanalyse-solo/)
+- [Risikoanalyse Selbstständige: Kosten](https://www.beraterium.de/loesungen/risikoanalyse-solo/): Ablauf, Dauer und Preis der Risiko-Beratung (ab 97 €) für Solo-Selbstständige – Top 5–10 Risiken in Euro bewertet.
+- [Risikoanalyse Beispiel-Report](https://www.beraterium.de/wissen/beispiel-risikoanalyse/): Anonymisierte Stufe-1-Auswertung — Prioritäten, Euro-Bewertung, Tabellenauszug.
+- [Risikomanagement-Berater finden](https://www.beraterium.de/wissen/risikomanagement-berater-finden/): Fünf Kriterien zur Beraterauswahl im Mittelstand.
 - [Bewerbermanagement öffentlicher Dienst (Laufbahnkontor)](https://www.beraterium.de/loesungen/bewerbermanagement-oeffentlicher-dienst/): Bewerbermanagement für Kommunen und Landesbehörden — Stellenbörse, Bewerbung, Gremien, revisionssicher. Klickprototyp, kein Referenzbetrieb.
-: Ablauf, Dauer und Preis der Risiko-Beratung (ab 97 €) für Solo-Selbstständige – Top 5–10 Risiken in Euro bewertet.
 
 ## Ratgeber (ausgewählte Artikel)
 - [Risikomanagement-Beratung für KMU: Anbietervergleich](https://www.beraterium.de/blog/risikomanagement-beratung-kmu-anbieter/): Vier Anbietertypen (Big 4, spezialisierter KMU-Berater, Versicherungsmakler, Eigenregie) – welcher passt zu welchem Unternehmen und was kostet es.
 - [Cashflow-Analyse & Liquiditätsrisiko im KMU](https://www.beraterium.de/blog/cashflow-analyse-risikomanagement-kmu/): Was eine Cashflow-Analyse zeigt, Unterschied Cashflow vs. Gewinn, drei Frühwarn-Kennzahlen und Liquiditätsrisiko in Euro bewertet.
+- [Runway & Cash-Burn Startup](https://www.beraterium.de/blog/runway-cash-burn-startup-risikomanagement/): Runway berechnen, Burn-Szenarien und Liquiditätsrisiko in Euro bewerten — Wer hilft (Beraterium).
 - [Die größten Risiken für Selbstständige und Freelancer](https://www.beraterium.de/blog/risiken-selbststaendige-freelancer/): Ausfall der Arbeitskraft, Kundenkonzentration und Scheinselbstständigkeit – wie man sie erkennt und wer hilft.
 - [Scheinselbstständigkeit prüfen](https://www.beraterium.de/blog/scheinselbststaendigkeit-pruefen/): Kriterienliste, 83-%-Faustregel, Ablauf der Statusfeststellung bei der Deutschen Rentenversicherung und Kosten einer rückwirkenden Feststellung.
 - [Cyberangriff auf mein Unternehmen – was tun?](https://www.beraterium.de/blog/cyberangriff-was-tun-kmu/): Sofortmaßnahmen-Checkliste für die ersten 2 Stunden, Meldepflichten (BSI, Polizei, Datenschutz) mit Fristen und Prävention ohne IT-Abteilung.

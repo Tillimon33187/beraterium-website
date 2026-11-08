@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/d36bc57a067448f51ec9da2968bc257a/script.js"></script>
+  <!-- End cookieyes banner -->
+  <!-- Google Consent Mode v2 + GA4 (CookieYes setzt analytics_storage) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+  </script>
+  <script>
+    window.brtGa4Local = (function () {
+      var h = location.hostname;
+      return h === 'localhost' || h === '127.0.0.1';
+    })();
+    if (!window.brtGa4Local) {
+      var _brtGa4 = document.createElement('script');
+      _brtGa4.async = true;
+      _brtGa4.src = 'https://www.googletagmanager.com/gtag/js?id=G-BM435GHE6W';
+      document.head.appendChild(_brtGa4);
+    }
+  </script>
+  <script>
+    if (!window.brtGa4Local) {
+      gtag('js', new Date());
+      gtag('config', 'G-BM435GHE6W', {
+        linker: { domains: ['beraterium.de', 'beraterium.com'] },
+        ignore_referrer: /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\b/i.test(document.referrer || '')
+      });
+    }
+    function brtGrantAnalyticsConsent() {
+      if (window.brtGa4Local) return;
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+    document.addEventListener('cookieyes_consent_update', function (event) {
+      var accepted = (event.detail && event.detail.accepted) || [];
+      if (accepted.indexOf('analytics') !== -1) brtGrantAnalyticsConsent();
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        try {
+          if (typeof getCkyConsent === 'function' && getCkyConsent().categories.analytics) {
+            brtGrantAnalyticsConsent();
+          }
+        } catch (e) {}
+      }, 800);
+    });
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Runway & Cash-Burn Startup: Risiko in Euro | Beraterium Blog</title>
+  <meta name="description" content="Runway und Cash-Burn zeigen, wie lange ein Startup ohne neue Finanzierung durchhält — und welcher Schaden droht, wenn die Annahmen zu optimistisch sind.">
+  <link rel="canonical" href="https://www.beraterium.de/blog/runway-cash-burn-startup-risikomanagement/">
+  <link rel="alternate" hreflang="de" href="https://www.beraterium.de/blog/runway-cash-burn-startup-risikomanagement/">
+  <link rel="alternate" hreflang="en" href="https://www.beraterium.com/blog/runway-cash-burn-startup-risikomanagement/">
+  <link rel="alternate" hreflang="x-default" href="https://www.beraterium.de/blog/runway-cash-burn-startup-risikomanagement/">
+
+  <meta property="og:title" content="Runway & Cash-Burn Startup: Risiko in Euro | Beraterium Blog">
+  <meta property="og:description" content="Runway und Cash-Burn zeigen, wie lange ein Startup ohne neue Finanzierung durchhält — und welcher Schaden droht, wenn die Annahmen zu optimistisch sind.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.beraterium.de/blog/runway-cash-burn-startup-risikomanagement/">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://www.beraterium.de/img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp">
+
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="../../icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0E1116">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <link rel="stylesheet" href="../../css/brt.css?v=20260914-laufbahn-mobile-v1" data-brt-css>
+  <link rel="stylesheet" href="../../css/brt-fallback.css?v=20260914-laufbahn-mobile-v1">
+  <link rel="stylesheet" href="../../css/brt-layout-fix.css?v=20260914-laufbahn-mobile-v1">
+  <link rel="stylesheet" href="../../css/brt-print.css?v=20260914-laufbahn-mobile-v1" media="print">
+  <script src="../../js/brt-init.js"></script>
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Runway und Cash-Burn: Wie Startups ihr Liquiditätsrisiko in Euro bewerten",
+    "description": "Runway und Cash-Burn zeigen, wie lange ein Startup ohne neue Finanzierung durchhält — und welcher Schaden droht, wenn die Annahmen zu optimistisch sind.",
+    "datePublished": "2026-11-08",
+    "dateModified": "2026-11-08",
+    "author": {
+      "@type": "Person",
+      "name": "Till Manfred Blania",
+      "image": "https://www.beraterium.de/img/team/till-blania.webp"
+    },
+    "publisher": {
+      "@id": "https://www.beraterium.de/#organization"
+    },
+    "mainEntityOfPage": "https://www.beraterium.de/blog/runway-cash-burn-startup-risikomanagement/",
+    "inLanguage": "de-DE",
+    "image": "https://www.beraterium.de/img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie berechne ich meine Runway?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Runway = verfügbare liquide Mittel ÷ monatlicher Netto-Cash-Burn (Ausgaben minus laufende Einnahmen). Beispiel: 240.000 € auf dem Konto und 40.000 € Netto-Burn pro Monat → 6 Monate Runway — bei gleichbleibenden Annahmen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist ein gesunder Cash-Burn für ein Startup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Es gibt keine universelle Zahl — entscheidend ist, ob der Burn mit einem klaren Lern- oder Wachstumsziel verknüpft ist und ob die Runway zum Finanzierungsplan passt. Burn-Szenarien ehrlich modellieren (best/base/worst), nicht nur den optimistischen Pfad."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie hängt Runway mit Risikomanagement zusammen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Runway ist ein Liquiditätsrisiko in Euro. Co-Founder-Ausfall, Kundenverlust oder Fundraising-Verzögerung verkürzen die Runway sprunghaft. Beraterium bewertet solche Szenarien im 3-Ebenen-Gefahrenkatalog mit Schadenshöhe und Eintrittswahrscheinlichkeit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wer hilft Startups bei Runway- und Cash-Risiken?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Beraterium unterstützt Gründer mit dem 4-Wochen-Risiko-Check und der Risiko-Analyse 360°. Runway, Kundenkonzentration und Key-Person-Risiken werden in Euro bewertet. Einstieg über kostenloses Erstgespräch oder Blindspot Quick Check."
+        }
+      }
+    ]
+  }
+]
+  </script>
+</head>
+
+<body class="brt-page brt-page--inner">
+
+<a class="brt-skip-link" href="#main-content">Zum Inhalt springen</a>
+
+<header class="site-header site-header--solid" aria-label="Hauptnavigation">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="../../" aria-label="Beraterium Startseite">
+      <img class="site-header__logo-img site-header__logo-img--light" src="../../img/logo/logo-white.png" alt="Beraterium" width="4444" height="1238" decoding="async">
+      <img class="site-header__logo-img site-header__logo-img--dark" src="../../img/logo/logo-black.png" alt="" aria-hidden="true" width="4444" height="1238" decoding="async">
+    </a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
+    <nav id="site-nav" class="site-header__nav" aria-label="Primäre Navigation">
+      <ul>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../angebote/" class="site-header__parent-link" aria-expanded="false">
+            Angebote
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Angebote">
+            <li><a href="../../angebote/startups/">Startups</a></li>
+            <li><a href="../../angebote/kmu/">KMU</a></li>
+            <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+            <li><a href="../../schulungen/">Schulungen</a></li>
+            <li><a href="../../internationale-angebote/">Internationale Angebote</a></li>
+            <li><a href="../../preise/">Preise</a></li>
+          </ul>
+        </li>
+        <li><a href="../../methode/">Methode</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../ueber-uns/" class="site-header__parent-link" aria-expanded="false">
+            Über uns
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Über uns">
+            <li><a href="../../ueber-uns/">Über das Unternehmen</a></li>
+            <li><a href="../../team/">Unser Team</a></li>
+          </ul>
+        </li>
+        <li><a href="../../risikoradar/">RisikoRadar</a></li>
+        <li class="site-header__item site-header__item--has-menu">
+          <a href="../../tools/" class="site-header__parent-link" aria-expanded="false">
+            Tools
+            <svg class="site-header__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="site-header__submenu" aria-label="Tools">
+            <li><a href="../../tools/blindspot-check/">Blindspot Check</a></li>
+          </ul>
+        </li>
+        <li><a href="../../blog/" aria-current="page">Blog</a></li>
+      </ul>
+<div class="site-header__lang" role="navigation" aria-label="Language"><span class="site-header__lang-current" aria-current="true">DE</span><span class="site-header__lang-sep" aria-hidden="true">|</span><a class="site-header__lang-link" href="https://www.beraterium.com/blog/runway-cash-burn-startup-risikomanagement/" hreflang="en">EN</a></div>
+      <a class="brt-btn brt-btn--outline site-header__cta" href="../../kontakt/">Erstgespräch buchen</a>
+    </nav>
+  </div>
+</header>
+
+<div class="brt">
+  <main id="main-content">
+
+    <article class="brt-article" data-article>
+
+      <div class="brt-article__sticky-bar" data-article-sticky-bar hidden>
+        <div class="brt-container brt-article__sticky-inner">
+          <span class="brt-tag brt-tag--small">Startup</span>
+          <p class="brt-article__sticky-title">Runway und Cash-Burn: Wie Startups ihr Liquiditätsrisiko in Euro…</p>
+        </div>
+
+        <div class="brt-article__progress" aria-hidden="true" data-article-progress>
+          <span class="brt-article__progress-bar"></span>
+        </div>
+      </div>
+      <div class="brt-container brt-article__hero-split brt-fade-up" data-article-hero>
+        <div class="brt-article__hero-copy">
+          <a class="brt-skip-link brt-skip-link--article" href="#article-body">Zum Artikeltext springen</a>
+          <h1 class="brt-h1 brt-article__title">Runway und Cash-Burn: Wie Startups ihr Liquiditätsrisiko in Euro bewerten</h1>
+          <p class="brt-article__meta brt-meta">
+            <span class="brt-article__category">Startup</span> · <a class="brt-article__author-link" href="../../team/#tillblania">Till Manfred Blania</a> · <time datetime="2026-11-08">8. November 2026</time> · ca. 1 Min. Lesezeit
+          </p>
+        </div>
+        <figure class="brt-article__hero-media"><img src="../../img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp" alt="Gründerteam bewertet Runway und monatlichen Cash-Burn auf einem Whiteboard" class="brt-article__hero-img" width="1672" height="941" srcset="../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-480w.webp 480w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-960w.webp 960w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-1440w.webp 1440w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="eager" fetchpriority="high"><span class="brt-ki-image-label">KI-generiertes Bild</span></figure>
+      </div>
+      <div class="brt-container brt-article__layout brt-fade-up">
+
+        <aside class="brt-article__author-col" aria-labelledby="article-author-label">
+          <p id="article-author-label" class="brt-article__sidebar-label">Autor</p>
+          <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-col-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+          <a class="brt-article__author-col-name" href="../../team/#tillblania">Till Manfred Blania</a>
+          <p class="brt-body brt-article__author-col-role">GESCHÄFTSFÜHRER · ENTWICKLER DES HR-MANAGEMENT-ANSATZES</p>
+          <a class="brt-article__author-col-link" href="https://www.linkedin.com/in/till-blania/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="brt-btn brt-btn--outline brt-btn--small" href="../../team/">Unser Team →</a>
+        </aside>
+        <div class="brt-article__main">
+          <p class="brt-lead brt-article__lead">Runway und Cash-Burn zeigen, wie lange ein Startup ohne neue Finanzierung durchhält — und welcher Schaden droht, wenn die Annahmen zu optimistisch sind.</p>
+          <div class="brt-article__body" id="article-body" tabindex="-1">
+<h2 class="brt-article__h2" id="warum-runway-mehr-ist-als-eine-excel-zelle">Warum Runway mehr ist als eine Excel-Zelle</h2>
+<p class="brt-body">Gründer kennen die Formel. Trotzdem wird Runway oft als <strong>eine Zahl</strong> behandelt — nicht als <strong>Risiko</strong>, das von mehreren Hebeln gleichzeitig gedrückt wird: Umsatzverschiebung, Verzögerung bei Investoren, Teamausfall, ungeplante Rechts- oder Tech-Kosten.</p>
+<p class="brt-body">Risikomanagement heißt hier: <strong>Nicht nur „Wie viele Monate?“</strong>, sondern <strong>„Was verkürzt die Runway um 3+ Monate — und was kostet das?“</strong></p>
+<h2 class="brt-article__h2" id="drei-hebel-die-runway-unterschatzen">Drei Hebel, die Runway unterschätzen</h2>
+<ol class="brt-article__list brt-article__list--ordered">
+<li><strong>Kundenkonzentration</strong> — Ein Großkunde macht 50 %+ Umsatz. Verliert oder verschiebt er Zahlungen, sinkt der Burn nicht automatisch mit.</li>
+<li><strong>Key-Person-Risiko</strong> — Produkt, Sales oder Fundraising hängen an einer Person. Ein Ausfall stoppt Einnahmen, erhöht aber Fixkosten weiter.</li>
+<li><strong>Fundraising-Annahme</strong> — Die Runway-Rechnung setzt „Term Sheet in Q2“ voraus. Risikomanagement modelliert die <strong>Verzögerungswahrscheinlichkeit</strong> und den <strong>Schaden</strong> (Personal, Marketing, Runway-Verlust).</li>
+</ol>
+<h2 class="brt-article__h2" id="so-bewertet-beraterium-cash-risiken-in-euro">So bewertet Beraterium Cash-Risiken in Euro</h2>
+<p class="brt-body">In der Beraterium-Methode wird jedes Szenario mit <strong>Schadenshöhe</strong> (z. B. Mehrkosten + entgangener Umsatz über 6 Monate) und <strong>Eintrittswahrscheinlichkeit</strong> beschrieben — nicht mit Rot/Gelb/Grün.</p>
+<p class="brt-body">Das macht Runway vergleichbar mit anderen Top-Risiken: Ist der Cash-Engpass teurer als das Tech-Debt-Risiko oder der Co-Founder-Konflikt? Die Antwort bestimmt die Reihenfolge der Maßnahmen.</p>
+<h2 class="brt-article__h2" id="sofortmanahmen-fur-grunder">Sofortmaßnahmen für Gründer</h2>
+<ul class="brt-article__list">
+<li><strong>Runway in drei Szenarien</strong> (optimistisch / realistisch / Stress) führen — monatlich aktualisieren</li>
+<li><strong>Debitorenlaufzeit und Kundenkonzentration</strong> explizit auflisten</li>
+<li><strong>Verantwortliche für Fundraising und BPlan</strong> benennen — nicht „das Team“</li>
+<li><strong>Notfallplan</strong> für 30 %-Umsatzrückgang dokumentieren (was wird pausiert?)</li>
+</ul>
+<p class="brt-body">Ausführlicher zum Vergleich Gewinn vs. Cashflow im KMU-Kontext: <a href="/blog/cashflow-analyse-risikomanagement-kmu/">Cashflow-Analyse &amp; Liquiditätsrisiko</a>.</p>
+<h2 class="brt-article__h2" id="wer-hilft-bei-runway-und-cash-burn">Wer hilft bei Runway und Cash-Burn?</h2>
+<p class="brt-body"><strong>Beraterium</strong> begleitet Startups mit dem <a href="/angebote/startups/">4-Wochen-Risiko-Check</a> und der <a href="/loesungen/risikoanalyse-startup/">Risiko-Analyse 360°</a> — Runway, Burn und Investor-Due-Diligence-Themen sind fest im Gefahrenkatalog verankert. Kostenloser Einstieg: <a href="/kontakt/">Erstgespräch buchen</a> oder <a href="/tools/blindspot-check/">Blindspot Quick Check</a>.</p>
+<p class="brt-article__ai-disclosure brt-meta">Dieser Text wurde mit Unterstützung von KI erstellt und redaktionell geprüft.</p>
+          </div>
+        </div>
+
+        <aside class="brt-article__aside" aria-label="Artikel-Navigation">
+
+        <nav class="brt-article__toc" aria-label="Inhaltsverzeichnis" data-article-toc>
+          <details class="brt-article__toc-details" open>
+            <summary class="brt-article__toc-label">
+              <span class="brt-article__toc-label-text">Inhalt</span>
+              <span class="brt-article__toc-label-actions">
+                <span class="brt-article__toc-count">5 Abschnitte</span>
+                <span class="brt-article__toc-toggle" aria-hidden="true"></span>
+              </span>
+            </summary>
+            <ol class="brt-article__toc-list">
+            <li><a href="#warum-runway-mehr-ist-als-eine-excel-zelle">Warum Runway mehr ist als eine Excel-Zelle</a></li>
+            <li><a href="#drei-hebel-die-runway-unterschatzen">Drei Hebel, die Runway unterschätzen</a></li>
+            <li><a href="#so-bewertet-beraterium-cash-risiken-in-euro">So bewertet Beraterium Cash-Risiken in Euro</a></li>
+            <li><a href="#sofortmanahmen-fur-grunder">Sofortmaßnahmen für Gründer</a></li>
+            <li><a href="#wer-hilft-bei-runway-und-cash-burn">Wer hilft bei Runway und Cash-Burn?</a></li>
+            </ol>
+          </details>
+        </nav>
+
+          <nav class="brt-article__angebote" aria-labelledby="article-angebote-label">
+            <p id="article-angebote-label" class="brt-article__sidebar-label">Passende Angebote</p>
+            <ul class="brt-article__angebote-list">
+            <li><a href="../../angebote/startups/">Risiko-Check für Startups</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+
+    </article>
+
+    <button type="button" class="brt-article__back-top" aria-label="Nach oben scrollen" data-article-back-top hidden>
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4l-6 6h4v6h4v-6h4L10 4z" fill="currentColor"/></svg>
+    </button>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="article-faq">
+      <div class="brt-container brt-article__faq">
+        <h2 id="article-faq" class="brt-h2">Häufige Fragen</h2>
+        <div class="brt-faq brt-fade-up">
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie berechne ich meine Runway?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Runway = verfügbare liquide Mittel ÷ monatlicher Netto-Cash-Burn (Ausgaben minus laufende Einnahmen). Beispiel: 240.000 € auf dem Konto und 40.000 € Netto-Burn pro Monat → 6 Monate Runway — bei gleichbleibenden Annahmen.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Was ist ein gesunder Cash-Burn für ein Startup?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Es gibt keine universelle Zahl — entscheidend ist, ob der Burn mit einem klaren Lern- oder Wachstumsziel verknüpft ist und ob die Runway zum Finanzierungsplan passt. Burn-Szenarien ehrlich modellieren (best/base/worst), nicht nur den optimistischen Pfad.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wie hängt Runway mit Risikomanagement zusammen?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Runway ist ein Liquiditätsrisiko in Euro. Co-Founder-Ausfall, Kundenverlust oder Fundraising-Verzögerung verkürzen die Runway sprunghaft. Beraterium bewertet solche Szenarien im 3-Ebenen-Gefahrenkatalog mit Schadenshöhe und Eintrittswahrscheinlichkeit.</p>
+            </div>
+          </details>
+          <details class="brt-faq__item">
+            <summary class="brt-faq__summary">
+              <span class="brt-faq__toggle" aria-hidden="true"></span>
+              <span class="brt-faq__question">Wer hilft Startups bei Runway- und Cash-Risiken?</span>
+              <span class="brt-faq__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="brt-faq__answer">
+              <p class="brt-body">Beraterium unterstützt Gründer mit dem 4-Wochen-Risiko-Check und der Risiko-Analyse 360°. Runway, Kundenkonzentration und Key-Person-Risiken werden in Euro bewertet. Einstieg über kostenloses Erstgespräch oder Blindspot Quick Check.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="brt-section brt-section--alt" aria-labelledby="author-box">
+      <div class="brt-container brt-article__author brt-fade-up">
+        <img src="../../img/team/till-blania.webp" alt="Till Manfred Blania, Geschäftsführer von Beraterium" class="brt-article__author-img" width="1200" height="1600" srcset="../../img/team/till-blania-480w.webp 480w, ../../img/team/till-blania-960w.webp 960w, ../../img/team/till-blania.webp 1200w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async">
+        <div>
+          <h2 id="author-box" class="brt-h3"><a class="brt-article__author-link brt-article__author-link--heading" href="../../team/#tillblania">Till Manfred Blania</a></h2>
+          <p class="brt-body">Verbindet Wirtschaft, Personalwesen und Risikomanagement mit Erfahrung aus eigenen Start-ups.</p>
+          <a class="brt-btn brt-btn--ghost" href="../../team/">Unser Team →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="brt-cta-band brt-cta-band--dark brt-section" aria-labelledby="article-cta">
+      <div class="brt-container brt-cta-band__inner brt-fade-up">
+        <h2 id="article-cta" class="brt-h2 brt-h2--on-dark">Risiken im eigenen Unternehmen klären?</h2>
+        <p class="brt-body brt-body--on-dark">Buchen Sie ein kostenloses Erstgespräch – 30 Minuten, unverbindlich.</p>
+        <a class="brt-btn brt-btn--on-dark" href="../../kontakt/">Erstgespräch buchen</a>
+      </div>
+    </section>
+
+    <section class="brt-section" aria-labelledby="related-posts">
+      <div class="brt-container">
+        <h2 id="related-posts" class="brt-h2">Weitere Artikel</h2>
+        <ul class="brt-blog-grid brt-stagger">
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="kmu">
+          <a class="brt-card__link" href="../../blog/cashflow-analyse-risikomanagement-kmu/">
+<div class="brt-card__thumb"><img src="../../img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp" alt="Unternehmer prüft Liquiditätsentwicklung und Cashflow-Kennzahlen auf einem Dashboard im Büro" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-480w.webp 480w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-960w.webp 960w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero-1440w.webp 1440w, ../../img/blog/cashflow-analyse-risikomanagement-kmu-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"><span class="brt-ki-image-label">KI-generiertes Bild</span></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">KMU</span>
+              <h3 class="brt-h3">Was ist eine Cashflow-Analyse – und wie hängt sie mit Risikomanagement für KMU zusammen?</h3>
+              <p class="brt-meta">8. Juli 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Eine Cashflow-Analyse zeigt, ob Ihr Unternehmen laufende Zahlungen decken kann – unabhängig vom Gewinn. Sie macht Liquiditätsrisiken im KMU früh…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="risikomanagement">
+          <a class="brt-card__link" href="../../blog/schluesselpersonrisiko-erkennen-absichern/">
+<div class="brt-card__thumb"><img src="../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero.webp" alt="Organigramm auf einem Tisch mit einer hervorgehobenen Schlüsselperson, um die sich alle Verbindungen bündeln" class="brt-card__thumb-img" width="1672" height="941" srcset="../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-480w.webp 480w, ../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-960w.webp 960w, ../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero-1440w.webp 1440w, ../../img/blog/schluesselpersonrisiko-erkennen-absichern-hero.webp 1672w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"><span class="brt-ki-image-label">KI-generiertes Bild</span></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Risikomanagement</span>
+              <h3 class="brt-h3">Schlüsselpersonrisiko: erkennen, bewerten und absichern – für KMU, Startups und Solo-Selbstständige</h3>
+              <p class="brt-meta">1. August 2026 · ca. 4 Min.</p>
+              <p class="brt-body brt-card__excerpt">Das Schlüsselpersonrisiko trifft KMU, Startups und Solo-Selbstständige unterschiedlich hart. So erkennst du unverzichtbare Personen – und sicherst…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        <li class="brt-card brt-card--blog brt-hover-lift" data-category="startup">
+          <a class="brt-card__link" href="../../blog/startup-fehler-vermeiden-risikomanagement/">
+<div class="brt-card__thumb"><img src="../../img/blog/startup-fehler-vermeiden-risikomanagement-hero.webp" alt="Beitragsbild: Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist" class="brt-card__thumb-img" width="1536" height="1024" srcset="../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-480w.webp 480w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-960w.webp 960w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero-1440w.webp 1440w, ../../img/blog/startup-fehler-vermeiden-risikomanagement-hero.webp 1536w" sizes="(max-width: 768px) 100vw, 960px" loading="lazy" decoding="async"><span class="brt-ki-image-label">KI-generiertes Bild</span></div>
+            <div class="brt-card__body">
+              <span class="brt-tag brt-tag--small">Startup</span>
+              <h3 class="brt-h3">Startups zwischen Aufbruch und Überforderung – Warum Struktur kein Widerspruch zu Wachstum ist</h3>
+              <p class="brt-meta">28. Oktober 2025 · ca. 5 Min.</p>
+              <p class="brt-body brt-card__excerpt">Die meisten Startups scheitern nicht an der Idee, sondern an fehlender Struktur. Wie Gründer mit klaren Prozessen und Risikomanagement Stabilität…</p>
+              <span class="brt-btn brt-btn--ghost">Weiterlesen →</span>
+            </div>
+          </a>
+        </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer" aria-label="Footer">
+  <div class="site-footer__inner">
+    <section>
+      <h2>Beraterium</h2>
+      <p>Konzern-Risikomanagement, übersetzt für den Mittelstand.</p>
+      <a href="https://www.linkedin.com/company/beraterium">LinkedIn</a>
+      <a href="https://www.youtube.com/@Beraterium">YouTube</a>
+    </section>
+    <section>
+      <h2>Angebote</h2>
+      <ul>
+        <li><a href="../../angebote/startups/">Startups</a></li>
+        <li><a href="../../angebote/kmu/">KMU</a></li>
+        <li><a href="../../angebote/solo/">Solo-Selbstständige</a></li>
+        <li><a href="../../angebote/">Übersicht</a></li>
+        <li><a href="../../preise/">Preise &amp; Leistungen</a></li>
+        <li><a href="../../schulungen/">Schulungen</a></li>
+        <li><a href="../../internationale-angebote/">Internationale Angebote</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Lösungen</h2>
+      <ul>
+        <li><a href="../../loesungen/nis2/">NIS2-Betroffenheit</a></li>
+        <li><a href="../../loesungen/nachfolge/">Unternehmensnachfolge</a></li>
+        <li><a href="../../loesungen/cyberangriff/">Cyberangriff</a></li>
+        <li><a href="../../loesungen/selbststaendig-absichern/">Selbstständig absichern</a></li>
+        <li><a href="../../loesungen/schluesselperson-risiko/">Schlüsselperson-Risiko</a></li>
+        <li><a href="../../loesungen/investor-due-diligence/">Investor Due Diligence</a></li>
+        <li><a href="../../loesungen/risikoanalyse-startup/">Risikoanalyse Startup</a></li>
+        <li><a href="../../loesungen/risikoanalyse-kmu/">Risikoanalyse KMU</a></li>
+        <li><a href="../../loesungen/risikoanalyse-solo/">Risikoanalyse Selbstständige</a></li>
+        <li><a href="../../loesungen/bewerbermanagement-oeffentlicher-dienst/">Bewerbermanagement öffentlicher Dienst</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beraterium vor Ort</h2>
+      <ul>
+        <li><a href="../../standort/muenchen/">München</a></li>
+        <li><a href="../../standort/sachsen/">Sachsen</a></li>
+        <li><a href="../../standort/nrw/">NRW</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Unternehmen</h2>
+      <ul>
+        <li><a href="../../ueber-uns/">Über uns</a></li>
+        <li><a href="../../team/">Team</a></li>
+        <li><a href="../../mission-vision/">Mission &amp; Vision</a></li>
+        <li><a href="../../methode/">Methode</a></li>
+        <li><a href="../../nutzen-garantie/">Nutzen-Garantie</a></li>
+        <li><a href="../../relevanz-garantie/">Relevanz-Garantie</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="../../kontakt/">Erstgespräch buchen</a></li>
+        <li><a href="../../kontaktformular/">Kontaktformular</a></li>
+        <li><a href="../../barrierefreiheit/">Barrierefreiheit</a></li>
+        <li><a href="../../impressum/">Impressum</a></li>
+        <li><a href="../../datenschutz/">Datenschutz</a></li>
+        <li><a href="../../agb/">AGB</a></li>
+      </ul>
+    </section>
+  </div>
+  <p class="site-footer__legal">© Beraterium 2026</p>
+</footer>
+
+<script src="../../js/brt-analytics.js?v=20260914-laufbahn-mobile-v1"></script>
+<script src="../../js/brt-site.js?v=20260914-laufbahn-mobile-v1"></script>
+
+</body>
+</html>
