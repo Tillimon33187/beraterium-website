@@ -6511,7 +6511,7 @@ def gen_fallstudie_prueflabor() -> None:
             canonical=canonical,
             active_nav="angebote",
             main=main,
-            extra_css=f'\n  <link rel="stylesheet" href="{pre}css/brt-fallstudie.css?v={BRT_ASSET_VERSION}">',
+            extra_css=f'\n  <link rel="stylesheet" href="{pre}css/brt-fallstudie.css?v={BRT_ASSET_VERSION}-fs-turn-v2">',
             extra_scripts=calendly_extra_scripts(),
             json_ld=page_schema(faq_page_schema(FAQ), speakable_webpage_schema(canonical)),
         ),

@@ -312,11 +312,16 @@
 /* ---------- Wendepunkt: Verlauf Nacht zu Morgen ---------- */
 
 .fs-turn {
-  --fs-dawn: clamp(14rem, 30vw, 24rem);
+  /* ponytail: --fs-dawn = gradient height + text-to-light gap; was 14–24rem, too airy on mobile */
+  --fs-dawn: clamp(5.5rem, 12vw, 8.5rem);
   position: relative;
-  padding: clamp(4rem, 9vw, 7rem) 0 var(--fs-dawn);
+  padding: clamp(3rem, 6vw, 5rem) 0 var(--fs-dawn);
   color: #fff;
   background: var(--fs-night-2);
+}
+
+.fs-turn + .fs-light.fs-chapter {
+  padding-top: clamp(2rem, 4.5vw, 3rem);
 }
 
 /* Morgendämmerung unter dem Text: startet exakt in der Hintergrundfarbe (keine Kante),
